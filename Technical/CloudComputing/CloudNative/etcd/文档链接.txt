@@ -1,0 +1,3 @@
+https://etcd.io/docs/v3.5/
+https://www.datadoghq.com/blog/managing-etcd-storage/
+https://www.datadoghq.com/blog/etcd-key-metrics/

@@ -1,0 +1,14 @@
+Containerd ≥1.6支持SIGHUP热加载，无需强制重启服务。以镜像仓库配置为例，操作步骤如下：
+# 步骤1：创建动态配置目录
+mkdir -p /etc/containerd/certs.d/my-registry.com
+
+# 步骤2：写入仓库配置
+cat > /etc/containerd/certs.d/my-registry.com/hosts.toml <<EOF
+server = "https://my-registry.com"
+[host."https://my-registry.com"]
+  capabilities = ["pull", "resolve"]
+  skip_verify = true  # 若使用自签名证书需启用
+EOF
+
+# 步骤3：触发配置热加载
+pkill -SIGHUP containerd  # 关键步骤！替代重启操作

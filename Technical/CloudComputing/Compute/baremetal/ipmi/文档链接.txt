@@ -1,0 +1,2 @@
+https://www.intel.com/content/www/us/en/products/docs/servers/ipmi/ipmi-home.html
+https://github.com/ipmitool/ipmitool

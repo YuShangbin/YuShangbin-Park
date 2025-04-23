@@ -1,0 +1,17 @@
+# 磁盘
+使用ionice命令提高etcd进程io优先级，示例命令如下：
+# best effort, highest priority
+$ sudo ionice -c2 -n0 -p `pgrep etcd`
+
+# 网络
+使用tc命令提高etcd peer流量优先级，示例命令如下：
+tc qdisc add dev eth0 root handle 1: prio bands 3
+tc filter add dev eth0 parent 1: protocol ip prio 1 u32 match ip sport 2380 0xffff flowid 1:1
+tc filter add dev eth0 parent 1: protocol ip prio 1 u32 match ip dport 2380 0xffff flowid 1:1
+tc filter add dev eth0 parent 1: protocol ip prio 2 u32 match ip sport 2379 0xffff flowid 1:1
+tc filter add dev eth0 parent 1: protocol ip prio 2 u32 match ip dport 2379 0xffff flowid 1:1
+
+
+# CPU
+通过配置CPU管理为高性能模式，命令如下：
+echo performance | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor

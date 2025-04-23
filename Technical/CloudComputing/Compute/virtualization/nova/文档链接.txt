@@ -1,0 +1,1 @@
+https://docs.openstack.org/2023.2/index.html

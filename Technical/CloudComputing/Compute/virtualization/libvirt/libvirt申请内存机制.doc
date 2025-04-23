@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>[#EAS-133151] libvirt申请内存的方式</title>
+    <meta http-equiv="Content-Type" Content="application/vnd.ms-word; charset=UTF-8">
+        <style type="text/css">
+
+.tableBorder, .grid
+{
+    background-color: #fff;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tableBorder td, .grid td
+{
+    vertical-align: top;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+.noPadding
+{
+    padding: 0 !important;
+}
+
+h3 .subText
+{
+    font-size: 60%;
+    font-weight: normal;
+}
+
+.tabLabel
+{
+    font-weight: bold;
+    border: 1px solid #ccc;
+    border-bottom:none;
+    padding: 2px;
+    display: inline;
+}
+
+td.blank
+{
+    padding: 0;
+    margin: 0;
+}
+
+.blank td
+{
+    border: none;
+}
+
+#descriptionArea
+{
+    margin: 0;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+hr
+{
+    border-top:1px solid #aaa;
+}
+
+hr.fullcontent
+{
+  height: 15px;
+  padding: 10px 0;
+  background: #fff url('https://easystack.atlassian.net/images/icons/hr.gif') no-repeat scroll center;
+}
+
+</style>
+
+</head>
+<body>
+
+<table class="tableBorder" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" width="100%" colspan="2" valign="top">
+                            <h3 class="formtitle">
+                        [EAS-133151]&nbsp;<a href="https://easystack.atlassian.net/browse/EAS-133151">libvirt申请内存的方式</a>
+            <span class="subText">
+               已创建: 26/二月/25                   &nbsp;已更新: 26/二月/25
+
+                                            </span>
+            </h3>
+        </td>
+    </tr>
+    <tr>
+        <td width="20%"><b>状态:</b></td>
+        <td width="80%">打开</td>
+    </tr>
+    <tr>
+        <td width="20%"><b>项目:</b></td>
+        <td width="80%"><a href="https://easystack.atlassian.net/secure/BrowseProject.jspa?id=10004">EasyStack</a></td>
+    </tr>
+
+        <tr>
+            <td><b>组件:</b></td>
+            <td>
+                                        <a title="EOS - 微服务编排管理系统"
+                href="https://easystack.atlassian.net/issues/?jql=project%3D10004%20AND%20%22component%22%3D13078%20ORDER%20BY%20priority%20ASC"
+            >EOS</a>                        </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>影响版本:</b></td>
+            <td>
+                            无
+                </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>修复版本:</b></td>
+            <td>
+                                        <a title="EOS 6.3.1"
+                href="https://easystack.atlassian.net/issues/?jql=project%3D10004%20AND%20%22fixVersion%22%3D15093%20ORDER%20BY%20priority%20ASC"
+            >EOS 6.3.1</a>                        </td>
+    </tr>
+    
+    
+    </table>
+
+<br />
+<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" valign="top" width="20%">
+            <b>类型:</b>
+        </td>
+        <td bgcolor="#ffffff" valign="top"  width="30%" >
+            故事
+        </td>
+
+                    <td bgcolor="#f0f0f0">
+                <b>优先级:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap>
+                重要
+            </td>
+            </tr>
+    <tr>
+                        <td bgcolor="#f0f0f0" valign="top" width="20%">
+                <b>报告人:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top"  width="30%" >
+                                        
+                
+        
+            <a class="user-hover" rel="63eaf258601ad5efa511e39d"
+                id="word_reporter_63eaf258601ad5efa511e39d"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=63eaf258601ad5efa511e39d">
+                    倪振
+                </a>
+
+                            </td>
+        
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>经办人:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap  width="30%" >
+                                        
+                
+        
+            <a class="user-hover" rel="63eaf258601ad5efa511e39d"
+                id="word_assignee_63eaf258601ad5efa511e39d"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=63eaf258601ad5efa511e39d">
+                    倪振
+                </a>
+
+                            </td>
+            </tr>
+    	<tr>
+		<td bgcolor="#f0f0f0" width="20%">
+			<b>解决方案:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+            				未解决
+                    </td>
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>表决:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+                0
+            </td>
+        
+    </tr>
+    
+        <tr>
+        <td bgcolor="#f0f0f0" width="20%">
+            <b>标签:</b>
+        </td>
+        <td id="labels-263151-value" class="value" bgcolor="#ffffff" valign="top" colspan="3" nowrap>
+                            无
+                    </td>
+    </tr>
+    
+    	<tr>
+        		<td bgcolor="#f0f0f0" width="20%"><b>剩余估计量:</b></td>
+        <td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            尚未指定
+            		</td>
+    </tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>所用时间:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            尚未指定
+            		</td>
+	</tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>原始预估:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            尚未指定
+            		</td>
+    </tr>
+    
+    </table>
+
+
+
+    <br />
+
+    	<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+            
+
+        
+    
+
+
+
+                        <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Sprint:</b></td>
+                <td id="customfield_10006-263151-value" class="value" bgcolor="#ffffff" width="80%"></td>
+            </tr>
+            </table>
+
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>评论</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" class="grid" style="margin: 0;">
+                <tr id="comment-header-442710"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="63eaf258601ad5efa511e39d"
+                id="word_commented_63eaf258601ad5efa511e39d"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=63eaf258601ad5efa511e39d">
+                    倪振
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">26/二月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-442710"><td bgcolor="#ffffff">
+            <p>libvirt中申请内存的所有方式应该是难以穷举出来的，但是正常的、规范的方式应该是通过以下的方法：</p>
+
+<p>libvirt-8.0.0/src/util/viralloc.h</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>/* Don't call these directly - use the macros below */
+void virReallocN(void *ptrptr, size_t size, size_t count)
+    ATTRIBUTE_NONNULL(1);
+void virExpandN(void *ptrptr, size_t size, size_t *count, size_t add)
+    ATTRIBUTE_NONNULL(1) ATTRIBUTE_NONNULL(3);
+void virResizeN(void *ptrptr, size_t size, size_t *alloc, size_t count, size_t desired)
+    ATTRIBUTE_NONNULL(1) ATTRIBUTE_NONNULL(3);
+void virShrinkN(void *ptrptr, size_t size, size_t *count, size_t toremove)
+    ATTRIBUTE_NONNULL(1) ATTRIBUTE_NONNULL(3);
+int virInsertElementsN(void *ptrptr, size_t size, size_t at, size_t *countptr,
+                       size_t typematchDummy, void *newelem,
+                       bool clearOriginal, bool inPlace)
+    G_GNUC_WARN_UNUSED_RESULT ATTRIBUTE_NONNULL(1) ATTRIBUTE_NONNULL(4);
+void virAppendElement(void *ptrptr,
+                      size_t size,
+                      size_t *countptr,
+                      size_t typematchDummy,
+                      void *newelem,
+                      bool clearOriginal,
+                      bool inPlace)
+    ATTRIBUTE_NONNULL(1) ATTRIBUTE_NONNULL(3);
+int virDeleteElementsN(void *ptrptr, size_t size, size_t at, size_t *countptr,
+                       size_t toremove, bool inPlace)
+    ATTRIBUTE_NONNULL(1) ATTRIBUTE_NONNULL(4);</pre>
+</div></div>
+
+<p>这些方法在注释中提示了，不要直接用，而应该用下面这几个宏：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>/**
+ * VIR_REALLOC_N:
+ * @ptr: pointer to hold address of allocated memory
+ * @count: number of elements to allocate
+ *
+ * Re-allocate an array of 'count' elements, each sizeof(*ptr)
+ * bytes long and store the address of allocated memory in
+ * 'ptr'. If 'ptr' grew, the added memory is uninitialized.
+ *
+ * This macro is safe to use on arguments with side effects.
+ *
+ * Aborts on OOM
+ */
+#define VIR_REALLOC_N(ptr, count) virReallocN(&amp;(ptr), sizeof(*(ptr)), (count))
+
+/**
+ * VIR_EXPAND_N:
+ * @ptr: pointer to hold address of allocated memory
+ * @count: variable tracking number of elements currently allocated
+ * @add: number of elements to add
+ *
+ * Re-allocate an array of 'count' elements, each sizeof(*ptr)
+ * bytes long, to be 'count' + 'add' elements long, then store the
+ * address of allocated memory in 'ptr' and the new size in 'count'.
+ * The new elements are filled with zero.
+ *
+ * This macro is safe to use on arguments with side effects.
+ *
+ * Aborts on OOM
+ */
+#define VIR_EXPAND_N(ptr, count, add) virExpandN(&amp;(ptr), sizeof(*(ptr)), &amp;(count), add)
+
+/**
+ * VIR_RESIZE_N:
+ * @ptr: pointer to hold address of allocated memory
+ * @alloc: variable tracking number of elements currently allocated
+ * @count: number of elements currently in use
+ * @add: minimum number of elements to additionally support
+ *
+ * Blindly using VIR_EXPAND_N(array, alloc, 1) in a loop scales
+ * quadratically, because every iteration must copy contents from
+ * all prior iterations.  But amortized linear scaling can be achieved
+ * by tracking allocation size separately from the number of used
+ * elements, and growing geometrically only as needed.
+ *
+ * If 'count' + 'add' is larger than 'alloc', then geometrically reallocate
+ * the array of 'alloc' elements, each sizeof(*ptr) bytes long, and store
+ * the address of allocated memory in 'ptr' and the new size in 'alloc'.
+ * The new elements are filled with zero.
+ *
+ * This macro is safe to use on arguments with side effects.
+ *
+ * Aborts on OOM
+ */
+#define VIR_RESIZE_N(ptr, alloc, count, add) \
+    virResizeN(&amp;(ptr), sizeof(*(ptr)), &amp;(alloc), count, add)
+
+/**
+ * VIR_SHRINK_N:
+ * @ptr: pointer to hold address of allocated memory
+ * @count: variable tracking number of elements currently allocated
+ * @remove: number of elements to remove
+ *
+ * Re-allocate an array of 'count' elements, each sizeof(*ptr)
+ * bytes long, to be 'count' - 'remove' elements long, then store the
+ * address of allocated memory in 'ptr' and the new size in 'count'.
+ * If 'count' &lt;= 'remove', the entire array is freed.
+ *
+ * This macro is safe to use on arguments with side effects.
+ *
+ * No return value.
+ */
+#define VIR_SHRINK_N(ptr, count, remove) \
+    virShrinkN(&amp;(ptr), sizeof(*(ptr)), &amp;(count), remove)
+
+/**
+ * VIR_TYPEMATCH:
+ *
+ * The following macro seems a bit cryptic, so it needs a thorough
+ * explanation. Its purpose is to check for assignment compatibility
+ * and identical size between two values without creating any side
+ * effects (by doing something silly like actually assigning one to
+ * the other). Note that it takes advantage of the C89-guaranteed
+ * property of sizeof() - it cannot have any side effects, so anything
+ * that happens inside sizeof() will not have any effect at runtime.
+ *
+ * VIR_TYPEMATCH evaluates to "1" if the two passed values are both
+ * assignment-compatible and the same size, and otherwise generates a
+ * compile-time error. It determines the result by performing the
+ * following three operations:
+ *
+ *    * sizeof(*(a) = *(b)) assures that *a and *b are
+ *      assignment-compatible (they may still have a different size
+ *      though! e.g. longVar = intVar) (If not, there is a compile-time
+ *      error. If so, the result of that subexpression is sizeof(*(a)),
+ *      i.e. one element of the array)
+ *
+ *    * sizeof(*(a) = *(b)) == sizeof(*(b)) checks if *a and *b are also
+ *      of the same size (so that, e.g. you don't accidentally copy an
+ *      int plus the random bytes following it into an array of long). It
+ *      evaluates to 1 if they are the same, and 0 otherwise.
+ *
+ *    * sizeof(char[2 * (result of previous step) - 1]) evaluates to 1
+ *      if the previous step was successful (char [(2*1) - 1] i.e.
+ *      char[1]), or generates a compile error if it wasn't successful
+ *      (char[2*0 -1] i.e. char[-1], which isn't valid in C).
+ *
+ * So VIR_TYPEMATCH(a, b) will either abort the compile with an error,
+ * or evaluate to "1", and in the meantime check that we've actually
+ * added the correct &amp;'s and/or *'s to the arguments. (Whew!)
+*/
+#define VIR_TYPEMATCH(a, b) \
+    sizeof(char[2 * (sizeof(*(a) = *(b)) == sizeof(*(b))) - 1])
+
+/**
+ * VIR_INSERT_ELEMENT, VIR_INSERT_ELEMENT_INPLACE:
+ * @ptr:     pointer to array of objects (*not* ptr to ptr)
+ * @at:      index within array where new elements should be added
+ * @count:   variable tracking number of elements currently allocated
+ * @newelem: the new element to move into place (*not* a pointer to
+ *           the element, but the element itself).
+ *           (the original will be zeroed out if successful)
+ *
+ * Re-allocate an array of 'count' elements, each sizeof(*ptr) bytes
+ * long, to be 'count' + 1 elements long, then appropriately move
+ * the elements starting at ptr[at] up by 1 element, copy the
+ * item 'newelem' into ptr[at], then store the address of
+ * allocated memory in 'ptr' and the new size in 'count'.
+ *
+ * VIR_INSERT_ELEMENT_INPLACE is identical, but assumes any necessary
+ * memory re-allocation has already been done.
+ *
+ * These macros are safe to use on arguments with side effects.
+ *
+ * Returns -1 on failure (with OOM error reported), 0 on success
+ */
+#define VIR_INSERT_ELEMENT(ptr, at, count, newelem) \
+    virInsertElementsN(&amp;(ptr), sizeof(*(ptr)), at, &amp;(count), \
+                       VIR_TYPEMATCH(ptr, &amp;(newelem)), &amp;(newelem), true, false)
+#define VIR_INSERT_ELEMENT_INPLACE(ptr, at, count, newelem) \
+    virInsertElementsN(&amp;(ptr), sizeof(*(ptr)), at, &amp;(count), \
+                       VIR_TYPEMATCH(ptr, &amp;(newelem)), &amp;(newelem), true, true)
+
+/**
+ * VIR_APPEND_ELEMENT:
+ * @ptr:     pointer to array of objects (*not* ptr to ptr)
+ * @count:   variable tracking number of elements currently allocated
+ * @newelem: the new element to move into place (*not* a pointer to
+ *           the element, but the element itself).
+ *           (the original will be zeroed out if successful)
+ *
+ * Re-allocate an array of 'count' elements, each sizeof(*ptr) bytes
+ * long, to be 'count' + 1 elements long, then copy the item from
+ * 'newelem' into ptr[count+1], and store the address of allocated
+ * memory in 'ptr' and the new size in 'count'. If 'newelem' is NULL,
+ * the new element at ptr[at] is instead filled with zero.
+ *
+ * VIR_APPEND_ELEMENT_COPY is identical, but doesn't clear out the
+ *   original element to 0 on success, so there are two copies of the
+ *   element. This is useful if the "element" is actually just a
+ *   pointer to the real data, and you want to maintain a reference to
+ *   it for use after the append is completed; but if the "element" is
+ *   an object that points to other allocated memory, having multiple
+ *   copies can cause problems (e.g. double free).
+ *
+ * VIR_APPEND_ELEMENT_*INPLACE are identical, but assume any
+ *   necessary memory re-allocation has already been done.
+ *
+ * These macros are safe to use on arguments with side effects.
+ */
+#define VIR_APPEND_ELEMENT(ptr, count, newelem) \
+    virAppendElement(&amp;(ptr), sizeof(*(ptr)), &amp;(count), \
+                     VIR_TYPEMATCH(ptr, &amp;(newelem)), &amp;(newelem), true, false)
+#define VIR_APPEND_ELEMENT_COPY(ptr, count, newelem) \
+    virAppendElement(&amp;(ptr), sizeof(*(ptr)), &amp;(count), \
+                     VIR_TYPEMATCH(ptr, &amp;(newelem)), &amp;(newelem), false, false)
+#define VIR_APPEND_ELEMENT_INPLACE(ptr, count, newelem) \
+    virAppendElement(&amp;(ptr), sizeof(*(ptr)), &amp;(count), \
+                     VIR_TYPEMATCH(ptr, &amp;(newelem)), \
+                     &amp;(newelem), true, true)
+#define VIR_APPEND_ELEMENT_COPY_INPLACE(ptr, count, newelem) \
+    virAppendElement(&amp;(ptr), sizeof(*(ptr)), &amp;(count), \
+                     VIR_TYPEMATCH(ptr, &amp;(newelem)), \
+                     &amp;(newelem), false, true)
+
+/**
+ * VIR_DELETE_ELEMENT:
+ * @ptr:   pointer to array of objects (*not* ptr to ptr)
+ * @at:    index within array where new elements should be deleted
+ * @count: variable tracking number of elements currently allocated
+ *
+ * Re-allocate an array of 'count' elements, each sizeof(*ptr)
+ * bytes long, to be 'count' - 1 elements long, then store the
+ * address of allocated memory in 'ptr' and the new size in 'count'.
+ * If 'count' &lt;= 1, the entire array is freed.
+ *
+ * VIR_DELETE_ELEMENT_INPLACE is identical, but assumes any
+ *   necessary memory re-allocation will be done later.
+ *
+ * These macros are safe to use on arguments with side effects.
+ *
+ * Returns -1 on failure, 0 on success
+ */
+#define VIR_DELETE_ELEMENT(ptr, at, count) \
+    virDeleteElementsN(&amp;(ptr), sizeof(*(ptr)), at, &amp;(count), 1, false)
+#define VIR_DELETE_ELEMENT_INPLACE(ptr, at, count) \
+    virDeleteElementsN(&amp;(ptr), sizeof(*(ptr)), at, &amp;(count), 1, true)
+
+/**
+ * VIR_FREE:
+ * @ptr: pointer holding address to be freed
+ *
+ * Free the memory stored in 'ptr' and update to point
+ * to NULL.
+ *
+ * This macro is safe to use on arguments with side effects.
+ */
+#define VIR_FREE(ptr) g_clear_pointer(&amp;(ptr), g_free)</pre>
+</div></div>
+        </td></tr>
+                <tr id="comment-header-442713"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="63eaf258601ad5efa511e39d"
+                id="word_commented_63eaf258601ad5efa511e39d"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=63eaf258601ad5efa511e39d">
+                    倪振
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">26/二月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-442713"><td bgcolor="#ffffff">
+            <p>这些内存操作函数编到哪个产物里面了？</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>~# objdump -T /usr/lib64/libvirt.so.0.8000.0 | grep virReallocN
+0000000000098fb8 g    DF .text  0000000000000028  LIBVIRT_PRIVATE_8.0.0 virReallocN
+~# objdump -T /usr/lib64/libvirt.so.0.8000.0 | grep virResizeN
+0000000000099170 g    DF .text  000000000000003c  LIBVIRT_PRIVATE_8.0.0 virResizeN
+~# </pre>
+</div></div>
+        </td></tr>
+            </table>
+于尚斌 通过JIRA 1001.0.0-SNAPSHOT#100282-rev:7d447e81302c52313b07ddbf7bfb313c3382b2d7 生成于 Wed Feb 26 11:18:18 GMT 2025。
+
+</body>
+</html>

@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>[#EAS-132946] libvirt的domain job机制</title>
+    <meta http-equiv="Content-Type" Content="application/vnd.ms-word; charset=UTF-8">
+        <style type="text/css">
+
+.tableBorder, .grid
+{
+    background-color: #fff;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tableBorder td, .grid td
+{
+    vertical-align: top;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+.noPadding
+{
+    padding: 0 !important;
+}
+
+h3 .subText
+{
+    font-size: 60%;
+    font-weight: normal;
+}
+
+.tabLabel
+{
+    font-weight: bold;
+    border: 1px solid #ccc;
+    border-bottom:none;
+    padding: 2px;
+    display: inline;
+}
+
+td.blank
+{
+    padding: 0;
+    margin: 0;
+}
+
+.blank td
+{
+    border: none;
+}
+
+#descriptionArea
+{
+    margin: 0;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+hr
+{
+    border-top:1px solid #aaa;
+}
+
+hr.fullcontent
+{
+  height: 15px;
+  padding: 10px 0;
+  background: #fff url('https://easystack.atlassian.net/images/icons/hr.gif') no-repeat scroll center;
+}
+
+</style>
+
+</head>
+<body>
+
+<table class="tableBorder" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" width="100%" colspan="2" valign="top">
+                            <h3 class="formtitle">
+                        [EAS-132946]&nbsp;<a href="https://easystack.atlassian.net/browse/EAS-132946">libvirt的domain job机制</a>
+            <span class="subText">
+               已创建: 18/二月/25                   &nbsp;已更新: 18/二月/25
+
+                                            </span>
+            </h3>
+        </td>
+    </tr>
+    <tr>
+        <td width="20%"><b>状态:</b></td>
+        <td width="80%">打开</td>
+    </tr>
+    <tr>
+        <td width="20%"><b>项目:</b></td>
+        <td width="80%"><a href="https://easystack.atlassian.net/secure/BrowseProject.jspa?id=10004">EasyStack</a></td>
+    </tr>
+
+        <tr>
+            <td><b>组件:</b></td>
+            <td>
+                                        <a title="EOS - 微服务编排管理系统"
+                href="https://easystack.atlassian.net/issues/?jql=project%3D10004%20AND%20%22component%22%3D13078%20ORDER%20BY%20priority%20ASC"
+            >EOS</a>                        </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>影响版本:</b></td>
+            <td>
+                            无
+                </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>修复版本:</b></td>
+            <td>
+                                        <a title="EOS 6.3.1"
+                href="https://easystack.atlassian.net/issues/?jql=project%3D10004%20AND%20%22fixVersion%22%3D15093%20ORDER%20BY%20priority%20ASC"
+            >EOS 6.3.1</a>                        </td>
+    </tr>
+    
+    
+    </table>
+
+<br />
+<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" valign="top" width="20%">
+            <b>类型:</b>
+        </td>
+        <td bgcolor="#ffffff" valign="top"  width="30%" >
+            故事
+        </td>
+
+                    <td bgcolor="#f0f0f0">
+                <b>优先级:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap>
+                重要
+            </td>
+            </tr>
+    <tr>
+                        <td bgcolor="#f0f0f0" valign="top" width="20%">
+                <b>报告人:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top"  width="30%" >
+                                        
+                
+        
+            <a class="user-hover" rel="63eaf258601ad5efa511e39d"
+                id="word_reporter_63eaf258601ad5efa511e39d"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=63eaf258601ad5efa511e39d">
+                    倪振
+                </a>
+
+                            </td>
+        
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>经办人:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap  width="30%" >
+                                        
+                
+        
+            <a class="user-hover" rel="63eaf258601ad5efa511e39d"
+                id="word_assignee_63eaf258601ad5efa511e39d"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=63eaf258601ad5efa511e39d">
+                    倪振
+                </a>
+
+                            </td>
+            </tr>
+    	<tr>
+		<td bgcolor="#f0f0f0" width="20%">
+			<b>解决方案:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+            				未解决
+                    </td>
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>表决:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+                0
+            </td>
+        
+    </tr>
+    
+        <tr>
+        <td bgcolor="#f0f0f0" width="20%">
+            <b>标签:</b>
+        </td>
+        <td id="labels-262749-value" class="value" bgcolor="#ffffff" valign="top" colspan="3" nowrap>
+                            无
+                    </td>
+    </tr>
+    
+    	<tr>
+        		<td bgcolor="#f0f0f0" width="20%"><b>剩余估计量:</b></td>
+        <td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            尚未指定
+            		</td>
+    </tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>所用时间:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            尚未指定
+            		</td>
+	</tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>原始预估:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            尚未指定
+            		</td>
+    </tr>
+    
+    </table>
+
+
+
+    <br />
+
+    	<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+            
+
+        
+    
+
+
+
+                        <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Sprint:</b></td>
+                <td id="customfield_10006-262749-value" class="value" bgcolor="#ffffff" width="80%"></td>
+            </tr>
+            </table>
+
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>评论</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" class="grid" style="margin: 0;">
+                <tr id="comment-header-441932"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="63eaf258601ad5efa511e39d"
+                id="word_commented_63eaf258601ad5efa511e39d"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=63eaf258601ad5efa511e39d">
+                    倪振
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">18/二月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-441932"><td bgcolor="#ffffff">
+            <h2><a name="domainjob%E7%9A%84%E5%88%86%E7%B1%BB"></a>domain job的分类</h2>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>VIR_ENUM_IMPL(qemuDomainJob,
+              QEMU_JOB_LAST,
+              "none",
+              "query",
+              "destroy",
+              "suspend",
+              "modify",
+              "abort",
+              "migration operation",
+              "none",   /* async job is never stored in job.active */
+              "async nested",
+);
+
+VIR_ENUM_IMPL(qemuDomainAgentJob,
+              QEMU_AGENT_JOB_LAST,
+              "none",
+              "query",
+              "modify",
+);
+
+VIR_ENUM_IMPL(qemuDomainAsyncJob,
+              QEMU_ASYNC_JOB_LAST,
+              "none",
+              "migration out",
+              "migration in",
+              "save",
+              "dump",
+              "snapshot",
+              "start",
+              "backup",
+);</pre>
+</div></div>
+
+<p>主要有三个类，三类下面还有细分。</p>
+
+<h3><a name="1.%7B%7BqemuDomainJob%7D%7D%E2%80%93%E9%80%9A%E7%94%A8%E5%9F%9F%E4%BB%BB%E5%8A%A1%28GenericDomainJobs%29"></a>1. <tt>qemuDomainJob</tt> – <b>通用域任务 (Generic Domain Jobs)</b></h3>
+
+<ul>
+	<li>这是最广义的 <b>域级任务</b> (包括同步和异步任务)。</li>
+	<li>常用于表示涉及 <b>虚拟机生命周期管理</b> 的各种任务。</li>
+</ul>
+
+
+<p><b>包含任务类型示例：</b></p>
+
+<ul>
+	<li><tt>"query"</tt>：查询虚拟机状态</li>
+	<li><tt>"destroy"</tt>：销毁虚拟机</li>
+	<li><tt>"suspend"</tt>：挂起虚拟机</li>
+	<li><tt>"modify"</tt>：修改虚拟机配置</li>
+	<li><tt>"migration operation"</tt>：迁移操作</li>
+	<li><tt>"async nested"</tt>：嵌套异步任务 (如嵌套快照操作)</li>
+</ul>
+
+
+<p><b>特别标注：</b></p>
+
+<ul>
+	<li><tt>"none"</tt>：表示没有活动中的任务</li>
+	<li>第二个 <tt>"none"</tt> 注释为异步任务不存储于 <tt>job.active</tt></li>
+</ul>
+
+
+<h3><a name="2.%7B%7BqemuDomainAgentJob%7D%7D%E2%80%93QEMU%E4%BB%A3%E7%90%86%E4%BB%BB%E5%8A%A1%28AgentJobs%29"></a>2. <tt>qemuDomainAgentJob</tt> – <b>QEMU 代理任务 (Agent Jobs)</b></h3>
+
+<ul>
+	<li>这是专门指由 <b>QEMU Guest Agent</b> 执行的任务类别。</li>
+	<li><b>QEMU Guest Agent</b> 是虚拟机内部的代理程序，通常用于 *管理Guest OS*的操作。</li>
+</ul>
+
+
+<p><b>包含任务类型示例：</b></p>
+
+<ul>
+	<li><tt>"query"</tt>：查询guest内部状态（如磁盘使用、网络配置等）</li>
+	<li><tt>"modify"</tt>：修改guest内部配置 (如设置主机名、时间同步等)</li>
+</ul>
+
+
+<p><b>特点:</b></p>
+
+<ul>
+	<li>这些任务是 <b>guest os内部任务 (Guest-Side Operations)</b>，而不是 <b>主机端 (Host-Side)</b> 管理任务。</li>
+	<li>独立于主机端的大型生命周期管理任务，但常配合 <tt>qemuDomainJob</tt> 使用，例如迁移前后进行来宾状态检测。</li>
+</ul>
+
+
+<h3><a name="3.%7B%7BqemuDomainAsyncJob%7D%7D%E2%80%93%E5%BC%82%E6%AD%A5%E5%9F%9F%E4%BB%BB%E5%8A%A1%28AsynchronousDomainJobs%29"></a>3. <tt>qemuDomainAsyncJob</tt> – <b>异步域任务 (Asynchronous Domain Jobs)</b></h3>
+
+<ul>
+	<li>专门表示 <b>异步操作 (Async Jobs)</b>，即 <b>可能长时间运行</b>、并且可以 <b>并行执行</b> 的任务。</li>
+	<li>这些任务通常是耗时的、涉及大量数据操作的任务。</li>
+</ul>
+
+
+<p><b>包含任务类型示例：</b></p>
+
+<ul>
+	<li><tt>"migration out"</tt>：向外迁移 (将虚拟机迁移到其他主机)</li>
+	<li><tt>"migration in"</tt>：接收迁移</li>
+	<li><tt>"save"</tt>：保存虚拟机状态 (如保存到磁盘以便恢复)</li>
+	<li><tt>"dump"</tt>：转储内存 (如故障分析用的内存转储)</li>
+	<li><tt>"snapshot"</tt>：创建虚拟机快照</li>
+	<li><tt>"backup"</tt>：虚拟机备份</li>
+</ul>
+
+
+<p><b>特点:</b></p>
+
+<ul>
+	<li>这些任务可以与同步任务 (<tt>qemuDomainJob</tt>) 协同工作，但会标记为 <tt>async nested</tt> 等类型。</li>
+	<li>异步任务可以运行较长时间，期间可以用 <tt>virDomainGetJobInfo()</tt> 查询进度。</li>
+</ul>
+
+        </td></tr>
+                <tr id="comment-header-441936"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="63eaf258601ad5efa511e39d"
+                id="word_commented_63eaf258601ad5efa511e39d"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=63eaf258601ad5efa511e39d">
+                    倪振
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">18/二月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-441936"><td bgcolor="#ffffff">
+            <p>通用任务的具体细分类型：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>/* Only 1 job is allowed at any time
+ * A job includes *all* monitor commands, even those just querying
+ * information, not merely actions */
+typedef enum {
+    QEMU_JOB_NONE = 0,  /* Always set to 0 for easy if (jobActive) conditions */
+    QEMU_JOB_QUERY,         /* Doesn't change any state */
+    QEMU_JOB_DESTROY,       /* Destroys the domain (cannot be masked out) */
+    QEMU_JOB_SUSPEND,       /* Suspends (stops vCPUs) the domain */
+    QEMU_JOB_MODIFY,        /* May change state */
+    QEMU_JOB_ABORT,         /* Abort current async job */
+    QEMU_JOB_MIGRATION_OP,  /* Operation influencing outgoing migration */
+
+    /* The following two items must always be the last items before JOB_LAST */
+    QEMU_JOB_ASYNC,         /* Asynchronous job */ 异步任务
+    QEMU_JOB_ASYNC_NESTED,  /* Normal job within an async job */ 异步任务中嵌套的普通任务
+
+    QEMU_JOB_LAST
+} qemuDomainJob;
+VIR_ENUM_DECL(qemuDomainJob);</pre>
+</div></div>
+
+
+
+<h3><a name="qemuDomainObjBeginJobInternal"></a>qemuDomainObjBeginJobInternal</h3>
+
+<p>三大类的任务创建之后，都会调用qemuDomainObjBeginJobInternal函数，该函数是一个集中处理job的核心函数，它负责协调各类任务（通用任务、Agent 任务、异步任务）的并发执行。</p>
+
+<p>下面给出部分关键步骤的解释：</p>
+
+<p>1.将内部队列计数（jobsQueued）加 1，计算出等待超时的截止时间（now + QEMU_JOB_WAIT_TIME）。</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>    priv-&gt;job.jobsQueued++;
+    then = now + QEMU_JOB_WAIT_TIME;</pre>
+</div></div>
+
+<p>2.循环等待 job 状态满足启动条件</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>retry:
+...
+    while (!qemuDomainObjCanSetJob(&amp;priv-&gt;job, job, agentJob)) {
+        if (nowait)
+            goto cleanup;
+
+        VIR_DEBUG("Waiting for job (vm=%p name=%s)", obj, obj-&gt;def-&gt;name);
+        if (virCondWaitUntil(&amp;priv-&gt;job.cond, &amp;obj-&gt;parent.lock, then) &lt; 0)
+            goto error;
+    }</pre>
+</div></div>
+
+<p>循环等待 job 状态满足启动条件（调用 qemuDomainObjCanSetJob 判断是否可以设置这个 job），如果 nowait 为 true，则不会阻塞等待，直接退出</p>
+
+<p>virCondWaitUntil() 用于阻塞等待条件变量，直到指定的绝对时间then到达或者收到信号</p>
+
+<p>3.retry</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>    /* No job is active but a new async job could have been started while obj
+     * was unlocked, so we need to recheck it. */
+    if (!nested &amp;&amp; !qemuDomainNestedJobAllowed(&amp;priv-&gt;job, job))
+        goto retry;</pre>
+</div></div>
+
+<p>如果在等待过程中状态发生变化（例如一个异步任务启动后重新检查嵌套条件），可能会重新跳回 retry 标签重新检查条件。</p>
+
+<p>4.如果前面流程正常走完，可以正式开始执行一个新的job</p>
+
+
+
+<h3><a name="%E6%BB%A1%E8%B6%B3%E5%90%AF%E5%8A%A8%E6%9D%A1%E4%BB%B6"></a>满足启动条件</h3>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>static bool
+qemuDomainObjCanSetJob(qemuDomainJobObj *job,
+                       qemuDomainJob newJob,
+                       qemuDomainAgentJob newAgentJob)
+{
+    return ((newJob == QEMU_JOB_NONE ||
+             job-&gt;active == QEMU_JOB_NONE) &amp;&amp;
+            (newAgentJob == QEMU_AGENT_JOB_NONE ||
+             job-&gt;agentActive == QEMU_AGENT_JOB_NONE));
+}</pre>
+</div></div>
+
+<p>通用任务的条件：newJob == QEMU_JOB_NONE || job-&gt;active == QEMU_JOB_NONE</p>
+
+<p>正常情况下开启一个新任务，它的类型不会是QEMU_JOB_NONE，所以如果要正常开启priv-&gt;job-&gt;active必须是QEMU_JOB_NONE。这就表明应该上一个job必须把active置为QEMU_JOB_NONE才行。</p>
+
+
+
+<h3><a name="%E8%B6%85%E6%97%B6%E6%97%B6%E9%97%B4"></a>超时时间</h3>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>int virCondWaitUntil(virCond *c, virMutex *m, unsigned long long whenms)
+{
+    int ret;
+    struct timespec ts;
+
+    ts.tv_sec = whenms / 1000;
+    ts.tv_nsec = (whenms % 1000) * 1000000;
+
+    if ((ret = pthread_cond_timedwait(&amp;c-&gt;cond, &amp;m-&gt;lock, &amp;ts)) != 0) {
+        errno = ret;
+        return -1;
+    }
+    return 0;
+}</pre>
+</div></div>
+
+<p>参数：</p>
+
+<p>virCond *c：指向条件变量的指针，封装了 pthread_cond_t。</p>
+
+<p>virMutex *m：指向互斥锁的指针，封装了 pthread_mutex_t。调用前，当前线程必须已锁定此互斥锁。</p>
+
+<p>unsigned long long whenms：超时时间戳</p>
+
+
+
+<p>在条件变量 c-&gt;cond 上等待，同时释放互斥锁 m-&gt;lock。线程会阻塞，直到被唤醒或超时到达 ts。被唤醒后，重新获取互斥锁 m-&gt;lock。<br/>
+这个超时时间就是then = now + QEMU_JOB_WAIT_TIME，即</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>/* Give up waiting for mutex after 30 seconds */
+#define QEMU_JOB_WAIT_TIME (1000ull * 30)</pre>
+</div></div>
+
+
+
+<h3><a name="%E5%94%A4%E9%86%92%E4%BF%A1%E5%8F%B7%E5%92%8C%E5%B9%BF%E6%92%AD"></a>唤醒信号和广播</h3>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>struct _virDomainObj {
+    virObjectLockable parent;
+    virCond cond;   &lt;-----
+
+    pid_t pid;
+    virDomainStateReason state;
+    
+typedef struct virCond virCond;
+struct virCond {
+    pthread_cond_t cond;
+};</pre>
+</div></div>
+
+<p>其他线程调用了 pthread_cond_signal 或 pthread_cond_broadcast，那么当前线程在释放互斥锁后立即检测到条件已被触发，就可以提前返回。</p>
+
+
+
+<p>这个可以在代码中找一个例子：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>/*
+ * obj must be locked and have a reference before calling
+ *
+ * To be called after completing the work associated with the
+ * earlier qemuDomainBeginJob() call
+ */
+void
+qemuDomainObjEndJob(virQEMUDriver *driver, virDomainObj *obj)
+{
+    qemuDomainObjPrivate *priv = obj-&gt;privateData;
+    qemuDomainJob job = priv-&gt;job.active;
+
+    priv-&gt;job.jobsQueued--;
+
+    VIR_DEBUG("Stopping job: %s (async=%s vm=%p name=%s)",
+              qemuDomainJobTypeToString(job),
+              qemuDomainAsyncJobTypeToString(priv-&gt;job.asyncJob),
+              obj, obj-&gt;def-&gt;name);
+
+    qemuDomainObjResetJob(&amp;priv-&gt;job);  &lt;------
+    if (qemuDomainTrackJob(job))
+        qemuDomainObjSaveStatus(driver, obj);
+    /* We indeed need to wake up ALL threads waiting because
+     * grabbing a job requires checking more variables. */
+    virCondBroadcast(&amp;priv-&gt;job.cond);   &lt;------
+}</pre>
+</div></div>
+
+<p>比如通用任务在结束的时候reset了job（置NONE），而且发送了广播。</p>
+        </td></tr>
+                <tr id="comment-header-441984"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="63eaf258601ad5efa511e39d"
+                id="word_commented_63eaf258601ad5efa511e39d"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=63eaf258601ad5efa511e39d">
+                    倪振
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">18/二月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-441984"><td bgcolor="#ffffff">
+            <h3><a name="qemuDomainBlockJobAbort"></a>qemuDomainBlockJobAbort</h3>
+
+<p>以{{qemuDomainBlockJobAbort}}为例，调研这个domian job。</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>static virHypervisorDriver qemuHypervisorDriver = {
+    .name = QEMU_DRIVER_NAME,
+    .connectURIProbe = qemuConnectURIProbe,
+    .connectOpen = qemuConnectOpen, /* 0.2.0 */
+...
+    .domainBlockJobAbort = qemuDomainBlockJobAbort, /* 0.9.4 */</pre>
+</div></div>
+
+<p>以下是qemuDomainBlockJobAbort函数的部分关键步骤：</p>
+
+<p>1.启动一个修改类的job</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>    if (qemuDomainObjBeginJob(driver, vm, QEMU_JOB_MODIFY) &lt; 0)
+        goto cleanup;</pre>
+</div></div>
+
+<p>以 QEMU_JOB_MODIFY 类型启动一个修改类的 job，这一步用于锁定虚拟机，防止同时有其它操作干扰。</p>
+
+<p>2.如果磁盘没有活跃的 block job，则报告错误返回</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>    if (!(job = qemuBlockJobDiskGetJob(disk))) {
+        virReportError(VIR_ERR_INVALID_ARG,
+                       _("disk %s does not have an active block job"), disk-&gt;dst);
+        goto endjob;
+    }</pre>
+</div></div>
+
+<p>3.如果正在结束</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>    if (job-&gt;state == QEMU_BLOCKJOB_STATE_ABORTING ||
+        job-&gt;state == QEMU_BLOCKJOB_STATE_PIVOTING) {
+        virReportError(VIR_ERR_OPERATION_INVALID,
+                       _("block job on disk '%s' is still being ended"),
+                       disk-&gt;dst);
+        goto endjob;
+    }</pre>
+</div></div>
+
+<p>如果当前 block job 的状态已经是“abort中”或者“pivot中”，则说明这个 block job 正在结束，函数会报错并退出，防止重复操作。</p>
+
+<p>4.执行终止操作</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>    if (!async)
+        qemuBlockJobSyncBegin(job);
+
+    if (pivot) {
+        if ((ret = qemuDomainBlockPivot(driver, vm, job, disk)) &lt; 0)
+            goto endjob;
+    } else {
+        qemuDomainObjEnterMonitor(driver, vm);
+        ret = qemuMonitorBlockJobCancel(priv-&gt;mon, job-&gt;name, false);
+        qemuDomainObjExitMonitor(driver, vm);
+
+        if (ret &lt; 0)
+            goto endjob;
+
+        if (disk-&gt;mirror)
+            disk-&gt;mirrorState = VIR_DOMAIN_DISK_MIRROR_STATE_ABORT;
+        job-&gt;state = QEMU_BLOCKJOB_STATE_ABORTING;
+    }</pre>
+</div></div>
+
+<p>如果操作是同步（即 async 为 false），先调用 <tt>qemuBlockJobSyncBegin</tt> 开启同步追踪。</p>
+
+<p>根据 pivot 标志决定操作方式：  </p>
+
+<p>        如果是 pivot 操作，则调用 <tt>qemuDomainBlockPivot</tt> 执行 pivot 转换。  </p>
+
+<p>        否则进入 QEMU 的 monitor（使用 qemuDomainObjEnterMonitor），调用 <tt>qemuMonitorBlockJobCancel</tt> 向 QEMU 发送取消 block job 的命令，随后退出 monitor。如果磁盘有镜像配置，则设置其 mirrorState 为 ABORT，同时将 block job 的状态设置为 ABORTING。</p>
+
+<p>5.同步模式下等待完成</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>    if (!async) {
+        qemuBlockJobUpdate(vm, job, QEMU_ASYNC_JOB_NONE);
+        while (qemuBlockJobIsRunning(job)) {
+            if (virDomainObjWait(vm) &lt; 0) {
+                ret = -1;
+                goto endjob;
+            }
+            qemuBlockJobUpdate(vm, job, QEMU_ASYNC_JOB_NONE);
+        }
+
+        if (pivot &amp;&amp;
+            job-&gt;state == QEMU_BLOCKJOB_STATE_FAILED) {
+            if (job-&gt;errmsg) {
+                virReportError(VIR_ERR_OPERATION_FAILED,
+                               _("block job '%s' failed while pivoting"),
+                               job-&gt;name);
+            } else {
+                virReportError(VIR_ERR_OPERATION_FAILED,
+                               _("block job '%s' failed while pivoting: %s"),
+                               job-&gt;name, job-&gt;errmsg);
+            }
+
+            ret = -1;
+            goto endjob;
+        }
+    }</pre>
+</div></div>
+
+<p>如果是同步操作，函数会循环调用 <tt>qemuBlockJobUpdate</tt> 更新 block job 状态，并通过 <tt>virDomainObjWait</tt> 等待 job 结束（即 qemuBlockJobIsRunning 返回 false）。  </p>
+
+<p>如果在 pivot 操作中 block job 最终失败，则根据是否有错误信息来报告具体错误。</p>
+
+
+
+<p>值得一提，async在该方法中并不表示为一个该job的基础属性，而是通过参数传入的。也就是说这个job在开始的时候，可以决定该job是否要等待最终完成（第5点）。</p>
+        </td></tr>
+                <tr id="comment-header-442014"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="63eaf258601ad5efa511e39d"
+                id="word_commented_63eaf258601ad5efa511e39d"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=63eaf258601ad5efa511e39d">
+                    倪振
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">18/二月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-442014"><td bgcolor="#ffffff">
+            <h3><a name="qemuConnectGetAllDomainStats"></a>qemuConnectGetAllDomainStats</h3>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>    .connectGetAllDomainStats = qemuConnectGetAllDomainStats, /* 1.2.8 */</pre>
+</div></div>
+
+<p>qemuConnectGetAllDomainStats 函数用于获取与指定连接相关的所有虚拟机的统计信息。</p>
+
+<p>调用qemuDomainGetStats：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>qemuConnectGetAllDomainStats
+  qemuDomainGetStats</pre>
+</div></div>
+
+<p>qemuDomainGetStats函数：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>    for (i = 0; qemuDomainGetStatsWorkers[i].func; i++) {
+        if (stats &amp; qemuDomainGetStatsWorkers[i].stats) {
+            if (qemuDomainGetStatsWorkers[i].func(conn-&gt;privateData, dom, params,
+                                                  flags) &lt; 0)
+                return -1;
+        }
+    }</pre>
+</div></div>
+
+<p>这里将会执行不同的worker</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>static struct qemuDomainGetStatsWorker qemuDomainGetStatsWorkers[] = {
+    { qemuDomainGetStatsState, VIR_DOMAIN_STATS_STATE, false, NULL },
+    { qemuDomainGetStatsCpu, VIR_DOMAIN_STATS_CPU_TOTAL, false, NULL },
+    { qemuDomainGetStatsBalloon, VIR_DOMAIN_STATS_BALLOON, true, NULL },
+    { qemuDomainGetStatsVcpu, VIR_DOMAIN_STATS_VCPU, true, NULL },
+    { qemuDomainGetStatsInterface, VIR_DOMAIN_STATS_INTERFACE, false, NULL },
+    { qemuDomainGetStatsBlock, VIR_DOMAIN_STATS_BLOCK, true, NULL },
+    { qemuDomainGetStatsPerf, VIR_DOMAIN_STATS_PERF, false, NULL },
+    { qemuDomainGetStatsIOThread, VIR_DOMAIN_STATS_IOTHREAD, true, queryIOThreadRequired },
+    { qemuDomainGetStatsMemory, VIR_DOMAIN_STATS_MEMORY, false, NULL },
+    { qemuDomainGetStatsDirtyRate, VIR_DOMAIN_STATS_DIRTYRATE, true, queryDirtyRateRequired },
+    { NULL, 0, false, NULL }
+};</pre>
+</div></div>
+
+<p>包括qemuDomainGetStatsBlock，其后续调用关系如下</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>qemuDomainGetStatsBlock
+  qemuMonitorJSONBlockStatsUpdateCapacityBlockdev
+    qemuMonitorJSONQueryNamedBlockNodes
+      qemuMonitorJSONCommandWithFd
+        qemuMonitorSend
+          virCondWait</pre>
+</div></div>
+
+<p>在qemuMonitorSend中</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>int
+qemuMonitorSend(qemuMonitor *mon,
+                qemuMonitorMessage *msg)
+{
+...
+    while (!mon-&gt;msg-&gt;finished) {
+        if (virCondWait(&amp;mon-&gt;notify, &amp;mon-&gt;parent.lock) &lt; 0) {
+            virReportError(VIR_ERR_INTERNAL_ERROR,
+                           _("Unable to wait on monitor condition (vm='%s')"), mon-&gt;domainName);
+            goto cleanup;
+        }
+    }</pre>
+</div></div>
+
+<p>在msg发送成功之后，也是会在循环中一直等待最终结果的，也是一个同步操作。</p>
+        </td></tr>
+            </table>
+于尚斌 通过JIRA 1001.0.0-SNAPSHOT#100281-rev:9450343bc993fab515e6ec1dce361aa31184ef7f 生成于 Tue Feb 18 12:20:35 GMT 2025。
+
+</body>
+</html>

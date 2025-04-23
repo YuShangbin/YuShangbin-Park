@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>[#EAS-131822] libvirt locking中的disk与lease资源机制</title>
+    <meta http-equiv="Content-Type" Content="application/vnd.ms-word; charset=UTF-8">
+        <style type="text/css">
+
+.tableBorder, .grid
+{
+    background-color: #fff;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tableBorder td, .grid td
+{
+    vertical-align: top;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+.noPadding
+{
+    padding: 0 !important;
+}
+
+h3 .subText
+{
+    font-size: 60%;
+    font-weight: normal;
+}
+
+.tabLabel
+{
+    font-weight: bold;
+    border: 1px solid #ccc;
+    border-bottom:none;
+    padding: 2px;
+    display: inline;
+}
+
+td.blank
+{
+    padding: 0;
+    margin: 0;
+}
+
+.blank td
+{
+    border: none;
+}
+
+#descriptionArea
+{
+    margin: 0;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+hr
+{
+    border-top:1px solid #aaa;
+}
+
+hr.fullcontent
+{
+  height: 15px;
+  padding: 10px 0;
+  background: #fff url('https://easystack.atlassian.net/images/icons/hr.gif') no-repeat scroll center;
+}
+
+</style>
+
+</head>
+<body>
+
+<table class="tableBorder" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" width="100%" colspan="2" valign="top">
+                            <b><a id="parent_issue_summary" href="https://easystack.atlassian.net/browse/EAS-132126">HostHA V8---架构/代码/理论 重设计</a></b>
+                <span style="font-size: 9px">(<a id="parent_issue_key" href="https://easystack.atlassian.net/browse/EAS-132126">EAS-132126</a>)</span>
+                <h3 class="formtitle"><img src="https://easystack.atlassian.net/images/icons/link_out_bot.gif" width="16" height="16" />
+                        [EAS-131822]&nbsp;<a href="https://easystack.atlassian.net/browse/EAS-131822">libvirt locking中的disk与lease资源机制</a>
+            <span class="subText">
+               已创建: 24/十二月/24                   &nbsp;已更新: 08/一月/25
+
+                                            </span>
+            </h3>
+        </td>
+    </tr>
+    <tr>
+        <td width="20%"><b>状态:</b></td>
+        <td width="80%">正在进行</td>
+    </tr>
+    <tr>
+        <td width="20%"><b>项目:</b></td>
+        <td width="80%"><a href="https://easystack.atlassian.net/secure/BrowseProject.jspa?id=10004">EasyStack</a></td>
+    </tr>
+
+        <tr>
+            <td><b>组件:</b></td>
+            <td>
+                                        <a title="EOS - 微服务编排管理系统"
+                href="https://easystack.atlassian.net/issues/?jql=project%3D10004%20AND%20%22component%22%3D13078%20ORDER%20BY%20priority%20ASC"
+            >EOS</a>                        </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>影响版本:</b></td>
+            <td>
+                            无
+                </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>修复版本:</b></td>
+            <td>
+                                        <a title="EOS 6.3.1"
+                href="https://easystack.atlassian.net/issues/?jql=project%3D10004%20AND%20%22fixVersion%22%3D15093%20ORDER%20BY%20priority%20ASC"
+            >EOS 6.3.1</a>                        </td>
+    </tr>
+    
+    
+            <td width="20%"><b>父项:</b></td>
+        <td width="80%"><a href="https://easystack.atlassian.net/browse/EAS-132126">HostHA V8---架构/代码/理论 重设计</a></td>
+    </table>
+
+<br />
+<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" valign="top" width="20%">
+            <b>类型:</b>
+        </td>
+        <td bgcolor="#ffffff" valign="top"  width="30%" >
+            故事
+        </td>
+
+                    <td bgcolor="#f0f0f0">
+                <b>优先级:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap>
+                重要
+            </td>
+            </tr>
+    <tr>
+                        <td bgcolor="#f0f0f0" valign="top" width="20%">
+                <b>报告人:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top"  width="30%" >
+                                        
+                
+        
+            <a class="user-hover" rel="63eaf258601ad5efa511e39d"
+                id="word_reporter_63eaf258601ad5efa511e39d"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=63eaf258601ad5efa511e39d">
+                    倪振
+                </a>
+
+                            </td>
+        
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>经办人:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap  width="30%" >
+                                        
+                
+        
+            <a class="user-hover" rel="63eaf258601ad5efa511e39d"
+                id="word_assignee_63eaf258601ad5efa511e39d"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=63eaf258601ad5efa511e39d">
+                    倪振
+                </a>
+
+                            </td>
+            </tr>
+    	<tr>
+		<td bgcolor="#f0f0f0" width="20%">
+			<b>解决方案:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+            				未解决
+                    </td>
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>表决:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+                0
+            </td>
+        
+    </tr>
+    
+        <tr>
+        <td bgcolor="#f0f0f0" width="20%">
+            <b>标签:</b>
+        </td>
+        <td id="labels-252616-value" class="value" bgcolor="#ffffff" valign="top" colspan="3" nowrap>
+                            无
+                    </td>
+    </tr>
+    
+    	<tr>
+        		<td bgcolor="#f0f0f0" width="20%"><b>剩余估计量:</b></td>
+        <td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            尚未指定
+            		</td>
+    </tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>所用时间:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            尚未指定
+            		</td>
+	</tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>原始预估:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            尚未指定
+            		</td>
+    </tr>
+    
+    </table>
+
+
+
+    <br />
+
+    	<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+            
+
+        
+    
+
+
+
+                        <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Epic Link:</b></td>
+                <td id="customfield_10007-252616-value" class="value" bgcolor="#ffffff" width="80%">
+    <a class="aui-label ghx-label-9" href="https://easystack.atlassian.net/browse/EAS-132126">
+        HostHA V8---架构/代码/理论 重设计
+    </a>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Sprint:</b></td>
+                <td id="customfield_10006-252616-value" class="value" bgcolor="#ffffff" width="80%"></td>
+            </tr>
+            </table>
+
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>评论</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" class="grid" style="margin: 0;">
+                <tr id="comment-header-437940"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="63eaf258601ad5efa511e39d"
+                id="word_commented_63eaf258601ad5efa511e39d"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=63eaf258601ad5efa511e39d">
+                    倪振
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">24/十二月/24</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-437940"><td bgcolor="#ffffff">
+            <h3><a name="%E6%B7%BB%E5%8A%A0locking%E7%9A%84%E5%85%A5%E5%8F%A3"></a>添加locking的入口</h3>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>/*
+ * Precondition: vm must be locked, and a job must be active.
+ * This method will call {Enter,Exit}Monitor
+ */
+int
+qemuProcessStartCPUs(virQEMUDriver *driver, virDomainObj *vm,
+                     virDomainRunningReason reason,
+                     qemuDomainAsyncJob asyncJob)
+{
+    int ret = -1;
+    qemuDomainObjPrivate *priv = vm-&gt;privateData;
+    g_autoptr(virQEMUDriverConfig) cfg = virQEMUDriverGetConfig(driver);
+
+    /* Bring up netdevs before starting CPUs */
+    if (qemuInterfaceStartDevices(vm-&gt;def) &lt; 0)
+       return -1;
+
+    VIR_DEBUG("Using lock state '%s'", NULLSTR(priv-&gt;lockState));
+    if (virDomainLockProcessResume(driver-&gt;lockManager, cfg-&gt;uri,
+                                   vm, priv-&gt;lockState) &lt; 0) {
+        /* Don't free priv-&gt;lockState on error, because we need
+         * to make sure we have state still present if the user
+         * tries to resume again
+         */
+        return -1;
+    }
+    VIR_FREE(priv-&gt;lockState);</pre>
+</div></div>
+
+<p>qemuProcessStartCPUs调用virDomainLockProcessResume初始化locking锁相关。</p>
+
+
+
+<h3><a name="virDomainLockProcessResume%E7%BB%93%E6%9E%84"></a>virDomainLockProcessResume结构</h3>
+
+<p>virDomainLockProcessResume分别调用了：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>1.virDomainLockManagerNew
+virDomainLockManagerNew -&gt; virLockManagerNew
+                           virDomainLockManagerAddLease
+                           virDomainLockManagerAddImage
+2.virLockManagerAcquire
+  调用lock-&gt;driver-&gt;drvAcquire
+3.virLockManagerFree
+  调用lock-&gt;driver-&gt;drvFree(lock);</pre>
+</div></div>
+
+
+
+<h3><a name="virDomainLockProcessResume%E4%BB%A3%E7%A0%81"></a>virDomainLockProcessResume代码</h3>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>int virDomainLockProcessResume(virLockManagerPlugin *plugin,
+                               const char *uri,
+                               virDomainObj *dom,
+                               const char *state)
+{
+    virLockManager *lock;
+    int ret;
+
+    VIR_DEBUG("plugin=%p dom=%p state=%s",
+              plugin, dom, NULLSTR(state));
+
+    if (!(lock = virDomainLockManagerNew(plugin, uri, dom, true, 0)))
+        return -1;
+
+    ret = virLockManagerAcquire(lock, state, 0, dom-&gt;def-&gt;onLockFailure, NULL);
+    virLockManagerFree(lock);
+
+    return ret;
+}</pre>
+</div></div>
+
+<p>virDomainLockProcessResume创建了virLockManager *lock，获取了锁virLockManagerAcquire之后，并不保留这个lock，也就是说libvirt并不真正管理这个锁，只是和后端去交互。</p>
+
+
+
+<h3><a name="virDomainLockManagerNew"></a>virDomainLockManagerNew</h3>
+
+<p>1.构建params</p>
+
+<p>2.调用virLockManagerNew</p>
+
+<p>3.处理withResources</p>
+
+
+
+<h3><a name="virLockManagerNew"></a>virLockManagerNew</h3>
+
+<p>virLockManagerNew创建一个新的上下文来管理一个进程，通常是一个虚拟机</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>virLockManager *virLockManagerNew(virLockDriver *driver,
+                                    unsigned int type,
+                                    size_t nparams,
+                                    virLockManagerParam *params,
+                                    unsigned int flags)
+{
+    virLockManager *lock;
+    VIR_DEBUG("driver=%p type=%u nparams=%zu params=%p flags=0x%x",
+              driver, type, nparams, params, flags);
+    virLockManagerLogParams(nparams, params);//记录一下有哪些参数
+
+    CHECK_DRIVER(drvNew, NULL);
+
+    lock = g_new0(virLockManager, 1);
+
+    lock-&gt;driver = driver;
+
+    if (driver-&gt;drvNew(lock, type, nparams, params, flags) &lt; 0) {
+        VIR_FREE(lock);
+        return NULL;
+    }
+
+    return lock;
+}</pre>
+</div></div>
+
+<p>这里会调到具体一个插件内部的接口driver-&gt;drvNew</p>
+
+
+
+<p>处理withResources的时候会分成两种类型的资源</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>    if (withResources) {
+        VIR_DEBUG("Adding leases");
+        for (i = 0; i &lt; dom-&gt;def-&gt;nleases; i++)
+            if (virDomainLockManagerAddLease(lock, dom-&gt;def-&gt;leases[i]) &lt; 0)
+                goto error;
+
+        VIR_DEBUG("Adding disks");
+        for (i = 0; i &lt; dom-&gt;def-&gt;ndisks; i++) {
+            virDomainDiskDef *disk = dom-&gt;def-&gt;disks[i];
+
+            if (virDomainLockManagerAddImage(lock, disk-&gt;src) &lt; 0)
+                goto error;
+        }
+    }</pre>
+</div></div>
+
+<p>disk是磁盘设备，lease可以参考<a href="https://libvirt.org/formatdomain.html#device-leases" title="smart-link" class="external-link" rel="nofollow noreferrer">https://libvirt.org/formatdomain.html#device-leases</a> </p>
+
+<h3><a name="Deviceleases"></a>Device leases</h3>
+
+<p>使用锁管理器时，可能需要为虚拟机（VM）记录设备租约。锁管理器将确保只有在成功获取这些租约的情况下，VM 才能启动。</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>&lt;devices&gt;
+  ...
+  &lt;lease&gt;
+    &lt;lockspace&gt;somearea&lt;/lockspace&gt;
+    &lt;key&gt;somekey&lt;/key&gt;
+    &lt;target path='/some/lease/path' offset='1024'/&gt;
+  &lt;/lease&gt;
+  ...
+&lt;/devices&gt;</pre>
+</div></div>
+
+<h3><a name="Deviceleases%E9%85%8D%E7%BD%AE%E4%B8%AD%E7%9A%84%E5%85%B3%E9%94%AE%E5%8F%82%E6%95%B0"></a><b>Device leases 配置中的关键参数</b></h3>
+
+<ol>
+	<li><b>lockspace:</b>
+	<ul>
+		<li>表示锁空间（lockspace）的名称，是一个用于分组的逻辑单位。</li>
+		<li>一个锁空间内的 leases 是相互关联的。lockspace 名称需要与锁管理器的约定保持一致。</li>
+	</ul>
+	</li>
+	<li><b>key:</b>
+	<ul>
+		<li>唯一标识某个 lease 的字符串，通常用来区分具体的 VM 或设备。</li>
+		<li>key 通常需要全局唯一，以防止冲突。</li>
+	</ul>
+	</li>
+	<li><b>target:</b>
+	<ul>
+		<li>指向与锁相关联的文件路径，以及文件内的偏移量（offset）。</li>
+		<li>锁管理器利用这个路径和偏移量定位具体的锁位置。</li>
+		<li>如果锁管理器不需要偏移量，可以将 <tt>offset</tt> 设置为 0。</li>
+	</ul>
+	</li>
+</ol>
+
+
+
+
+<h3><a name="virLockManagerAddResource"></a>virLockManagerAddResource</h3>
+
+<p>无论是virDomainLockManagerAddImage，还是virDomainLockManagerAddLease，它们都是调用virLockManagerAddResource。不过传进去的类型不一样：前者是VIR_LOCK_MANAGER_RESOURCE_TYPE_DISK；后者是VIR_LOCK_MANAGER_RESOURCE_TYPE_LEASE</p>
+
+
+
+<p>值得注意的是virDomainLockManagerAddImage在调用virLockManagerAddResource之前还有一些判断</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>    if (!(type == VIR_STORAGE_TYPE_BLOCK ||
+          type == VIR_STORAGE_TYPE_FILE ||
+          type == VIR_STORAGE_TYPE_DIR))
+        return 0;</pre>
+</div></div>
+
+<p>这导致其他类型的DISK不能添加disk资源的。这里做了一些disk类型的调试：</p>
+
+<p>可以添加的disk类型：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>    &lt;disk type='block' device='disk'&gt;
+      &lt;driver name='qemu' type='raw' cache='none' io='native'/&gt;
+      &lt;source dev='/dev/dm-2' index='1'/&gt;
+      &lt;backingStore/&gt;
+      &lt;target dev='vda' bus='virtio'/&gt;
+      &lt;serial&gt;8d9df6dd-96c6-4862-8bf3-918e2fe8742a&lt;/serial&gt;
+      &lt;alias name='virtio-disk0'/&gt;
+      &lt;address type='pci' domain='0x0000' bus='0x00' slot='0x05' function='0x0'/&gt;
+    &lt;/disk&gt;</pre>
+</div></div>
+
+<p>不能添加的disk类型：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>    &lt;disk type='network' device='disk'&gt;
+      &lt;driver name='qemu' type='raw' cache='none' discard='unmap'/&gt;
+      &lt;auth username='admin'&gt;
+        &lt;secret type='ceph' uuid='457eb676-33da-42ec-9a8c-9293d545c337'/&gt;
+      &lt;/auth&gt;
+      &lt;source protocol='rbd' name='volumes/volume-5882c626-cfba-4475-b81e-acb99ad212d2'&gt;
+        &lt;host name='192.168.30.2' port='6789'/&gt;
+        &lt;host name='192.168.30.3' port='6789'/&gt;
+        &lt;host name='192.168.30.4' port='6789'/&gt;
+      &lt;/source&gt;
+      &lt;target dev='vda' bus='virtio'/&gt;
+      &lt;serial&gt;5882c626-cfba-4475-b81e-acb99ad212d2&lt;/serial&gt;
+      &lt;address type='pci' domain='0x0000' bus='0x00' slot='0x05' function='0x0'/&gt;
+    &lt;/disk&gt;</pre>
+</div></div>
+
+
+
+<h3><a name="virLockManagerAddResource%E5%BD%B1%E5%93%8D%E4%BA%86LockManager%E5%B1%82%E9%9D%A2%E7%9A%84%E5%93%AA%E4%BA%9B%E5%8F%98%E9%87%8F%EF%BC%9F"></a>virLockManagerAddResource影响了LockManager层面的哪些变量？</h3>
+
+<p>添加资源的最终目的还是为virLockManagerAcquire获取锁这个动作服务的，可以看一下最终它设置了哪些变量。</p>
+
+
+
+<p>以virLockManagerLockDaemonAddResource为例：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>static int virLockManagerLockDaemonAddResource(virLockManager *lock,
+                                               unsigned int type,
+                                               const char *name,
+                                               size_t nparams,
+                                               virLockManagerParam *params,
+                                               unsigned int flags)
+{
+    virLockManagerLockDaemonPrivate *priv = lock-&gt;privateData;</pre>
+</div></div>
+
+<p>查看一下virLockManagerLockDaemonPrivate：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>struct _virLockManagerLockDaemonPrivate {
+    unsigned char uuid[VIR_UUID_BUFLEN];
+    char *name;
+    int id;
+    pid_t pid;
+
+    size_t nresources;//resource数量
+    virLockManagerLockDaemonResource *resources;//数组
+
+    bool hasRWDisks;
+};
+
+struct _virLockManagerLockDaemonResource {
+    char *lockspace;
+    char *name;
+    //VIR_LOCK_SPACE_PROTOCOL_ACQUIRE_RESOURCE_SHARED、VIR_LOCK_SPACE_PROTOCOL_ACQUIRE_RESOURCE_AUTOCREATE
+    unsigned int flags;
+};</pre>
+</div></div>
+
+<p>virLockManagerLockDaemonAddResource最终是填充了resources数组：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>    priv-&gt;resources[priv-&gt;nresources-1].lockspace = g_steal_pointer(&amp;newLockspace);
+    priv-&gt;resources[priv-&gt;nresources-1].name = g_steal_pointer(&amp;newName);</pre>
+</div></div>
+
+<p>不管是disk还是lease，最后都填充了resources数组</p>
+
+
+
+<p>到加锁阶段：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>static int virLockManagerLockDaemonAcquire(virLockManager *lock,
+                                           const char *state G_GNUC_UNUSED,
+                                           unsigned int flags,
+                                           virDomainLockFailureAction action G_GNUC_UNUSED,
+                                           int *fd)
+{
+...
+            args.path = priv-&gt;resources[i].lockspace;
+            args.name = priv-&gt;resources[i].name;
+            args.flags = priv-&gt;resources[i].flags;
+...
+</pre>
+</div></div>
+
+<p>这些资源作为参数传给了virNetClientProgramCall，去调rpc程序。</p>
+        </td></tr>
+                <tr id="comment-header-437984"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="63eaf258601ad5efa511e39d"
+                id="word_commented_63eaf258601ad5efa511e39d"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=63eaf258601ad5efa511e39d">
+                    倪振
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">24/十二月/24</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-437984"><td bgcolor="#ffffff">
+            <p>预期地，插拔场景也会有资源的添加和删除</p>
+
+<h3><a name="disk%E8%B5%84%E6%BA%90%E6%8F%92%E6%8B%94"></a>disk资源插拔</h3>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>int virDomainLockImageAttach(virLockManagerPlugin *plugin,
+                             const char *uri,
+                             virDomainObj *dom,
+                             virStorageSource *src)
+{
+...
+    if (!(lock = virDomainLockManagerNew(plugin, uri, dom, false, 0)))
+        return -1;
+
+    if (virDomainLockManagerAddImage(lock, src) &lt; 0)
+        goto cleanup;
+
+    if (virLockManagerAcquire(lock, NULL, 0,
+                              dom-&gt;def-&gt;onLockFailure, NULL) &lt; 0)
+        goto cleanup;
+
+    ret = 0;
+
+ cleanup:
+    virLockManagerFree(lock);
+
+    return ret;
+}
+
+int virDomainLockImageDetach(virLockManagerPlugin *plugin,
+                             virDomainObj *dom,
+                             virStorageSource *src)
+{
+...
+    if (!(lock = virDomainLockManagerNew(plugin, NULL, dom, false, 0)))
+        return -1;
+
+    if (virDomainLockManagerAddImage(lock, src) &lt; 0)
+        goto cleanup;
+
+    if (virLockManagerRelease(lock, NULL, 0) &lt; 0)
+        goto cleanup;
+
+    ret = 0;
+
+ cleanup:
+    virLockManagerFree(lock);
+
+    return ret;
+}</pre>
+</div></div>
+
+<p>virDomainLockImageAttach和virDomainLockImageDetach都调用了virDomainLockManagerAddImage，目的是更新一下资源。</p>
+
+<p>之后分别调用virLockManagerAcquire获取锁，virLockManagerRelease释放锁。</p>
+
+<h3><a name="lease%E8%B5%84%E6%BA%90%E6%8F%92%E6%8B%94"></a>lease资源插拔</h3>
+
+<p>类似</p>
+        </td></tr>
+            </table>
+于尚斌 通过JIRA 1001.0.0-SNAPSHOT#100282-rev:a87d9bb28e98a2c6e74b7df0a89f86e56e5e81ff 生成于 Fri Feb 21 05:46:10 GMT 2025。
+
+</body>
+</html>

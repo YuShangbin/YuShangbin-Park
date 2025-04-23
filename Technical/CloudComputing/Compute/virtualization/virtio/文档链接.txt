@@ -1,0 +1,2 @@
+http://www.linux-kvm.org/page/Virtio
+https://zhuanlan.zhihu.com/p/625829548

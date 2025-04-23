@@ -1,0 +1,8 @@
+进入系统启动，选择启动系统界面，按e进入grub配置编辑页面
+方法一：
+grub启动参数将ro改成rw，追加rd.break
+
+方法二：
+grub启动参数将ro改成rw，追加init=/bin/bash
+
+编辑完成后，按Ctrl + x启动系统

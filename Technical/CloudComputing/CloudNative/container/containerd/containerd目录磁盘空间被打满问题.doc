@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>[#ECS-7088] CLONE - 中信证券股份有限公司-K8S-AI-PROD-CLOUD（CSE-4517）-node-24节点/var/lib/containerd磁盘空间被打满</title>
+    <meta http-equiv="Content-Type" Content="application/vnd.ms-word; charset=UTF-8">
+        <style type="text/css">
+
+.tableBorder, .grid
+{
+    background-color: #fff;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tableBorder td, .grid td
+{
+    vertical-align: top;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+.noPadding
+{
+    padding: 0 !important;
+}
+
+h3 .subText
+{
+    font-size: 60%;
+    font-weight: normal;
+}
+
+.tabLabel
+{
+    font-weight: bold;
+    border: 1px solid #ccc;
+    border-bottom:none;
+    padding: 2px;
+    display: inline;
+}
+
+td.blank
+{
+    padding: 0;
+    margin: 0;
+}
+
+.blank td
+{
+    border: none;
+}
+
+#descriptionArea
+{
+    margin: 0;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+hr
+{
+    border-top:1px solid #aaa;
+}
+
+hr.fullcontent
+{
+  height: 15px;
+  padding: 10px 0;
+  background: #fff url('https://easystack.atlassian.net/images/icons/hr.gif') no-repeat scroll center;
+}
+
+</style>
+
+</head>
+<body>
+
+<table class="tableBorder" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" width="100%" colspan="2" valign="top">
+                            <b><a id="parent_issue_summary" href="https://easystack.atlassian.net/browse/CSE-4517">中信证券股份有限公司-K8S-AI-PROD-CLOUD</a></b>
+                <span style="font-size: 9px">(<a id="parent_issue_key" href="https://easystack.atlassian.net/browse/CSE-4517">CSE-4517</a>)</span>
+                <h3 class="formtitle"><img src="https://easystack.atlassian.net/images/icons/link_out_bot.gif" width="16" height="16" />
+                        [ECS-7088]&nbsp;<a href="https://easystack.atlassian.net/browse/ECS-7088">CLONE - 中信证券股份有限公司-K8S-AI-PROD-CLOUD（CSE-4517）-node-24节点/var/lib/containerd磁盘空间被打满</a>
+            <span class="subText">
+               已创建: 19/二月/25                   &nbsp;已更新: 19/二月/25
+
+                                            </span>
+            </h3>
+        </td>
+    </tr>
+    <tr>
+        <td width="20%"><b>状态:</b></td>
+        <td width="80%">Under investigation</td>
+    </tr>
+    <tr>
+        <td width="20%"><b>项目:</b></td>
+        <td width="80%"><a href="https://easystack.atlassian.net/secure/BrowseProject.jspa?id=10100">EasyStack Customer Support</a></td>
+    </tr>
+
+        <tr>
+            <td><b>组件:</b></td>
+            <td>
+                                        <a title="EKS - EKS"
+                href="https://easystack.atlassian.net/issues/?jql=project%3D10100%20AND%20%22component%22%3D13248%20ORDER%20BY%20priority%20ASC"
+            >EKS</a>                        </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>影响版本:</b></td>
+            <td>
+                                        <a title="ECF 6.1.1"
+                href="https://easystack.atlassian.net/issues/?jql=project%3D10100%20AND%20%22affectedVersion%22%3D15069%20ORDER%20BY%20priority%20ASC"
+            >ECF 6.1.1</a>                        </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>修复版本:</b></td>
+            <td>
+                                        <a title="6.1.1"
+                href="https://easystack.atlassian.net/issues/?jql=project%3D10100%20AND%20%22fixVersion%22%3D14972%20ORDER%20BY%20priority%20ASC"
+            >6.1.1</a>                        </td>
+    </tr>
+    
+    
+            <td width="20%"><b>父项:</b></td>
+        <td width="80%"><a href="https://easystack.atlassian.net/browse/CSE-4517">中信证券股份有限公司-K8S-AI-PROD-CLOUD</a></td>
+    </table>
+
+<br />
+<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" valign="top" width="20%">
+            <b>类型:</b>
+        </td>
+        <td bgcolor="#ffffff" valign="top"  width="30%" >
+            Incident
+        </td>
+
+                    <td bgcolor="#f0f0f0">
+                <b>优先级:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap>
+                重要
+            </td>
+            </tr>
+    <tr>
+                        <td bgcolor="#f0f0f0" valign="top" width="20%">
+                <b>报告人:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top"  width="30%" >
+                                        
+                
+        
+            <a class="user-hover" rel="5e9e8d9a9cc9330c11139888"
+                id="word_reporter_5e9e8d9a9cc9330c11139888"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5e9e8d9a9cc9330c11139888">
+                    孙慧敏
+                </a>
+
+                            </td>
+        
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>经办人:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap  width="30%" >
+                                        
+                
+        
+            <a class="user-hover" rel="5d2d99d1f3471e0c800c5812"
+                id="word_assignee_5d2d99d1f3471e0c800c5812"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5d2d99d1f3471e0c800c5812">
+                    解云月
+                </a>
+
+                            </td>
+            </tr>
+    	<tr>
+		<td bgcolor="#f0f0f0" width="20%">
+			<b>解决方案:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+            				未解决
+                    </td>
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>表决:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+                0
+            </td>
+        
+    </tr>
+    
+        <tr>
+        <td bgcolor="#f0f0f0" width="20%">
+            <b>标签:</b>
+        </td>
+        <td id="labels-262814-value" class="value" bgcolor="#ffffff" valign="top" colspan="3" nowrap>
+                            运维大区1, 运维大区3                    </td>
+    </tr>
+    
+    	<tr>
+        		<td bgcolor="#f0f0f0" width="20%"><b>剩余估计量:</b></td>
+        <td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            尚未指定
+            		</td>
+    </tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>所用时间:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            尚未指定
+            		</td>
+	</tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>原始预估:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            尚未指定
+            		</td>
+    </tr>
+    
+    	<tr>
+
+		<td bgcolor="#f0f0f0" width="20%" valign="top">
+			<b>环境:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" colspan="3">
+            <p>6.1.1</p>
+		</td>
+	</tr>
+    </table>
+
+
+
+    <br />
+
+    	<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+            
+
+                <tr>
+            <td bgcolor="#f0f0f0" width=20% valign=top>
+                <b>附件:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top">
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG文件">
+                    image-20250219-025049.png &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG文件">
+                    image-20250219-025154.png &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG文件">
+                    image-20250219-025204.png &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG文件">
+                    image-20250219-025232.png &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG文件">
+                    image-20250219-025352.png &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG文件">
+                    IMG_3913.png &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG文件">
+                    IMG_3914.png &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG文件">
+                    IMG_3915.png &nbsp;&nbsp;&nbsp;
+                            </td>
+        </tr>
+        
+            <tr>
+            <td bgcolor="#f0f0f0" width="20%" valign="top">
+                <b>事务链接:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" class="noPadding">
+                <table cellpadding="0" cellspacing="0" border="0" width="100%" class="blank">
+                                            <tr>
+                            <td colspan="4" bgcolor="#f0f0f0">
+                                <b>Cloners</b><br/>
+                            </td>
+                        </tr>
+                                    <tr>
+            <td>
+                clones
+            </td>
+            <td>
+                <a href="https://easystack.atlassian.net/browse/ECSL2-41348">
+                     ECSL2-41348                 </a>
+            </td>
+            <td>
+                中信证券股份有限公司-K8S-AI-PROD-CLOUD（CSE-4517...
+            </td>
+            <td>
+                Work in progress
+            </td>
+        </tr>
+                                                                            <tr>
+                            <td colspan="4" bgcolor="#f0f0f0">
+                                <b>Relates</b><br/>
+                            </td>
+                        </tr>
+                                                                <tr>
+            <td>
+                relates to
+            </td>
+            <td>
+                <a href="https://easystack.atlassian.net/browse/ECS-7081">
+                     <strike>ECS-7081</strike>                 </a>
+            </td>
+            <td>
+                CLONE - 合肥邮储-开发生产-IDC2021ES标准云1-EKS1....
+            </td>
+            <td>
+                已解决
+            </td>
+        </tr>
+                                        </table>
+            </td>
+        </tr>
+    
+
+
+
+                        <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Priority Detail:</b></td>
+                <td id="customfield_11294-262814-value" class="value" bgcolor="#ffffff" width="80%">
+
+
+    <div class="shorten" id="customfield_11294-field">
+        							<span>Major-个别告警或个别节点异常</span>			            </div>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Customer Name:</b></td>
+                <td id="customfield_11102-262814-value" class="value" bgcolor="#ffffff" width="80%">      中信证券股份有限公司
+  </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Customer Project ID:</b></td>
+                <td id="customfield_11111-262814-value" class="value" bgcolor="#ffffff" width="80%">      iagn
+  </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>L2调查情况（升级L3时填写）:</b></td>
+                <td id="customfield_11105-262814-value" class="value" bgcolor="#ffffff" width="80%">      1.问题发生过程（复杂问题需要整理时间线）<br/>
+&nbsp;&nbsp;contaienrd目录占用100%<br/>
+2.L2的分析和阶段性结论<br/>
+&nbsp;&nbsp;详见comments<br/>
+3.是否已经和“L2评审委员会”做过确认，L2无法解决需要升级L3<br/>
+&nbsp;&nbsp;需要<br/>
+
+  </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>L2 Supporter:</b></td>
+                <td id="customfield_10400-262814-value" class="value" bgcolor="#ffffff" width="80%">        <span class="tinylink">        <span class="user-hover" rel="63241ca3a408c1e3a65909c7" id="user_cf_63241ca3a408c1e3a65909c7">彭方旭</span></span>
+    </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>L2 Leader:</b></td>
+                <td id="customfield_11390-262814-value" class="value" bgcolor="#ffffff" width="80%">        <span class="tinylink">        <span class="user-hover" rel="yongan.zhu" id="user_cf_yongan.zhu">朱永安</span></span>
+    </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Epic Link:</b></td>
+                <td id="customfield_10007-262814-value" class="value" bgcolor="#ffffff" width="80%">
+    <a class="aui-label ghx-label-12" href="https://easystack.atlassian.net/browse/CSE-4517">
+        中信证券股份有限公司-K8S-AI-PROD-CLOUD
+    </a>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Sprint:</b></td>
+                <td id="customfield_10006-262814-value" class="value" bgcolor="#ffffff" width="80%"></td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Conclusion:</b></td>
+                <td id="customfield_11117-262814-value" class="value" bgcolor="#ffffff" width="80%">      问题被设置为解决状态时，需要进行问题的总结。<br/>
+<br/>
+问题分析：<br/>
+这里写明问题的直接原因、根本原因等 &lt;可以用1、2、3编号&gt;<br/>
+<br/>
+处理策略：<br/>
+这里写明临时的规避方案、以后彻底解决的方案等 &lt;可以用1、2、3编号&gt;
+  </td>
+            </tr>
+            </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>描述</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td id="descriptionArea">
+            <p>环境版本：611 环境规模：29节点 问题描述：node-24节点/var/lib/containerd磁盘空间被打满 获取方式：esoncall微信群 客户</p>
+            <br/>
+        </td>
+    </tr>
+    </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>评论</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" class="grid" style="margin: 0;">
+                <tr id="comment-header-442093"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="63241ca3a408c1e3a65909c7"
+                id="word_commented_63241ca3a408c1e3a65909c7"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=63241ca3a408c1e3a65909c7">
+                    彭方旭
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">19/二月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-442093"><td bgcolor="#ffffff">
+            <h5><a name="OriginallyaddedtoECSL241348https%3A%2F%2Feasystack.atlassian.net%2Fbrowse%2FECSL241348at19%2FFeb%2F2510%3A58AM"></a>Originally added to <a href="https://easystack.atlassian.net/browse/ECSL2-41348" class="external-link" rel="nofollow noreferrer">ECSL2-41348</a> at 19/Feb/25 10:58 AM</h5>
+
+<ol>
+	<li>du 发现containerd目录并非占了300G+</li>
+</ol>
+
+
+<p><span class="image-wrap" style=""><img src="/rest/api/3/attachment/content/342284" alt="image-20250219-025049.png" height="239" width="1019" style="border: 0px solid black" /></span></p>
+
+<ol>
+	<li>使用lsof发现23005进程访问了较大被删除文件，经过追踪进程发现是一个容器pod， 占用差不多140G左右</li>
+</ol>
+
+
+<p><span class="image-wrap" style=""><img src="/rest/api/3/attachment/content/342287" alt="image-20250219-025204.png" height="305" width="973" style="border: 0px solid black" /></span></p>
+
+<p><span class="image-wrap" style=""><img src="/rest/api/3/attachment/content/342285" alt="image-20250219-025154.png" height="308" width="1139" style="border: 0px solid black" /></span></p>
+
+<p><span class="image-wrap" style=""><img src="/rest/api/3/attachment/content/342288" alt="image-20250219-025232.png" height="645" width="983" style="border: 0px solid black" /></span></p>
+
+<p>与客户沟通建议重启该pod释放空间， 重启pod后，进程23005被Kill， 空间也差不多释放了140G左右</p>
+
+<p><span class="image-wrap" style=""><img src="/rest/api/3/attachment/content/342289" alt="image-20250219-025352.png" height="588" width="1084" style="border: 0px solid black" /></span></p>
+
+
+
+<p>但是客户抛出了一个问题。。。怎么通过lsof定位到占用deleted状态大文件的进程后，确定进程占用的文件确实在/var/lib/containerd目录下而不是其他目录，因为lsof输出的貌似是容器内部的文件路径，而非宿主机的对应文件路径， 针对这方面的信息如何查看， 麻烦L3帮忙一起看下，谢谢</p>
+        </td></tr>
+                <tr id="comment-header-442121"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="5d2d99d1f3471e0c800c5812"
+                id="word_commented_5d2d99d1f3471e0c800c5812"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5d2d99d1f3471e0c800c5812">
+                    解云月
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">19/二月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-442121"><td bgcolor="#ffffff">
+            <p>以容器kube-metrics-proxy为例</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>crictl ps | grep kube-metrics
+5fc49cc78b257       12766a6745eea       10 months ago       Running             kube-metrics-proxy                   4                   a9b1514ac5d34       kube-metrics-proxy-node-3</pre>
+</div></div>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>crictl inspect 5fc49cc78b257 | grep pid
+    "pid": 12657,
+            "pid": 1
+            "type": "pid"</pre>
+</div></div>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>lsof -p 12657  #这里的路径都是容器内的路径
+COMMAND   PID USER   FD   TYPE             DEVICE SIZE/OFF      NODE NAME
+nginx   12657 root  cwd    DIR              0,114       50  33682489 /
+nginx   12657 root  rtd    DIR              0,114       50  33682489 /
+nginx   12657 root  txt    REG              0,114  1378584 438664313 /usr/sbin/nginx
+nginx   12657 root  mem    REG              251,1          438664313 /usr/sbin/nginx (stat: No such file or directory)
+nginx   12657 root  mem    REG              251,1          369774084 /lib/x86_64-linux-gnu/libnss_files-2.31.so (stat: No such file or directory)
+nginx   12657 root  mem    REG              251,1          369706021 /lib/x86_64-linux-gnu/libc-2.31.so (stat: No such file or directory)
+nginx   12657 root  mem    REG              251,1          369774116 /lib/x86_64-linux-gnu/libz.so.1.2.11 (stat: No such file or directory)
+nginx   12657 root  mem    REG              251,1          438663702 /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1 (stat: No such file or directory)
+nginx   12657 root  mem    REG              251,1          438663745 /usr/lib/x86_64-linux-gnu/libssl.so.1.1 (stat: No such file or directory)
+nginx   12657 root  mem    REG              251,1          438663737 /usr/lib/x86_64-linux-gnu/libpcre2-8.so.0.10.1 (stat: No such file or directory)
+nginx   12657 root  mem    REG              251,1          369706028 /lib/x86_64-linux-gnu/libcrypt.so.1.1.0 (stat: No such file or directory)
+nginx   12657 root  mem    REG              251,1          369774097 /lib/x86_64-linux-gnu/libpthread-2.31.so (stat: No such file or directory)
+nginx   12657 root  mem    REG              251,1          369706029 /lib/x86_64-linux-gnu/libdl-2.31.so (stat: No such file or directory)
+nginx   12657 root  mem    REG              251,1          369706009 /lib/x86_64-linux-gnu/ld-2.31.so (stat: No such file or directory)
+nginx   12657 root  DEL    REG                0,1              99416 /dev/zero
+nginx   12657 root    0u   CHR                1,3      0t0     65509 /dev/null
+nginx   12657 root    1w  FIFO               0,13      0t0     38695 pipe
+nginx   12657 root    2w  FIFO               0,13      0t0     38696 pipe
+nginx   12657 root    3w  FIFO               0,13      0t0     38695 pipe
+nginx   12657 root    4u  unix 0xffff933d3878da00      0t0     99417 type=STREAM
+nginx   12657 root    5w  FIFO               0,13      0t0     38695 pipe
+nginx   12657 root    6u  IPv4              99414      0t0       TCP *:apollo-relay (LISTEN)
+nginx   12657 root    7u  IPv4              99415      0t0       TCP *:10251 (LISTEN)
+nginx   12657 root    8u  unix 0xffff933d3878c800      0t0     99418 type=STREAM</pre>
+</div></div>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>ls /proc/12657/root/
+drwxr-xr-x    1 root   50 4月  10 2024 .
+drwxr-xr-x    1 root   50 4月  10 2024 ..
+drwxr-xr-x    2 root 4096 3月  28 2022 bin
+drwxr-xr-x    2 root    6 3月  19 2022 boot
+drwxr-xr-x   14 root 4160 4月  10 2024 dev
+drwxr-xr-x    1 root   41 3月  30 2022 docker-entrypoint.d
+-rwxrwxr-x    1 root 1202 3月  30 2022 docker-entrypoint.sh
+drwxr-xr-x    1 root   19 4月  10 2024 etc
+drwxr-xr-x    2 root    6 3月  19 2022 home
+drwxr-xr-x    1 root   45 3月  28 2022 lib
+drwxr-xr-x    2 root   34 3月  28 2022 lib64
+drwxr-xr-x    2 root    6 3月  28 2022 media
+drwxr-xr-x    2 root    6 3月  28 2022 mnt
+drwxr-xr-x    2 root    6 3月  28 2022 opt
+dr-xr-xr-x 2477 root    0 4月  10 2024 proc
+drwx------    2 root   37 3月  28 2022 root
+drwxr-xr-x    1 root   23 4月  10 2024 run
+drwxr-xr-x    2 root 4096 3月  28 2022 sbin
+drwxr-xr-x    2 root    6 3月  28 2022 srv
+drwx------    2 kube 4096 4月   8 2024 ssl
+dr-xr-xr-x   13 root    0 4月  10 2024 sys
+drwxrwxrwt    1 root    6 3月  30 2022 tmp
+drwxr-xr-x    1 root   66 3月  28 2022 usr
+drwxr-xr-x    1 root   19 3月  28 2022 var
+ls /proc/12657/root/usr/sbin/nginx
+-rwxr-xr-x 1 root 1378584 1月  25 2022 /proc/12657/root/usr/sbin/nginx</pre>
+</div></div>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>df -h /proc/12657/root/   #可以看到这里，容器进程占用的磁盘其实是/run/containerd/下
+文件系统        容量  已用  可用 已用% 挂载点
+overlay         179G  127G   52G   71% /run/containerd/io.containerd.runtime.v2.task/k8s.io/5fc49cc78b2579bcd087d8624e1a8d196e017038d8e64eb6db5dd94a9c9b5b88/rootfs</pre>
+</div></div>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>mount | grep 5fc49cc78b
+overlay on /run/containerd/io.containerd.runtime.v2.task/k8s.io/5fc49cc78b2579bcd087d8624e1a8d196e017038d8e64eb6db5dd94a9c9b5b88/rootfs type overlay (rw,relatime,lowerdir=/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/457/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/456/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/455/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/454/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/453/fs:/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/452/fs,upperdir=/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/209601/fs,workdir=/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/209601/work)</pre>
+</div></div>
+
+<p>containerd fs使用的是overlayfs，可以看到是把{{/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/}}下的snapshot文件一层层挂载聚合到{{/run/containerd/io.containerd.runtime.v2.task/k8s.io/5fc49cc78b2579bcd087d8624e1a8d196e017038d8e64eb6db5dd94a9c9b5b88/rootfs}}的，真正占用的磁盘空间是/var/lib/containerd的空间</p>
+
+<p>对比磁盘空间使用量，也可以侧面证明</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>[root@node-3 k8s.io]# df -h /run/containerd/io.containerd.runtime.v2.task/k8s.io/5fc49cc78b2579bcd087d8624e1a8d196e017038d8e64eb6db5dd94a9c9b5b88/rootfs
+文件系统        容量  已用  可用 已用% 挂载点
+overlay         179G  127G   52G   71% /run/containerd/io.containerd.runtime.v2.task/k8s.io/5fc49cc78b2579bcd087d8624e1a8d196e017038d8e64eb6db5dd94a9c9b5b88/rootfs
+[root@node-3 k8s.io]# lsblk -l | g^C
+[root@node-3 k8s.io]# df -h /var/lib/containerd
+文件系统                            容量  已用  可用 已用% 挂载点
+/dev/mapper/docker-containerd_root  179G  127G   52G   71% /var/lib/containerd</pre>
+</div></div>
+        </td></tr>
+                <tr id="comment-header-442149"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="5d2d99d1f3471e0c800c5812"
+                id="word_commented_5d2d99d1f3471e0c800c5812"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5d2d99d1f3471e0c800c5812">
+                    解云月
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">19/二月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-442149"><td bgcolor="#ffffff">
+            <div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>du -sh /run/containerd/io.containerd.runtime.v2.task/k8s.io/* | sort -h，找出占用最大container id
+crictl ps | grep container id 即可</pre>
+</div></div>
+        </td></tr>
+            </table>
+于尚斌 通过JIRA 1001.0.0-SNAPSHOT#100281-rev:bcd56557a15d6082fca5aa36608f2cb1764ea237 生成于 Wed Feb 19 12:10:14 GMT 2025。
+
+</body>
+</html>
