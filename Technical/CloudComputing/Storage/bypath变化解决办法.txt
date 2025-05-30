@@ -1,0 +1,40 @@
+以node-8举例说明
+1、备份所有env和ceph config
+kubectl get env -n openstack -oyaml > all_nodes_env.yaml
+kubectl get config -n ems ceph -oyaml > ceph_config_backup.yaml
+2、获取node8的节点数据和磁盘数据
+nodeuuid=$(kubectl get ecsnode -n openstack |grep node-8|awk '{print $1}')
+kubectl get env -n openstack $nodeuuid -oyaml > env_node.yaml
+kubectl get ecsnode $nodeuuid -n openstack -oyaml > node.yaml
+
+3、从node.yaml中根据问题磁盘名字找到对应的sdi磁盘信息
+grep -10 "name: sdi" node.yaml # 这里是查找key为disk的值，即bypath的最新值。
+
+4、编辑node-8的env
+kubectl edit env -n openstack $nodeuuid
+4.1 更新bypath
+根据磁盘名字name找到对应磁盘信息，替换key为id的值为步骤3中的最新的bypath即可。
+4.2 更新hw_info
+这个可以复制node.yaml中的sdi的hw_info。格式正确性可以参照其他磁盘。例如sdj。
+5、编辑ceph config
+kubectl edit config -n ems ceph
+找到node-8的osd，
+5.1 更新bypath
+在root: default下搜索
+找到原始地址为：
+cache_disk: /dev/disk/by-path/pci-0000:18:00.0-scsi-0:0:13:0
+更新为：
+cache_disk: /dev/disk/by-path/pci-0000:18:00.0-scsi-0:0:18:0 （数据来源于4.1结果）
+在root: ssdpool下搜索
+找到原地址：
+data_disk: /dev/disk/by-path/pci-0000:18:00.0-scsi-0:0:13:0
+改为：
+data_disk: /dev/disk/by-path/pci-0000:18:00.0-scsi-0:0:18:0
+5.2 更新cache_disk_slot_num和cache_disk_slot_num_new
+找到：
+将旧的cache_disk_slot_num_new: 0/8/5：
+改为正确的：cache_disk_slot_num_new: 0/8/14
+同时确保cache_disk_slot_num: 8/14
+7、更新ceph ds。
+更新ds的bypath和slot_num/slot_num_new
+8、检查是否符合预期

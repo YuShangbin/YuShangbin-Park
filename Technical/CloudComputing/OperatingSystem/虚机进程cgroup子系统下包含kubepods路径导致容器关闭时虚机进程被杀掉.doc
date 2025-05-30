@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>[#EAS-124820] 38环境由621 beta升级至621 rc期间虚机全部被关闭</title>
+    <meta http-equiv="Content-Type" Content="application/vnd.ms-word; charset=UTF-8">
+        <style type="text/css">
+
+.tableBorder, .grid
+{
+    background-color: #fff;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tableBorder td, .grid td
+{
+    vertical-align: top;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+.noPadding
+{
+    padding: 0 !important;
+}
+
+h3 .subText
+{
+    font-size: 60%;
+    font-weight: normal;
+}
+
+.tabLabel
+{
+    font-weight: bold;
+    border: 1px solid #ccc;
+    border-bottom:none;
+    padding: 2px;
+    display: inline;
+}
+
+td.blank
+{
+    padding: 0;
+    margin: 0;
+}
+
+.blank td
+{
+    border: none;
+}
+
+#descriptionArea
+{
+    margin: 0;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+hr
+{
+    border-top:1px solid #aaa;
+}
+
+hr.fullcontent
+{
+  height: 15px;
+  padding: 10px 0;
+  background: #fff url('https://easystack.atlassian.net/images/icons/hr.gif') no-repeat scroll center;
+}
+
+</style>
+
+</head>
+<body>
+
+<table class="tableBorder" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" width="100%" colspan="2" valign="top">
+                            <h3 class="formtitle">
+                        [EAS-124820]&nbsp;<a href="https://easystack.atlassian.net/browse/EAS-124820">38环境由621 beta升级至621 rc期间虚机全部被关闭</a>
+            <span class="subText">
+               已创建: 29/三月/24                   &nbsp;已更新: 24/五月/24
+
+                                                    &nbsp;已解决: 08/四月/24
+                            </span>
+            </h3>
+        </td>
+    </tr>
+    <tr>
+        <td width="20%"><b>状态:</b></td>
+        <td width="80%">已关闭</td>
+    </tr>
+    <tr>
+        <td width="20%"><b>项目:</b></td>
+        <td width="80%"><a href="https://easystack.atlassian.net/secure/BrowseProject.jspa?id=10004">EasyStack</a></td>
+    </tr>
+
+        <tr>
+            <td><b>组件:</b></td>
+            <td>
+                                        <a title="SystemEngineering - kernel"
+                href="https://easystack.atlassian.net/issues/?jql=project%3D10004%20AND%20%22component%22%3D11400%20ORDER%20BY%20priority%20ASC"
+            >SystemEngineering</a>                        </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>影响版本:</b></td>
+            <td>
+                            无
+                </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>修复版本:</b></td>
+            <td>
+                                        <a title="EOS 6.2.1"
+                href="https://easystack.atlassian.net/issues/?jql=project%3D10004%20AND%20%22fixVersion%22%3D14991%20ORDER%20BY%20priority%20ASC"
+            >EOS 6.2.1</a>                        </td>
+    </tr>
+    
+    
+    </table>
+
+<br />
+<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" valign="top" width="20%">
+            <b>类型:</b>
+        </td>
+        <td bgcolor="#ffffff" valign="top"  width="30%" >
+            缺陷
+        </td>
+
+                    <td bgcolor="#f0f0f0">
+                <b>优先级:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap>
+                紧急
+            </td>
+            </tr>
+    <tr>
+                        <td bgcolor="#f0f0f0" valign="top" width="20%">
+                <b>报告人:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top"  width="30%" >
+                                        
+                
+        
+            <a class="user-hover" rel="6167ecd499b4b8006a3526e0"
+                id="word_reporter_6167ecd499b4b8006a3526e0"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=6167ecd499b4b8006a3526e0">
+                    廖正勇
+                </a>
+
+                            </td>
+        
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>经办人:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap  width="30%" >
+                                        
+                
+        
+            <a class="user-hover" rel="557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                id="word_assignee_557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=557058%3A1e1c47af-84e4-43b8-8bc4-48b51d054387">
+                    陈奇
+                </a>
+
+                            </td>
+            </tr>
+    	<tr>
+		<td bgcolor="#f0f0f0" width="20%">
+			<b>解决方案:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+                            已修复
+                    </td>
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>表决:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+                0
+            </td>
+        
+    </tr>
+    
+        <tr>
+        <td bgcolor="#f0f0f0" width="20%">
+            <b>标签:</b>
+        </td>
+        <td id="labels-217991-value" class="value" bgcolor="#ffffff" valign="top" colspan="3" nowrap>
+                            无
+                    </td>
+    </tr>
+    
+    	<tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Σ 剩余估计量:</b></td>
+        <td bgcolor="#ffffff" valign="top" nowrap>
+                            尚未指定
+                    </td>
+        		<td bgcolor="#f0f0f0" width="20%"><b>剩余估计量:</b></td>
+        <td bgcolor="#ffffff" valign="top" nowrap>
+                            尚未指定
+            		</td>
+    </tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>总耗费时间:</b></td>
+        <td bgcolor="#ffffff" valign="top" nowrap>
+                            尚未指定
+                    </td>
+                <td bgcolor="#f0f0f0" width="20%"><b>所用时间:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap>
+                            尚未指定
+            		</td>
+	</tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>初始预估时间总计:</b></td>
+        <td bgcolor="#ffffff" valign="top" nowrap>
+                            尚未指定
+                    </td>
+                <td bgcolor="#f0f0f0" width="20%"><b>原始预估:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap>
+                            尚未指定
+            		</td>
+    </tr>
+    
+    </table>
+
+
+
+    <br />
+
+    	<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+            
+
+                <tr>
+            <td bgcolor="#f0f0f0" width=20% valign=top>
+                <b>附件:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top">
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/zip.gif" height="16" width="16" border="0" alt="Zip存档">
+                    solution-fix_cg_rdma_621rc_runc-v1-x86.es &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/zip.gif" height="16" width="16" border="0" alt="Zip存档">
+                    solution-fix_cg_rdma_621rc_runc-v1-arm.es &nbsp;&nbsp;&nbsp;
+                            </td>
+        </tr>
+        
+            <tr>
+            <td bgcolor="#f0f0f0" width="20%" valign="top">
+                <b>事务链接:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" class="noPadding">
+                <table cellpadding="0" cellspacing="0" border="0" width="100%" class="blank">
+                                            <tr>
+                            <td colspan="4" bgcolor="#f0f0f0">
+                                <b>Duplicate</b><br/>
+                            </td>
+                        </tr>
+                                    <tr>
+            <td>
+                duplicates
+            </td>
+            <td>
+                <a href="https://easystack.atlassian.net/browse/EAS-124829">
+                     EAS-124829                 </a>
+            </td>
+            <td>
+                重启libvirt pod导致对应节点所有云主机关机
+            </td>
+            <td>
+                已关闭
+            </td>
+        </tr>
+                                                                            <tr>
+                            <td colspan="4" bgcolor="#f0f0f0">
+                                <b>Relates</b><br/>
+                            </td>
+                        </tr>
+                                    <tr>
+            <td>
+                relates to
+            </td>
+            <td>
+                <a href="https://easystack.atlassian.net/browse/ECS-5911">
+                     <strike>ECS-5911</strike>                 </a>
+            </td>
+            <td>
+                CLONE - 层峰网络-香港-HKG3(CSE-3797) -云主机异常...
+            </td>
+            <td>
+                已关闭
+            </td>
+        </tr>
+                                                                    </table>
+            </td>
+        </tr>
+    
+
+
+            <tr><td bgcolor="#f0f0f0" width="20%" valign="top"><b>子任务:</b></td>
+    <td bgcolor="#ffffff" valign="top">
+        <table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+            <tr bgcolor="#f0f0f0">
+                <td>
+                    <b>密钥</b><br/>
+                </td>
+                <td>
+                    <b>摘要</b><br/>
+                </td>
+                <td>
+                    <b>类型</b><br/>
+                </td>
+                <td>
+                    <b>状态</b><br/>
+                </td>
+                <td>
+                    <b>经办人</b><br/>
+                </td>
+            </tr>
+                            <tr>
+                    <td>
+                        <a href="https://easystack.atlassian.net/browse/EAS-124822">EAS-124822</a>
+                    </td>
+                    <td valign="top" width="25%">
+                        <a href="https://easystack.atlassian.net/browse/EAS-124822">EAS-124820 自测</a>
+                    </td>
+                    <td>
+                        子任务
+                    </td>
+                    <td>
+                        已完成
+                    </td>
+                    <td>
+                                                     陈奇  &nbsp;
+                                            </td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://easystack.atlassian.net/browse/EAS-124823">EAS-124823</a>
+                    </td>
+                    <td valign="top" width="25%">
+                        <a href="https://easystack.atlassian.net/browse/EAS-124823">EAS-124820 自动化</a>
+                    </td>
+                    <td>
+                        子任务
+                    </td>
+                    <td>
+                        已完成
+                    </td>
+                    <td>
+                                                     陈奇  &nbsp;
+                                            </td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://easystack.atlassian.net/browse/EAS-124824">EAS-124824</a>
+                    </td>
+                    <td valign="top" width="25%">
+                        <a href="https://easystack.atlassian.net/browse/EAS-124824">EAS-124820 升级方案和升级脚本</a>
+                    </td>
+                    <td>
+                        子任务
+                    </td>
+                    <td>
+                        已完成
+                    </td>
+                    <td>
+                                                     陈奇  &nbsp;
+                                            </td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://easystack.atlassian.net/browse/EAS-124825">EAS-124825</a>
+                    </td>
+                    <td valign="top" width="25%">
+                        <a href="https://easystack.atlassian.net/browse/EAS-124825">EAS-124820 测试用例更新</a>
+                    </td>
+                    <td>
+                        子任务
+                    </td>
+                    <td>
+                        待办
+                    </td>
+                    <td>
+                                                     祁岳  &nbsp;
+                                            </td>
+                </tr>
+                    </table>
+    </td>
+</tr>
+    
+                        <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Sprint:</b></td>
+                <td id="customfield_10006-217991-value" class="value" bgcolor="#ffffff" width="80%"></td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Review Links:</b></td>
+                <td id="customfield_11109-217991-value" class="value" bgcolor="#ffffff" width="80%">      ark,master,<a href="https://review.easystack.cn/81602">https://review.easystack.cn/81602</a><br/>
+ark,stable/6.2.1,<a href="https://review.easystack.cn/81539">https://review.easystack.cn/81539</a><br/>
+solution-ecs,master,<a href="https://review.easystack.cn/81725">https://review.easystack.cn/81725</a><br/>
+solution-ecs,master,<a href="https://review.easystack.cn/81730">https://review.easystack.cn/81730</a>
+  </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Conclusion:</b></td>
+                <td id="customfield_11117-217991-value" class="value" bgcolor="#ffffff" width="80%">      容器dumb-init进程的rdma cgroup路径由611时的“/”变成了诸如&quot;/kubepods/besteffort/pod66547e6a-441e-4b62-ac00-44cee8baf354/a4ade1d5b0c872aceb2204a1e47e792809081baee8d12a0ae81385dcc20ee8c6&quot;，相当于造成了<a href="https://easystack.atlassian.net/browse/ECS-5911" title="CLONE - 层峰网络-香港-HKG3(CSE-3797) -云主机异常关机，需排查下原因" class="issue-link" data-issue-key="ECS-5911"><strike>ECS-5911</strike></a>的第一种复现场景。目前先通过libvirt启动脚本修改rdma cg路径到“/”
+  </td>
+            </tr>
+            </table>
+
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>评论</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" class="grid" style="margin: 0;">
+                <tr id="comment-header-416366"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                id="word_commented_557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=557058%3A1e1c47af-84e4-43b8-8bc4-48b51d054387">
+                    陈奇
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">01/四月/24</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-416366"><td bgcolor="#ffffff">
+            <p>经过调查、测试，北京行云和33环境上都出现了 <a href="https://easystack.atlassian.net/browse/ECS-5911" title="smart-link" class="external-link" rel="nofollow noreferrer">https://easystack.atlassian.net/browse/ECS-5911</a> 的复现场景。</p>
+
+
+
+<p>这里再简要重复一下libvirt中cgroup的设置方式。libvirt只管理所有cgroup控制器其中的一部分：</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-c"> 30 <span class="code-keyword">enum</span> {
+ 31     VIR_CGROUP_CONTROLLER_CPU,
+ 32     VIR_CGROUP_CONTROLLER_CPUACCT,
+ 33     VIR_CGROUP_CONTROLLER_CPUSET,
+ 34     VIR_CGROUP_CONTROLLER_MEMORY,
+ 35     VIR_CGROUP_CONTROLLER_DEVICES,
+ 36     VIR_CGROUP_CONTROLLER_FREEZER,
+ 37     VIR_CGROUP_CONTROLLER_BLKIO,
+ 38     VIR_CGROUP_CONTROLLER_NET_CLS,
+ 39     VIR_CGROUP_CONTROLLER_PERF_EVENT,
+ 40     VIR_CGROUP_CONTROLLER_SYSTEMD,
+ 41
+ 42     VIR_CGROUP_CONTROLLER_LAST
+ 43 };</pre>
+</div></div>
+
+<ul>
+	<li>对于身在其中的cgroup，会有两种处理方式。</li>
+</ul>
+
+
+<ol>
+	<li>当系统中存在machined服务时，会调用machined api来创建各个group目录和对应的unit(<tt>/machine.slice</tt>)</li>
+	<li>当系统没有machined服务时，会调用libvirt自己的cgroup helper来创建各个group目录(<tt>/machine</tt>)</li>
+</ol>
+
+
+<ul>
+	<li>对于不在其中的cgroup，则会根据进程父子关系、从父进程继承</li>
+</ul>
+
+
+
+
+<p>611和早期621中，在进行勘误后，pid和systemd这两个cgroup的路径已经被改到了{{/}}下，并且没有cgroup路径再处于{{/kubepods}}下，所以虚机不会再受容器生命周期影响、在容器结束时被kubelet强杀。这时虚机cgroup举例如下，注意rdma这个cgroup，它不在libvirt的管理范围里，所以它的路径由父进程继承而来，为{{/}}：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>12:freezer:/machine/qemu-21-instance-000000e6.libvirt-qemu
+11:hugetlb:/
+10:blkio:/machine/qemu-21-instance-000000e6.libvirt-qemu
+9:memory:/machine/qemu-21-instance-000000e6.libvirt-qemu
+8:net_cls,net_prio:/machine/qemu-21-instance-000000e6.libvirt-qemu
+7:pids:/kubepods/besteffort/pod26374213-f3db-4014-9e3c-8bd9c5e7cb9e/02f30437534755c252ed34fac039eb0fe32a088f0ca9c8f6ba01885fdb6245c7
+6:devices:/machine/qemu-21-instance-000000e6.libvirt-qemu
+5:perf_event:/machine/qemu-21-instance-000000e6.libvirt-qemu
+4:cpu,cpuacct:/machine/qemu-21-instance-000000e6.libvirt-qemu/emulator
+3:rdma:/  &lt;-- 
+2:cpuset:/machine/qemu-21-instance-000000e6.libvirt-qemu/emulator
+1:name=systemd:/kubepods/besteffort/pod26374213-f3db-4014-9e3c-8bd9c5e7cb9e/02f30437534755c252ed34fac039eb0fe32a088f0ca9c8f6ba01885fdb6245c7</pre>
+</div></div>
+
+<p>但在北京行云和33环境上，这个环境发生了变化，容器的1号进程dumb-init的rdma cgroup路径由原先的{{/}}变到了{{/kubepods}}，这使得他的子进程libvirtd进程、虚机进程的rdma也都发生了变化：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>--&gt; 12:rdma:/kubepods/besteffort/pod68eaf493-9a49-49bf-abb4-345f04717b96/1d2d35c40927d818779d3c5005f1bab4d6102354ab216715be402b004ef17749
+11:cpuset:/machine.slice/machine-qemu\x2d86\x2dinstance\x2d000052f5.scope/libvirt/emulator
+10:pids:/machine.slice/machine-qemu\x2d86\x2dinstance\x2d000052f5.scope
+9:hugetlb:/
+8:perf_event:/machine.slice/machine-qemu\x2d86\x2dinstance\x2d000052f5.scope/libvirt
+7:freezer:/machine.slice/machine-qemu\x2d86\x2dinstance\x2d000052f5.scope/libvirt
+6:blkio:/machine.slice/machine-qemu\x2d86\x2dinstance\x2d000052f5.scope/libvirt
+5:memory:/machine.slice/machine-qemu\x2d86\x2dinstance\x2d000052f5.scope/libvirt
+4:net_cls,net_prio:/machine.slice/machine-qemu\x2d86\x2dinstance\x2d000052f5.scope/libvirt
+3:devices:/machine.slice/machine-qemu\x2d86\x2dinstance\x2d000052f5.scope/libvirt
+2:cpu,cpuacct:/machine.slice/machine-qemu\x2d86\x2dinstance\x2d000052f5.scope/libvirt/emulator
+1:name=systemd:/machine.slice/machine-qemu\x2d86\x2dinstance\x2d000052f5.scope</pre>
+</div></div>
+
+<p>可以看到，因为这个变化，虚机的cgroup中再次出现了{{/kubepods}}路径，也就是说，再次出现了ECS-5911的复现场景：在容器结束时，kubelet会强杀掉虚机。</p>
+
+<p>通过对比和调查，发现 北京行云和33环境的621 和 深圳行云 的621 中的runc版本不同：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>深圳行云上runc版本是：
+runc-1.0.2-1.es8
+
+北京行云、33环境上runc版本是：
+runc-1.1.12-1.es8</pre>
+</div></div>
+
+<p>在runc上游看到一个patch:<br/>
+<a href="https://github.com/opencontainers/runc/commit/b3d14488b5eeef399295d70d7acd49b451c20179" title="smart-link" class="external-link" rel="nofollow noreferrer">https://github.com/opencontainers/runc/commit/b3d14488b5eeef399295d70d7acd49b451c20179</a></p>
+
+<p>这个patch看起来在上述两个版本之间加入了rdma cgroup的设置，不知是否是造成这个环境变化的原因。</p>
+
+<hr />
+
+<p>经过内部讨论，runc的版本升级有安全方面的原因，所以代价比较小的解决方式是修改libvirt启动脚本，在libvirtd启动之前，修改rdma cgroup路径到以前的{{/}}:</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>diff --git a/libvirt/templates/bin/_libvirt.sh.tpl b/libvirt/templates/bin/_libvirt.sh.tpl
+index 292caa83..f3b081f3 100644
+--- a/libvirt/templates/bin/_libvirt.sh.tpl
++++ b/libvirt/templates/bin/_libvirt.sh.tpl
+@@ -34,6 +34,8 @@ fi
+
+ echo $$ &gt; /sys/fs/cgroup/cpuset/tasks
+ echo $$ &gt; /sys/fs/cgroup/hugetlb/tasks
++echo $$ &gt; /sys/fs/cgroup/rdma/tasks
++
+
+ if [ -n "$(cat /proc/*/comm 2&gt;/dev/null | grep libvirtd)" ]; then
+     echo "ERROR: libvirtd daemon already running on host" 1&gt;&amp;2</pre>
+</div></div>
+        </td></tr>
+                <tr id="comment-header-416733"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="557058:1f727e45-7cf4-4ab3-98ff-bb226d67279a"
+                id="word_commented_557058:1f727e45-7cf4-4ab3-98ff-bb226d67279a"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=557058%3A1f727e45-7cf4-4ab3-98ff-bb226d67279a">
+                    刘伟
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">08/四月/24</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-416733"><td bgcolor="#ffffff">
+            <p>升级完成后重启livbirt，虚机运行不受影响</p>
+        </td></tr>
+                <tr id="comment-header-417032"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                id="word_commented_557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=557058%3A1e1c47af-84e4-43b8-8bc4-48b51d054387">
+                    陈奇
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">10/四月/24</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-417032"><td bgcolor="#ffffff">
+            <p>针对 2月22号 至 3月31号 期间的621版本，在升级之前需要安装下面的对接包：</p>
+
+<p><span class="nobr"><a href="/rest/api/3/attachment/content/304488" title="solution-fix_cg_rdma_621rc_runc-v1-arm.es attached to EAS-124820" data-attachment-type="file" data-attachment-name="solution-fix_cg_rdma_621rc_runc-v1-arm.es" data-media-services-type="file" data-media-services-id="66135ee6-a3fd-40bd-850b-674a0a6b99df" rel="noreferrer">solution-fix_cg_rdma_621rc_runc-v1-arm.es<sup><img class="rendericon" src="/images/icons/link_attachment_7.gif" height="7" width="7" align="absmiddle" alt="" border="0"/></sup></a></span><br/>
+<span class="nobr"><a href="/rest/api/3/attachment/content/304487" title="solution-fix_cg_rdma_621rc_runc-v1-x86.es attached to EAS-124820" data-attachment-type="file" data-attachment-name="solution-fix_cg_rdma_621rc_runc-v1-x86.es" data-media-services-type="file" data-media-services-id="7581f7e5-3939-452c-b269-e1a46817960b" rel="noreferrer">solution-fix_cg_rdma_621rc_runc-v1-x86.es<sup><img class="rendericon" src="/images/icons/link_attachment_7.gif" height="7" width="7" align="absmiddle" alt="" border="0"/></sup></a></span></p>
+
+        </td></tr>
+                <tr id="comment-header-419303"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="557058:ec4738f6-6e0b-4132-90c3-658acb807085"
+                id="word_commented_557058:ec4738f6-6e0b-4132-90c3-658acb807085"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=557058%3Aec4738f6-6e0b-4132-90c3-658acb807085">
+                    王后明
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">10/五月/24</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-419303"><td bgcolor="#ffffff">
+            <p>经过跟 <a href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=557058%3A7cfe2b89-a4bd-4bba-a3ee-4d4df89f4664" class="user-hover" rel="557058:7cfe2b89-a4bd-4bba-a3ee-4d4df89f4664" data-account-id="557058:7cfe2b89-a4bd-4bba-a3ee-4d4df89f4664" accountid="557058:7cfe2b89-a4bd-4bba-a3ee-4d4df89f4664" rel="noreferrer">陈亮</a> 讨论：</p>
+
+<p>1、针对这个具体问题，防范机制是：</p>
+
+<p>把虚拟机创建后对应qemu进程的cgruop信息检查，加入每次CI/CD部署环境后的检查流程中。这样后续如果有任何内核cgroup子系统增加、libvirt或systemd版本变化、runc版本变化等引起虚拟机cgroup信息变化，挂载到/kubepods对应的目录中的情况出现，会导致CI/CD失败，从而人工介入来排查和解决问题。</p>
+
+<p>对应的检查步骤和预期结果是：</p>
+
+<p>1）创建虚拟机</p>
+
+<p>2）登录到虚拟机所在计算节点，执行{{ps -ef|grep qemu }}找到虚拟机对应qemu进程的pid</p>
+
+<p>3）执行{{cat /proc/</p>
+{qemu-pid}
+<p>/cgroup }}查看qemu进程的cgroup子系统信息</p>
+
+<p>4）预期结果：第3）步的输出结果中，不能包含{{kubepods}}字样；如包含，则检查失败</p>
+
+<p>2、针对后续可能出现的类似组件间依赖可能导致的问题：</p>
+
+<p>把通用检查机制加入到CICD过程，后续遇到新场景，按照通用框架去加入新的检查项目。</p>
+
+<p><a href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=557058%3A7bc223df-e154-418f-8111-747214252de4" class="user-hover" rel="557058:7bc223df-e154-418f-8111-747214252de4" data-account-id="557058:7bc223df-e154-418f-8111-747214252de4" accountid="557058:7bc223df-e154-418f-8111-747214252de4" rel="noreferrer">张龙飞</a> 请安排把上述检查机制，加入到部署后的标准CICD检查流程中。</p>
+
+<p><a href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=557058%3A497516e4-c7ce-4bba-bd90-581a9c5373d3" class="user-hover" rel="557058:497516e4-c7ce-4bba-bd90-581a9c5373d3" data-account-id="557058:497516e4-c7ce-4bba-bd90-581a9c5373d3" accountid="557058:497516e4-c7ce-4bba-bd90-581a9c5373d3" rel="noreferrer">丛彬彬</a> <a href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5a2e22c86877a040f0721c80" class="user-hover" rel="5a2e22c86877a040f0721c80" data-account-id="5a2e22c86877a040f0721c80" accountid="5a2e22c86877a040f0721c80" rel="noreferrer">祁岳</a> FYI</p>
+        </td></tr>
+                <tr id="comment-header-419309"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="557058:7bc223df-e154-418f-8111-747214252de4"
+                id="word_commented_557058:7bc223df-e154-418f-8111-747214252de4"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=557058%3A7bc223df-e154-418f-8111-747214252de4">
+                    张龙飞
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">10/五月/24</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-419309"><td bgcolor="#ffffff">
+            <p><a href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=557058%3Aec4738f6-6e0b-4132-90c3-658acb807085" class="user-hover" rel="557058:ec4738f6-6e0b-4132-90c3-658acb807085" data-account-id="557058:ec4738f6-6e0b-4132-90c3-658acb807085" accountid="557058:ec4738f6-6e0b-4132-90c3-658acb807085" rel="noreferrer">王后明</a> 好的 ，收到，近期高优先的处理完就可以加入，CD工作用这个case追踪<a href="https://easystack.atlassian.net/browse/EAS-126156" title="smart-link" class="external-link" rel="nofollow noreferrer">https://easystack.atlassian.net/browse/EAS-126156</a> </p>
+        </td></tr>
+            </table>
+于尚斌 通过JIRA 1001.0.0-SNAPSHOT#100283-rev:f8932c93bd159910951acd497204161705f6d7b8 生成于 Tue May 20 12:27:16 UTC 2025。
+
+</body>
+</html>

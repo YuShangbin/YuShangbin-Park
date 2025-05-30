@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>[#ECS-7317] CLONE - 合肥邮储-IDC2023ES标准云1 node-428节点一台32C64G虚拟机oom无法启动，物理机内存不释放</title>
+    <meta http-equiv="Content-Type" Content="application/vnd.ms-word; charset=UTF-8">
+        <style type="text/css">
+
+.tableBorder, .grid
+{
+    background-color: #fff;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tableBorder td, .grid td
+{
+    vertical-align: top;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+.noPadding
+{
+    padding: 0 !important;
+}
+
+h3 .subText
+{
+    font-size: 60%;
+    font-weight: normal;
+}
+
+.tabLabel
+{
+    font-weight: bold;
+    border: 1px solid #ccc;
+    border-bottom:none;
+    padding: 2px;
+    display: inline;
+}
+
+td.blank
+{
+    padding: 0;
+    margin: 0;
+}
+
+.blank td
+{
+    border: none;
+}
+
+#descriptionArea
+{
+    margin: 0;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+hr
+{
+    border-top:1px solid #aaa;
+}
+
+hr.fullcontent
+{
+  height: 15px;
+  padding: 10px 0;
+  background: #fff url('https://easystack.atlassian.net/images/icons/hr.gif') no-repeat scroll center;
+}
+
+</style>
+
+</head>
+<body>
+
+<table class="tableBorder" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" width="100%" colspan="2" valign="top">
+                            <h3 class="formtitle">
+                        [ECS-7317]&nbsp;<a href="https://easystack.atlassian.net/browse/ECS-7317">CLONE - 合肥邮储-IDC2023ES标准云1 node-428节点一台32C64G虚拟机oom无法启动，物理机内存不释放</a>
+            <span class="subText">
+               已创建: 23/五月/25                   &nbsp;已更新: 23/五月/25
+
+                                            </span>
+            </h3>
+        </td>
+    </tr>
+    <tr>
+        <td width="20%"><b>状态:</b></td>
+        <td width="80%">Under investigation</td>
+    </tr>
+    <tr>
+        <td width="20%"><b>项目:</b></td>
+        <td width="80%"><a href="https://easystack.atlassian.net/secure/BrowseProject.jspa?id=10100">EasyStack Customer Support</a></td>
+    </tr>
+
+        <tr>
+            <td><b>组件:</b></td>
+            <td>
+                                        <a title="OperatingSystem - OS"
+                href="https://easystack.atlassian.net/issues/?jql=project%3D10100%20AND%20%22component%22%3D10505%20ORDER%20BY%20priority%20ASC"
+            >OperatingSystem</a>                        </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>影响版本:</b></td>
+            <td>
+                                        <a title="ECF 6.1.1"
+                href="https://easystack.atlassian.net/issues/?jql=project%3D10100%20AND%20%22affectedVersion%22%3D15069%20ORDER%20BY%20priority%20ASC"
+            >ECF 6.1.1</a>                        </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>修复版本:</b></td>
+            <td>
+                                        <a title="6.1.1"
+                href="https://easystack.atlassian.net/issues/?jql=project%3D10100%20AND%20%22fixVersion%22%3D14972%20ORDER%20BY%20priority%20ASC"
+            >6.1.1</a>                        </td>
+    </tr>
+    
+    
+    </table>
+
+<br />
+<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" valign="top" width="20%">
+            <b>类型:</b>
+        </td>
+        <td bgcolor="#ffffff" valign="top"  width="30%" >
+            Problem
+        </td>
+
+                    <td bgcolor="#f0f0f0">
+                <b>优先级:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap>
+                严重
+            </td>
+            </tr>
+    <tr>
+                        <td bgcolor="#f0f0f0" valign="top" width="20%">
+                <b>报告人:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top"  width="30%" >
+                                        
+                
+        
+            <a class="user-hover" rel="5f23a331a1648700152d71f5"
+                id="word_reporter_5f23a331a1648700152d71f5"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5f23a331a1648700152d71f5">
+                    汪翔
+                </a>
+
+                            </td>
+        
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>经办人:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap  width="30%" >
+                                        
+                
+        
+            <a class="user-hover" rel="5de5f414cdc2d20d053804cc"
+                id="word_assignee_5de5f414cdc2d20d053804cc"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5de5f414cdc2d20d053804cc">
+                    于宸
+                </a>
+
+                            </td>
+            </tr>
+    	<tr>
+		<td bgcolor="#f0f0f0" width="20%">
+			<b>解决方案:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+            				未解决
+                    </td>
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>表决:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+                0
+            </td>
+        
+    </tr>
+    
+        <tr>
+        <td bgcolor="#f0f0f0" width="20%">
+            <b>标签:</b>
+        </td>
+        <td id="labels-268096-value" class="value" bgcolor="#ffffff" valign="top" colspan="3" nowrap>
+                            运维大区1                    </td>
+    </tr>
+    
+    	<tr>
+        		<td bgcolor="#f0f0f0" width="20%"><b>剩余估计量:</b></td>
+        <td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            尚未指定
+            		</td>
+    </tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>所用时间:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            尚未指定
+            		</td>
+	</tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>原始预估:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            尚未指定
+            		</td>
+    </tr>
+    
+    	<tr>
+
+		<td bgcolor="#f0f0f0" width="20%" valign="top">
+			<b>环境:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" colspan="3">
+            <p>6.1.1</p>
+		</td>
+	</tr>
+    </table>
+
+
+
+    <br />
+
+    	<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+            
+
+                <tr>
+            <td bgcolor="#f0f0f0" width=20% valign=top>
+                <b>附件:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top">
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="JPEG文件">
+                    290d50dad0bb042e9db2f660222a543f_-20250521-032905.jpg &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="JPEG文件">
+                    3bceb2ba995481573ac4894a3900e95d_-20250521-032914.jpg &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/file.gif" height="16" width="16" border="0" alt="文件">
+                    5-21.tar.gz &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/file.gif" height="16" width="16" border="0" alt="文件">
+                    dmesg &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/file.gif" height="16" width="16" border="0" alt="文件">
+                    messages &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/file.gif" height="16" width="16" border="0" alt="文件">
+                    sa17 &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/file.gif" height="16" width="16" border="0" alt="文件">
+                    sa18 &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/file.gif" height="16" width="16" border="0" alt="文件">
+                    sa19 &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/file.gif" height="16" width="16" border="0" alt="文件">
+                    sa20 &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/file.gif" height="16" width="16" border="0" alt="文件">
+                    sa21 &nbsp;&nbsp;&nbsp;
+                            </td>
+        </tr>
+        
+            <tr>
+            <td bgcolor="#f0f0f0" width="20%" valign="top">
+                <b>事务链接:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" class="noPadding">
+                <table cellpadding="0" cellspacing="0" border="0" width="100%" class="blank">
+                                            <tr>
+                            <td colspan="4" bgcolor="#f0f0f0">
+                                <b>Blocks</b><br/>
+                            </td>
+                        </tr>
+                                    <tr>
+            <td>
+                blocks
+            </td>
+            <td>
+                <a href="https://easystack.atlassian.net/browse/CSE-4605">
+                     CSE-4605                 </a>
+            </td>
+            <td>
+                中国邮政储蓄银行-合肥IDC2023ES标准云1
+            </td>
+            <td>
+                待办
+            </td>
+        </tr>
+                                                                            <tr>
+                            <td colspan="4" bgcolor="#f0f0f0">
+                                <b>Cloners</b><br/>
+                            </td>
+                        </tr>
+                                    <tr>
+            <td>
+                clones
+            </td>
+            <td>
+                <a href="https://easystack.atlassian.net/browse/ECSL2-43221">
+                     ECSL2-43221                 </a>
+            </td>
+            <td>
+                合肥邮储-IDC2023ES标准云1 node-428节点一台32C64G...
+            </td>
+            <td>
+                Under investigation
+            </td>
+        </tr>
+                                                                    </table>
+            </td>
+        </tr>
+    
+
+
+    
+                        <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Priority Detail:</b></td>
+                <td id="customfield_11294-268096-value" class="value" bgcolor="#ffffff" width="80%">
+
+
+    <div class="shorten" id="customfield_11294-field">
+        							<span>Critical-用户业务-多个业务断续受到影响</span>			            </div>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Customer Name:</b></td>
+                <td id="customfield_11102-268096-value" class="value" bgcolor="#ffffff" width="80%">      合肥邮储
+  </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Customer Project ID:</b></td>
+                <td id="customfield_11111-268096-value" class="value" bgcolor="#ffffff" width="80%">      iagn
+  </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>L2调查情况（升级L3时填写）:</b></td>
+                <td id="customfield_11105-268096-value" class="value" bgcolor="#ffffff" width="80%">      1.问题发生过程（复杂问题需要整理时间线）<br/>
+&nbsp;&nbsp;&lt;补充说明&gt;<br/>
+2.L2的分析和阶段性结论<br/>
+&nbsp;&nbsp;&lt;补充说明&gt;<br/>
+3.是否已经和“L2评审委员会”做过确认，L2无法解决需要升级L3<br/>
+&nbsp;&nbsp;&lt;补充说明&gt;<br/>
+
+  </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>L2 Supporter:</b></td>
+                <td id="customfield_10400-268096-value" class="value" bgcolor="#ffffff" width="80%">        <span class="tinylink">        <span class="user-hover" rel="yongan.zhu" id="user_cf_yongan.zhu">朱永安</span></span>
+    </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>L2 Leader:</b></td>
+                <td id="customfield_11390-268096-value" class="value" bgcolor="#ffffff" width="80%">        <span class="tinylink">        <span class="user-hover" rel="yongan.zhu" id="user_cf_yongan.zhu">朱永安</span></span>
+    </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Sprint:</b></td>
+                <td id="customfield_10006-268096-value" class="value" bgcolor="#ffffff" width="80%"></td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Conclusion:</b></td>
+                <td id="customfield_11117-268096-value" class="value" bgcolor="#ffffff" width="80%">      问题被设置为解决状态时，需要进行问题的总结。<br/>
+<br/>
+问题分析：<br/>
+这里写明问题的直接原因、根本原因等 &lt;可以用1、2、3编号&gt;<br/>
+<br/>
+处理策略：<br/>
+这里写明临时的规避方案、以后彻底解决的方案等 &lt;可以用1、2、3编号&gt;
+  </td>
+            </tr>
+            </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>描述</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td id="descriptionArea">
+            <p>合肥IDC2023ES标准云1目前部署40控+3云产品节点+20网络+896计算,软SDN，v611版本 ，node-428节点（中兴海光服务器）上有5-6台虚拟机，客户反馈5-21日凌晨一台虚拟机无法启动，查看计算节点内存，占用94%，cpu负载为440+ ，目前其他虚拟机没有影响。中兴服务器之前出现过类似内存不释放问题，messages中显示有cpu soft lock，这次没有出现软锁，但是在5-19 晚上19:10之后出现大量cpu trace 打印，怀疑是ipmitool sensor 命令触发了物理机硬件bug，目前系统上还有部分ipmitool进程在执行。需要调查原因             </p>
+            <br/>
+        </td>
+    </tr>
+    </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>评论</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" class="grid" style="margin: 0;">
+                <tr id="comment-header-450546"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="5f23a331a1648700152d71f5"
+                id="word_commented_5f23a331a1648700152d71f5"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5f23a331a1648700152d71f5">
+                    汪翔
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">23/五月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-450546"><td bgcolor="#ffffff">
+            <h5><a name="OriginallyaddedtoECSL243221https%3A%2F%2Feasystack.atlassian.net%2Fbrowse%2FECSL243221at21%2FMay%2F2511%3A29AM"></a>Originally added to <a href="https://easystack.atlassian.net/browse/ECSL2-43221" class="external-link" rel="nofollow noreferrer">ECSL2-43221</a> at 21/May/25 11:29 AM</h5>
+
+<p><span class="nobr"><a href="/rest/api/3/attachment/content/356133" title="5-21.tar.gz attached to ECS-7317" data-attachment-type="file" data-attachment-name="5-21.tar.gz" data-media-services-type="file" data-media-services-id="5876d2c1-950e-47bd-8a4e-25e4ca0d23cb" rel="noreferrer">5-21.tar.gz<sup><img class="rendericon" src="/images/icons/link_attachment_7.gif" height="7" width="7" align="absmiddle" alt="" border="0"/></sup></a></span></p>
+
+<p><span class="image-wrap" style=""><img src="/rest/api/3/attachment/content/356132" alt="3bceb2ba995481573ac4894a3900e95d_-20250521-032914.jpg" height="1280" width="2279" style="border: 0px solid black" /></span></p>
+
+<p><span class="image-wrap" style=""><img src="/rest/api/3/attachment/content/356131" alt="290d50dad0bb042e9db2f660222a543f_-20250521-032905.jpg" height="1280" width="2279" style="border: 0px solid black" /></span></p>
+        </td></tr>
+                <tr id="comment-header-450547"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                id="word_commented_557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=557058%3A1e1c47af-84e4-43b8-8bc4-48b51d054387">
+                    陈奇
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">23/五月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-450547"><td bgcolor="#ffffff">
+            <h5><a name="OriginallyaddedtoECSL243221https%3A%2F%2Feasystack.atlassian.net%2Fbrowse%2FECSL243221at22%2FMay%2F254%3A19PM"></a>Originally added to <a href="https://easystack.atlassian.net/browse/ECSL2-43221" class="external-link" rel="nofollow noreferrer">ECSL2-43221</a> at 22/May/25 4:19 PM</h5>
+
+<p>比较像是一个内核bug（<a href="https://easystack.atlassian.net/browse/ECS-6301" title="smart-link" class="external-link" rel="nofollow noreferrer">https://easystack.atlassian.net/browse/ECS-6301</a> ），在kernel-4.18.0-147.5.1.es8_26中有fix。</p>
+
+<p>这个bug 导致可能在中断或者软中断中意外丢失一次 rcu_sched 线程唤醒操作，导致无法启动新的宽限期，从而其他任何调用同步 rcu 的任务都会 D 住。5月19号 19:10后打印的D进程call trace都是卡在__wait_rcu_gp -&gt; wait_for_completion 这个点上。这可能导致后面积攒了越来越多的D进程，一方面内存占用量越来越高，另一方面从5月19号 19:28开始在一些容器、user session、根的cgroup pids控制器出现疑似pid达到上限的打印（cgroup: fork rejected by pids controller in /kubepods/besteffort/pod......），最后导致oom，虚机进程无法完成回收。</p>
+
+<p><b>但是现场重启了节点，无法尝试导出vmcore，所以无法确定是否是此已知问题。</b></p>
+        </td></tr>
+                <tr id="comment-header-450548"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                id="word_commented_557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=557058%3A1e1c47af-84e4-43b8-8bc4-48b51d054387">
+                    陈奇
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">23/五月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-450548"><td bgcolor="#ffffff">
+            <h5><a name="OriginallyaddedtoECSL243221https%3A%2F%2Feasystack.atlassian.net%2Fbrowse%2FECSL243221at22%2FMay%2F254%3A22PM%2Clasteditedby%E9%99%88%E5%A5%87https%3A%2F%2Feasystack.atlassian.net%2Fpeople%2F557058%3A1e1c47af84e443b88bc448b51d054387at23%2FMay%2F251%3A33PM"></a>Originally added to <a href="https://easystack.atlassian.net/browse/ECSL2-43221" class="external-link" rel="nofollow noreferrer">ECSL2-43221</a> at 22/May/25 4:22 PM, last edited by <a href="https://easystack.atlassian.net/people/557058:1e1c47af-84e4-43b8-8bc4-48b51d054387" class="external-link" rel="nofollow noreferrer">陈奇</a> at 23/May/25 1:33 PM</h5>
+
+<p>由于没有故障现场，目前无法确认问题性质。已经和现场同事说明，后面如果复现，需要导出vmcore来确认，方法有两个：</p>
+
+<ul>
+	<li>从其他节点ipmitool sol activate后~~B</li>
+	<li>从带外点击“发送nmi”（如果有）</li>
+</ul>
+
+
+<p>此case先关闭。</p>
+        </td></tr>
+                <tr id="comment-header-450549"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                id="word_commented_557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=557058%3A1e1c47af-84e4-43b8-8bc4-48b51d054387">
+                    陈奇
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">23/五月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-450549"><td bgcolor="#ffffff">
+            <h5><a name="OriginallyaddedtoECSL243221https%3A%2F%2Feasystack.atlassian.net%2Fbrowse%2FECSL243221at22%2FMay%2F254%3A23PM%2Clasteditedby%E9%99%88%E5%A5%87https%3A%2F%2Feasystack.atlassian.net%2Fpeople%2F557058%3A1e1c47af84e443b88bc448b51d054387at22%2FMay%2F254%3A25PM"></a>Originally added to <a href="https://easystack.atlassian.net/browse/ECSL2-43221" class="external-link" rel="nofollow noreferrer">ECSL2-43221</a> at 22/May/25 4:23 PM, last edited by <a href="https://easystack.atlassian.net/people/557058:1e1c47af-84e4-43b8-8bc4-48b51d054387" class="external-link" rel="nofollow noreferrer">陈奇</a> at 22/May/25 4:25 PM</h5>
+
+<p>补充日志：</p>
+
+<p><span class="nobr"><a href="/rest/api/3/attachment/content/356138" title="sa19 attached to ECS-7317" data-attachment-type="file" data-attachment-name="sa19" data-media-services-type="file" data-media-services-id="2aeacf8f-58da-4d09-a58a-ad28336b9e09" rel="noreferrer">sa19<sup><img class="rendericon" src="/images/icons/link_attachment_7.gif" height="7" width="7" align="absmiddle" alt="" border="0"/></sup></a></span><br/>
+<span class="nobr"><a href="/rest/api/3/attachment/content/356139" title="sa20 attached to ECS-7317" data-attachment-type="file" data-attachment-name="sa20" data-media-services-type="file" data-media-services-id="eb98dc86-665c-4309-a050-5a279a4c834b" rel="noreferrer">sa20<sup><img class="rendericon" src="/images/icons/link_attachment_7.gif" height="7" width="7" align="absmiddle" alt="" border="0"/></sup></a></span><br/>
+<span class="nobr"><a href="/rest/api/3/attachment/content/356140" title="sa21 attached to ECS-7317" data-attachment-type="file" data-attachment-name="sa21" data-media-services-type="file" data-media-services-id="a2f981ad-4dbe-4113-93b0-915dd4c9a6f5" rel="noreferrer">sa21<sup><img class="rendericon" src="/images/icons/link_attachment_7.gif" height="7" width="7" align="absmiddle" alt="" border="0"/></sup></a></span><br/>
+<span class="nobr"><a href="/rest/api/3/attachment/content/356136" title="sa17 attached to ECS-7317" data-attachment-type="file" data-attachment-name="sa17" data-media-services-type="file" data-media-services-id="9b931a06-23fd-49de-ba58-ad231c58b00b" rel="noreferrer">sa17<sup><img class="rendericon" src="/images/icons/link_attachment_7.gif" height="7" width="7" align="absmiddle" alt="" border="0"/></sup></a></span><br/>
+<span class="nobr"><a href="/rest/api/3/attachment/content/356137" title="sa18 attached to ECS-7317" data-attachment-type="file" data-attachment-name="sa18" data-media-services-type="file" data-media-services-id="0506bb95-d31c-4acc-8060-af77bf8a75ec" rel="noreferrer">sa18<sup><img class="rendericon" src="/images/icons/link_attachment_7.gif" height="7" width="7" align="absmiddle" alt="" border="0"/></sup></a></span><br/>
+<span class="nobr"><a href="/rest/api/3/attachment/content/356135" title="messages attached to ECS-7317" data-attachment-type="file" data-attachment-name="messages" data-media-services-type="file" data-media-services-id="84a4697c-65ea-4c1b-b054-dc8d2f4c869c" rel="noreferrer">messages<sup><img class="rendericon" src="/images/icons/link_attachment_7.gif" height="7" width="7" align="absmiddle" alt="" border="0"/></sup></a></span><br/>
+<span class="nobr"><a href="/rest/api/3/attachment/content/356134" title="dmesg attached to ECS-7317" data-attachment-type="file" data-attachment-name="dmesg" data-media-services-type="file" data-media-services-id="368e2d2f-96ab-42a2-a37b-ffa089ee51b0" rel="noreferrer">dmesg<sup><img class="rendericon" src="/images/icons/link_attachment_7.gif" height="7" width="7" align="absmiddle" alt="" border="0"/></sup></a></span></p>
+
+        </td></tr>
+                <tr id="comment-header-450550"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="5f23a331a1648700152d71f5"
+                id="word_commented_5f23a331a1648700152d71f5"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5f23a331a1648700152d71f5">
+                    汪翔
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">23/五月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-450550"><td bgcolor="#ffffff">
+            <h5><a name="OriginallyaddedtoECSL243221https%3A%2F%2Feasystack.atlassian.net%2Fbrowse%2FECSL243221at23%2FMay%2F2511%3A14AM%2Clasteditedby%E6%B1%AA%E7%BF%94https%3A%2F%2Feasystack.atlassian.net%2Fpeople%2F5f23a331a1648700152d71f5at23%2FMay%2F2511%3A15AM"></a>Originally added to <a href="https://easystack.atlassian.net/browse/ECSL2-43221" class="external-link" rel="nofollow noreferrer">ECSL2-43221</a> at 23/May/25 11:14 AM, last edited by <a href="https://easystack.atlassian.net/people/5f23a331a1648700152d71f5" class="external-link" rel="nofollow noreferrer">汪翔</a> at 23/May/25 11:15 AM</h5>
+
+<p>故障已经出现两次了，之前尝试使用魔术键也没有生成vmcore，硬件侧认为没告警且没有nmi功能，需要系统侧调查，现在的问题是如何答复客户并且如何尽可能避免再发生，出现问题的均是中兴服务器，是否可以根绝这个线索协调硬件排查</p>
+        </td></tr>
+                <tr id="comment-header-450551"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                id="word_commented_557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=557058%3A1e1c47af-84e4-43b8-8bc4-48b51d054387">
+                    陈奇
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">23/五月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-450551"><td bgcolor="#ffffff">
+            <h5><a name="OriginallyaddedtoECSL243221https%3A%2F%2Feasystack.atlassian.net%2Fbrowse%2FECSL243221at23%2FMay%2F251%3A39PM"></a>Originally added to <a href="https://easystack.atlassian.net/browse/ECSL2-43221" class="external-link" rel="nofollow noreferrer">ECSL2-43221</a> at 23/May/25 1:39 PM</h5>
+
+<p>这里再总结下。</p>
+
+<h4><a name="%E8%B0%83%E6%9F%A5%E8%BF%87%E7%A8%8B"></a>调查过程</h4>
+
+<p>如<a href="https://easystack.atlassian.net/browse/ECSL2-43221?focusedCommentId=450479" title="smart-link" class="external-link" rel="nofollow noreferrer">https://easystack.atlassian.net/browse/ECSL2-43221?focusedCommentId=450479</a> 描述，从messages和dmesg日志中在5月19号 19:10后打印的D进程call trace、以及系统负载持续上升的现象看，和<a href="https://easystack.atlassian.net/browse/ECS-6301" title="smart-link" class="external-link" rel="nofollow noreferrer">https://easystack.atlassian.net/browse/ECS-6301</a> 高度相似，但如果要进一步确认，需要vmcore来分析故障时的CPU和内存情况。但是现象在调查期间已经重启了节点，没有故障现场，目前没有能进一步调查的了。</p>
+
+<h4><a name="%E5%BD%93%E5%89%8D%E5%BB%BA%E8%AE%AE"></a>当前建议</h4>
+
+<ul>
+	<li>等待复现并输出vmcore</li>
+</ul>
+
+
+<p>方法有两个，前面已经出给。“之前尝试使用魔术键也没有生成vmcore”这个情况我这边不了解，调查时没有提及，所以不清楚当时的操作方法和等待时间（kdump过程需要一些时间）。这次请现场帮忙生成vmcore时，现场已经重启了，其实还是需要再尝试一下看看。</p>
+
+<ul>
+	<li>升级kernel-4.18.0-147.5.1.es8_26</li>
+</ul>
+
+
+<p>由于目前看到的现象和kernel-4.18.0-147.5.1.es8_26针对的rcu bug高度相似，如果现象情势需要也可以先升级这个版本内核。</p>
+
+
+
+<p>以上是目前技术层面的调查。</p>
+        </td></tr>
+                <tr id="comment-header-450554"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="5dff08655361330daae9584e"
+                id="word_commented_5dff08655361330daae9584e"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5dff08655361330daae9584e">
+                    esoncall
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">23/五月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-450554"><td bgcolor="#ffffff">
+            <p><font color="#ff5630"><b>Attention: Priority Detail和Priority的设置不一致，根据Priority Detail调整Priority！！！</b></font></p>
+        </td></tr>
+            </table>
+于尚斌 通过JIRA 1001.0.0-SNAPSHOT#100283-rev:1859f0c716e70a1f813fbb93afbe2603e71be1b6 生成于 Mon May 26 11:20:20 UTC 2025。
+
+</body>
+</html>

@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title>[#ECS-7282] 东莞证券股份有限公司-东莞证券XC基础设施平台-测试环境(CSE-3947)-虚机热迁移后宕机</title>
+	<meta name="generator" content="LibreOffice 24.2.0.3 (Linux)"/>
+	<meta name="created" content="00:00:00"/>
+	<meta name="changed" content="2025-05-08T19:24:45.268455813"/>
+	<meta name="created" content="00:00:00">
+	<style type="text/css">
+		@page { size: 21cm 29.7cm; margin-left: 2cm; margin-right: 1cm; margin-top: 1cm; margin-bottom: 1cm }
+		p { line-height: 115%; margin-bottom: 0.25cm; background: transparent; background: transparent }
+		h3 { margin-top: 0.25cm; margin-bottom: 0.21cm; background: transparent; background: transparent; page-break-after: avoid }
+		h3.western { font-family: "Liberation Serif", serif; font-size: 14pt; font-weight: bold }
+		h3.cjk { font-family: "Noto Serif CJK SC"; font-size: 14pt; font-weight: bold }
+		h3.ctl { font-family: "Noto Sans CJK SC"; font-size: 14pt; font-weight: bold }
+		h5 { margin-top: 0.21cm; margin-bottom: 0.11cm; background: transparent; background: transparent; page-break-after: avoid }
+		h5.western { font-family: "Liberation Serif", serif; font-size: 10pt; font-weight: bold }
+		h5.cjk { font-family: "Noto Serif CJK SC"; font-size: 10pt; font-weight: bold }
+		h5.ctl { font-family: "Noto Sans CJK SC"; font-size: 10pt; font-weight: bold }
+		pre { background: transparent; background: transparent }
+		pre.western { font-family: "Liberation Mono", monospace; font-size: 10pt }
+		pre.cjk { font-family: "Noto Sans Mono CJK SC", monospace; font-size: 10pt }
+		pre.ctl { font-family: "Liberation Mono", monospace; font-size: 10pt }
+		td p { orphans: 0; widows: 0; background: transparent; background: transparent }
+		a:link { color: #000080; text-decoration: underline }
+		a:visited { color: #800000; text-decoration: underline }
+	</style>
+</head>
+<body lang="zh-CN" link="#000080" vlink="#800000" dir="ltr">
+<table width="100%" cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="background: #ffffff; page-break-before: always">
+	<tr>
+		<td colspan="2" width="100%" valign="top" bgcolor="#f0f0f0" style="background: #f0f0f0; border: none; padding: 0cm"><p style="margin-bottom: 0.5cm">
+			<b><a href="https://easystack.atlassian.net/browse/CSE-3947">东莞证券股份有限公司</b><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><b>-</b></font></span></font><b>东莞证券</b><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><b>XC</b></font></span></font><b>基础设施平台</b><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><b>-</b></font></span></font><b>测试环境</b></a>
+			<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">(<a href="https://easystack.atlassian.net/browse/CSE-3947">CSE-3947</a>)
+			</font></span></font>
+			</p>
+			<h3 class="cjk"><img src="https://easystack.atlassian.net/images/icons/link_out_bot.gif" name="图像1" align="bottom" width="16" height="16" border="0"/>
+
+			<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">[ECS-7282]&nbsp;</font></span></font><a href="https://easystack.atlassian.net/browse/ECS-7282">东莞证券股份有限公司<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">-</font></span></font>东莞证券<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">XC</font></span></font>基础设施平台<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">-</font></span></font>测试环境<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">(CSE-3947)-</font></span></font>虚机热迁移后宕机</a>
+			已创建<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">:
+			07/</font></span></font>五月<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">/25
+			&nbsp;</font></span></font>已更新<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">:
+			08/</font></span></font>五月<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">/25
+			</font></span></font>
+			</h3>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" style="border: none; padding: 0cm"><p><b>状态</b><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><b>:</b></font></span></font></p>
+		</td>
+		<td width="80%" style="border: none; padding: 0cm"><p><font face="Liberation Serif, serif"><span lang="en-US">Under
+			investigation</span></font></p>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" style="border: none; padding: 0cm"><p><b>项目</b><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><b>:</b></font></span></font></p>
+		</td>
+		<td width="80%" style="border: none; padding: 0cm"><p><font face="Liberation Serif, serif"><span lang="en-US"><a href="https://easystack.atlassian.net/secure/BrowseProject.jspa?id=10100"><font face="Liberation Serif, serif">EasyStack
+			Customer Support</font></a></span></font></p>
+		</td>
+	</tr>
+	<tr>
+		<td style="border: none; padding: 0cm"><p><b>组件</b><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><b>:</b></font></span></font></p>
+		</td>
+		<td style="border: none; padding: 0cm"><p><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><a href="https://easystack.atlassian.net/issues/?jql=project%3D10100%20AND%20%22component%22%3D10501%20ORDER%20BY%20priority%20ASC">Compute</a>,
+			<a href="https://easystack.atlassian.net/issues/?jql=project%3D10100%20AND%20%22component%22%3D10505%20ORDER%20BY%20priority%20ASC">OperatingSystem</a>
+			</font></span></font>
+			</p>
+		</td>
+	</tr>
+	<tr>
+		<td style="border: none; padding: 0cm"><p><b>影响版本</b><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><b>:</b></font></span></font></p>
+		</td>
+		<td style="border: none; padding: 0cm"><p><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><a href="https://easystack.atlassian.net/issues/?jql=project%3D10100%20AND%20%22affectedVersion%22%3D14972%20ORDER%20BY%20priority%20ASC">6.1.1</a>,
+			<a href="https://easystack.atlassian.net/issues/?jql=project%3D10100%20AND%20%22affectedVersion%22%3D15097%20ORDER%20BY%20priority%20ASC">6.2.1</a>
+			</font></span></font>
+			</p>
+		</td>
+	</tr>
+	<tr>
+		<td style="border: none; padding: 0cm"><p><b>修复版本</b><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><b>:</b></font></span></font></p>
+		</td>
+		<td style="border: none; padding: 0cm"><p><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><a href="https://easystack.atlassian.net/issues/?jql=project%3D10100%20AND%20%22fixVersion%22%3D14972%20ORDER%20BY%20priority%20ASC">6.1.1</a>,
+			<a href="https://easystack.atlassian.net/issues/?jql=project%3D10100%20AND%20%22fixVersion%22%3D15097%20ORDER%20BY%20priority%20ASC">6.2.1</a>
+			</font></span></font>
+			</p>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" style="border: none; padding: 0cm"><p><b>父项</b><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><b>:</b></font></span></font></p>
+		</td>
+		<td width="80%" style="border: none; padding: 0cm"><p><a href="https://easystack.atlassian.net/browse/CSE-3947">东莞证券股份有限公司<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">-</font></span></font>东莞证券<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">XC</font></span></font>基础设施平台<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">-</font></span></font>测试环境</a></p>
+		</td>
+	</tr>
+</table>
+<p style="margin-bottom: 0cm"><br/>
+
+</p>
+<table width="100%" cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="background: #ffffff">
+	<tr>
+		<td width="20%" valign="top" bgcolor="#f0f0f0" style="background: #f0f0f0; border: none; padding: 0cm"><p>
+			<b>类型</b><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><b>:</b></font><font face="Liberation Serif, serif">
+			</font></span></font>
+			</p>
+		</td>
+		<td width="30%" valign="top" bgcolor="#ffffff" style="background: #ffffff; border: none; padding: 0cm"><p>
+			<font face="Liberation Serif, serif"><span lang="en-US">Incident </span></font>
+			</p>
+		</td>
+		<td bgcolor="#f0f0f0" style="background: #f0f0f0; border: none; padding: 0cm"><p>
+			<b>优先级</b><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><b>:</b></font><font face="Liberation Serif, serif">
+			</font></span></font>
+			</p>
+		</td>
+		<td valign="top" bgcolor="#ffffff" style="background: #ffffff; border: none; padding: 0cm"><p>
+			重要 
+			</p>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" valign="top" bgcolor="#f0f0f0" style="background: #f0f0f0; border: none; padding: 0cm"><p>
+			<b>报告人</b><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><b>:</b></font><font face="Liberation Serif, serif">
+			</font></span></font>
+			</p>
+		</td>
+		<td width="30%" valign="top" bgcolor="#ffffff" style="background: #ffffff; border: none; padding: 0cm"><p>
+			<a href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=557058%3A8fab0584-c9a9-4550-ad49-dac6c71db05e">孟佩
+			</a>
+			</p>
+		</td>
+		<td width="20%" bgcolor="#f0f0f0" style="background: #f0f0f0; border: none; padding: 0cm"><p>
+			<b>经办人</b><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><b>:</b></font><font face="Liberation Serif, serif">
+			</font></span></font>
+			</p>
+		</td>
+		<td width="30%" valign="top" bgcolor="#ffffff" style="background: #ffffff; border: none; padding: 0cm"><p>
+			<a href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=640048b17c30bbd6b33e9243">蒲启元
+			</a>
+			</p>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" bgcolor="#f0f0f0" style="background: #f0f0f0; border: none; padding: 0cm"><p>
+			<b>解决方案</b><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><b>:</b></font><font face="Liberation Serif, serif">
+			</font></span></font>
+			</p>
+		</td>
+		<td width="30%" valign="top" bgcolor="#ffffff" style="background: #ffffff; border: none; padding: 0cm"><p>
+			未解决 
+			</p>
+		</td>
+		<td width="20%" bgcolor="#f0f0f0" style="background: #f0f0f0; border: none; padding: 0cm"><p>
+			<b>表决</b><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><b>:</b></font><font face="Liberation Serif, serif">
+			</font></span></font>
+			</p>
+		</td>
+		<td width="30%" valign="top" bgcolor="#ffffff" style="background: #ffffff; border: none; padding: 0cm"><p>
+			<font face="Liberation Serif, serif"><span lang="en-US">0 </span></font>
+			</p>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" bgcolor="#f0f0f0" style="background: #f0f0f0; border: none; padding: 0cm"><p>
+			<b>标签</b><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><b>:</b></font><font face="Liberation Serif, serif">
+			</font></span></font>
+			</p>
+		</td>
+		<td colspan="3" valign="top" bgcolor="#ffffff" style="background: #ffffff; border: none; padding: 0cm"><p>
+			运维大区<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">1,
+			</font></span></font>运维大区<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">3
+			</font></span></font>
+			</p>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" bgcolor="#f0f0f0" style="background: #f0f0f0; border: none; padding: 0cm"><p>
+			<b>剩余估计量</b><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><b>:</b></font></span></font></p>
+		</td>
+		<td colspan="3" width="80%" valign="top" bgcolor="#ffffff" style="background: #ffffff; border: none; padding: 0cm"><p>
+			尚未指定 
+			</p>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" bgcolor="#f0f0f0" style="background: #f0f0f0; border: none; padding: 0cm"><p>
+			<b>所用时间</b><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><b>:</b></font></span></font></p>
+		</td>
+		<td colspan="3" width="80%" valign="top" bgcolor="#ffffff" style="background: #ffffff; border: none; padding: 0cm"><p>
+			尚未指定 
+			</p>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" bgcolor="#f0f0f0" style="background: #f0f0f0; border: none; padding: 0cm"><p>
+			<b>原始预估</b><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><b>:</b></font></span></font></p>
+		</td>
+		<td colspan="3" width="80%" valign="top" bgcolor="#ffffff" style="background: #ffffff; border: none; padding: 0cm"><p>
+			尚未指定 
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="20%" bgcolor="#f0f0f0" style="background: #f0f0f0; border: none; padding: 0cm"><p>
+			<b>环境</b><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><b>:</b></font><font face="Liberation Serif, serif">
+			</font></span></font>
+			</p>
+		</td>
+		<td colspan="3" bgcolor="#ffffff" style="background: #ffffff; border: none; padding: 0cm"><p>
+			<font face="Liberation Serif, serif"><span lang="en-US">6.1.1 ,
+			6.2.1</span></font></p>
+		</td>
+	</tr>
+</table>
+<p style="margin-bottom: 0cm"><br/>
+
+</p>
+<table width="100%" cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="background: #ffffff">
+	<tr valign="top">
+		<td width="20%" bgcolor="#f0f0f0" style="background: #f0f0f0; border: none; padding: 0cm"><p>
+			<b>附件</b><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><b>:</b></font><font face="Liberation Serif, serif">
+			</font></span></font>
+			</p>
+		</td>
+		<td bgcolor="#ffffff" style="background: #ffffff; border: none; padding: 0cm"><p>
+			<img src="https://easystack.atlassian.net/images/icons/attach/image.gif" name="图像2" alt="PNG文件" align="bottom" width="16" height="16" border="0"/>
+
+			企业微信截图<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">_17466115012255-20250507-095141.png
+			&nbsp;&nbsp;&nbsp; </font></span></font>
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="20%" bgcolor="#f0f0f0" style="background: #f0f0f0; border: none; padding: 0cm"><p style="margin-bottom: 0.5cm">
+			<b>事务链接</b><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><b>:</b></font><font face="Liberation Serif, serif">
+			</font></span></font>
+			</p>
+			<table width="100%" cellpadding="0" cellspacing="0">
+				<tr>
+					<td colspan="4" bgcolor="#f0f0f0" style="background: #f0f0f0; border: none; padding: 0cm"><p>
+						<font face="Liberation Serif, serif"><span lang="en-US"><b>Cloners</b></span></font></p>
+					</td>
+				</tr>
+				<tr>
+					<td style="border: none; padding: 0cm"><p><font face="Liberation Serif, serif"><span lang="en-US">clones
+						</span></font>
+						</p>
+					</td>
+					<td style="border: none; padding: 0cm"><p><font face="Liberation Serif, serif"><span lang="en-US"><a href="https://easystack.atlassian.net/browse/ECSL2-42977"><font face="Liberation Serif, serif">ECSL2-42977
+						</font></a></span></font>
+						</p>
+					</td>
+					<td style="border: none; padding: 0cm"><p>东莞证券股份有限公司<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">-</font></span></font>东莞证券<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">XC</font></span></font>基础设施平台<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">-</font></span></font>测试环境<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">(CSE-3947...
+						</font></span></font>
+						</p>
+					</td>
+					<td style="border: none; padding: 0cm"><p><font face="Liberation Serif, serif"><span lang="en-US">Work
+						in progress </span></font>
+						</p>
+					</td>
+				</tr>
+			</table>
+			<p style="margin-bottom: 0.5cm"><br/>
+<br/>
+
+			</p>
+		</td>
+		<td bgcolor="#ffffff" style="background: #ffffff; border: none; padding: 0cm"></td>
+	</tr>
+	<tr>
+		<td width="20%" valign="top" bgcolor="#f0f0f0" style="background: #f0f0f0; border: none; padding: 0cm"><p style="margin-bottom: 0.5cm">
+			<font face="Liberation Serif, serif"><span lang="en-US"><b>Priority
+			Detail:</b></span></font></p>
+		</td>
+		<td width="80%" bgcolor="#ffffff" style="background: #ffffff; border: none; padding: 0cm">
+			<div id="customfield_11294-field" dir="ltr"><p style="margin-bottom: 0.5cm">
+				<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">Major-</font></span></font>平台部分功能无法使用
+								</p>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" valign="top" bgcolor="#f0f0f0" style="background: #f0f0f0; border: none; padding: 0cm"><p style="margin-bottom: 0.5cm">
+			<font face="Liberation Serif, serif"><span lang="en-US"><b>Customer
+			Name:</b></span></font></p>
+		</td>
+		<td width="80%" bgcolor="#ffffff" style="background: #ffffff; border: none; padding: 0cm"><p style="margin-bottom: 0.5cm">
+			东莞证券股份有限公司 
+			</p>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" valign="top" bgcolor="#f0f0f0" style="background: #f0f0f0; border: none; padding: 0cm"><p style="margin-bottom: 0.5cm">
+			<font face="Liberation Serif, serif"><span lang="en-US"><b>Customer
+			Project ID:</b></span></font></p>
+		</td>
+		<td width="80%" bgcolor="#ffffff" style="background: #ffffff; border: none; padding: 0cm"><p style="margin-bottom: 0.5cm">
+			<font face="Liberation Serif, serif"><span lang="en-US">iagn </span></font>
+			</p>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" valign="top" bgcolor="#f0f0f0" style="background: #f0f0f0; border: none; padding: 0cm"><p style="margin-bottom: 0.5cm">
+			<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><b>L2</b></font></span></font><b>调查情况（升级</b><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><b>L3</b></font></span></font><b>时填写）</b><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><b>:</b></font></span></font></p>
+		</td>
+		<td width="80%" bgcolor="#ffffff" style="background: #ffffff; border: none; padding: 0cm"><p style="margin-bottom: 0.5cm">
+			<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">1.</font></span></font>问题发生过程（复杂问题需要整理时间线）
+			<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><br/>
+&nbsp;&nbsp;&lt;</font></span></font>补充说明<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">&gt;
+			<br/>
+2.L2</font></span></font>的分析和阶段性结论
+			<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><br/>
+&nbsp;&nbsp;&lt;</font></span></font>补充说明<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">&gt;
+			<br/>
+3.</font></span></font>是否已经和“<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">L2</font></span></font>评审委员会”做过确认，<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">L2</font></span></font>无法解决需要升级<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">L3
+			<br/>
+&nbsp;&nbsp;&lt;</font></span></font>补充说明<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">&gt;
+			</font></span></font>
+			</p>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" valign="top" bgcolor="#f0f0f0" style="background: #f0f0f0; border: none; padding: 0cm"><p style="margin-bottom: 0.5cm">
+			<font face="Liberation Serif, serif"><span lang="en-US"><b>L2
+			Supporter:</b></span></font></p>
+		</td>
+		<td width="80%" bgcolor="#ffffff" style="background: #ffffff; border: none; padding: 0cm"><p style="margin-bottom: 0.5cm">
+			孟佩 
+			</p>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" valign="top" bgcolor="#f0f0f0" style="background: #f0f0f0; border: none; padding: 0cm"><p style="margin-bottom: 0.5cm">
+			<font face="Liberation Serif, serif"><span lang="en-US"><b>L2
+			Leader:</b></span></font></p>
+		</td>
+		<td width="80%" bgcolor="#ffffff" style="background: #ffffff; border: none; padding: 0cm"><p style="margin-bottom: 0.5cm">
+			朱永安 
+			</p>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" valign="top" bgcolor="#f0f0f0" style="background: #f0f0f0; border: none; padding: 0cm"><p style="margin-bottom: 0.5cm">
+			<font face="Liberation Serif, serif"><span lang="en-US"><b>Epic
+			Link:</b></span></font></p>
+		</td>
+		<td width="80%" bgcolor="#ffffff" style="background: #ffffff; border: none; padding: 0cm"><p style="margin-bottom: 0.5cm">
+			<a href="https://easystack.atlassian.net/browse/CSE-3947">东莞证券股份有限公司<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">-</font></span></font>东莞证券<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">XC</font></span></font>基础设施平台<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">-</font></span></font>测试环境
+			</a>
+			</p>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" valign="top" bgcolor="#f0f0f0" style="background: #f0f0f0; border: none; padding: 0cm"><p style="margin-bottom: 0.5cm">
+			<font face="Liberation Serif, serif"><span lang="en-US"><b>Sprint:</b></span></font></p>
+		</td>
+		<td width="80%" bgcolor="#ffffff" style="background: #ffffff; border: none; padding: 0cm"></td>
+	</tr>
+	<tr>
+		<td width="20%" valign="top" bgcolor="#f0f0f0" style="background: #f0f0f0; border: none; padding: 0cm"><p style="margin-bottom: 0.5cm">
+			<font face="Liberation Serif, serif"><span lang="en-US"><b>Conclusion:</b></span></font></p>
+		</td>
+		<td width="80%" bgcolor="#ffffff" style="background: #ffffff; border: none; padding: 0cm"><p style="margin-bottom: 0.5cm">
+			问题被设置为解决状态时，需要进行问题的总结。<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><br/>
+<br/>
+</font></span></font>问题分析：<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><br/>
+</font></span></font>这里写明问题的直接原因、根本原因等
+			<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">&lt;</font></span></font>可以用<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">1</font></span></font>、<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">2</font></span></font>、<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">3</font></span></font>编号<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">&gt;<br/>
+<br/>
+</font></span></font>处理策略：<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><br/>
+</font></span></font>这里写明临时的规避方案、以后彻底解决的方案等
+			<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">&lt;</font></span></font>可以用<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">1</font></span></font>、<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">2</font></span></font>、<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">3</font></span></font>编号<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">&gt;
+			</font></span></font>
+			</p>
+		</td>
+	</tr>
+</table>
+<p style="margin-bottom: 0cm"><br/>
+
+</p>
+<center>
+	<table width="100%" cellpadding="2" cellspacing="0">
+		<tr>
+			<td width="1%" bgcolor="#bbbbbb" style="background: #bbbbbb; border: none; padding: 0cm"><p align="center">
+				&nbsp;<font color="#ffffff"><b>描述</b></font>&nbsp; 
+				</p>
+			</td>
+			<td style="border: none; padding: 0cm"><p>&nbsp;</p>
+			</td>
+		</tr>
+	</table>
+</center>
+<table width="100%" cellpadding="0" cellspacing="0">
+	<tr>
+		<td style="border: 1px solid #cccccc; padding: 0.05cm"><p style="margin-bottom: 0.5cm">
+			环境版本：<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">6.1.1</font></span></font></p>
+			<p style="margin-bottom: 0.5cm">环境规模：<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">3</font></span></font>控制<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">+8</font></span></font>计算<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">+3</font></span></font>存储</p>
+			<p style="margin-bottom: 0.5cm">问题描述：<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">611</font></span></font>升级到<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">621</font></span></font>，到了节点重启阶段，客户将未重启过的节点上虚机热迁移到已重启过的节点，发现虚机宕机，涉及的虚机大部分是麒麟<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">OS</font></span></font>，另外还有<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">2</font></span></font>个云产品节点
+			<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">node-29</font></span></font>和<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">node-30</font></span></font>。</p>
+			<p><br/>
+
+			</p>
+		</td>
+	</tr>
+</table>
+<p style="margin-bottom: 0cm"><br/>
+
+</p>
+<center>
+	<table width="100%" cellpadding="2" cellspacing="0">
+		<tr>
+			<td width="1%" bgcolor="#bbbbbb" style="background: #bbbbbb; border: none; padding: 0cm"><p align="center">
+				&nbsp;<font color="#ffffff"><b>评论</b></font>&nbsp; 
+				</p>
+			</td>
+			<td style="border: none; padding: 0cm"><p>&nbsp;</p>
+			</td>
+		</tr>
+	</table>
+</center><a name="comment-header-449291"></a>
+<table width="100%" cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="background: #ffffff">
+	<tr>
+		<td bgcolor="#f0f0f0" style="background: #f0f0f0; border: none; padding: 0cm"><p>
+			评论于 <a href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=557058%3A8fab0584-c9a9-4550-ad49-dac6c71db05e">孟佩
+			</a><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">[
+			</font><font color="#336699"><font face="Liberation Serif, serif">07/</font></font></span></font><font color="#336699">五月</font><font face="Liberation Serif, serif"><span lang="en-US"><font color="#336699"><font face="Liberation Serif, serif">/25</font></font><font face="Liberation Serif, serif">
+			] </font></span></font>
+			</p>
+		</td>
+	</tr>
+	<tr>
+		<td bgcolor="#ffffff" style="background: #ffffff; border: none; padding: 0cm"><h5 class="cjk">
+			<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">Originally
+			added to <a href="https://easystack.atlassian.net/browse/ECSL2-42977">ECSL2-42977</a>
+			at 07/May/25 10:42 PM</font></span></font></h5>
+			<ol>
+				<li><p style="margin-bottom: 0.5cm">海光<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">CPU
+				</font></span></font>，<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">611</font></span></font>升级到<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">621</font></span></font>，到了节点重启阶段，客户将未重启过的节点上虚机热迁移到已重启过的节点，发现虚机宕机，涉及的虚机大部分是麒麟<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">OS</font></span></font>，另外还有<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">2</font></span></font>个云产品节点
+				<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">node-29</font></span></font>和<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">node-30</font></span></font>。<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">node-29</font></span></font>和<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">node-30</font></span></font>位于节点
+				<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">node-43</font></span></font>上面。
+								</p></li>
+				<li><p style="margin-bottom: 0.5cm">查看出问题的麒麟虚机<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">VNC</font></span></font>，发现有
+				“<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">soft
+				lockup“ “CPU stuck“</font></span></font>的日志打印。与研发确认是由于虚机时钟突然偏移过大，导致<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">CPU</font></span></font>软锁。<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif"><br/>
+</font><font color="#000000"><font face="Liberation Serif, serif"><font color="#000000">
+  <img src="/rest/api/3/attachment/content/353945" name="图像3" alt="企业微信截图_17466115012255-20250507-095141.png" align="bottom" width="1190" height="394" border="1"/>
+</font>
+
+				</font></font></span></font>
+				</p></li>
+			</ol>
+			<ol>
+				<li><p style="margin-bottom: 0.5cm">已确认虚机所在物理机时间是正常的，不清楚为什么虚机在热迁移之后时钟突然偏移这么大的原因。已通过命令收集虚机<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">coredump</font></span></font>，交给麒麟<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">OS</font></span></font>厂商分析。
+								</p>
+				<pre class="cjk"><span style="display: inline-block; border: none; padding: 0cm"><span lang="en-US"><font face="Liberation Mono, monospace"><font face="Liberation Mono, monospace">virsh dump --domain </font></span></font>《虚机<font face="Liberation Mono, monospace"><span lang="en-US"><font face="Liberation Mono, monospace">id</font></span></font>（<font face="Liberation Mono, monospace"><span lang="en-US"><font face="Liberation Mono, monospace">instance-xxxxxxxx</font></span></font>）》 <font face="Liberation Mono, monospace"><span lang="en-US"><font face="Liberation Mono, monospace">--verbose --memory-only --format=kdump-zlib /root/guest_coredump.zlib</font></span></span></font></pre></li>
+			</ol>
+		</td>
+	</tr>
+</table>
+<p>于尚斌 通过<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">JIRA
+1001.0.0-SNAPSHOT#100283-rev:f051267f4470b932a847896184865e5eabe9820c
+</font></span></font>生成于 <font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">Thu
+May 08 11:22:04 UTC 2025</font></span></font>。 
+</p>
+<p><br/>
+<br/>
+
+</p>
+<p>扩展关联：</p>
+<p><font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">linux</font></span></font>源码的<font face="Liberation Serif, serif"><span lang="en-US"><font face="Liberation Serif, serif">kernel/watchdog.c
+760L</font></span></font>输出相应错误日志</p>
+</body>
+</html>

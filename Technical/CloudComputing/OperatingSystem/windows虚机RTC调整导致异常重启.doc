@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>[#ECS-7289] CLONE - [ECS Stack]中路高科交通检测检验认证有限公司-中路检测云数据中心IDC建设项目(CSE-2484)-虚机异常重启</title>
+    <meta http-equiv="Content-Type" Content="application/vnd.ms-word; charset=UTF-8">
+        <style type="text/css">
+
+.tableBorder, .grid
+{
+    background-color: #fff;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tableBorder td, .grid td
+{
+    vertical-align: top;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+.noPadding
+{
+    padding: 0 !important;
+}
+
+h3 .subText
+{
+    font-size: 60%;
+    font-weight: normal;
+}
+
+.tabLabel
+{
+    font-weight: bold;
+    border: 1px solid #ccc;
+    border-bottom:none;
+    padding: 2px;
+    display: inline;
+}
+
+td.blank
+{
+    padding: 0;
+    margin: 0;
+}
+
+.blank td
+{
+    border: none;
+}
+
+#descriptionArea
+{
+    margin: 0;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+hr
+{
+    border-top:1px solid #aaa;
+}
+
+hr.fullcontent
+{
+  height: 15px;
+  padding: 10px 0;
+  background: #fff url('https://easystack.atlassian.net/images/icons/hr.gif') no-repeat scroll center;
+}
+
+</style>
+
+</head>
+<body>
+
+<table class="tableBorder" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" width="100%" colspan="2" valign="top">
+                            <b><a id="parent_issue_summary" href="https://easystack.atlassian.net/browse/CSE-2484">中路高科交通检测检验认证有限公司-中路检测云数据中心IDC建设项目</a></b>
+                <span style="font-size: 9px">(<a id="parent_issue_key" href="https://easystack.atlassian.net/browse/CSE-2484">CSE-2484</a>)</span>
+                <h3 class="formtitle"><img src="https://easystack.atlassian.net/images/icons/link_out_bot.gif" width="16" height="16" />
+                        [ECS-7289]&nbsp;<a href="https://easystack.atlassian.net/browse/ECS-7289">CLONE - [ECS Stack]中路高科交通检测检验认证有限公司-中路检测云数据中心IDC建设项目(CSE-2484)-虚机异常重启</a>
+            <span class="subText">
+               已创建: 09/五月/25                   &nbsp;已更新: 12/五月/25
+
+                                            </span>
+            </h3>
+        </td>
+    </tr>
+    <tr>
+        <td width="20%"><b>状态:</b></td>
+        <td width="80%">Under investigation</td>
+    </tr>
+    <tr>
+        <td width="20%"><b>项目:</b></td>
+        <td width="80%"><a href="https://easystack.atlassian.net/secure/BrowseProject.jspa?id=10100">EasyStack Customer Support</a></td>
+    </tr>
+
+        <tr>
+            <td><b>组件:</b></td>
+            <td>
+                                        <a title="Compute - Nova, Glance, HostHA"
+                href="https://easystack.atlassian.net/issues/?jql=project%3D10100%20AND%20%22component%22%3D10501%20ORDER%20BY%20priority%20ASC"
+            >Compute</a>,                    <a title="OperatingSystem - OS"
+                href="https://easystack.atlassian.net/issues/?jql=project%3D10100%20AND%20%22component%22%3D10505%20ORDER%20BY%20priority%20ASC"
+            >OperatingSystem</a>                        </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>影响版本:</b></td>
+            <td>
+                                        <a title="6.1.1"
+                href="https://easystack.atlassian.net/issues/?jql=project%3D10100%20AND%20%22affectedVersion%22%3D14972%20ORDER%20BY%20priority%20ASC"
+            >6.1.1</a>                        </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>修复版本:</b></td>
+            <td>
+                                        <a title="6.1.1"
+                href="https://easystack.atlassian.net/issues/?jql=project%3D10100%20AND%20%22fixVersion%22%3D14972%20ORDER%20BY%20priority%20ASC"
+            >6.1.1</a>                        </td>
+    </tr>
+    
+    
+            <td width="20%"><b>父项:</b></td>
+        <td width="80%"><a href="https://easystack.atlassian.net/browse/CSE-2484">中路高科交通检测检验认证有限公司-中路检测云数据中心IDC建设项目</a></td>
+    </table>
+
+<br />
+<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" valign="top" width="20%">
+            <b>类型:</b>
+        </td>
+        <td bgcolor="#ffffff" valign="top"  width="30%" >
+            Problem
+        </td>
+
+                    <td bgcolor="#f0f0f0">
+                <b>优先级:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap>
+                严重
+            </td>
+            </tr>
+    <tr>
+                        <td bgcolor="#f0f0f0" valign="top" width="20%">
+                <b>报告人:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top"  width="30%" >
+                                        
+                
+        
+            <a class="user-hover" rel="5f1e8d39bedd100015113da0"
+                id="word_reporter_5f1e8d39bedd100015113da0"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5f1e8d39bedd100015113da0">
+                    高倩雨
+                </a>
+
+                            </td>
+        
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>经办人:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap  width="30%" >
+                                        
+                
+        
+            <a class="user-hover" rel="712020:48103b54-608f-481c-ae26-22a06a8bd89b"
+                id="word_assignee_712020:48103b54-608f-481c-ae26-22a06a8bd89b"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=712020%3A48103b54-608f-481c-ae26-22a06a8bd89b">
+                    张仕森
+                </a>
+
+                            </td>
+            </tr>
+    	<tr>
+		<td bgcolor="#f0f0f0" width="20%">
+			<b>解决方案:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+            				未解决
+                    </td>
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>表决:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+                0
+            </td>
+        
+    </tr>
+    
+        <tr>
+        <td bgcolor="#f0f0f0" width="20%">
+            <b>标签:</b>
+        </td>
+        <td id="labels-267431-value" class="value" bgcolor="#ffffff" valign="top" colspan="3" nowrap>
+                            运维大区1                    </td>
+    </tr>
+    
+    	<tr>
+        		<td bgcolor="#f0f0f0" width="20%"><b>剩余估计量:</b></td>
+        <td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            尚未指定
+            		</td>
+    </tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>所用时间:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            尚未指定
+            		</td>
+	</tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>原始预估:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            尚未指定
+            		</td>
+    </tr>
+    
+    	<tr>
+
+		<td bgcolor="#f0f0f0" width="20%" valign="top">
+			<b>环境:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" colspan="3">
+            <p>6.1.1</p>
+		</td>
+	</tr>
+    </table>
+
+
+
+    <br />
+
+    	<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+            
+
+                <tr>
+            <td bgcolor="#f0f0f0" width=20% valign=top>
+                <b>附件:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top">
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG文件">
+                    a668902b5a687069c1fbd8144d32277-20250430-121233.png &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/file.gif" height="16" width="16" border="0" alt="文件">
+                    dmesg_log.tar.gz &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG文件">
+                    image-20250430-121215.png &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG文件">
+                    image-20250509-162335.png &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/text.gif" height="16" width="16" border="0" alt="Text文件">
+                    qemu_and_xml.log &nbsp;&nbsp;&nbsp;
+                            </td>
+        </tr>
+        
+            <tr>
+            <td bgcolor="#f0f0f0" width="20%" valign="top">
+                <b>事务链接:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" class="noPadding">
+                <table cellpadding="0" cellspacing="0" border="0" width="100%" class="blank">
+                                            <tr>
+                            <td colspan="4" bgcolor="#f0f0f0">
+                                <b>Cloners</b><br/>
+                            </td>
+                        </tr>
+                                    <tr>
+            <td>
+                clones
+            </td>
+            <td>
+                <a href="https://easystack.atlassian.net/browse/ECSL2-42898">
+                     ECSL2-42898                 </a>
+            </td>
+            <td>
+                [ECS Stack]中路高科交通检测检验认证有限公司-中路检测云数据中心...
+            </td>
+            <td>
+                Work in progress
+            </td>
+        </tr>
+                                                                    </table>
+            </td>
+        </tr>
+    
+
+
+    
+                        <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Priority Detail:</b></td>
+                <td id="customfield_11294-267431-value" class="value" bgcolor="#ffffff" width="80%">
+
+
+    <div class="shorten" id="customfield_11294-field">
+        							<span>Critical-用户业务-某个业务受到影响</span>			            </div>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Customer Name:</b></td>
+                <td id="customfield_11102-267431-value" class="value" bgcolor="#ffffff" width="80%">      中路高科交通检测检验认证有限公司
+  </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Customer Project ID:</b></td>
+                <td id="customfield_11111-267431-value" class="value" bgcolor="#ffffff" width="80%">      iagn
+  </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>L2调查情况（升级L3时填写）:</b></td>
+                <td id="customfield_11105-267431-value" class="value" bgcolor="#ffffff" width="80%">      1.问题发生过程（复杂问题需要整理时间线）<br/>
+&nbsp;&nbsp;&lt;补充说明&gt;<br/>
+2.L2的分析和阶段性结论<br/>
+&nbsp;&nbsp;&lt;补充说明&gt;<br/>
+3.是否已经和“L2评审委员会”做过确认，L2无法解决需要升级L3<br/>
+&nbsp;&nbsp;&lt;补充说明&gt;<br/>
+
+  </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>L2 Supporter:</b></td>
+                <td id="customfield_10400-267431-value" class="value" bgcolor="#ffffff" width="80%">        <span class="tinylink">        <span class="user-hover" rel="yongan.zhu" id="user_cf_yongan.zhu">朱永安</span></span>
+    </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>L2 Leader:</b></td>
+                <td id="customfield_11390-267431-value" class="value" bgcolor="#ffffff" width="80%">        <span class="tinylink">        <span class="user-hover" rel="yongan.zhu" id="user_cf_yongan.zhu">朱永安</span></span>
+    </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Epic Link:</b></td>
+                <td id="customfield_10007-267431-value" class="value" bgcolor="#ffffff" width="80%">
+    <a class="aui-label ghx-label-12" href="https://easystack.atlassian.net/browse/CSE-2484">
+        中路高科交通检测检验认证有限公司-中路检测云数据中心IDC建设项目
+    </a>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Sprint:</b></td>
+                <td id="customfield_10006-267431-value" class="value" bgcolor="#ffffff" width="80%"></td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Conclusion:</b></td>
+                <td id="customfield_11117-267431-value" class="value" bgcolor="#ffffff" width="80%">      问题被设置为解决状态时，需要进行问题的总结。<br/>
+<br/>
+问题分析：<br/>
+这里写明问题的直接原因、根本原因等 &lt;可以用1、2、3编号&gt;<br/>
+<br/>
+处理策略：<br/>
+这里写明临时的规避方案、以后彻底解决的方案等 &lt;可以用1、2、3编号&gt;
+  </td>
+            </tr>
+            </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>描述</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td id="descriptionArea">
+            <p>环境版本：611 </p>
+
+<p>环境规模：8计算+3超融合</p>
+
+<p>问题描述：虚机异常重启</p>
+
+<p>远程方式：可以远程 </p>
+
+<p>获取方式：ESonCall微信群-中路高科超融合V5升级V6-浮生</p>
+            <br/>
+        </td>
+    </tr>
+    </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>评论</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" class="grid" style="margin: 0;">
+                <tr id="comment-header-449538"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="5f0bfb74ce15e80026334f94"
+                id="word_commented_5f0bfb74ce15e80026334f94"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5f0bfb74ce15e80026334f94">
+                    王晓强
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">09/五月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-449538"><td bgcolor="#ffffff">
+            <h5><a name="OriginallyaddedtoECSL242898https%3A%2F%2Feasystack.atlassian.net%2Fbrowse%2FECSL242898at30%2FApr%2F257%3A53PM%2Clasteditedby%E7%8E%8B%E6%99%93%E5%BC%BAhttps%3A%2F%2Feasystack.atlassian.net%2Fpeople%2F5f0bfb74ce15e80026334f94at30%2FApr%2F258%3A12PM"></a>Originally added to <a href="https://easystack.atlassian.net/browse/ECSL2-42898" class="external-link" rel="nofollow noreferrer">ECSL2-42898</a> at 30/Apr/25 7:53 PM, last edited by <a href="https://easystack.atlassian.net/people/5f0bfb74ce15e80026334f94" class="external-link" rel="nofollow noreferrer">王晓强</a> at 30/Apr/25 8:12 PM</h5>
+
+<p>1、客户环境今天有两台虚机异常关机，172.18.100.85/100（floating ip），85虚机（node-6，winserver2012）14:29关机，100虚机（node-9，winserver2016）16:58关机</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre># 85虚机
+2025-04-30 14:29:16.193 +0800 ¦ node-6 ¦ libvirt ¦  ¦ qemu-kvm: /builddir/build/BUILD/qemu-4.2.0/hw/rtc/mc146818rtc.c:201: periodic_timer_update: Assertion `lost_clock &gt;= 0' failed.
+2025-04-30 14:29:16.612 +0800 ¦ node-6 ¦ libvirt ¦  ¦ 2025-04-30 06:29:16.611+0000: shutting down, reason=crashed
+2025-04-30 14:48:54.978 +0800 ¦ node-6 ¦ libvirt ¦  ¦ 2025-04-30 06:48:54.978+0000: starting up libvirt version: 6.0.0, package: 37.es7_3 (Koji, 2022-03-24-14:26:59, x86_64-kojid), qemu version: 4.2.0qemu-kvm-4.2.0-59.es7_6, kernel: 4.18.0-147.5.1.es8_24.x86_64, hostname: node-6.domain.tld
+
+# 100虚机
+2025-04-30 16:58:42.865 +0800 ¦ node-9 ¦ libvirt ¦  ¦ qemu-kvm: /builddir/build/BUILD/qemu-4.2.0/hw/rtc/mc146818rtc.c:201: periodic_timer_update: Assertion `lost_clock &gt;= 0' failed.
+2025-04-30 16:58:43.285 +0800 ¦ node-9 ¦ libvirt ¦  ¦ 2025-04-30 08:58:43.285+0000: shutting down, reason=crashed
+2025-04-30 17:06:54.333 +0800 ¦ node-9 ¦ libvirt ¦  ¦ 2025-04-30 09:06:54.333+0000: starting up libvirt version: 6.0.0, package: 37.es7_3 (Koji, 2022-03-24-14:26:59, x86_64-kojid), qemu version: 4.2.0qemu-kvm-4.2.0-59.es7_6, kernel: 4.18.0-147.5.1.es8_24.x86_64, hostname: node-9.domain.tld</pre>
+</div></div>
+
+<p>2、查看messages日志，对应时间点附近除了时间调整，没有其他日志</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre># 85虚机
+2025-04-30 14:25:01.000 +0800 ¦ node-6 ¦ messages ¦  ¦ Apr 30 14:25:01 node-6 systemd[1]: Stopped /run/user/0 mount wrapper.
+2025-04-30 14:29:16.000 +0800 ¦ node-6 ¦ messages ¦  ¦ Apr 30 14:29:16 node-6 chronyd[8590]: System clock was stepped by -1.020970 seconds
+2025-04-30 14:29:16.000 +0800 ¦ node-6 ¦ messages ¦  ¦ Apr 30 14:29:16 node-6 kernel: device tap238fd037-b1 left promiscuous mode
+2025-04-30 14:29:16.000 +0800 ¦ node-6 ¦ messages ¦  ¦ Apr 30 14:29:16 node-6 ovs-vsctl[55277]: ovs|00001|vsctl|INFO|Called as ovs-vsctl --timeout=5 -- --if-exists del-port tap238fd037-b1
+2025-04-30 14:29:54.000 +0800 ¦ node-6 ¦ messages ¦  ¦ Apr 30 14:29:54 node-6 chronyd[8590]: System clock was stepped by 1.100966 seconds
+2025-04-30 14:29:54.000 +0800 ¦ node-6 ¦ messages ¦  ¦ Apr 30 14:29:54 node-6 systemd[1]: Starting dnf makecache...
+2025-04-30 14:29:54.000 +0800 ¦ node-6 ¦ messages ¦  ¦ Apr 30 14:29:54 node-6 dnf[7418]: roller                                          3.5 MB/s | 3.6 kB     00:00
+2025-04-30 14:29:54.000 +0800 ¦ node-6 ¦ messages ¦  ¦ Apr 30 14:29:54 node-6 dnf[7418]: Metadata cache created.
+2025-04-30 14:29:54.000 +0800 ¦ node-6 ¦ messages ¦  ¦ Apr 30 14:29:54 node-6 systemd[1]: dnf-makecache.service: Succeeded.
+2025-04-30 14:29:54.000 +0800 ¦ node-6 ¦ messages ¦  ¦ Apr 30 14:29:54 node-6 systemd[1]: Started dnf makecache.
+2025-04-30 14:30:00.000 +0800 ¦ node-6 ¦ messages ¦  ¦ Apr 30 14:30:00 node-6 systemd[1]: Starting system activity accounting tool...
+
+...
+
+# 100虚机
+2025-04-30 16:55:01.000 +0800 ¦ node-9 ¦ messages ¦  ¦ Apr 30 16:55:01 node-9 systemd[1]: Stopped /run/user/0 mount wrapper.
+2025-04-30 16:58:42.000 +0800 ¦ node-9 ¦ messages ¦  ¦ Apr 30 16:58:42 node-9 chronyd[6075]: System clock was stepped by -1.096694 seconds
+2025-04-30 16:58:43.000 +0800 ¦ node-9 ¦ messages ¦  ¦ Apr 30 16:58:43 node-9 kernel: device tapfc8844b3-b2 left promiscuous mode
+2025-04-30 16:58:43.000 +0800 ¦ node-9 ¦ messages ¦  ¦ Apr 30 16:58:43 node-9 ovs-vsctl[19057]: ovs|00001|vsctl|INFO|Called as ovs-vsctl --timeout=5 -- --if-exists del-port tapfc8844b3-b2
+2025-04-30 17:00:01.000 +0800 ¦ node-9 ¦ messages ¦  ¦ Apr 30 17:00:01 node-9 systemd[1]: Starting system activity accounting tool...</pre>
+</div></div>
+
+<p>3、查看其他节点日志，也有大量调整时间的日志，如node-7，且node-7也有winserver虚机，没有crashed过：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>...
+2025-04-30 16:58:42.000 +0800 ¦ node-7 ¦ messages ¦  ¦ Apr 30 16:58:42 node-7 chronyd[10060]: System clock was stepped by -1.078468 seconds
+2025-04-30 17:25:05.000 +0800 ¦ node-7 ¦ messages ¦  ¦ Apr 30 17:25:05 node-7 chronyd[10060]: System clock was stepped by -1.000772 seconds
+2025-04-30 17:35:08.000 +0800 ¦ node-7 ¦ messages ¦  ¦ Apr 30 17:35:08 node-7 chronyd[10060]: System clock was stepped by 1.073186 seconds
+2025-04-30 17:36:01.000 +0800 ¦ node-7 ¦ messages ¦  ¦ Apr 30 17:36:01 node-7 chronyd[10060]: System clock was stepped by -1.008682 seconds
+2025-04-30 17:36:44.000 +0800 ¦ node-7 ¦ messages ¦  ¦ Apr 30 17:36:44 node-7 chronyd[10060]: System clock was stepped by 1.021381 seconds
+2025-04-30 17:39:10.000 +0800 ¦ node-7 ¦ messages ¦  ¦ Apr 30 17:39:10 node-7 chronyd[10060]: System clock was stepped by 1.048206 seconds
+2025-04-30 17:42:22.000 +0800 ¦ node-7 ¦ messages ¦  ¦ Apr 30 17:42:22 node-7 chronyd[10060]: System clock was stepped by -1.051521 seconds
+2025-04-30 17:42:31.000 +0800 ¦ node-7 ¦ messages ¦  ¦ Apr 30 17:42:31 node-7 chronyd[10060]: System clock was stepped by -1.097567 seconds
+2025-04-30 17:42:41.000 +0800 ¦ node-7 ¦ messages ¦  ¦ Apr 30 17:42:41 node-7 chronyd[10060]: System clock was stepped by -1.028078 seconds
+2025-04-30 17:43:59.000 +0800 ¦ node-7 ¦ messages ¦  ¦ Apr 30 17:43:59 node-7 chronyd[10060]: System clock was stepped by -1.082404 seconds
+2025-04-30 18:09:14.000 +0800 ¦ node-7 ¦ messages ¦  ¦ Apr 30 18:09:14 node-7 chronyd[10060]: System clock was stepped by -1.001319 seconds
+...</pre>
+</div></div>
+
+<p><span class="image-wrap" style=""><img src="/rest/api/3/attachment/content/354364" alt="image-20250430-121215.png" height="83" width="1454" style="border: 0px solid black" /></span></p>
+
+<p><span class="image-wrap" style=""><img src="/rest/api/3/attachment/content/354362" alt="a668902b5a687069c1fbd8144d32277-20250430-121233.png" height="716" width="1039" style="border: 0px solid black" /></span></p>
+
+<p>4、查看ceph日志，在100虚机关机前，有osd被标记为down；但是85虚机关机前，存储是OK的；</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>2025-04-30 16:58:25.398 +0800 ¦ node-1 ¦ ceph ¦  ¦ 2025-04-30 16:58:25.398530 mgr.node-1 (mgr.1507404266) 216802 : cluster [DBG] pgmap v169492: 7488 pgs: 7488 active+clean; 110 TiB data, 333 TiB used, 713 TiB / 1.0 PiB avail; 4.3 MiB/s rd, 12 MiB/s wr, 811 op/s
+2025-04-30 16:58:41.822 +0800 ¦ node-1 ¦ ceph ¦  ¦ 2025-04-30 16:58:41.822693 mon.node-1 (mon.0) 3054932 : cluster [WRN] Health check update: Reduced data availability: 1 pg inactive, 7 pgs peering (PG_AVAILABILITY)
+2025-04-30 16:58:41.822 +0800 ¦ node-1 ¦ ceph ¦  ¦ 2025-04-30 16:58:41.822711 mon.node-1 (mon.0) 3054933 : cluster [WRN] Health check update: Degraded data redundancy: 334925/91745112 objects degraded (0.365%), 74 pgs degraded (PG_DEGRADED)
+2025-04-30 16:58:34.661 +0800 ¦ node-1 ¦ ceph ¦  ¦ 2025-04-30 16:58:34.661811 osd.192 (osd.192) 282 : cluster [WRN] Monitor daemon marked osd.192 down, but it is still running
+2025-04-30 16:58:34.661 +0800 ¦ node-1 ¦ ceph ¦  ¦ 2025-04-30 16:58:34.661821 osd.192 (osd.192) 283 : cluster [DBG] map e202554 wrongly marked me down at e202554
+2025-04-30 16:58:43.827 +0800 ¦ node-1 ¦ ceph ¦  ¦ 2025-04-30 16:58:43.827321 mon.node-1 (mon.0) 3054935 : cluster [INF] Health check cleared: PG_AVAILABILITY (was: Reduced data availability: 1 pg inactive, 7 pgs peering)
+2025-04-30 16:58:43.827 +0800 ¦ node-1 ¦ ceph ¦  ¦ 2025-04-30 16:58:43.827343 mon.node-1 (mon.0) 3054936 : cluster [INF] Health check cleared: SLOW_OPS (was: 0 slow ops, oldest one blocked for 30 sec, osd.192 has slow ops)
+2025-04-30 16:58:37.509 +0800 ¦ node-1 ¦ ceph ¦  ¦ 2025-04-30 16:58:37.509210 mgr.node-1 (mgr.1507404266) 216808 : cluster [DBG] pgmap v169500: 7488 pgs: 14 active+undersized, 84 active+undersized+degraded, 41 peering, 9 stale+active+clean, 2 activating+undersized, 7338 active+clean; 110 TiB data, 333 TiB used, 713 TiB / 1.0 PiB avail; 8.5 MiB/s wr, 632 op/s; 470822/91745112 objects degraded (0.513%)</pre>
+</div></div>
+
+<p>5、在85虚机关机前后，存储中开始出现心跳检测时间较长的记录；100虚机关机前后，也有这种日志；其他时间没有</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre># 85虚机
+2025-04-30 13:07:01.139 +0800 ¦ node-1 ¦ ceph ¦  ¦ 2025-04-30 13:07:01.139616 mon.node-1 (mon.0) 2930401 : cluster [WRN] Health check failed: Long heartbeat ping times on back interface seen, longest is 204475.383 msec (OSD_SLOW_PING_TIME_BACK)
+...
+2025-04-30 14:45:54.833 +0800 ¦ node-1 ¦ ceph ¦  ¦ 2025-04-30 14:45:54.833674 mon.node-1 (mon.0) 2983274 : cluster [INF] Health check cleared: OSD_SLOW_PING_TIME_FRONT (was: Long heartbeat ping times on front interface seen, longest is 11930.261 msec)
+
+# 100虚机
+2025-04-30 17:44:08.702 +0800 ¦ node-1 ¦ ceph ¦  ¦ 2025-04-30 17:44:08.702331 mon.node-1 (mon.0) 3079392 : cluster [WRN] Health check failed: Long heartbeat ping times on back interface seen, longest is 204475.432 msec (OSD_SLOW_PING_TIME_BACK)
+...
+2025-04-30 18:00:09.560 +0800 ¦ node-1 ¦ ceph ¦  ¦ 2025-04-30 18:00:09.560957 mon.node-1 (mon.0) 3088069 : cluster [INF] Health check cleared: OSD_SLOW_PING_TIME_FRONT (was: Long heartbeat ping times on front interface seen, longest is 12447.875 msec)</pre>
+</div></div>
+        </td></tr>
+                <tr id="comment-header-449539"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="5f0bfb74ce15e80026334f94"
+                id="word_commented_5f0bfb74ce15e80026334f94"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5f0bfb74ce15e80026334f94">
+                    王晓强
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">09/五月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-449539"><td bgcolor="#ffffff">
+            <h5><a name="OriginallyaddedtoECSL242898https%3A%2F%2Feasystack.atlassian.net%2Fbrowse%2FECSL242898at30%2FApr%2F258%3A26PM"></a>Originally added to <a href="https://easystack.atlassian.net/browse/ECSL2-42898" class="external-link" rel="nofollow noreferrer">ECSL2-42898</a> at 30/Apr/25 8:26 PM</h5>
+
+<p>node-6/7/9的dmesg日志、100虚机的qemu进程参数和xml内容</p>
+
+<p><span class="nobr"><a href="/rest/api/3/attachment/content/354363" title="dmesg_log.tar.gz attached to ECS-7289" data-attachment-type="file" data-attachment-name="dmesg_log.tar.gz" data-media-services-type="file" data-media-services-id="ec7ba603-39e4-4b9b-9c41-058258247f08" rel="noreferrer">dmesg_log.tar.gz<sup><img class="rendericon" src="/images/icons/link_attachment_7.gif" height="7" width="7" align="absmiddle" alt="" border="0"/></sup></a></span><br/>
+<span class="nobr"><a href="/rest/api/3/attachment/content/354366" title="qemu_and_xml.log attached to ECS-7289" data-attachment-type="file" data-attachment-name="qemu_and_xml.log" data-media-services-type="file" data-media-services-id="5902873a-3631-4eb9-a0b2-a39f83c0c13a" rel="noreferrer">qemu_and_xml.log<sup><img class="rendericon" src="/images/icons/link_attachment_7.gif" height="7" width="7" align="absmiddle" alt="" border="0"/></sup></a></span></p>
+
+        </td></tr>
+                <tr id="comment-header-449540"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                id="word_commented_557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=557058%3A1e1c47af-84e4-43b8-8bc4-48b51d054387">
+                    陈奇
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">09/五月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-449540"><td bgcolor="#ffffff">
+            <h5><a name="OriginallyaddedtoECSL242898https%3A%2F%2Feasystack.atlassian.net%2Fbrowse%2FECSL242898at10%2FMay%2F2512%3A13AM"></a>Originally added to <a href="https://easystack.atlassian.net/browse/ECSL2-42898" class="external-link" rel="nofollow noreferrer">ECSL2-42898</a> at 10/May/25 12:13 AM</h5>
+
+<p>在虚机crash的时刻，host上都出现向后调整时钟的打印：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>2025-04-30 14:29:16.193 +0800 ¦ node-6 ¦ libvirt ¦  ¦ qemu-kvm: /builddir/build/BUILD/qemu-4.2.0/hw/rtc/mc146818rtc.c:201: periodic_timer_update: Assertion `lost_clock &gt;= 0' failed.
+
+2025-04-30 14:29:16.000 +0800 ¦ node-6 ¦ messages ¦  ¦ Apr 30 14:29:16 node-6 chronyd[8590]: System clock was stepped by -1.020970 seconds</pre>
+</div></div>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>2025-04-30 16:58:42.865 +0800 ¦ node-9 ¦ libvirt ¦  ¦ qemu-kvm: /builddir/build/BUILD/qemu-4.2.0/hw/rtc/mc146818rtc.c:201: periodic_timer_update: Assertion `lost_clock &gt;= 0' failed.
+
+2025-04-30 16:58:42.000 +0800 ¦ node-9 ¦ messages ¦  ¦ Apr 30 16:58:42 node-9 chronyd[6075]: System clock was stepped by -1.096694 seconds</pre>
+</div></div>
+
+<p>目前虚拟化层为虚机模拟的是rtc时钟：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>()[root@node-9 /]# ps -ef | grep 2b268988-1b3c-41ad-b140-961b4f364d87                                                                                                                         
+nova     29881  7558 99 17:06 ?        07:54:45 /usr/libexec/qemu-kvm -name guest=instance-000006c0
+......
+-rtc base=localtime,driftfix=slew 
+......
+-no-hpet
+......
+
+
+# guest domain: 
+  &lt;clock offset='localtime'&gt;
+    &lt;timer name='pit' tickpolicy='delay'/&gt;
+    &lt;timer name='rtc' tickpolicy='catchup'/&gt;
+    &lt;timer name='hpet' present='no'/&gt;
+    &lt;timer name='hypervclock' present='yes'/&gt;
+  &lt;/clock&gt;</pre>
+</div></div>
+
+<p>比较像是 <a href="https://issues.redhat.com/browse/RHEL-1296" class="external-link" rel="nofollow noreferrer">https://issues.redhat.com/browse/RHEL-1296</a> 这个case。在一些版本的windows guest使用rtc时钟的情况下，host从时间源同步并向后调整时间，guest windows内会很快地重新设置时钟周期，有可能会使qemu运行代码periodic_timer_update()时，<tt>cur_clock}}小于{{last_periodic_clock</tt>，因{{assert(lost_clock &gt;= 0)}}导致crash：</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-c">/*
+ * handle periodic timer. @old_period indicates the periodic timer update
+ * is just due to period adjustment.
+ */
+<span class="code-keyword">static</span> <span class="code-keyword"><span class="code-object">void</span></span>
+periodic_timer_update(RTCState *s, int64_t current_time, uint32_t old_period, <span class="code-keyword"><span class="code-object">bool</span></span> period_change)
+{
+    uint32_t period;
+    int64_t cur_clock, next_irq_clock, lost_clock = 0;
+
+    period = rtc_periodic_clock_ticks(s);
+    s-&gt;period = period;
+
+    if (!period) {
+        s-&gt;irq_coalesced = 0;
+        timer_del(s-&gt;periodic_timer);
+        <span class="code-keyword">return</span>;
+    }
+
+    <span class="code-comment">/* compute 32 khz clock */</span>
+    cur_clock =
+        muldiv64(current_time, RTC_CLOCK_RATE, NANOSECONDS_PER_SECOND);
+
+    /*
+     * if the periodic timer's update is due to period re-configuration,
+     * we should count the clock since last interrupt.
+     */
+    if (old_period &amp;&amp; period_change) {
+        int64_t last_periodic_clock, next_periodic_clock;
+
+        next_periodic_clock = muldiv64(s-&gt;next_periodic_time,
+        ¦       ¦       ¦       RTC_CLOCK_RATE, NANOSECONDS_PER_SECOND);
+        last_periodic_clock = next_periodic_clock - old_period;
+        lost_clock = cur_clock - last_periodic_clock;
+        assert(lost_clock &gt;= 0);  &lt;&lt;&lt;---
+    }</pre>
+</div></div>
+        </td></tr>
+                <tr id="comment-header-449541"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                id="word_commented_557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=557058%3A1e1c47af-84e4-43b8-8bc4-48b51d054387">
+                    陈奇
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">09/五月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-449541"><td bgcolor="#ffffff">
+            <h5><a name="OriginallyaddedtoECSL242898https%3A%2F%2Feasystack.atlassian.net%2Fbrowse%2FECSL242898at10%2FMay%2F251%3A16AM"></a>Originally added to <a href="https://easystack.atlassian.net/browse/ECSL2-42898" class="external-link" rel="nofollow noreferrer">ECSL2-42898</a> at 10/May/25 1:16 AM</h5>
+
+<h4><a name="%E5%86%85%E9%83%A8%E7%8E%AF%E5%A2%83%E5%A4%8D%E7%8E%B0"></a>内部环境复现</h4>
+
+<p>参考 <a href="https://issues.redhat.com/browse/RHEL-1296" class="external-link" rel="nofollow noreferrer">https://issues.redhat.com/browse/RHEL-1296</a> ，在内部环境使用es标准windows 2016镜像运行虚机：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>/usr/libexec/qemu-kvm \
+-name guest=daketest01,debug-threads=on \
+-machine pc-i440fx-rhel7.6.0,accel=kvm,usb=off,dump-guest-core=off \
+-cpu Broadwell-IBRS,vme=on,ss=on,vmx=on,f16c=on,rdrand=on,hypervisor=on,arat=on,tsc-adjust=on,umip=on,stibp=on,arch-capabilities=on,xsaveopt=on,pdpe1gb=on,abm=on,skip-l1dfl-vmentry=on,pschange-mc-no=on,hv-time,hv-relaxed,hv-vapic,hv-spinlocks=0x1fff \
+-m 16G \
+-smp 8 \
+-uuid 2b268988-1b3c-41ad-b140-961b4f364d87 \
+-smbios type=1 \
+-nodefaults \
+-monitor stdio \
+-rtc base=localtime,driftfix=slew \
+-global kvm-pit.lost_tick_policy=delay \
+-no-hpet \
+-boot strict=on \
+-device piix3-usb-uhci,id=usb,bus=pci.0,addr=0x1.0x2 \
+-device qemu-xhci,id=usb1,bus=pci.0,addr=0x4 \
+-device virtio-serial-pci,id=virtio-serial0,bus=pci.0,addr=0x5 \
+-drive file=/root/dakeiskind/virenv/windows-2016-standard-en.qcow2,format=qcow2,if=none,id=hda,cache=none,aio=native \
+-device virtio-blk-pci,scsi=off,bus=pci.0,addr=0x6,drive=hda,id=virtio-disk1,write-cache=on,bootindex=1 \
+-netdev user,id=internet \
+-device e1000,netdev=internet,mac=52:54:00:12:34:56 \
+-device usb-tablet,id=input0,bus=usb.0,port=1 \
+-device virtio-balloon-pci,id=balloon0,bus=pci.0,addr=0x8 \
+-object rng-random,id=objrng0,filename=/dev/urandom \
+-device virtio-rng-pci,rng=objrng0,id=rng0,bus=pci.0,addr=0x9 \
+-sandbox on,obsolete=deny,elevateprivileges=deny,spawn=deny,resourcecontrol=deny \
+-msg timestamp=on \
+-S \
+-s \
+-vnc 0.0.0.0:25 -device cirrus-vga,id=video0,bus=pci.0,addr=0x7 \
+-qmp tcp:localhost:42222,server,nowait</pre>
+</div></div>
+
+<p>在guest windows内搭建软件环境并构建复现代码：</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-c++"><span class="code-macro">#pragma comment(lib, <span class="code-quote-red">"winmm"</span>)
+</span><span class="code-macro">#include <span class="code-quote-red">&lt;stdio.h&gt;</span>
+</span><span class="code-macro">#include <span class="code-quote-red">&lt;windows.h&gt;</span>
+</span>
+<span class="code-macro">#define SWITCH_PEROID 13
+</span>
+<span class="code-keyword"><span class="code-object">int</span></span> main(<span class="code-keyword"><span class="code-object">int</span></span> argc, <span class="code-keyword"><span class="code-object">char</span></span>* argv[])
+{
+    if (argc != 2)
+    { 
+    	printf(<span class="code-quote-red">"parameter error!\n"</span>);
+    	printf(<span class="code-quote-red">"USAGE: *.exe time(ms)\n"</span>);
+    	printf(<span class="code-quote-red">"example: *.exe 40\n"</span>);
+    	<span class="code-keyword">return</span> 0; 
+    }
+    <span class="code-keyword">else</span>
+	{
+		DWORD internal = atoi((<span class="code-keyword"><span class="code-object">char</span></span>*)argv[1]);
+		DWORD count = 0;
+
+		<span class="code-keyword">while</span> (1)
+		{
+			count++;
+			timeBeginPeriod(1);
+			DWORD start = timeGetTime();
+			Sleep(internal);
+			timeEndPeriod(1);
+
+			if ((count % SWITCH_PEROID) == 0)
+			{
+				Sleep(1);
+			}
+		}
+	}
+	<span class="code-keyword">return</span> 0;
+}</pre>
+</div></div>
+
+<p>并运行：</p>
+
+<p><span class="image-wrap" style=""><img src="/rest/api/3/attachment/content/354365" alt="image-20250509-162335.png" height="26" width="599" style="border: 0px solid black" /></span></p>
+
+<p>在host上执行以下脚本：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>#!/usr/bin/bash
+
+while [ 1 ];do hwclock --systohc; echo systohc; hwclock --hctosys; echo hctosys; echo ========;echo; done</pre>
+</div></div>
+
+<p>执行后几秒钟内windows虚机进程就会crash，打开coredump看到calltrace和{{lost_clock}}如下：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>#0  0x00007fabaf8cd37f in raise () from /lib64/libc.so.6
+#1  0x00007fabaf8b7db5 in abort () from /lib64/libc.so.6
+#2  0x00007fabaf8b7c89 in __assert_fail_base.cold.0 () from /lib64/libc.so.6
+#3  0x00007fabaf8c5a76 in __assert_fail () from /lib64/libc.so.6
+#4  0x000055de1a524a75 in periodic_timer_update (s=0x55de1d027400, current_time=&lt;optimized out&gt;, old_period=512,
+    period_change=&lt;optimized out&gt;) at /usr/src/debug/qemu-kvm-4.2.0-59.es8_6.x86_64/hw/rtc/mc146818rtc.c:201
+#5  0x000055de1a525b1b in cmos_ioport_write (opaque=0x55de1d027400, addr=&lt;optimized out&gt;, data=&lt;optimized out&gt;,
+    size=&lt;optimized out&gt;) at /usr/src/debug/qemu-kvm-4.2.0-59.es8_6.x86_64/hw/rtc/mc146818rtc.c:515
+#6  0x000055de1a4dc127 in memory_region_write_accessor (mr=&lt;optimized out&gt;, addr=&lt;optimized out&gt;, value=&lt;optimized out&gt;,
+    size=&lt;optimized out&gt;, shift=&lt;optimized out&gt;, mask=&lt;optimized out&gt;, attrs=...)
+    at /usr/src/debug/qemu-kvm-4.2.0-59.es8_6.x86_64/memory.c:484
+#7  0x000055de1a4da35e in access_with_adjusted_size (addr=addr@entry=1, value=value@entry=0x7faba5827508, size=size@entry=1,
+    access_size_min=&lt;optimized out&gt;, access_size_max=&lt;optimized out&gt;, access_fn=0x55de1a4dc0b0 &lt;memory_region_write_accessor&gt;,
+    mr=0x55de1d027490, attrs=...) at /usr/src/debug/qemu-kvm-4.2.0-59.es8_6.x86_64/memory.c:545
+#8  0x000055de1a4de2cc in memory_region_dispatch_write (mr=0x55de1d027490, addr=1, data=&lt;optimized out&gt;, op=&lt;optimized out&gt;,
+    attrs=...) at /usr/src/debug/qemu-kvm-4.2.0-59.es8_6.x86_64/memory.c:1480
+#9  0x000055de1a48b237 in flatview_write_continue (fv=0x7fab74776820, addr=113, attrs=..., buf=0x7fabb4adf000 "", len=1,
+    addr1=&lt;optimized out&gt;, l=&lt;optimized out&gt;, mr=0x55de1d027490)
+    at /usr/src/debug/qemu-kvm-4.2.0-59.es8_6.x86_64/include/qemu/host-utils.h:164
+#10 0x000055de1a48b456 in flatview_write (fv=0x7fab74776820, addr=113, attrs=..., buf=0x7fabb4adf000 "", len=1)
+    at /usr/src/debug/qemu-kvm-4.2.0-59.es8_6.x86_64/exec.c:3169
+#11 0x000055de1a48f96f in address_space_write () at /usr/src/debug/qemu-kvm-4.2.0-59.es8_6.x86_64/exec.c:3259
+#12 0x000055de1a4ed414 in kvm_handle_io (count=1, size=1, direction=&lt;optimized out&gt;, data=&lt;optimized out&gt;, attrs=..., port=113)
+    at /usr/src/debug/qemu-kvm-4.2.0-59.es8_6.x86_64/accel/kvm/kvm-all.c:2130
+#13 kvm_cpu_exec (cpu=&lt;optimized out&gt;) at /usr/src/debug/qemu-kvm-4.2.0-59.es8_6.x86_64/accel/kvm/kvm-all.c:2376
+#14 0x000055de1a4d1f5e in qemu_kvm_cpu_thread_fn (arg=0x55de1d08bd30) at /usr/src/debug/qemu-kvm-4.2.0-59.es8_6.x86_64/cpus.c:1318
+#15 0x000055de1a7fde14 in qemu_thread_start (args=0x55de1d0b4890) at util/qemu-thread-posix.c:519
+#16 0x00007fabafc6314a in start_thread () from /lib64/libpthread.so.0
+#17 0x00007fabaf992dc3 in clone () from /lib64/libc.so.6
+(gdb) f 4
+#4  0x000055de1a524a75 in periodic_timer_update (s=0x55de1d027400, current_time=&lt;optimized out&gt;, old_period=512,
+    period_change=&lt;optimized out&gt;) at /usr/src/debug/qemu-kvm-4.2.0-59.es8_6.x86_64/hw/rtc/mc146818rtc.c:201
+201	        assert(lost_clock &gt;= 0);
+(gdb) p lost_clock
+$1 = -65</pre>
+</div></div>
+
+<p>说明复现了<a href="https://issues.redhat.com/browse/RHEL-1296" class="external-link" rel="nofollow noreferrer">https://issues.redhat.com/browse/RHEL-1296</a> ，且与现场现象一样。</p>
+        </td></tr>
+                <tr id="comment-header-449542"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="5dff08655361330daae9584e"
+                id="word_commented_5dff08655361330daae9584e"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5dff08655361330daae9584e">
+                    esoncall
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">09/五月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-449542"><td bgcolor="#ffffff">
+            <p><font color="#ff5630"><b>Attention: Priority Detail和Priority的设置不一致，根据Priority Detail调整Priority！！！</b></font></p>
+        </td></tr>
+                <tr id="comment-header-449544"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                id="word_commented_557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=557058%3A1e1c47af-84e4-43b8-8bc4-48b51d054387">
+                    陈奇
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">10/五月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-449544"><td bgcolor="#ffffff">
+            <p>参考<a href="https://issues.redhat.com/browse/RHEL-1296" class="external-link" rel="nofollow noreferrer">https://issues.redhat.com/browse/RHEL-1296</a>，并查看qemu源码，这个问题看起来在上游目前仍无有效patch。只有一个红帽verified的workaround：<a href="https://access.redhat.com/solutions/7007213" title="smart-link" class="external-link" rel="nofollow noreferrer">https://access.redhat.com/solutions/7007213</a> 。这个workaround通过使能hyperv的hv_stimer增强来规避对rtc的使用，同时hv_stimer精度更高，对guest影响小。</p>
+
+<p>qemu的hyperv增强需要通过传入cpu flag使能。在现有windows虚机 cpu flag基础上，增加3个增强：</p>
+
+<blockquote><p><tt>hv-synic</tt></p>
+
+<p>Enables Hyper-V Synthetic interrupt controller - an extension of a local APIC. When enabled, this enlightenment provides additional communication facilities to the guest: SynIC messages and Events. This is a pre-requisite for implementing VMBus devices (not yet in QEMU). Additionally, this enlightenment is needed to enable Hyper-V synthetic timers. SynIC is controlled through MSRs HV_X64_MSR_SCONTROL..HV_X64_MSR_EOM (0x40000080..0x40000084) and HV_X64_MSR_SINT0..HV_X64_MSR_SINT15 (0x40000090..0x4000009F)</p>
+
+<p>Requires: <tt>hv-vpindex</tt></p>
+
+
+
+<p><tt>hv-stimer</tt></p>
+
+<p>Enables Hyper-V synthetic timers. There are four synthetic timers per virtual CPU controlled through HV_X64_MSR_STIMER0_CONFIG..HV_X64_MSR_STIMER3_COUNT (0x400000B0..0x400000B7) MSRs. These timers can work either in single-shot or periodic mode. It is known that certain Windows versions revert to using HPET (or even RTC when HPET is unavailable) extensively when this enlightenment is not provided; this can lead to significant CPU consumption, even when virtual CPU is idle.</p>
+
+<p>Requires: <tt>hv-vpindex</tt>, <tt>hv-synic</tt>, <tt>hv-time</tt></p>
+
+
+
+<p><tt>hv-stimer-direct</tt></p>
+
+<p>Hyper-V specification allows synthetic timer operation in two modes: “classic”, when expiration event is delivered as SynIC message and “direct”, when the event is delivered via normal interrupt. It is known that nested Hyper-V can only use synthetic timers in direct mode and thus <tt>hv-stimer-direct</tt> needs to be enabled.</p>
+
+<p>Requires: <tt>hv-vpindex</tt>, <tt>hv-synic</tt>, <tt>hv-time</tt>, <tt>hv-stimer</tt></p></blockquote>
+
+<p>qemu参数：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>-cpu Broadwell-IBRS,vme=on,ss=on,vmx=on,f16c=on,rdrand=on,hypervisor=on,arat=on,tsc-adjust=on,umip=on,stibp=on,arch-capabilities=on,xsaveopt=on,pdpe1gb=on,abm=on,skip-l1dfl-vmentry=on,pschange-mc-no=on,hv-time,hv-relaxed,hv-vapic,hv-spinlocks=0x1fff,hv-synic,hv-stimer,hv-stimer-direct</pre>
+</div></div>
+
+<p>再次运行虚机，并执行复现程序，虚机8小时未复现此问题。</p>
+        </td></tr>
+                <tr id="comment-header-449545"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                id="word_commented_557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=557058%3A1e1c47af-84e4-43b8-8bc4-48b51d054387">
+                    陈奇
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">10/五月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-449545"><td bgcolor="#ffffff">
+            <p>对应到虚机domain xml，需要增加：</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-xml"><span class="code-tag">&lt;domain type=<span class="code-quote">'kvm'</span>&gt;</span>
+......
+  <span class="code-tag">&lt;features&gt;</span>
+    <span class="code-tag">&lt;acpi/&gt;</span>
+    <span class="code-tag">&lt;apic/&gt;</span>
+    <span class="code-tag">&lt;hyperv&gt;</span>
+      <span class="code-tag">&lt;relaxed state=<span class="code-quote">'on'</span>/&gt;</span>
+      <span class="code-tag">&lt;vapic state=<span class="code-quote">'on'</span>/&gt;</span>
+      <span class="code-tag">&lt;spinlocks state=<span class="code-quote">'on'</span> retries=<span class="code-quote">'8191'</span>/&gt;</span>
++     <span class="code-tag">&lt;synic state=<span class="code-quote">'on'</span>/&gt;</span>
++     <span class="code-tag">&lt;stimer state=<span class="code-quote">'on'</span>&gt;</span>
++       <span class="code-tag">&lt;direct state=<span class="code-quote">'on'</span>/&gt;</span>
++     <span class="code-tag">&lt;/stimer&gt;</span>
+    <span class="code-tag">&lt;/hyperv&gt;</span>
+  <span class="code-tag">&lt;/features&gt;</span>
+......</pre>
+</div></div>
+
+
+
+<p><a href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=557058%3A29953ef2-fede-4d69-9248-491afae9de72" class="user-hover" rel="557058:29953ef2-fede-4d69-9248-491afae9de72" data-account-id="557058:29953ef2-fede-4d69-9248-491afae9de72" accountid="557058:29953ef2-fede-4d69-9248-491afae9de72" rel="noreferrer">郇宏达</a>  请问之前咱们遇到过这个问题吗？是否需要对应到EAS？另外，客户目前因此问题已经多次影响了业务，急需应对方法，麻烦帮忙判断是否有可以通过nova来进行对应调整？</p>
+        </td></tr>
+                <tr id="comment-header-449582"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="557058:29953ef2-fede-4d69-9248-491afae9de72"
+                id="word_commented_557058:29953ef2-fede-4d69-9248-491afae9de72"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=557058%3A29953ef2-fede-4d69-9248-491afae9de72">
+                    郇宏达
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">12/五月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-449582"><td bgcolor="#ffffff">
+            <p><a href="https://docs.openstack.org/nova/wallaby/user/flavors.html#extra-specs" title="smart-link" class="external-link" rel="nofollow noreferrer">https://docs.openstack.org/nova/wallaby/user/flavors.html#extra-specs</a> <br/>
+<a href="https://docs.openstack.org/glance/wallaby/admin/useful-image-properties.html" title="smart-link" class="external-link" rel="nofollow noreferrer">https://docs.openstack.org/glance/wallaby/admin/useful-image-properties.html</a> </p>
+
+<p><a href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=712020%3A48103b54-608f-481c-ae26-22a06a8bd89b" class="user-hover" rel="712020:48103b54-608f-481c-ae26-22a06a8bd89b" data-account-id="712020:48103b54-608f-481c-ae26-22a06a8bd89b" accountid="712020:48103b54-608f-481c-ae26-22a06a8bd89b" rel="noreferrer">张仕森</a> 请参考这2个社区文档，调查一下是否有合适的方法。</p>
+        </td></tr>
+            </table>
+于尚斌 通过JIRA 1001.0.0-SNAPSHOT#100283-rev:ae90960f6ce4b93d8be8d846e57df479663fa457 生成于 Mon May 12 11:17:34 UTC 2025。
+
+</body>
+</html>

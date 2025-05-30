@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>[#EAS-133542] ovn升级到614后通过fip访问虚拟机，流量被限速在只有几百kB/s</title>
+    <meta http-equiv="Content-Type" Content="application/vnd.ms-word; charset=UTF-8">
+        <style type="text/css">
+
+.tableBorder, .grid
+{
+    background-color: #fff;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tableBorder td, .grid td
+{
+    vertical-align: top;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+.noPadding
+{
+    padding: 0 !important;
+}
+
+h3 .subText
+{
+    font-size: 60%;
+    font-weight: normal;
+}
+
+.tabLabel
+{
+    font-weight: bold;
+    border: 1px solid #ccc;
+    border-bottom:none;
+    padding: 2px;
+    display: inline;
+}
+
+td.blank
+{
+    padding: 0;
+    margin: 0;
+}
+
+.blank td
+{
+    border: none;
+}
+
+#descriptionArea
+{
+    margin: 0;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+hr
+{
+    border-top:1px solid #aaa;
+}
+
+hr.fullcontent
+{
+  height: 15px;
+  padding: 10px 0;
+  background: #fff url('https://easystack.atlassian.net/images/icons/hr.gif') no-repeat scroll center;
+}
+
+</style>
+
+</head>
+<body>
+
+<table class="tableBorder" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" width="100%" colspan="2" valign="top">
+                            <h3 class="formtitle">
+                        [EAS-133542]&nbsp;<a href="https://easystack.atlassian.net/browse/EAS-133542">ovn升级到614后通过fip访问虚拟机，流量被限速在只有几百kB/s</a>
+            <span class="subText">
+               已创建: 17/三月/25                   &nbsp;已更新: 17/三月/25
+
+                                            </span>
+            </h3>
+        </td>
+    </tr>
+    <tr>
+        <td width="20%"><b>状态:</b></td>
+        <td width="80%">正在进行</td>
+    </tr>
+    <tr>
+        <td width="20%"><b>项目:</b></td>
+        <td width="80%"><a href="https://easystack.atlassian.net/secure/BrowseProject.jspa?id=10004">EasyStack</a></td>
+    </tr>
+
+        <tr>
+            <td><b>组件:</b></td>
+            <td>
+                                        <a title="Neutron - 基础网络云产品"
+                href="https://easystack.atlassian.net/issues/?jql=project%3D10004%20AND%20%22component%22%3D10002%20ORDER%20BY%20priority%20ASC"
+            >Neutron</a>                        </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>影响版本:</b></td>
+            <td>
+                            无
+                </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>修复版本:</b></td>
+            <td>
+                                        <a title="Proton 6.5.1"
+                href="https://easystack.atlassian.net/issues/?jql=project%3D10004%20AND%20%22fixVersion%22%3D15084%20ORDER%20BY%20priority%20ASC"
+            >Proton 6.5.1</a>                        </td>
+    </tr>
+    
+    
+    </table>
+
+<br />
+<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" valign="top" width="20%">
+            <b>类型:</b>
+        </td>
+        <td bgcolor="#ffffff" valign="top"  width="30%" >
+            缺陷
+        </td>
+
+                    <td bgcolor="#f0f0f0">
+                <b>优先级:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap>
+                重要
+            </td>
+            </tr>
+    <tr>
+                        <td bgcolor="#f0f0f0" valign="top" width="20%">
+                <b>报告人:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top"  width="30%" >
+                                        
+                
+        
+            <a class="user-hover" rel="6018eef44e258e00694e3eb3"
+                id="word_reporter_6018eef44e258e00694e3eb3"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=6018eef44e258e00694e3eb3">
+                    王维甲
+                </a>
+
+                            </td>
+        
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>经办人:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap  width="30%" >
+                                        
+                
+        
+            <a class="user-hover" rel="5fc5e7aa4a0964006962db06"
+                id="word_assignee_5fc5e7aa4a0964006962db06"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5fc5e7aa4a0964006962db06">
+                    丁智慧
+                </a>
+
+                            </td>
+            </tr>
+    	<tr>
+		<td bgcolor="#f0f0f0" width="20%">
+			<b>解决方案:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+            				未解决
+                    </td>
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>表决:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+                0
+            </td>
+        
+    </tr>
+    
+        <tr>
+        <td bgcolor="#f0f0f0" width="20%">
+            <b>标签:</b>
+        </td>
+        <td id="labels-264039-value" class="value" bgcolor="#ffffff" valign="top" colspan="3" nowrap>
+                            无
+                    </td>
+    </tr>
+    
+    	<tr>
+        		<td bgcolor="#f0f0f0" width="20%"><b>剩余估计量:</b></td>
+        <td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            尚未指定
+            		</td>
+    </tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>所用时间:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            尚未指定
+            		</td>
+	</tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>原始预估:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            尚未指定
+            		</td>
+    </tr>
+    
+    </table>
+
+
+
+    <br />
+
+    	<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+            
+
+                <tr>
+            <td bgcolor="#f0f0f0" width=20% valign=top>
+                <b>附件:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top">
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG文件">
+                    企业微信截图_17419559861089-20250314-123946.png &nbsp;&nbsp;&nbsp;
+                            </td>
+        </tr>
+        
+            <tr>
+            <td bgcolor="#f0f0f0" width="20%" valign="top">
+                <b>事务链接:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" class="noPadding">
+                <table cellpadding="0" cellspacing="0" border="0" width="100%" class="blank">
+                                            <tr>
+                            <td colspan="4" bgcolor="#f0f0f0">
+                                <b>Problem/Incident</b><br/>
+                            </td>
+                        </tr>
+                                    <tr>
+            <td>
+                causes
+            </td>
+            <td>
+                <a href="https://easystack.atlassian.net/browse/EAS-131659">
+                     <strike>EAS-131659</strike>                 </a>
+            </td>
+            <td>
+                ovn里支持广播组播限速
+            </td>
+            <td>
+                已完成
+            </td>
+        </tr>
+                                                                            <tr>
+                            <td colspan="4" bgcolor="#f0f0f0">
+                                <b>Relates</b><br/>
+                            </td>
+                        </tr>
+                                                                <tr>
+            <td>
+                relates to
+            </td>
+            <td>
+                <a href="https://easystack.atlassian.net/browse/EAS-133541">
+                     EAS-133541                 </a>
+            </td>
+            <td>
+                33环境node-12的ovs主线程卡住
+            </td>
+            <td>
+                正在进行
+            </td>
+        </tr>
+                                        </table>
+            </td>
+        </tr>
+    
+
+
+    
+                        <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Sprint:</b></td>
+                <td id="customfield_10006-264039-value" class="value" bgcolor="#ffffff" width="80%"></td>
+            </tr>
+            </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>描述</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td id="descriptionArea">
+            <p>18环境升级到ovn614后，通过fip访问虚拟机的流量被限速</p>
+            <br/>
+        </td>
+    </tr>
+    </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>评论</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" class="grid" style="margin: 0;">
+                <tr id="comment-header-444195"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="6018eef44e258e00694e3eb3"
+                id="word_commented_6018eef44e258e00694e3eb3"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=6018eef44e258e00694e3eb3">
+                    王维甲
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">17/三月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-444195"><td bgcolor="#ffffff">
+            <p>1.观察到18环境在3个控制节点  wget <a href="http://bj_pkg.easystack.io:8000/build_cloud_product_file/aarch64/6.2.1_registry-cloud-product.tar" class="external-link" rel="nofollow noreferrer">http://bj_pkg.easystack.io:8000/build_cloud_product_file/aarch64/6.2.1_registry-cloud-product.tar</a><br/>
+wget <a href="http://fs.easystack.cn/ovn/ovn-6.1.3-ipv6_x86_64.tar" class="external-link" rel="nofollow noreferrer">http://fs.easystack.cn/ovn/ovn-6.1.3-ipv6_x86_64.tar</a><br/>
+都很慢，感觉像是限速了，但是查看对应的fip和虚拟网卡都没有限速，迁移这个shared_router到其他节点还是没有效果</p>
+
+<p>2.把fip 172.18.0.164上的限速全部去掉，trace流表的时候发现还是有meter：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre># 在33环境执行wget http://bj_pkg.easystack.io:8000/build_cloud_product_file/aarch64/6.2.1_registry-cloud-product.tar
+[root@node-7 ~]# flow=$(tcpdump -i enp4s0f1 -nne  dst 172.33.0.3 -c1 -xx | ovs-tcpundump)
+[root@node-7 ~]# ovs-appctl ofproto/trace br-int in_port=`ovs-vsctl get Interface patch-br-int-to-provnet-c80ff37c-52b1-4191-9a1e-4230e0da8ab8 ofport` $flow</pre>
+</div></div>
+
+<p><span class="image-wrap" style=""><img src="/rest/api/3/attachment/content/345581" alt="企业微信截图_17419559861089-20250314-123946.png" height="77" width="1324" style="border: 0px solid black" /></span></p>
+        </td></tr>
+                <tr id="comment-header-444197"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="6018eef44e258e00694e3eb3"
+                id="word_commented_6018eef44e258e00694e3eb3"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=6018eef44e258e00694e3eb3">
+                    王维甲
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">17/三月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-444197"><td bgcolor="#ffffff">
+            <p>ovn-nbctl --no-leader-only set NB_Global . options:unknown_supression_rate=0 去掉就恢复了</p>
+        </td></tr>
+                <tr id="comment-header-444216"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="5fc5e7aa4a0964006962db06"
+                id="word_commented_5fc5e7aa4a0964006962db06"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5fc5e7aa4a0964006962db06">
+                    丁智慧
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">17/三月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-444216"><td bgcolor="#ffffff">
+            <p>在ovs中trace了一下流量发现，get_fdb并没有找到外部主机的地址，导致走进reg15=8001的未知泛洪流程：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>27. metadata=0x61, priority 0, cookie 0x709431b9
+    resubmit(,28)
+28. metadata=0x61, priority 0, cookie 0xb5726e11
+    resubmit(,29)
+29. metadata=0x61, priority 0, cookie 0x3b1691a2
+    resubmit(,30)
+30. metadata=0x61, priority 0, cookie 0xbb3bc92b
+    set_field:0-&gt;reg15
+    resubmit(,71)
+    71. No match.
+            drop
+    resubmit(,31)
+31. reg15=0,metadata=0x61, priority 52, cookie 0x3fb93575
+    meter:278
+    set_field:0x8001-&gt;reg15
+    resubmit(,37)
+37. priority 0
+    resubmit(,38)
+38. reg15=0x8001,metadata=0x61, priority 100, cookie 0x22ee94fb
+    set_field:0x1-&gt;reg15
+    resubmit(,39)
+    39. priority 0
+            set_field:0-&gt;reg0
+            set_field:0-&gt;reg1
+            set_field:0-&gt;reg2
+            set_field:0-&gt;reg3
+            set_field:0-&gt;reg4
+            set_field:0-&gt;reg5
+            set_field:0-&gt;reg6
+            set_field:0-&gt;reg7
+            set_field:0-&gt;reg8
+            set_field:0-&gt;reg9
+            resubmit(,40)
+        40. ip,reg15=0x1,metadata=0x61, priority 110, cookie 0xc8a4eb84
+            resubmit(,41)
+        41. metadata=0x61, priority 0, cookie 0x6330ed0f
+            resubmit(,42)
+        42. metadata=0x61, priority 0, cookie 0x7ff021e
+            resubmit(,43)</pre>
+</div></div>
+
+<p>看了fdb表确实没有学习这个mac，并且ovs的table=71也没有：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>()[root@ovn-tool-0 /]#
+()[root@ovn-tool-0 /]# ovn-sbctl list fdb | grep 26:8a:4b:46:5e:f2
+()[root@ovn-tool-0 /]#</pre>
+</div></div>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>[root@node-22 ~]# ovs-ofctl dump-flows br-int table=71
+ cookie=0x7882d92, duration=1502.156s, table=71, n_packets=0, n_bytes=0, priority=100,metadata=0x17,dl_dst=fa:16:3e:b6:3c:a5 actions=load:0x1f-&gt;NXM_NX_REG15[]
+ cookie=0xd555693b, duration=1502.139s, table=71, n_packets=0, n_bytes=0, priority=100,metadata=0x17,dl_dst=fa:16:3e:9d:ce:1f actions=load:0x1f-&gt;NXM_NX_REG15[]
+ cookie=0xb7b3a89d, duration=1502.130s, table=71, n_packets=0, n_bytes=0, priority=100,metadata=0x17,dl_dst=fa:16:3e:25:b5:64 actions=load:0x1f-&gt;NXM_NX_REG15[]
+ cookie=0xc15081e7, duration=1502.128s, table=71, n_packets=0, n_bytes=0, priority=100,metadata=0x17,dl_dst=fa:16:3e:ec:59:3d actions=load:0x1f-&gt;NXM_NX_REG15[]
+ cookie=0xd8895c2c, duration=1502.126s, table=71, n_packets=0, n_bytes=0, priority=100,metadata=0x17,dl_dst=fa:16:3e:e1:45:fb actions=load:0x1f-&gt;NXM_NX_REG15[]
+ cookie=0xa6a7b54e, duration=1502.050s, table=71, n_packets=0, n_bytes=0, priority=100,metadata=0x17,dl_dst=90:e2:ba:20:cb:fc actions=load:0x1f-&gt;NXM_NX_REG15[]
+ cookie=0x90d7e37d, duration=1502.040s, table=71, n_packets=0, n_bytes=0, priority=100,metadata=0x7a,dl_dst=fa:16:3e:87:47:6c actions=load:0x3-&gt;NXM_NX_REG15[]
+ cookie=0xd10e1fa6, duration=1502.013s, table=71, n_packets=0, n_bytes=0, priority=100,metadata=0x17,dl_dst=fa:16:3e:c6:88:8c actions=load:0x1f-&gt;NXM_NX_REG15[]
+ cookie=0x7b08c4a5, duration=1501.969s, table=71, n_packets=0, n_bytes=0, priority=100,metadata=0x7a,dl_dst=fa:16:3e:77:8d:34 actions=load:0x4-&gt;NXM_NX_REG15[]
+ cookie=0x56355df, duration=1501.949s, table=71, n_packets=0, n_bytes=0, priority=100,metadata=0x17,dl_dst=fa:16:3e:21:12:27 actions=load:0x1f-&gt;NXM_NX_REG15[]
+ cookie=0xe1e719a6, duration=1414.706s, table=71, n_packets=0, n_bytes=0, priority=100,metadata=0x2f,dl_dst=90:e2:ba:20:cb:fc actions=load:0x7-&gt;NXM_NX_REG15[]
+[root@node-22 ~]# ovs-ofctl dump-flows br-int table=71 | grep 26:8a:4b:46:5e:f2
+[root@node-22 ~]#</pre>
+</div></div>
+        </td></tr>
+                <tr id="comment-header-444221"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="5fc5e7aa4a0964006962db06"
+                id="word_commented_5fc5e7aa4a0964006962db06"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5fc5e7aa4a0964006962db06">
+                    丁智慧
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">17/三月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-444221"><td bgcolor="#ffffff">
+            <p>put-fdb逻辑流表不会在localnet端口上起作用，也就是localnet端口不会学习fdb，这样就会导致所有外部的流量都走了未知转发的限速：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>()[root@ovn-tool-0 /]# ovn-nbctl show eec87400-4a78-486a-ba7b-d7bdd09ad73b
+switch eec87400-4a78-486a-ba7b-d7bdd09ad73b (neutron-bcecf6cc-c6b9-4ccb-bfdc-a9c0a3f93f6e) (aka daniel-v602)
+    port 40d9cdfc-3905-4195-9038-5699cd6e5179
+        type: router
+        router-port: lrp-40d9cdfc-3905-4195-9038-5699cd6e5179
+    port provnet-776aab32-0436-4574-a2e7-de9029b73da8
+        type: localnet
+        tag: 602
+        addresses: ["unknown"]
+    port 25578401-80a6-4a74-bd61-14bf3cccf001
+        type: localport
+        addresses: ["fa:16:3e:d2:bb:97"]
+()[root@ovn-tool-0 /]#</pre>
+</div></div>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>static void
+build_lswitch_learn_fdb_op(
+        struct ovn_port *op, struct hmap *lflows,
+        struct ds *actions, struct ds *match)
+{
+    if (op-&gt;nbsp &amp;&amp; !op-&gt;n_ps_addrs &amp;&amp; !strcmp(op-&gt;nbsp-&gt;type, "") &amp;&amp;
+        op-&gt;has_unknown) {
+        ds_clear(match);
+        ds_clear(actions);
+        ds_put_format(match, "inport == %s", op-&gt;json_key);
+        ds_put_format(actions, REGBIT_LKUP_FDB
+                      " = lookup_fdb(inport, eth.src); next;");
+        ovn_lflow_add_with_lport_and_hint(lflows, op-&gt;od,
+                                          S_SWITCH_IN_LOOKUP_FDB, 100,
+                                          ds_cstr(match), ds_cstr(actions),
+                                          op-&gt;key, &amp;op-&gt;nbsp-&gt;header_);
+
+        ds_put_cstr(match, " &amp;&amp; "REGBIT_LKUP_FDB" == 0");
+        ds_clear(actions);
+        ds_put_cstr(actions, "put_fdb(inport, eth.src); next;");
+        ovn_lflow_add_with_lport_and_hint(lflows, op-&gt;od, S_SWITCH_IN_PUT_FDB,
+                                          100, ds_cstr(match),
+                                          ds_cstr(actions), op-&gt;key,
+                                          &amp;op-&gt;nbsp-&gt;header_);
+    }
+}</pre>
+</div></div>
+        </td></tr>
+            </table>
+于尚斌 通过JIRA 1001.0.0-SNAPSHOT#100282-rev:c25640cf5d9c9b732a2e3790a5dcaa6ff1457b49 生成于 Mon Mar 17 11:21:32 GMT 2025。
+
+</body>
+</html>
