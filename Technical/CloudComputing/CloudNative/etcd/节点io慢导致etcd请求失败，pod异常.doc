@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>[#ECS-7314] CLONE - 中国邮政储蓄银行-廊坊2024ES标准云2(CSE-4777)-1.27+vpc容器集群大量pod状态异常排查</title>
+    <meta http-equiv="Content-Type" Content="application/vnd.ms-word; charset=UTF-8">
+        <style type="text/css">
+
+.tableBorder, .grid
+{
+    background-color: #fff;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tableBorder td, .grid td
+{
+    vertical-align: top;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+.noPadding
+{
+    padding: 0 !important;
+}
+
+h3 .subText
+{
+    font-size: 60%;
+    font-weight: normal;
+}
+
+.tabLabel
+{
+    font-weight: bold;
+    border: 1px solid #ccc;
+    border-bottom:none;
+    padding: 2px;
+    display: inline;
+}
+
+td.blank
+{
+    padding: 0;
+    margin: 0;
+}
+
+.blank td
+{
+    border: none;
+}
+
+#descriptionArea
+{
+    margin: 0;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+hr
+{
+    border-top:1px solid #aaa;
+}
+
+hr.fullcontent
+{
+  height: 15px;
+  padding: 10px 0;
+  background: #fff url('https://easystack.atlassian.net/images/icons/hr.gif') no-repeat scroll center;
+}
+
+</style>
+
+</head>
+<body>
+
+<table class="tableBorder" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" width="100%" colspan="2" valign="top">
+                            <b><a id="parent_issue_summary" href="https://easystack.atlassian.net/browse/CSE-4777">中国邮政储蓄银行-廊坊2024ES标准云2</a></b>
+                <span style="font-size: 9px">(<a id="parent_issue_key" href="https://easystack.atlassian.net/browse/CSE-4777">CSE-4777</a>)</span>
+                <h3 class="formtitle"><img src="https://easystack.atlassian.net/images/icons/link_out_bot.gif" width="16" height="16" />
+                        [ECS-7314]&nbsp;<a href="https://easystack.atlassian.net/browse/ECS-7314">CLONE - 中国邮政储蓄银行-廊坊2024ES标准云2(CSE-4777)-1.27+vpc容器集群大量pod状态异常排查</a>
+            <span class="subText">
+               已创建: 22/五月/25                   &nbsp;已更新: 22/五月/25
+
+                                            </span>
+            </h3>
+        </td>
+    </tr>
+    <tr>
+        <td width="20%"><b>状态:</b></td>
+        <td width="80%">Under investigation</td>
+    </tr>
+    <tr>
+        <td width="20%"><b>项目:</b></td>
+        <td width="80%"><a href="https://easystack.atlassian.net/secure/BrowseProject.jspa?id=10100">EasyStack Customer Support</a></td>
+    </tr>
+
+        <tr>
+            <td><b>组件:</b></td>
+            <td>
+                                        <a title="EKS - EKS"
+                href="https://easystack.atlassian.net/issues/?jql=project%3D10100%20AND%20%22component%22%3D13248%20ORDER%20BY%20priority%20ASC"
+            >EKS</a>                        </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>影响版本:</b></td>
+            <td>
+                                        <a title="6.2.1"
+                href="https://easystack.atlassian.net/issues/?jql=project%3D10100%20AND%20%22affectedVersion%22%3D15097%20ORDER%20BY%20priority%20ASC"
+            >6.2.1</a>                        </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>修复版本:</b></td>
+            <td>
+                                        <a title="6.2.1"
+                href="https://easystack.atlassian.net/issues/?jql=project%3D10100%20AND%20%22fixVersion%22%3D15097%20ORDER%20BY%20priority%20ASC"
+            >6.2.1</a>                        </td>
+    </tr>
+    
+    
+            <td width="20%"><b>父项:</b></td>
+        <td width="80%"><a href="https://easystack.atlassian.net/browse/CSE-4777">中国邮政储蓄银行-廊坊2024ES标准云2</a></td>
+    </table>
+
+<br />
+<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" valign="top" width="20%">
+            <b>类型:</b>
+        </td>
+        <td bgcolor="#ffffff" valign="top"  width="30%" >
+            Problem
+        </td>
+
+                    <td bgcolor="#f0f0f0">
+                <b>优先级:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap>
+                重要
+            </td>
+            </tr>
+    <tr>
+                        <td bgcolor="#f0f0f0" valign="top" width="20%">
+                <b>报告人:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top"  width="30%" >
+                                        
+                
+        
+            <a class="user-hover" rel="5f1e8d39bedd100015113da0"
+                id="word_reporter_5f1e8d39bedd100015113da0"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5f1e8d39bedd100015113da0">
+                    高倩雨
+                </a>
+
+                            </td>
+        
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>经办人:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap  width="30%" >
+                                        
+                
+        
+            <a class="user-hover" rel="5bbaf7f6ea7ddf22aaa7776e"
+                id="word_assignee_5bbaf7f6ea7ddf22aaa7776e"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5bbaf7f6ea7ddf22aaa7776e">
+                    周亚
+                </a>
+
+                            </td>
+            </tr>
+    	<tr>
+		<td bgcolor="#f0f0f0" width="20%">
+			<b>解决方案:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+            				未解决
+                    </td>
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>表决:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+                0
+            </td>
+        
+    </tr>
+    
+        <tr>
+        <td bgcolor="#f0f0f0" width="20%">
+            <b>标签:</b>
+        </td>
+        <td id="labels-268053-value" class="value" bgcolor="#ffffff" valign="top" colspan="3" nowrap>
+                            运维大区1, 运维大区3, 邮储银行                    </td>
+    </tr>
+    
+    	<tr>
+        		<td bgcolor="#f0f0f0" width="20%"><b>剩余估计量:</b></td>
+        <td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            尚未指定
+            		</td>
+    </tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>所用时间:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            尚未指定
+            		</td>
+	</tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>原始预估:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            尚未指定
+            		</td>
+    </tr>
+    
+    	<tr>
+
+		<td bgcolor="#f0f0f0" width="20%" valign="top">
+			<b>环境:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" colspan="3">
+            <p>6.2.1</p>
+		</td>
+	</tr>
+    </table>
+
+
+
+    <br />
+
+    	<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+            
+
+                <tr>
+            <td bgcolor="#f0f0f0" width=20% valign=top>
+                <b>附件:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top">
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="JPEG文件">
+                    4ca73b8641f32c76a8b689d743394d0-20250519-015140.jpg &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG文件">
+                    image-20250519-015628.png &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG文件">
+                    image-20250519-015654.png &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG文件">
+                    image-20250519-015742.png &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG文件">
+                    image-20250519-015810.png &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG文件">
+                    image-20250519-015833.png &nbsp;&nbsp;&nbsp;
+                            </td>
+        </tr>
+        
+            <tr>
+            <td bgcolor="#f0f0f0" width="20%" valign="top">
+                <b>事务链接:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" class="noPadding">
+                <table cellpadding="0" cellspacing="0" border="0" width="100%" class="blank">
+                                            <tr>
+                            <td colspan="4" bgcolor="#f0f0f0">
+                                <b>Cloners</b><br/>
+                            </td>
+                        </tr>
+                                    <tr>
+            <td>
+                clones
+            </td>
+            <td>
+                <a href="https://easystack.atlassian.net/browse/ECSL2-43164">
+                     <strike>ECSL2-43164</strike>                 </a>
+            </td>
+            <td>
+                中国邮政储蓄银行-廊坊2024ES标准云2(CSE-4777)-1.27+...
+            </td>
+            <td>
+                已完成
+            </td>
+        </tr>
+                                                                    </table>
+            </td>
+        </tr>
+    
+
+
+    
+                        <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Priority Detail:</b></td>
+                <td id="customfield_11294-268053-value" class="value" bgcolor="#ffffff" width="80%">
+
+
+    <div class="shorten" id="customfield_11294-field">
+        							<span>Major-重要问题环境已恢复，后续调查原因</span>			            </div>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Customer Name:</b></td>
+                <td id="customfield_11102-268053-value" class="value" bgcolor="#ffffff" width="80%">      中国邮政储蓄银行-廊坊2024ES标准云2
+  </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Customer Project ID:</b></td>
+                <td id="customfield_11111-268053-value" class="value" bgcolor="#ffffff" width="80%">      iagn
+  </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>L2调查情况（升级L3时填写）:</b></td>
+                <td id="customfield_11105-268053-value" class="value" bgcolor="#ffffff" width="80%">      1.问题发生过程（复杂问题需要整理时间线）<br/>
+&nbsp;&nbsp;pod不断重启<br/>
+2.L2的分析和阶段性结论<br/>
+&nbsp;&nbsp;详见comments<br/>
+3.是否已经和“L2评审委员会”做过确认，L2无法解决需要升级L3<br/>
+&nbsp;&nbsp;&lt;补充说明&gt;<br/>
+
+  </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>L2 Supporter:</b></td>
+                <td id="customfield_10400-268053-value" class="value" bgcolor="#ffffff" width="80%">        <span class="tinylink">        <span class="user-hover" rel="63241ca3a408c1e3a65909c7" id="user_cf_63241ca3a408c1e3a65909c7">彭方旭</span></span>
+    </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>L2 Leader:</b></td>
+                <td id="customfield_11390-268053-value" class="value" bgcolor="#ffffff" width="80%">        <span class="tinylink">        <span class="user-hover" rel="yongan.zhu" id="user_cf_yongan.zhu">朱永安</span></span>
+    </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Epic Link:</b></td>
+                <td id="customfield_10007-268053-value" class="value" bgcolor="#ffffff" width="80%">
+    <a class="aui-label ghx-label-1" href="https://easystack.atlassian.net/browse/CSE-4777">
+        中国邮政储蓄银行-廊坊2024ES标准云2
+    </a>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Sprint:</b></td>
+                <td id="customfield_10006-268053-value" class="value" bgcolor="#ffffff" width="80%"></td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>处理结果:</b></td>
+                <td id="customfield_11100-268053-value" class="value" bgcolor="#ffffff" width="80%">    环境问题
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Conclusion:</b></td>
+                <td id="customfield_11117-268053-value" class="value" bgcolor="#ffffff" width="80%">      问题被设置为解决状态时，需要进行问题的总结。<br/>
+<br/>
+问题分析：<br/>
+节点io慢，会导致etcd的读写慢，进而影响apiserver的读写<br/>
+<br/>
+处理策略：<br/>
+恢复节点io
+  </td>
+            </tr>
+            </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>描述</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td id="descriptionArea">
+            <p>环境版本：6.2.1</p>
+
+<p>环境规模：532计算</p>
+
+<p>问题描述：1.27+vpc容器集群大量pod状态异常排查</p>
+
+
+<p>获取方式：ESonCall微信</p>
+
+<p><span class="image-wrap" style=""><img src="/rest/api/3/attachment/content/355970" alt="4ca73b8641f32c76a8b689d743394d0-20250519-015140.jpg" height="1080" width="1919" style="border: 0px solid black" /></span></p>
+            <br/>
+        </td>
+    </tr>
+    </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>评论</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" class="grid" style="margin: 0;">
+                <tr id="comment-header-450475"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="63241ca3a408c1e3a65909c7"
+                id="word_commented_63241ca3a408c1e3a65909c7"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=63241ca3a408c1e3a65909c7">
+                    彭方旭
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">22/五月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-450475"><td bgcolor="#ffffff">
+            <h5><a name="OriginallyaddedtoECSL243164https%3A%2F%2Feasystack.atlassian.net%2Fbrowse%2FECSL243164at19%2FMay%2F259%3A59AM"></a>Originally added to <a href="https://easystack.atlassian.net/browse/ECSL2-43164" class="external-link" rel="nofollow noreferrer">ECSL2-43164</a> at 19/May/25 9:59 AM</h5>
+
+<p>查看某一个pod的日志，发现是丢Lease了</p>
+
+<p><span class="image-wrap" style=""><img src="/rest/api/3/attachment/content/355971" alt="image-20250519-015628.png" height="656" width="1684" style="border: 0px solid black" /></span></p>
+
+<p>kubectl命令偶发会报错etcd timeout </p>
+
+<p><span class="image-wrap" style=""><img src="/rest/api/3/attachment/content/355972" alt="image-20250519-015654.png" height="295" width="1549" style="border: 0px solid black" /></span></p>
+
+<p>发现etcd有一个节点日志报错apply request too long</p>
+
+<p><span class="image-wrap" style=""><img src="/rest/api/3/attachment/content/355973" alt="image-20250519-015742.png" height="720" width="1586" style="border: 0px solid black" /></span></p>
+
+<p>查看对应节点的磁盘性能，发现await极高</p>
+
+<p><span class="image-wrap" style=""><img src="/rest/api/3/attachment/content/355974" alt="image-20250519-015810.png" height="805" width="1373" style="border: 0px solid black" /></span></p>
+
+<p>await飚搞的时间与故障时间基本吻合</p>
+
+<p><span class="image-wrap" style=""><img src="/rest/api/3/attachment/content/355975" alt="image-20250519-015833.png" height="793" width="1175" style="border: 0px solid black" /></span></p>
+
+<p>临时将对应节点的etcd服务停掉恢复集群</p>
+
+
+
+<p>后硬件侧更换了对应计算节点到商存的光模块后， iowait恢复， etcd服务也重新start起来，集群整体恢复</p>
+        </td></tr>
+                <tr id="comment-header-450476"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="63241ca3a408c1e3a65909c7"
+                id="word_commented_63241ca3a408c1e3a65909c7"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=63241ca3a408c1e3a65909c7">
+                    彭方旭
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">22/五月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-450476"><td bgcolor="#ffffff">
+            <h5><a name="OriginallyaddedtoECSL243164https%3A%2F%2Feasystack.atlassian.net%2Fbrowse%2FECSL243164at22%2FMay%2F253%3A55PM"></a>Originally added to <a href="https://easystack.atlassian.net/browse/ECSL2-43164" class="external-link" rel="nofollow noreferrer">ECSL2-43164</a> at 22/May/25 3:55 PM</h5>
+
+<p>问题解决后， 客户侧表示需要一个答复， 客户的意思是：既然是集群，单个节点异常就不应该对pod产生影响</p>
+
+
+
+<p>etcd的读写同步机制如下：</p>
+
+<h4><a name="%E5%86%99%E6%93%8D%E4%BD%9C%E6%B5%81%E7%A8%8B"></a>写操作流程</h4>
+
+<ol>
+	<li><b>客户端发起请求</b><br/>
+客户端通过 API（如 <tt>Put</tt>）发起写请求，该请求会随机发送到 etcd 集群中的某个节点（可能是 Leader 或 Follower）。</li>
+	<li><b>请求转发（如果目标为 Follower）</b><br/>
+如果请求发送到的是 Follower 节点，该节点会将请求转发给当前的 Leader 节点。</li>
+	<li><b>Leader 处理写请求</b>
+	<ul>
+		<li>Leader 节点将写请求转换为日志条目，并将其写入本地的预写日志（WAL）中。</li>
+		<li>Leader 通过 Raft 协议将日志条目广播给所有 Follower 节点。</li>
+	</ul>
+	</li>
+	<li><b>Follower 同步日志</b>
+	<ul>
+		<li>Follower 节点接收到日志条目后，也会将其写入本地的 WAL 中，并向 Leader 发送确认。</li>
+		<li>只有当大多数 Follower 节点确认日志条目后，Leader 才会提交该日志条目，并更新本地状态机。</li>
+	</ul>
+	</li>
+	<li><b>状态机更新与数据提交</b>
+	<ul>
+		<li>Leader 提交日志条目后，会更新本地状态机，完成数据的写入。</li>
+		<li>同时，Leader 会通知 Follower 节点提交该日志条目，并更新各自的状态机。</li>
+	</ul>
+	</li>
+	<li><b>返回结果</b><br/>
+Leader 向客户端返回写操作成功的响应。</li>
+</ol>
+
+
+<h4><a name="%E8%AF%BB%E6%93%8D%E4%BD%9C%E6%B5%81%E7%A8%8B"></a>读操作流程</h4>
+
+<ol>
+	<li><b>客户端发起读请求</b><br/>
+客户端通过 API（如 <tt>Get</tt>）发起读请求，请求可能发送到 Leader 或 Follower 节点。</li>
+	<li><b>读请求处理</b>
+	<ul>
+		<li><b>如果请求发送到 Leader</b>：Leader 直接从状态机中读取最新的数据并返回。</li>
+		<li><b>如果请求发送到 Follower</b>：
+		<ul>
+			<li>Follower 会检查本地状态机的 <tt>commit-index</tt> 是否与 Leader 的 <tt>commit-index</tt> 一致。</li>
+			<li>如果一致，则直接返回数据。</li>
+			<li>如果不一致，Follower 会等待状态机更新到最新状态后，再返回数据。</li>
+		</ul>
+		</li>
+	</ul>
+	</li>
+	<li><b>线性一致性保证</b><br/>
+etcd 通过线性一致性（Linearizability）保证，即使在多个节点间进行读写操作，也能确保数据的一致性和顺序性。</li>
+</ol>
+
+
+
+
+
+
+<p>综上如果etcd集群中有任何一个节点的读写I/O慢，都会影响整个集群，临时恢复方法就是将故障节点的etcd服务先stop掉， 不让集群对其进行任何操作</p>
+
+
+
+<p>麻烦L3以及产品线帮忙确认下，谢谢</p>
+        </td></tr>
+                <tr id="comment-header-450478"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="5bbaf7f6ea7ddf22aaa7776e"
+                id="word_commented_5bbaf7f6ea7ddf22aaa7776e"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5bbaf7f6ea7ddf22aaa7776e">
+                    周亚
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">22/五月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-450478"><td bgcolor="#ffffff">
+            <p>解释的比较准确，因为etcd是强一致性的，也就是说任何的节点的etcd出现慢盘，都会导致请求慢或者无法请求<a href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=63241ca3a408c1e3a65909c7" class="user-hover" rel="63241ca3a408c1e3a65909c7" data-account-id="63241ca3a408c1e3a65909c7" accountid="63241ca3a408c1e3a65909c7" rel="noreferrer">彭方旭</a> </p>
+        </td></tr>
+            </table>
+于尚斌 通过JIRA 1001.0.0-SNAPSHOT#100283-rev:66d7e07eeacea5703b54f0832be06ba67cbaa99b 生成于 Thu May 22 11:08:10 UTC 2025。
+
+</body>
+</html>

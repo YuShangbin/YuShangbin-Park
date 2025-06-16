@@ -1,0 +1,9 @@
+pod的默认dns策略是ClusterFirst。
+
+如果pod是hostnetwork，dns策略为ClusterFirst，该pod会使用节点里配置的nameserver。
+
+如果pod是hostnetwork，dns策略为ClusterFirstWithHostNet，该pod会使用coredns的地址。
+
+如果pod不是hostnetwork，dns策略为ClusterFirst，该pod会使用coredns的地址。
+
+如果pod不是hostnetwork，dns策略为ClusterFirstWithHostNet，该pod会使用coredns的地址。
