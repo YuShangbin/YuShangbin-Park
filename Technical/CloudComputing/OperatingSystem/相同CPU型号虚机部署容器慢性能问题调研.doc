@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>[#EAS-135681] intel x86平台，intel_pstate/intel_cpufreq对比测试</title>
+    <meta http-equiv="Content-Type" Content="application/vnd.ms-word; charset=UTF-8">
+        <style type="text/css">
+
+.tableBorder, .grid
+{
+    background-color: #fff;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tableBorder td, .grid td
+{
+    vertical-align: top;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+.noPadding
+{
+    padding: 0 !important;
+}
+
+h3 .subText
+{
+    font-size: 60%;
+    font-weight: normal;
+}
+
+.tabLabel
+{
+    font-weight: bold;
+    border: 1px solid #ccc;
+    border-bottom:none;
+    padding: 2px;
+    display: inline;
+}
+
+td.blank
+{
+    padding: 0;
+    margin: 0;
+}
+
+.blank td
+{
+    border: none;
+}
+
+#descriptionArea
+{
+    margin: 0;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+hr
+{
+    border-top:1px solid #aaa;
+}
+
+hr.fullcontent
+{
+  height: 15px;
+  padding: 10px 0;
+  background: #fff url('https://easystack.atlassian.net/images/icons/hr.gif') no-repeat scroll center;
+}
+
+</style>
+
+</head>
+<body>
+
+<table class="tableBorder" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" width="100%" colspan="2" valign="top">
+                            <h3 class="formtitle">
+                        [EAS-135681]&nbsp;<a href="https://easystack.atlassian.net/browse/EAS-135681">intel x86平台，intel_pstate/intel_cpufreq对比测试</a>
+            <span class="subText">
+               已创建: 19/六月/25                   &nbsp;已更新: 19/六月/25
+
+                                            </span>
+            </h3>
+        </td>
+    </tr>
+    <tr>
+        <td width="20%"><b>状态:</b></td>
+        <td width="80%">正在进行</td>
+    </tr>
+    <tr>
+        <td width="20%"><b>项目:</b></td>
+        <td width="80%"><a href="https://easystack.atlassian.net/secure/BrowseProject.jspa?id=10004">EasyStack</a></td>
+    </tr>
+
+        <tr>
+            <td><b>组件:</b></td>
+            <td>
+                                        <a title="SystemEngineering - kernel"
+                href="https://easystack.atlassian.net/issues/?jql=project%3D10004%20AND%20%22component%22%3D11400%20ORDER%20BY%20priority%20ASC"
+            >SystemEngineering</a>                        </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>影响版本:</b></td>
+            <td>
+                            无
+                </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>修复版本:</b></td>
+            <td>
+                                        <a title="EOS 6.3.1"
+                href="https://easystack.atlassian.net/issues/?jql=project%3D10004%20AND%20%22fixVersion%22%3D15093%20ORDER%20BY%20priority%20ASC"
+            >EOS 6.3.1</a>                        </td>
+    </tr>
+    
+    
+    </table>
+
+<br />
+<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" valign="top" width="20%">
+            <b>类型:</b>
+        </td>
+        <td bgcolor="#ffffff" valign="top"  width="30%" >
+            故事
+        </td>
+
+                    <td bgcolor="#f0f0f0">
+                <b>优先级:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap>
+                重要
+            </td>
+            </tr>
+    <tr>
+                        <td bgcolor="#f0f0f0" valign="top" width="20%">
+                <b>报告人:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top"  width="30%" >
+                                        
+                
+        
+            <a class="user-hover" rel="5de5f414cdc2d20d053804cc"
+                id="word_reporter_5de5f414cdc2d20d053804cc"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5de5f414cdc2d20d053804cc">
+                    于宸
+                </a>
+
+                            </td>
+        
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>经办人:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap  width="30%" >
+                                        
+                
+        
+            <a class="user-hover" rel="5de5f414cdc2d20d053804cc"
+                id="word_assignee_5de5f414cdc2d20d053804cc"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5de5f414cdc2d20d053804cc">
+                    于宸
+                </a>
+
+                            </td>
+            </tr>
+    	<tr>
+		<td bgcolor="#f0f0f0" width="20%">
+			<b>解决方案:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+            				未解决
+                    </td>
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>表决:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+                0
+            </td>
+        
+    </tr>
+    
+        <tr>
+        <td bgcolor="#f0f0f0" width="20%">
+            <b>标签:</b>
+        </td>
+        <td id="labels-271403-value" class="value" bgcolor="#ffffff" valign="top" colspan="3" nowrap>
+                            无
+                    </td>
+    </tr>
+    
+    	<tr>
+        		<td bgcolor="#f0f0f0" width="20%"><b>剩余估计量:</b></td>
+        <td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            尚未指定
+            		</td>
+    </tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>所用时间:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            尚未指定
+            		</td>
+	</tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>原始预估:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            尚未指定
+            		</td>
+    </tr>
+    
+    </table>
+
+
+
+    <br />
+
+    	<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+            
+
+        
+    
+
+
+    
+                        <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Sprint:</b></td>
+                <td id="customfield_10006-271403-value" class="value" bgcolor="#ffffff" width="80%"></td>
+            </tr>
+            </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>描述</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td id="descriptionArea">
+            <p>背景：</p>
+
+<p><a href="https://easystack.atlassian.net/browse/ECS-7347" title="smart-link" class="external-link" rel="nofollow noreferrer">https://easystack.atlassian.net/browse/ECS-7347</a> </p>
+
+<p>客户反馈相同CPU型号节点(lscpu显示的name)，虚机部署容器慢，有性能差异。</p>
+
+<p>内部测试下 使用不同的cpufreq及开启/关闭hwp对性能的影响。</p>
+            <br/>
+        </td>
+    </tr>
+    </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>评论</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" class="grid" style="margin: 0;">
+                <tr id="comment-header-452834"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="5de5f414cdc2d20d053804cc"
+                id="word_commented_5de5f414cdc2d20d053804cc"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5de5f414cdc2d20d053804cc">
+                    于宸
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">19/六月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-452834"><td bgcolor="#ffffff">
+            <p>内部18环境 node-60，默认使用intel_pstate driver。</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>[root@node-60 ~]# lscpu
+Architecture:        x86_64
+CPU op-mode(s):      32-bit, 64-bit
+Byte Order:          Little Endian
+CPU(s):              64
+On-line CPU(s) list: 0-63
+Thread(s) per core:  2
+Core(s) per socket:  16
+Socket(s):           2
+NUMA node(s):        2
+Vendor ID:           GenuineIntel
+BIOS Vendor ID:      Intel(R) Corporation
+CPU family:          6
+Model:               85
+Model name:          Intel(R) Xeon(R) Gold 5218 CPU @ 2.30GHz
+BIOS Model name:     Intel(R) Xeon(R) Gold 5218 CPU @ 2.30GHz
+Stepping:            7
+CPU MHz:             2300.000
+CPU max MHz:         3900.0000
+CPU min MHz:         1000.0000
+BogoMIPS:            4600.00
+Virtualization:      VT-x
+L1d cache:           32K
+L1i cache:           32K
+L2 cache:            1024K
+L3 cache:            22528K
+NUMA node0 CPU(s):   0-15,32-47
+NUMA node1 CPU(s):   16-31,48-63
+Flags:               fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov 
+pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp 
+lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid 
+aperfmperf pni pclmulqdq dtes64 ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm 
+pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c 
+rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 invpcid_single 
+intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority 
+ept vpid ept_ad fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm 
+mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd 
+avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total 
+cqm_mbm_local dtherm ida arat pln pts hwp hwp_act_window hwp_epp hwp_pkg_req pku 
+ospke avx512_vnni md_clear flush_l1d arch_capabilities
+[root@node-60 ~]#
+[root@node-60 ~]# cpupower frequency-info
+analyzing CPU 0:
+  driver: intel_pstate
+  CPUs which run at the same hardware frequency: 0
+  CPUs which need to have their frequency coordinated by software: 0
+  maximum transition latency:  Cannot determine or is not supported.
+  hardware limits: 1000 MHz - 3.90 GHz
+  available cpufreq governors: performance powersave
+  current policy: frequency should be within 1000 MHz and 3.90 GHz.
+                  The governor "performance" may decide which speed to use
+                  within this range.
+  current CPU frequency: Unable to call hardware
+  current CPU frequency: 2.80 GHz (asserted by call to kernel)
+  boost state support:
+    Supported: yes
+    Active: yes
+[root@node-60 ~]#</pre>
+</div></div>
+        </td></tr>
+                <tr id="comment-header-452839"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="5de5f414cdc2d20d053804cc"
+                id="word_commented_5de5f414cdc2d20d053804cc"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5de5f414cdc2d20d053804cc">
+                    于宸
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">19/六月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-452839"><td bgcolor="#ffffff">
+            <p>sysbench （use intel_pstate driver）</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>[root@node-60 ~]# taskset -c 30 sysbench cpu run
+sysbench 1.0.20 (using system LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 1
+Initializing random number generator from current time
+
+
+Prime numbers limit: 10000
+
+Initializing worker threads...
+
+Threads started!
+
+CPU speed:
+    events per second:   971.57
+
+General statistics:
+    total time:                          10.0006s
+    total number of events:              9718
+
+Latency (ms):
+         min:                                    1.02
+         avg:                                    1.03
+         max:                                    1.56
+         95th percentile:                        1.04
+         sum:                                 9996.11
+
+Threads fairness:
+    events (avg/stddev):           9718.0000/0.00
+    execution time (avg/stddev):   9.9961/0.00
+
+[root@node-60 ~]#
+[root@node-60 ~]# taskset -c 30 sysbench memory run
+sysbench 1.0.20 (using system LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 1
+Initializing random number generator from current time
+
+
+Running memory speed test with the following options:
+  block size: 1KiB
+  total size: 102400MiB
+  operation: write
+  scope: global
+
+Initializing worker threads...
+
+Threads started!
+
+Total operations: 44505628 (4449756.62 per second)
+
+43462.53 MiB transferred (4345.47 MiB/sec)
+
+
+General statistics:
+    total time:                          10.0001s
+    total number of events:              44505628
+
+Latency (ms):
+         min:                                    0.00
+         avg:                                    0.00
+         max:                                    0.08
+         95th percentile:                        0.00
+         sum:                                 4659.04
+
+Threads fairness:
+    events (avg/stddev):           44505628.0000/0.00
+    execution time (avg/stddev):   4.6590/0.00
+
+[root@node-60 ~]#
+</pre>
+</div></div>
+
+<p>sysbench （use intel_freq driver）</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>[root@node-60 ~]# echo passive &gt; /sys/devices/system/cpu/intel_pstate/status
+[root@node-60 ~]# cpupower frequency-info
+analyzing CPU 0:
+  driver: intel_cpufreq
+  CPUs which run at the same hardware frequency: 0
+  CPUs which need to have their frequency coordinated by software: 0
+  maximum transition latency: 20.0 us
+  hardware limits: 1000 MHz - 3.90 GHz
+  available cpufreq governors: conservative ondemand userspace powersave performance schedutil
+  current policy: frequency should be within 1000 MHz and 3.90 GHz.
+                  The governor "performance" may decide which speed to use
+                  within this range.
+  current CPU frequency: Unable to call hardware
+  current CPU frequency: 2.80 GHz (asserted by call to kernel)
+  boost state support:
+    Supported: yes
+    Active: yes
+[root@node-60 ~]#
+[root@node-60 ~]# taskset -c 30 sysbench cpu run
+sysbench 1.0.20 (using system LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 1
+Initializing random number generator from current time
+
+
+Prime numbers limit: 10000
+
+Initializing worker threads...
+
+Threads started!
+
+CPU speed:
+    events per second:   965.76
+
+General statistics:
+    total time:                          10.0008s
+    total number of events:              9660
+
+Latency (ms):
+         min:                                    1.02
+         avg:                                    1.03
+         max:                                    1.59
+         95th percentile:                        1.06
+         sum:                                 9996.22
+
+Threads fairness:
+    events (avg/stddev):           9660.0000/0.00
+    execution time (avg/stddev):   9.9962/0.00
+
+[root@node-60 ~]# taskset -c 30 sysbench memory run
+sysbench 1.0.20 (using system LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 1
+Initializing random number generator from current time
+
+
+Running memory speed test with the following options:
+  block size: 1KiB
+  total size: 102400MiB
+  operation: write
+  scope: global
+
+Initializing worker threads...
+
+Threads started!
+
+Total operations: 44616207 (4460814.04 per second)
+
+43570.51 MiB transferred (4356.26 MiB/sec)
+
+
+General statistics:
+    total time:                          10.0001s
+    total number of events:              44616207
+
+Latency (ms):
+         min:                                    0.00
+         avg:                                    0.00
+         max:                                    0.06
+         95th percentile:                        0.00
+         sum:                                 4665.71
+
+Threads fairness:
+    events (avg/stddev):           44616207.0000/0.00
+    execution time (avg/stddev):   4.6657/0.00
+
+[root@node-60 ~]#
+
+[root@node-60 ~]# taskset -c 30 sysbench cpu run
+sysbench 1.0.20 (using system LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 1
+Initializing random number generator from current time
+
+
+Prime numbers limit: 10000
+
+Initializing worker threads...
+
+Threads started!
+
+CPU speed:
+    events per second:   972.31
+
+General statistics:
+    total time:                          10.0002s
+    total number of events:              9725
+
+Latency (ms):
+         min:                                    1.02
+         avg:                                    1.03
+         max:                                    1.41
+         95th percentile:                        1.04
+         sum:                                 9995.54
+
+Threads fairness:
+    events (avg/stddev):           9725.0000/0.00
+    execution time (avg/stddev):   9.9955/0.00
+
+[root@node-60 ~]#
+</pre>
+</div></div>
+
+<p>动态切换cpufreq driver后，sysbench性能差异不大。禁用hwp feature需要重启生效，待后续进行测试。</p>
+        </td></tr>
+            </table>
+于尚斌 通过JIRA 1001.0.0-SNAPSHOT#100284-rev:4f9780d932de14e7c3dec0c9382f8855050fda22 生成于 Thu Jun 19 11:53:27 UTC 2025。
+
+</body>
+</html>
