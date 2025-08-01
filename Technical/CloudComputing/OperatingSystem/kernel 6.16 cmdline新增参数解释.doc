@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>[#EAS-136209] EOS 631 升级kernel-6.6后，kernel启动日志中识别到一些不认识的kernel cmdline</title>
+    <meta http-equiv="Content-Type" Content="application/vnd.ms-word; charset=UTF-8">
+        <style type="text/css">
+
+.tableBorder, .grid
+{
+    background-color: #fff;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tableBorder td, .grid td
+{
+    vertical-align: top;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+.noPadding
+{
+    padding: 0 !important;
+}
+
+h3 .subText
+{
+    font-size: 60%;
+    font-weight: normal;
+}
+
+.tabLabel
+{
+    font-weight: bold;
+    border: 1px solid #ccc;
+    border-bottom:none;
+    padding: 2px;
+    display: inline;
+}
+
+td.blank
+{
+    padding: 0;
+    margin: 0;
+}
+
+.blank td
+{
+    border: none;
+}
+
+#descriptionArea
+{
+    margin: 0;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+hr
+{
+    border-top:1px solid #aaa;
+}
+
+hr.fullcontent
+{
+  height: 15px;
+  padding: 10px 0;
+  background: #fff url('https://easystack.atlassian.net/images/icons/hr.gif') no-repeat scroll center;
+}
+
+</style>
+
+</head>
+<body>
+
+<table class="tableBorder" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" width="100%" colspan="2" valign="top">
+                            <b><a id="parent_issue_summary" href="https://easystack.atlassian.net/browse/EAS-135440">EOS 631 内核升级为openeuler kernel-6.6版本</a></b>
+                <span style="font-size: 9px">(<a id="parent_issue_key" href="https://easystack.atlassian.net/browse/EAS-135440">EAS-135440</a>)</span>
+                <h3 class="formtitle"><img src="https://easystack.atlassian.net/images/icons/link_out_bot.gif" width="16" height="16" />
+                        [EAS-136209]&nbsp;<a href="https://easystack.atlassian.net/browse/EAS-136209">EOS 631 升级kernel-6.6后，kernel启动日志中识别到一些不认识的kernel cmdline</a>
+            <span class="subText">
+               已创建: 11/七月/25                   &nbsp;已更新: 29/七月/25
+
+                                            </span>
+            </h3>
+        </td>
+    </tr>
+    <tr>
+        <td width="20%"><b>状态:</b></td>
+        <td width="80%">正在进行</td>
+    </tr>
+    <tr>
+        <td width="20%"><b>项目:</b></td>
+        <td width="80%"><a href="https://easystack.atlassian.net/secure/BrowseProject.jspa?id=10004">EasyStack</a></td>
+    </tr>
+
+        <tr>
+            <td><b>组件:</b></td>
+            <td>
+                                        <a title="SystemEngineering - kernel"
+                href="https://easystack.atlassian.net/issues/?jql=project%3D10004%20AND%20%22component%22%3D11400%20ORDER%20BY%20priority%20ASC"
+            >SystemEngineering</a>                        </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>影响版本:</b></td>
+            <td>
+                            无
+                </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>修复版本:</b></td>
+            <td>
+                                        <a title="EOS 6.3.1"
+                href="https://easystack.atlassian.net/issues/?jql=project%3D10004%20AND%20%22fixVersion%22%3D15093%20ORDER%20BY%20priority%20ASC"
+            >EOS 6.3.1</a>                        </td>
+    </tr>
+    
+    
+            <td width="20%"><b>父项:</b></td>
+        <td width="80%"><a href="https://easystack.atlassian.net/browse/EAS-135440">EOS 631 内核升级为openeuler kernel-6.6版本</a></td>
+    </table>
+
+<br />
+<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" valign="top" width="20%">
+            <b>类型:</b>
+        </td>
+        <td bgcolor="#ffffff" valign="top"  width="30%" >
+            缺陷
+        </td>
+
+                    <td bgcolor="#f0f0f0">
+                <b>优先级:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap>
+                重要
+            </td>
+            </tr>
+    <tr>
+                        <td bgcolor="#f0f0f0" valign="top" width="20%">
+                <b>报告人:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top"  width="30%" >
+                                        
+                
+        
+            <a class="user-hover" rel="5de5f414cdc2d20d053804cc"
+                id="word_reporter_5de5f414cdc2d20d053804cc"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5de5f414cdc2d20d053804cc">
+                    于宸
+                </a>
+
+                            </td>
+        
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>经办人:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap  width="30%" >
+                                        
+                
+        
+            <a class="user-hover" rel="640048b17c30bbd6b33e9243"
+                id="word_assignee_640048b17c30bbd6b33e9243"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=640048b17c30bbd6b33e9243">
+                    蒲启元
+                </a>
+
+                            </td>
+            </tr>
+    	<tr>
+		<td bgcolor="#f0f0f0" width="20%">
+			<b>解决方案:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+            				未解决
+                    </td>
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>表决:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+                0
+            </td>
+        
+    </tr>
+    
+        <tr>
+        <td bgcolor="#f0f0f0" width="20%">
+            <b>标签:</b>
+        </td>
+        <td id="labels-274228-value" class="value" bgcolor="#ffffff" valign="top" colspan="3" nowrap>
+                            无
+                    </td>
+    </tr>
+    
+    	<tr>
+        		<td bgcolor="#f0f0f0" width="20%"><b>剩余估计量:</b></td>
+        <td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            尚未指定
+            		</td>
+    </tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>所用时间:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            尚未指定
+            		</td>
+	</tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>原始预估:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            尚未指定
+            		</td>
+    </tr>
+    
+    </table>
+
+
+
+    <br />
+
+    	<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+            
+
+        
+            <tr>
+            <td bgcolor="#f0f0f0" width="20%" valign="top">
+                <b>事务链接:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" class="noPadding">
+                <table cellpadding="0" cellspacing="0" border="0" width="100%" class="blank">
+                                            <tr>
+                            <td colspan="4" bgcolor="#f0f0f0">
+                                <b>Relates</b><br/>
+                            </td>
+                        </tr>
+                                    <tr>
+            <td>
+                relates to
+            </td>
+            <td>
+                <a href="https://easystack.atlassian.net/browse/EAS-44310">
+                     <strike>EAS-44310</strike>                 </a>
+            </td>
+            <td>
+                安装环境时，重启海光节点没有被roller发现
+            </td>
+            <td>
+                已关闭
+            </td>
+        </tr>
+            <tr>
+            <td>
+                relates to
+            </td>
+            <td>
+                <a href="https://easystack.atlassian.net/browse/EAS-51157">
+                     <strike>EAS-51157</strike>                 </a>
+            </td>
+            <td>
+                定时器创建任务，对云主机操作后自动执行创建快照，快照创建虚机edd=off...
+            </td>
+            <td>
+                已关闭
+            </td>
+        </tr>
+                                                                    </table>
+            </td>
+        </tr>
+    
+
+
+    
+                        <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Epic Link:</b></td>
+                <td id="customfield_10007-274228-value" class="value" bgcolor="#ffffff" width="80%">
+    <a class="aui-label ghx-label-4" href="https://easystack.atlassian.net/browse/EAS-135440">
+        EOS 631 内核升级为openeuler kernel-6.6版本
+    </a>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Sprint:</b></td>
+                <td id="customfield_10006-274228-value" class="value" bgcolor="#ffffff" width="80%"></td>
+            </tr>
+            </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>描述</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td id="descriptionArea">
+            <p>ARM36 node-3：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>[    0.000000] Kernel command line: BOOT_IMAGE=(lvmid/ukmXfo-FFSb-xooF-zalI-txDi-woa4-0umXc3/RzW85A-9giM-CbRN-u1aH-dgQx-ASCM-KhcnC5)/boot/vmlinuz-6.6.0-85.0.0.79.es9_5.aarch64 root=/dev/mapper/os-root ro transparent_hugepage=never cgroup.memory=nokmem iommu.passthrough=1 ixgbe.allow_unsupported_sfp=1 biosdevname=0 rootdelay=90 nomodeset intel_idle.max_cstate=0 processor.max_cstate=0 crashkernel=736M rd.lvm.lv=os/root net.ifnames=1 console=tty0 usbcore.usb_rb_enable=0 slub_debug isolcpus=80 scsi_logging_level=-1 memmap=128G@0x204000000000 log_buf_len=8M
+[    0.000000] Booted with the nomodeset parameter. Only the system framebuffer will be available
+[    0.000000] Unknown kernel command line parameters "BOOT_IMAGE=(lvmid/ukmXfo-FFSb-xooF-zalI-txDi-woa4-0umXc3/RzW85A-9giM-CbRN-u1aH-dgQx-ASCM-KhcnC5)/boot/vmlinuz-6.6.0-85.0.0.79.es9_5.aarch64 biosdevname=0 scsi_logging_level=-1", will be passed to user space.
+[    0.000000] printk: log_buf_len: 8388608 byte</pre>
+</div></div>
+
+<p>X86 cd：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>...
+Jul 02 19:42:51 node-1.domain.tld kernel: Kernel command line: BOOT_IMAGE=(hd0,gpt3)/vmlinuz-6.6.0-85.0.0.79.es9_7.x86_64 root=/dev/mapper/os-root ro edd=off kvm.halt_poll_ns=400000 cgroup.memory=nokmem intel_iommu=on iommu=pt pci=realloc ixgbe.allow_unsupported_sfp=1 tsx=on rootdelay=90 nomodeset intel_idle.max_cstate=0 processor.max_cstate=0 crashkernel=736M rd.lvm.lv=os/root biosdevname=0 net.ifnames=1 selinux=0
+Jul 02 19:42:51 node-1.domain.tld kernel: DMAR: IOMMU enabled
+Jul 02 19:42:51 node-1.domain.tld kernel: Booted with the nomodeset parameter. Only the system framebuffer will be available
+Jul 02 19:42:51 node-1.domain.tld kernel: Unknown kernel command line parameters "BOOT_IMAGE=(hd0,gpt3)/vmlinuz-6.6.0-85.0.0.79.es9_7.x86_64 edd=off tsx=on biosdevname=0", will be passed to user space.
+Jul 02 19:42:51 node-1.domain.tld kernel: random: crng init done
+...</pre>
+</div></div>
+
+<ol>
+	<li>需要看下这些参数之前是哪些问题引入的，高版本内核是否已经将参数舍弃。</li>
+	<li>确认下这些参数所在问题在631上是否还存在，是否需要解决。</li>
+</ol>
+
+            <br/>
+        </td>
+    </tr>
+    </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>评论</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" class="grid" style="margin: 0;">
+                <tr id="comment-header-455206"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="640048b17c30bbd6b33e9243"
+                id="word_commented_640048b17c30bbd6b33e9243"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=640048b17c30bbd6b33e9243">
+                    蒲启元
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">15/七月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-455206"><td bgcolor="#ffffff">
+            <p>linux内核的启动参数处理分为两阶段，先是early早期阶段的，这时主要是内核自身通过_<em>setup宏注册到.init.setup section的参数，第二阶段主要是通过module_param注册到</em>_param section的参数．<br/>
+本层简单介绍下第一阶段，以console=参数为例：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>__setup("console=", console_setup);</pre>
+</div></div>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>#define __setup(str, fn)						\
+	__setup_param(str, fn, fn, 0)</pre>
+</div></div>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>#define __setup_param(str, unique_id, fn, early)			\
+	static const char __setup_str_##unique_id[] __initconst		\
+		__aligned(1) = str; 					\
+	static struct obs_kernel_param __setup_##unique_id		\
+		__used __section(".init.setup")				\
+		__aligned(__alignof__(struct obs_kernel_param))		\
+		= { __setup_str_##unique_id, fn, early }</pre>
+</div></div>
+
+<p>可以看到最终是在.init.setup section里定义并初始化了一个符号__setup_console_setup，其类型是obs_kernel_param，console这个参数有点特别，它并不依赖obs_kernel_param::early来区别是不是early早期第一阶段需要解析的参数，而是通过strcmp直接写死在了early参数处理的回调函数do_early_param里：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>static int __init do_early_param(char *param, char *val,
+				 const char *unused, void *arg)
+{
+	const struct obs_kernel_param *p;
+
+	for (p = __setup_start; p &lt; __setup_end; p++) {
+		if ((p-&gt;early &amp;&amp; parameq(param, p-&gt;str)) ||
+		    (strcmp(param, "console") == 0 &amp;&amp;
+		     strcmp(p-&gt;str, "earlycon") == 0)
+		) {
+			if (p-&gt;setup_func(val) != 0)
+				pr_warn("Malformed early option '%s'\n", param);
+		}
+	}
+	/* We accept everything at this stage. */
+	return 0;
+}</pre>
+</div></div>
+
+<p>与之对应的，early_param会明确使用early为1来表示这是一个early阶段的参数：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>#define early_param(str, fn)						\
+	__setup_param(str, fn, fn, 1)</pre>
+</div></div>
+
+<p>上面do_early_param函数里出现了两个符号_<em>setup_start和</em>_setup_end，这两个符号其实在编译时才会在链接脚本里定义出来：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>__setup_start = .; KEEP(*(.init.setup)) __setup_end = .</pre>
+</div></div>
+
+<p>可以看到其实就是.init.setup section的开始和结束地址，前面分析过这里面就是早期第一阶段需要处理的obs_kernel_param参数，do_early_param里最重要的动作就是调用setup_func回调函数．<br/>
+所谓第一阶段具体体现就是：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>start_kernel-&gt;parse_early_param-&gt;parse_early_options-&gt;parse_args</pre>
+</div></div>
+
+<p>而第二阶段是上面的调用先发生，再是：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>start_kernel-&gt;parse_args</pre>
+</div></div>
+
+<p>以上不论哪个阶段都调用了parse_args来处理参数，只不过参数不一样．本层分析第一阶段，parse_early_options：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>void __init parse_early_options(char *cmdline)
+{
+	parse_args("early options", cmdline, NULL, 0, 0, 0, NULL,
+		   do_early_param);
+}</pre>
+</div></div>
+
+<p>比较重要的参数是第三个NULL，这个其实代表参数列表起始地址，这里表示没有参数列表．第四个参数为0，表示参数列表里参数的个数，既然参数列表都没有，那么参数个数自然为0．最后一个参数是真正处理参数的回调函数．parse_args的代码在本层不展示详细分析了，留到下一层分析第二个阶段时再分析．总之，以上参数的作用就是直接导致do_early_param被执行，do_early_param自己操心参数列表的来源，不需要parse_args（parse_one）处理，其实根据parse_args的原型，最后一个参数应该是遇到不能识别的参数时unkown回调处理，这点在第二阶段（下层分析）体现更明确（准确），这里第一阶段只是为了复用parse_args函数逻辑．<br/>
+这里提掉了＂不能识别＂，其实内核分析参数，就有一个match（匹配）的过程，匹配一定就是有两个东西参与，首先是grub/bootloader传上来到内核的字符串，这个串就是写在/boot/efi/EFI/escore/grub.cfg里的比如：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>set kernelopts="root=/dev/mapper/os-root ro transparent_hugepage=never cgroup.memory=nokmem iommu.passthrough=1 ixgbe.allow_unsupported_sfp=1 
+rootdelay=90 nomodeset intel_idle.max_cstate=0 processor.max_cstate=0 crashkernel=736M rd.lvm.lv=os/root net.ifnames=1 console=tty0
+usbcore.usb_rb_enable=0 slub_debug isolcpus=80 memmap=128G@0x204000000000 log_buf_len=8M "</pre>
+</div></div>
+
+<p>grub/bootloader还要在前面append上：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>BOOT_IMAGE=(lvmid/ukmXfo-FFSb-xooF-zalI-txDi-woa4-0umXc3/RzW85A-9giM-CbRN-u1aH-dgQx-ASCM-KhcnC5)/boot/vmlinuz-6.6.0-85.0.0.79.es9_5.aarch64</pre>
+</div></div>
+
+<p>最后才是/proc/cmdline看到的，grub里的kernelopts里写好了准备匹配执行set函数的参数，而内核侧，会通过__setup/module_param等宏注册参数到section（比如.init.setup）里，匹配过程就是解析kernelopts，并看section里有无这个参数，若有就执行其set函数．<br/>
+前面提到.init.setup section，但真的使用：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>readelf -S /usr/lib/debug/lib/modules/6.6.0-85.0.0.79.es9_5.aarch64/vmlinux</pre>
+</div></div>
+
+<p>看vmlinux里的所有section时却看不到.init.setup section，这是因为内核链接脚本在执行时，可能将多个性质相似（比如数据为一个section，可执行代码又为一个section）的section合并成一个setction，但是只要lds链接脚本里有__setup_start等符号定义就能准确找到.init.setup里的参数．<br/>
+也有间接的办法是可以知道最终比如上面的{{_<em>setup("console=", console_setup)}}定义的符号在哪个section的，根据前面</em><em>setup的实现，应该是定义了</em>_setup_console_setup符号，在gdb里使用：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>p __setup_console_setup</pre>
+</div></div>
+
+<p>可以打印里面的内容：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>{str = 0x0, setup_func = 0x0, early = 0}</pre>
+</div></div>
+
+<p>而使用：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>p &amp;__setup_console_setup</pre>
+</div></div>
+
+<p>可以得到__setup_console_setup的地址：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>(struct obs_kernel_param *) 0xffff800081a59b18 &lt;__setup_console_setup&gt;</pre>
+</div></div>
+
+<p>拿着这个地址再和：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>readelf -S /usr/lib/debug/lib/modules/6.6.0-85.0.0.79.es9_5.aarch64/vmlinux</pre>
+</div></div>
+
+<p>的输出对比，可以知道这个符号是被放进了.init.data section：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>  [22] .altinstructions  PROGBITS         ffff80008193a1cc  0194a1cc 
+       000000000006bb14  0000000000000000   A       0     0     1                                                                       
+  [23] .init.data        PROGBITS         ffff8000819b5000  019c5000 
+       00000000000a6f64  0000000000000000  WA       0     0     256                                                                     
+  [24] .data..percpu     PROGBITS         ffff800081a5c000  01a6c000 
+       0000000000018f28  0000000000000000  WA       0     0     128</pre>
+</div></div>
+
+<p>最后，所谓第一阶段就是启动早期有些参数必须尽早生效（如 <tt>earlycon=</tt>, <tt>mem=</tt>, <tt>initcall_debug</tt>），模块参数机制（第二阶段）更强大但需要较多内核子系统就绪，不能太早执行．</p>
+        </td></tr>
+                <tr id="comment-header-455211"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="640048b17c30bbd6b33e9243"
+                id="word_commented_640048b17c30bbd6b33e9243"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=640048b17c30bbd6b33e9243">
+                    蒲启元
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">15/七月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-455211"><td bgcolor="#ffffff">
+            <p>本层分析第二阶段的参数解析，也就是start_kernel-&gt;parse_args：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>	after_dashes = parse_args("Booting kernel",
+				  static_command_line, __start___param,
+				  __stop___param - __start___param,
+				  -1, -1, NULL, &amp;unknown_bootoption);</pre>
+</div></div>
+
+<p>关于调用parse_args的几个重要参数前面已有介绍，这里第二阶段是有参数列表的，为_<em>start</em>_<em>param，参数个数为{{</em><em>stop</em>_<em>param - __start</em>__param}}，并且所有参数都没有匹配上时处理函数为unknown_bootoption，parse_args实现如下：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>/* Args looks like "foo=bar,bar2 baz=fuz wiz". */
+char *parse_args(const char *doing,
+		 char *args,
+		 const struct kernel_param *params,
+		 unsigned num,
+		 s16 min_level,
+		 s16 max_level,
+		 void *arg,
+		 int (*unknown)(char *param, char *val,
+				const char *doing, void *arg))
+{
+	char *param, *val, *err = NULL;
+
+	/* Chew leading spaces */
+	args = skip_spaces(args);
+
+	if (*args)
+		pr_debug("doing %s, parsing ARGS: '%s'\n", doing, args);
+
+	while (*args) {
+		int ret;
+		int irq_was_disabled;
+
+		args = next_arg(args, &amp;param, &amp;val);
+		/* Stop at -- */
+		if (!val &amp;&amp; strcmp(param, "--") == 0)
+			return err ?: args;
+		irq_was_disabled = irqs_disabled();
+		ret = parse_one(param, val, doing, params, num,
+				min_level, max_level, arg, unknown);
+		if (irq_was_disabled &amp;&amp; !irqs_disabled())
+			pr_warn("%s: option '%s' enabled irq's!\n",
+				doing, param);
+
+		switch (ret) {
+		case 0:
+			continue;
+		case -ENOENT:
+			pr_err("%s: Unknown parameter `%s'\n", doing, param);
+			break;
+		case -ENOSPC:
+			pr_err("%s: `%s' too large for parameter `%s'\n",
+			       doing, val ?: "", param);
+			break;
+		default:
+			pr_err("%s: `%s' invalid for parameter `%s'\n",
+			       doing, val ?: "", param);
+			break;
+		}
+
+		err = ERR_PTR(ret);
+	}
+
+	return err;
+}</pre>
+</div></div>
+
+<p>while循环里，每次next_arg会解析grub/bootloader传过来的参数串，解析出来参数名字到param，其后的值到val，比如foo=bar，这时param就是foo，val就是bar，拿到这两个参数就可以进一步调用parse_one处理了：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>		ret = parse_one(param, val, doing, params, num,
+				min_level, max_level, arg, unknown);</pre>
+</div></div>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>static int parse_one(char *param,
+		     char *val,
+		     const char *doing,
+		     const struct kernel_param *params,
+		     unsigned num_params,
+		     s16 min_level,
+		     s16 max_level,
+		     void *arg,
+		     int (*handle_unknown)(char *param, char *val,
+				     const char *doing, void *arg))
+{
+	unsigned int i;
+	int err;
+
+	/* Find parameter */
+	for (i = 0; i &lt; num_params; i++) {
+		if (parameq(param, params[i].name)) {
+			if (params[i].level &lt; min_level
+			    || params[i].level &gt; max_level)
+				return 0;
+			/* No one handled NULL, so do it here. */
+			if (!val &amp;&amp;
+			    !(params[i].ops-&gt;flags &amp; KERNEL_PARAM_OPS_FL_NOARG))
+				return -EINVAL;
+			pr_debug("handling %s with %p\n", param,
+				params[i].ops-&gt;set);
+			kernel_param_lock(params[i].mod);
+			if (param_check_unsafe(&amp;params[i]))
+				err = params[i].ops-&gt;set(val, &amp;params[i]);
+			else
+				err = -EPERM;
+			kernel_param_unlock(params[i].mod);
+			return err;
+		}
+	}
+
+	if (handle_unknown) {
+		pr_debug("doing %s: %s='%s'\n", doing, param, val);
+		return handle_unknown(param, val, doing, arg);
+	}
+
+	pr_debug("Unknown argument '%s'\n", param);
+	return -ENOENT;
+}</pre>
+</div></div>
+
+<p>这里面通过parameq比较参数名是否和参数列表里有相同的，有一样的话，就代表有代码注册相应参数到列表里，那么就可以调用对应参数的set函数，如果遍历了整个参数列表都没有找到匹配的参数就会调用handle_unknown函数，这里传的这个unknown函数是unknown_bootoption：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>/*
+ * Unknown boot options get handed to init, unless they look like
+ * unused parameters (modprobe will find them in /proc/cmdline).
+ */
+static int __init unknown_bootoption(char *param, char *val,
+				     const char *unused, void *arg)
+{
+	size_t len = strlen(param);
+
+	/* Handle params aliased to sysctls */
+	if (sysctl_is_alias(param))
+		return 0;
+
+	repair_env_string(param, val);
+
+	/* Handle obsolete-style parameters */
+	if (obsolete_checksetup(param))
+		return 0;
+
+	/* Unused module parameter. */
+	if (strnchr(param, len, '.'))
+		return 0;
+
+	if (panic_later)
+		return 0;
+
+	if (val) {
+		/* Environment option */
+		unsigned int i;
+		for (i = 0; envp_init[i]; i++) {
+			if (i == MAX_INIT_ENVS) {
+				panic_later = "env";
+				panic_param = param;
+			}
+			if (!strncmp(param, envp_init[i], len+1))
+				break;
+		}
+		envp_init[i] = param;
+	} else {
+		/* Command line option */
+		unsigned int i;
+		for (i = 0; argv_init[i]; i++) {
+			if (i == MAX_INIT_ARGS) {
+				panic_later = "init";
+				panic_param = param;
+			}
+		}
+		argv_init[i] = param;
+	}
+	return 0;
+}</pre>
+</div></div>
+
+<p>就是把不能识别的参数串放到envp_init或者argv_init数组里，然后在start_kernel-&gt;parse_args调用完解析的参数后，就会start_kernel-&gt;print_unknown_bootoptions函数去打印前面没有识别到的参数：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>static void __init print_unknown_bootoptions(void)
+{
+	char *unknown_options;
+	char *end;
+	const char *const *p;
+	size_t len;
+
+	if (panic_later || (!argv_init[1] &amp;&amp; !envp_init[2]))
+		return;
+
+	/*
+	 * Determine how many options we have to print out, plus a space
+	 * before each
+	 */
+	len = 1; /* null terminator */
+	for (p = &amp;argv_init[1]; *p; p++) {
+		len++;
+		len += strlen(*p);
+	}
+	for (p = &amp;envp_init[2]; *p; p++) {
+		len++;
+		len += strlen(*p);
+	}
+
+	unknown_options = memblock_alloc(len, SMP_CACHE_BYTES);
+	if (!unknown_options) {
+		pr_err("%s: Failed to allocate %zu bytes\n",
+			__func__, len);
+		return;
+	}
+	end = unknown_options;
+
+	for (p = &amp;argv_init[1]; *p; p++)
+		end += sprintf(end, " %s", *p);
+	for (p = &amp;envp_init[2]; *p; p++)
+		end += sprintf(end, " %s", *p);
+
+	/* Start at unknown_options[1] to skip the initial space */
+	pr_notice("Unknown kernel command line parameters \"%s\", will be passed to user space.\n",
+		&amp;unknown_options[1]);
+	memblock_free(unknown_options, len);
+}</pre>
+</div></div>
+
+<p>print_unknown_bootoptions是在86d1919a4fb0d9c115dd1d3b969f5d1650e45408这个提交引入的，并在5.14内核合入，v611和v621没有Unknown kernel command line的打印，就是因为没有这个补丁．</p>
+        </td></tr>
+                <tr id="comment-header-455462"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="5de5f414cdc2d20d053804cc"
+                id="word_commented_5de5f414cdc2d20d053804cc"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5de5f414cdc2d20d053804cc">
+                    于宸
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">18/七月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-455462"><td bgcolor="#ffffff">
+            <p>关于 edd=off 参数，背景见：</p>
+
+<p><a href="https://easystack.atlassian.net/browse/EAS-44310" title="smart-link" class="external-link" rel="nofollow noreferrer">https://easystack.atlassian.net/browse/EAS-44310</a> </p>
+
+<p><a href="https://easystack.atlassian.net/browse/EAS-51157" title="smart-link" class="external-link" rel="nofollow noreferrer">https://easystack.atlassian.net/browse/EAS-51157</a> </p>
+
+<p>根据之前的case，海光机器bios未实现edd，可能导致机器部署卡死。631可以尝试将参数去掉了。</p>
+        </td></tr>
+                <tr id="comment-header-456328"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="640048b17c30bbd6b33e9243"
+                id="word_commented_640048b17c30bbd6b33e9243"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=640048b17c30bbd6b33e9243">
+                    蒲启元
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">28/七月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-456328"><td bgcolor="#ffffff">
+            <p>biosdevname参数是2007-2016期间（16年后已经没有开发动作了）存在于Linux上用来依据网卡所在主板的端口顺序固定网卡设备的名字，但是较新的Linux内核已经不使用这种方式了，而是systemd/udevd的方式．并且这个参数内核本身没有setup注册，git log上没有找到关于这个参数的开发记录，它只是存在于kernel command line并传递给上层用户init程序．<br/>
+使用biosdevname需要安装biosdevname-0.3.6-11.el6.x86_64.rpm种包，621上安装了：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>biosdevname-0.7.3-2.es8.x86_64</pre>
+</div></div>
+
+<p>biosdevname=0实际是不启用这个机制：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>To disable the use of the new naming scheme, during installation (attended or automated), pass the
+kernel command line parameter biosdevname=0 on the boot command line. The parameter should be
+passed on the boot command line after installation to ensure that a new network adapter plugged in
+post installation has a traditional eth name.</pre>
+</div></div>
+
+<p>未来biosdevname保持安装的话，biosdevname=0还是需要带上禁用这个功能，可以考虑（测试）631不再安装biosdevname包，同时删除biosdevname=0参数．<br/>
+该工具是由Dell开发，以下是来自Dell的一些资料：<br/>
+<a href="https://linux.dell.com/files/whitepapers/consistent_network_device_naming_in_linux.pdf" class="external-link" rel="nofollow noreferrer">https://linux.dell.com/files/whitepapers/consistent_network_device_naming_in_linux.pdf</a><br/>
+<a href="https://linux.dell.com/files/biosdevname/" title="smart-link" class="external-link" rel="nofollow noreferrer">https://linux.dell.com/files/biosdevname/</a> </p>
+        </td></tr>
+                <tr id="comment-header-456359"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="640048b17c30bbd6b33e9243"
+                id="word_commented_640048b17c30bbd6b33e9243"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=640048b17c30bbd6b33e9243">
+                    蒲启元
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">28/七月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-456359"><td bgcolor="#ffffff">
+            <p>scsi_logging_level参数在drivers/scsi/scsi.c里定义：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>unsigned int scsi_logging_level;
+#if defined(CONFIG_SCSI_LOGGING)
+EXPORT_SYMBOL(scsi_logging_level);
+#endif
+module_param(scsi_logging_level, int, S_IRUGO|S_IWUSR);
+MODULE_PARM_DESC(scsi_logging_level, "a bit mask of logging levels");</pre>
+</div></div>
+
+<p>module_param只是一个宏，只要编译scsi.c，展开module_param时，就会将这个参数生成并放到__param section，所以参数应该是存在的．<br/>
+运行：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>strings /usr/lib/debug/lib/modules/6.6.0-85.0.0.79.es9_5.aarch64/vmlinux |grep scsi_logging_level</pre>
+</div></div>
+
+<p>有输出：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>scsi_mod.scsi_logging_level</pre>
+</div></div>
+
+<p>猜测正确的名字应该是如上，那为什么是上面有前缀scsi_mod.这个名字呢？<br/>
+内核里有代码：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>#ifdef MODULE
+#define MODULE_PARAM_PREFIX /* empty */
+#define __MODULE_INFO_PREFIX /* empty */
+#else
+#define MODULE_PARAM_PREFIX KBUILD_MODNAME "."
+/* We cannot use MODULE_PARAM_PREFIX because some modules override it. */
+#define __MODULE_INFO_PREFIX KBUILD_MODNAME "."
+#endif</pre>
+</div></div>
+
+<p>而__module_param_call展开时会使用MODULE_PARAM_PREFIX，和传进来的param name（比如scsi_logging_level）拼成真正的参数名字（比如scsi_mod.scsi_logging_level），内核构建系统在编译配置为m的选项时，会定义MODULE，这时就不对模块里定义的参数加模块前缀名，因为MODULE_PARAM_PREFIX是空字符串．而配置成y的内建模块是有模块名前缀的：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>scsi_mod-y			+= scsi.o hosts.o scsi_ioctl.o \
+				   scsicam.o scsi_error.o scsi_lib.o
+obj-$(CONFIG_SCSI)		+= scsi_mod.o</pre>
+</div></div>
+
+<p>现在内核的配置文件CONFIG_SCSI为y，表示是内建的模块．<br/>
+其实ls /sys/module/scsi_mod/parameters/命令是可以看到scsi_mod有哪些参数的，只是在写kernel cmdline的要注意是否加模块名的前缀，内建的需要加，而m配置的模块不需要．<br/>
+修改grub.cfg的kernel cmdline，测试scsi_mod.scsi_logging_level没有问题：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>[    0.000000][    T0] CPU features: detected: Hardware dirty bit management                                                                                                                                                                                                      
+[    0.00pper/os-root ro transparent_hugepage=never cgroup.memory=nokmem iommu.passthrough=1 ixgbe.allow_unsupported_sfp=1 rootdelay=90 nomodeset intel_idle.max_cstate=0 processor.max_cstate=0 crashkernel=736M rd.lvm.lv=os/root net.ifnames=1 console=tty0 console=ttyS0,11520
+0 usbcore.usb_rb_enable=0 slub_debug isolcpus=80 memmap=128G@0x204000000000 log_buf_len=8M scsi_mod.scsi_logging_level=-1                                                                                                                                                         
+[    0.000000][    T0] Booted with the nomodeset parameter. Only the system framebuffer will be available                                
+[    0.000000][    T0] Unknown kernel command line parameters "BOOT_IMAGE=(lvmid/ukmXfo-FFSb-xooF-zalI-txDi-woa4-0umXc3/RzW85A-9giM-CbRN-u1aH-dgQx-ASCM-KhcnC5)/boot/vmlinuz-6.6.0-85.0.0.79.es9_5.aarch64", will be passed to user space.
+[    0.000000][    T0] printk: log_buf_len: 8388608 bytes                                                                                </pre>
+</div></div>
+
+<p>只是该选项会引起大量的scsi日志打印，导致启动可能不成功，建议631直接删除这个选项，因为之前也没生效，scsi_logging_level这个量是全局未初始化的，位于bss段，默认就是0．</p>
+        </td></tr>
+                <tr id="comment-header-456435"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="640048b17c30bbd6b33e9243"
+                id="word_commented_640048b17c30bbd6b33e9243"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=640048b17c30bbd6b33e9243">
+                    蒲启元
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">29/七月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-456435"><td bgcolor="#ffffff">
+            <p>tsx是intel cpu支持的一个优化多线程场景下性能的feature，tsx=on参数本身不会通过__setup/module_param这样的宏去注册，所以内核标准的parse_args-&gt;parse_one解析不到这个参数，由print_unknown_bootoptions直接打印了．tsx=on的内核处理由arch/x86/kernel/cpu/tsx.c这样的架构代码在启动很早期进行处理：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>void __init tsx_init(void)
+{
+  ...
+  	ret = cmdline_find_option(boot_command_line, "tsx", arg, sizeof(arg));
+	if (ret &gt;= 0) {
+		if (!strcmp(arg, "on")) {
+			tsx_ctrl_state = TSX_CTRL_ENABLE;
+		} else if (!strcmp(arg, "off")) {
+			tsx_ctrl_state = TSX_CTRL_DISABLE;
+		} else if (!strcmp(arg, "auto")) {
+			tsx_ctrl_state = x86_get_tsx_auto_mode();
+		} else {
+			tsx_ctrl_state = TSX_CTRL_DISABLE;
+			pr_err("invalid option, defaulting to off\n");
+		}
+	} else {
+  ...
+}</pre>
+</div></div>
+
+<p>可以看到默认就是tsx=off不打开这个feature的效果，所以kernel cmdline如果写了tsx=on，就是想明确的打开这个优化．tsx的工作原理是：<br/>
+1，程序通过 <tt>XBEGIN</tt> 开始一个事务代码段；</p>
+
+<p>2，CPU在事务内执行指令，<b>如果没有冲突就提交（XEND）</b>；</p>
+
+<p>3，如果有冲突（如另一个线程访问相同数据），就*自动回滚并重新执行*；</p>
+
+<p>4，这样可以*减少锁竞争、提高并发效率*。<br/>
+但是tsx可能会带来安全问题，这个安全问题叫TAA漏洞，简单来说，它可以利用TSX 异步中止后CPU残留的数据缓冲造成信息泄漏：<br/>
+1，当TSX 事务被中止（比如另一个线程访问了相同内存），CPU会*回滚事务*；</p>
+
+<p>2，但某些*微架构缓冲区中的数据可能未被及时清除*；</p>
+
+<p>3，恶意进程可以借助*推测执行 + 缓存侧信道技术（如 Flush+Reload）*，<b>观察这些残留数据</b>；</p>
+
+<p>4，从而*越权读取不属于自己的机密信息*（如密码、密钥）。</p>
+
+<p>没有开启tsx自然是没有安全问题，但开启了可能需要一些缓解措施，具体参数情况如下表：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>  =========  ==========================   =========================================
+  tsx=on     tsx_async_abort=full         The system will use VERW to clear CPU
+                                          buffers. Cross-thread attacks are still
+					  possible on SMT machines.
+  tsx=on     tsx_async_abort=full,nosmt   As above, cross-thread attacks on SMT
+                                          mitigated.
+  tsx=on     tsx_async_abort=off          The system is vulnerable.
+  tsx=off    tsx_async_abort=full         TSX might be disabled if microcode
+                                          provides a TSX control MSR. If so,
+					  system is not vulnerable.
+  tsx=off    tsx_async_abort=full,nosmt   Ditto
+  tsx=off    tsx_async_abort=off          ditto
+  =========  ==========================   =========================================</pre>
+</div></div>
+
+<p>打了修复微码也可以解决这个问题，具体的是否受影响，以及缓解情况可以查看/sys/devices/system/cpu/vulnerabilities/tsx_async_abort，比如53环境node-31（ipmi：10.100.0.55）：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>[root@node-31 ~]# cat /sys/devices/system/cpu/vulnerabilities/tsx_async_abort 
+Mitigation: Clear CPU buffers; SMT vulnerable</pre>
+</div></div>
+
+<p>Documentation/admin-guide/hw-vuln/tsx_async_abort.rst文档记载了更多关于tsx以及这个漏洞的信息．</p>
+        </td></tr>
+            </table>
+于尚斌 通过JIRA 1001.0.0-SNAPSHOT#100287-rev:f621a79c61f778c46520a651f465e9980afc66a2 生成于 Fri Aug 01 05:59:04 UTC 2025。
+
+</body>
+</html>
