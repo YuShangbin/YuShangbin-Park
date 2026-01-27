@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>[#ECS-7783] 18环境 node-44节点更换nvme磁盘后识别不了，需要确认原因并修复</title>
+    <meta http-equiv="Content-Type" Content="application/vnd.ms-word; charset=UTF-8">
+        <style type="text/css">
+
+.tableBorder, .grid
+{
+    background-color: #fff;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tableBorder td, .grid td
+{
+    vertical-align: top;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+.noPadding
+{
+    padding: 0 !important;
+}
+
+h3 .subText
+{
+    font-size: 60%;
+    font-weight: normal;
+}
+
+.tabLabel
+{
+    font-weight: bold;
+    border: 1px solid #ccc;
+    border-bottom:none;
+    padding: 2px;
+    display: inline;
+}
+
+td.blank
+{
+    padding: 0;
+    margin: 0;
+}
+
+.blank td
+{
+    border: none;
+}
+
+#descriptionArea
+{
+    margin: 0;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+hr
+{
+    border-top:1px solid #aaa;
+}
+
+hr.fullcontent
+{
+  height: 15px;
+  padding: 10px 0;
+  background: #fff url('https://easystack.atlassian.net/images/icons/hr.gif') no-repeat scroll center;
+}
+
+</style>
+
+</head>
+<body>
+
+<table class="tableBorder" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" width="100%" colspan="2" valign="top">
+                            <h3 class="formtitle">
+                        [ECS-7783]&nbsp;<a href="https://easystack.atlassian.net/browse/ECS-7783">18环境 node-44节点更换nvme磁盘后识别不了，需要确认原因并修复</a>
+            <span class="subText">
+               已创建: 26/十二月/25                   &nbsp;已更新: 26/十二月/25
+
+                                            </span>
+            </h3>
+        </td>
+    </tr>
+    <tr>
+        <td width="20%"><b>状态:</b></td>
+        <td width="80%">Under investigation</td>
+    </tr>
+    <tr>
+        <td width="20%"><b>项目:</b></td>
+        <td width="80%"><a href="https://easystack.atlassian.net/secure/BrowseProject.jspa?id=10100">EasyStack Customer Support</a></td>
+    </tr>
+
+        <tr>
+            <td><b>组件:</b></td>
+            <td>
+                                        <a title="OperatingSystem - OS"
+                href="https://easystack.atlassian.net/issues/?jql=project%3D10100%20AND%20%22component%22%3D10505%20ORDER%20BY%20priority%20ASC"
+            >OperatingSystem</a>                        </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>影响版本:</b></td>
+            <td>
+                                        <a title="6.2.1"
+                href="https://easystack.atlassian.net/issues/?jql=project%3D10100%20AND%20%22affectedVersion%22%3D15097%20ORDER%20BY%20priority%20ASC"
+            >6.2.1</a>                        </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>修复版本:</b></td>
+            <td>
+                                        <a title="6.2.1"
+                href="https://easystack.atlassian.net/issues/?jql=project%3D10100%20AND%20%22fixVersion%22%3D15097%20ORDER%20BY%20priority%20ASC"
+            >6.2.1</a>                        </td>
+    </tr>
+    
+    
+    </table>
+
+<br />
+<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" valign="top" width="20%">
+            <b>类型:</b>
+        </td>
+        <td bgcolor="#ffffff" valign="top"  width="30%" >
+            Incident
+        </td>
+
+                    <td bgcolor="#f0f0f0">
+                <b>优先级:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap>
+                重要
+            </td>
+            </tr>
+    <tr>
+                        <td bgcolor="#f0f0f0" valign="top" width="20%">
+                <b>报告人:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top"  width="30%" >
+                                        
+                
+        
+            <a class="user-hover" rel="5e44fa3fa17f930c9b944948"
+                id="word_reporter_5e44fa3fa17f930c9b944948"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5e44fa3fa17f930c9b944948">
+                    朱永安
+                </a>
+
+                            </td>
+        
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>经办人:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap  width="30%" >
+                                        
+                
+        
+            <a class="user-hover" rel="5de5f414cdc2d20d053804cc"
+                id="word_assignee_5de5f414cdc2d20d053804cc"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5de5f414cdc2d20d053804cc">
+                    于宸
+                </a>
+
+                            </td>
+            </tr>
+    	<tr>
+		<td bgcolor="#f0f0f0" width="20%">
+			<b>解决方案:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+            				未解决
+                    </td>
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>表决:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+                0
+            </td>
+        
+    </tr>
+    
+        <tr>
+        <td bgcolor="#f0f0f0" width="20%">
+            <b>标签:</b>
+        </td>
+        <td id="labels-293303-value" class="value" bgcolor="#ffffff" valign="top" colspan="3" nowrap>
+                            无
+                    </td>
+    </tr>
+    
+    	<tr>
+        		<td bgcolor="#f0f0f0" width="20%"><b>剩余估计量:</b></td>
+        <td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            尚未指定
+            		</td>
+    </tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>所用时间:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            尚未指定
+            		</td>
+	</tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>原始预估:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            尚未指定
+            		</td>
+    </tr>
+    
+    	<tr>
+
+		<td bgcolor="#f0f0f0" width="20%" valign="top">
+			<b>环境:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" colspan="3">
+            <p>ECF 6.2.1</p>
+		</td>
+	</tr>
+    </table>
+
+
+
+    <br />
+
+    	<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+            
+
+                <tr>
+            <td bgcolor="#f0f0f0" width=20% valign=top>
+                <b>附件:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top">
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG文件">
+                    企业微信截图_17666644501840-20251225-120730.png &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG文件">
+                    企业微信截图_17666643884478-20251225-120628.png &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG文件">
+                    image-20251226-084519.png &nbsp;&nbsp;&nbsp;
+                            </td>
+        </tr>
+        
+    
+
+
+    
+                        <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Priority Detail:</b></td>
+                <td id="customfield_11294-293303-value" class="value" bgcolor="#ffffff" width="80%">
+
+
+    <div class="shorten" id="customfield_11294-field">
+        							<span>Critical-响应时间-客户对响应时间有明确且合理的紧急要求</span>			            </div>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Customer Name:</b></td>
+                <td id="customfield_11102-293303-value" class="value" bgcolor="#ffffff" width="80%">      18环境
+  </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Customer Project ID:</b></td>
+                <td id="customfield_11111-293303-value" class="value" bgcolor="#ffffff" width="80%">      iagn
+  </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>L2调查情况（升级L3时填写）:</b></td>
+                <td id="customfield_11105-293303-value" class="value" bgcolor="#ffffff" width="80%">      1.问题发生过程（复杂问题需要整理时间线）<br/>
+&nbsp;&nbsp;&lt;补充说明&gt;<br/>
+2.L2的分析和阶段性结论<br/>
+&nbsp;&nbsp;&lt;补充说明&gt;<br/>
+3.是否已经和“L2评审委员会”做过确认，L2无法解决需要升级L3<br/>
+&nbsp;&nbsp;&lt;补充说明&gt;<br/>
+
+  </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>L2 Supporter:</b></td>
+                <td id="customfield_10400-293303-value" class="value" bgcolor="#ffffff" width="80%">        <span class="tinylink">        <span class="user-hover" rel="yongan.zhu" id="user_cf_yongan.zhu">朱永安</span></span>
+    </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>L2 Leader:</b></td>
+                <td id="customfield_11390-293303-value" class="value" bgcolor="#ffffff" width="80%">        <span class="tinylink">        <span class="user-hover" rel="yongan.zhu" id="user_cf_yongan.zhu">朱永安</span></span>
+    </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Sprint:</b></td>
+                <td id="customfield_10006-293303-value" class="value" bgcolor="#ffffff" width="80%"></td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Conclusion:</b></td>
+                <td id="customfield_11117-293303-value" class="value" bgcolor="#ffffff" width="80%">      问题被设置为解决状态时，需要进行问题的总结。<br/>
+<br/>
+问题分析：<br/>
+这里写明问题的直接原因、根本原因等 &lt;可以用1、2、3编号&gt;<br/>
+<br/>
+处理策略：<br/>
+这里写明临时的规避方案、以后彻底解决的方案等 &lt;可以用1、2、3编号&gt;
+  </td>
+            </tr>
+            </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>描述</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td id="descriptionArea">
+            <p>18环境，因nvme磁盘寿命到期，对磁盘进行了 更换，更换为关机更换，系统启动后无法正常识别到nvme盘符，硬件已成功识别。需要研发确认问题原因并修复</p>
+            <br/>
+        </td>
+    </tr>
+    </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>评论</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" class="grid" style="margin: 0;">
+                <tr id="comment-header-472339"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="5e44fa3fa17f930c9b944948"
+                id="word_commented_5e44fa3fa17f930c9b944948"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5e44fa3fa17f930c9b944948">
+                    朱永安
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">26/十二月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-472339"><td bgcolor="#ffffff">
+            <p><span class="image-wrap" style=""><img src="/rest/api/3/attachment/content/385672" alt="企业微信截图_17666643884478-20251225-120628.png" width="1072" style="border: 0px solid black" /></span></p>
+
+<p><span class="image-wrap" style=""><img src="/rest/api/3/attachment/content/385671" alt="企业微信截图_17666644501840-20251225-120730.png" width="449" style="border: 0px solid black" /></span></p>
+
+<p>硬件层面已识别，对应的nvme盘符未出现，需要解决。</p>
+        </td></tr>
+                <tr id="comment-header-472341"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="5de5f414cdc2d20d053804cc"
+                id="word_commented_5de5f414cdc2d20d053804cc"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5de5f414cdc2d20d053804cc">
+                    于宸
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">26/十二月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-472341"><td bgcolor="#ffffff">
+            <p>查看node-44上dmesg，nvme pci设备相关信息：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>[root@node-44 ~]# journalctl -k | grep nvme
+Dec 25 13:50:05 node-44.domain.tld kernel: nvme nvme0: pci function 0000:04:00.0
+Dec 25 13:50:05 node-44.domain.tld kernel: nvme nvme0: Could not set queue count (16390)
+Dec 25 13:50:05 node-44.domain.tld kernel: nvme nvme0: IO queues not created
+Dec 25 19:30:57 node-44.domain.tld kernel: nvme nvme0: resetting controller
+Dec 25 19:30:57 node-44.domain.tld kernel: nvme nvme0: Could not set queue count (16390)
+Dec 25 19:30:57 node-44.domain.tld kernel: nvme nvme0: IO queues not created
+[root@node-44 ~]#
+[root@node-44 ~]# nvme list
+Node             SN                   Model                                    Namespace Usage                      Format           FW Rev
+---------------- -------------------- ---------------------------------------- --------- -------------------------- ---------------- --------
+[root@node-44 ~]# 
+[root@node-44 ~]# lspci -vknn -s 0000:04:00.0
+04:00.0 Non-Volatile memory controller [0108]: Intel Corporation NVMe Datacenter SSD [3DNAND, Beta Rock Controller] [8086:0a54] (prog-if 02 [NVM Express])
+        Subsystem: Intel Corporation NVMe Datacenter SSD [3DNAND] ME AIC (P4600) [8086:4714]
+        Flags: bus master, fast devsel, latency 0, IRQ 83, NUMA node 0, IOMMU group 84
+        Memory at 91a00000 (64-bit, non-prefetchable) [size=16K]
+        Expansion ROM at 91a10000 [disabled] [size=64K]
+        Capabilities: [40] Power Management version 3
+        Capabilities: [50] MSI-X: Enable+ Count=129 Masked-
+        Capabilities: [60] Express Endpoint, MSI 00
+        Capabilities: [a0] MSI: Enable- Count=1/1 Maskable- 64bit+
+        Capabilities: [100] Advanced Error Reporting
+        Capabilities: [150] Virtual Channel
+        Capabilities: [180] Power Budgeting &lt;?&gt;
+        Capabilities: [190] Alternative Routing-ID Interpretation (ARI)
+        Capabilities: [270] Device Serial Number 55-cd-2e-41-50-e5-52-13
+        Capabilities: [2a0] Secondary PCI Express
+        Capabilities: [2d0] Latency Tolerance Reporting
+        Capabilities: [310] L1 PM Substates
+        Kernel driver in use: nvme
+        Kernel modules: nvme
+
+[root@node-44 ~]# cat /sys/class/nvme/nvme0/
+address            firmware_rev       power/             serial             subsystem/
+cntlid             kato               queue_count        sqsize             transport
+dev                model              rescan_controller  state              uevent
+device/            numa_node          reset_controller   subsysnqn
+[root@node-44 ~]# 
+[root@node-44 ~]# cat /sys/class/nvme/nvme0/queue_count
+1
+[root@node-44 ~]#
+[root@node-44 ~]# echo 1 | sudo tee /sys/bus/pci/devices/0000:04:00.0/remove
+1
+[root@node-44 ~]# sleep 2
+[root@node-44 ~]# echo 1 | sudo tee /sys/bus/pci/rescan
+1
+[root@node-44 ~]#
+[root@node-44 ~]# dmesg | grep nvme
+[63887.123134] nvme nvme0: Device shutdown incomplete; abort shutdown
+[63889.191258] nvme nvme0: pci function 0000:04:00.0
+[63889.195381] nvme nvme0: Could not set queue count (16390)
+[63889.195490] nvme nvme0: IO queues not created
+[root@node-44 ~]#</pre>
+</div></div>
+
+<p>通过dmesg，可以看到nvme driver在初始化流程中报错，设置队列的个数太大了：“Could not set queue count (16390)”，</p>
+
+<p>需要继续要看下nvme driver代码流程并调试下</p>
+        </td></tr>
+                <tr id="comment-header-472358"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="712020:bf8a4fd7-a087-41f4-935b-f55b3414a97a"
+                id="word_commented_712020:bf8a4fd7-a087-41f4-935b-f55b3414a97a"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=712020%3Abf8a4fd7-a087-41f4-935b-f55b3414a97a">
+                    梁家源
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">26/十二月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-472358"><td bgcolor="#ffffff">
+            <div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>	/*
+	 * Degraded controllers might return an error when setting the queue
+	 * count.  We still want to be able to bring them online and offer
+	 * access to the admin queue, as that might be only way to fix them up.
+	 */
+	if (status &gt; 0) {
+		dev_err(ctrl-&gt;device, "Could not set queue count (%d)\n", status);//这里的数字是状态，不是请求的队列数量。
+		*count = 0;
+	} else {
+		nr_io_queues = min(result &amp; 0xffff, result &gt;&gt; 16) + 1;
+		*count = min(*count, nr_io_queues);
+	}</pre>
+</div></div>
+
+<p>{{<span class="error">&#91;63889.195381&#93;</span> nvme nvme0: Could not set queue count (16390) }}<br/>
+{{16390}}是表示nvme命令的返回状态，不是请求的队列数量。 16390 转化成 16进制是 0x4006。0x4006 对应的含义：</p>
+
+
+<p><span class="image-wrap" style=""><img src="/rest/api/3/attachment/content/385694" alt="image-20251226-084519.png" width="833" style="border: 0px solid black" /></span></p>
+
+<p>说明是硬件内部的问题。</p>
+
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>[root@node-44 ~]# smartctl -a /dev/nvme0
+smartctl 7.1 2020-04-05 r5049 [x86_64-linux-4.18.0-372.19.1.es8_10.x86_64] (local build)
+Copyright (C) 2002-19, Bruce Allen, Christian Franke, www.smartmontools.org
+
+=== START OF INFORMATION SECTION ===
+Model Number:                       INTEL SSDPEDKE020T7
+Serial Number:                      PHLE922100872P0IGN
+Firmware Version:                   QDV101D1
+PCI Vendor/Subsystem ID:            0x8086
+IEEE OUI Identifier:                0x5cd2e4
+Total NVM Capacity:                 69,793,218,560 [69.7 GB]
+Unallocated NVM Capacity:           0
+Controller ID:                      0
+Number of Namespaces:               0
+Local Time is:                      Fri Dec 26 15:21:18 2025 CST
+Firmware Updates (0x02):            1 Slot
+Optional Admin Commands (0x0006):   Format Frmw_DL
+Optional NVM Commands (0x0006):     Wr_Unc DS_Mngmt
+Maximum Data Transfer Size:         32 Pages
+Warning  Comp. Temp. Threshold:     70 Celsius
+Critical Comp. Temp. Threshold:     80 Celsius
+
+Supported Power States
+St Op     Max   Active     Idle   RL RT WL WT  Ent_Lat  Ex_Lat
+ 0 +    25.00W       -        -    0  0  0  0        0       0
+
+=== START OF SMART DATA SECTION ===
+Read NVMe SMART/Health Information failed: NVMe Status 0x4006</pre>
+</div></div>
+
+<p>通过smartctl -a /dev/nvme0 命令也可以看出 确实存在硬件问题，爆出来的状态码也是 NVMe Status 0x4006。</p>
+        </td></tr>
+            </table>
+于尚斌 通过JIRA 1001.0.0-SNAPSHOT#100290-rev:57a0ca5b4a0bb0ac5f3fee4764acb1c14e4d7e71 生成于 Fri Dec 26 10:30:16 UTC 2025。
+
+</body>
+</html>

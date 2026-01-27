@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>[#ECS-7197] CLONE - 国家商标局-国家商标局建设项目二期(CSE-4879)-eks集群扩容失败</title>
+    <meta http-equiv="Content-Type" Content="application/vnd.ms-word; charset=UTF-8">
+        <style type="text/css">
+
+.tableBorder, .grid
+{
+    background-color: #fff;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tableBorder td, .grid td
+{
+    vertical-align: top;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+.noPadding
+{
+    padding: 0 !important;
+}
+
+h3 .subText
+{
+    font-size: 60%;
+    font-weight: normal;
+}
+
+.tabLabel
+{
+    font-weight: bold;
+    border: 1px solid #ccc;
+    border-bottom:none;
+    padding: 2px;
+    display: inline;
+}
+
+td.blank
+{
+    padding: 0;
+    margin: 0;
+}
+
+.blank td
+{
+    border: none;
+}
+
+#descriptionArea
+{
+    margin: 0;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+hr
+{
+    border-top:1px solid #aaa;
+}
+
+hr.fullcontent
+{
+  height: 15px;
+  padding: 10px 0;
+  background: #fff url('https://easystack.atlassian.net/images/icons/hr.gif') no-repeat scroll center;
+}
+
+</style>
+
+</head>
+<body>
+
+<table class="tableBorder" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" width="100%" colspan="2" valign="top">
+                            <b><a id="parent_issue_summary" href="https://easystack.atlassian.net/browse/CSE-4879">国家商标局-国家商标局建设项目二期</a></b>
+                <span style="font-size: 9px">(<a id="parent_issue_key" href="https://easystack.atlassian.net/browse/CSE-4879">CSE-4879</a>)</span>
+                <h3 class="formtitle"><img src="https://easystack.atlassian.net/images/icons/link_out_bot.gif" width="16" height="16" />
+                        [ECS-7197]&nbsp;<a href="https://easystack.atlassian.net/browse/ECS-7197">CLONE - 国家商标局-国家商标局建设项目二期(CSE-4879)-eks集群扩容失败</a>
+            <span class="subText">
+               已创建: 27/三月/25                   &nbsp;已更新: 28/三月/25
+
+                                            </span>
+            </h3>
+        </td>
+    </tr>
+    <tr>
+        <td width="20%"><b>状态:</b></td>
+        <td width="80%">Under investigation</td>
+    </tr>
+    <tr>
+        <td width="20%"><b>项目:</b></td>
+        <td width="80%"><a href="https://easystack.atlassian.net/secure/BrowseProject.jspa?id=10100">EasyStack Customer Support</a></td>
+    </tr>
+
+        <tr>
+            <td><b>组件:</b></td>
+            <td>
+                                        <a title="EKS - EKS"
+                href="https://easystack.atlassian.net/issues/?jql=project%3D10100%20AND%20%22component%22%3D13248%20ORDER%20BY%20priority%20ASC"
+            >EKS</a>                        </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>影响版本:</b></td>
+            <td>
+                                        <a title="6.2.1"
+                href="https://easystack.atlassian.net/issues/?jql=project%3D10100%20AND%20%22affectedVersion%22%3D15097%20ORDER%20BY%20priority%20ASC"
+            >6.2.1</a>                        </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>修复版本:</b></td>
+            <td>
+                                        <a title="6.2.1"
+                href="https://easystack.atlassian.net/issues/?jql=project%3D10100%20AND%20%22fixVersion%22%3D15097%20ORDER%20BY%20priority%20ASC"
+            >6.2.1</a>                        </td>
+    </tr>
+    
+    
+            <td width="20%"><b>父项:</b></td>
+        <td width="80%"><a href="https://easystack.atlassian.net/browse/CSE-4879">国家商标局-国家商标局建设项目二期</a></td>
+    </table>
+
+<br />
+<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" valign="top" width="20%">
+            <b>类型:</b>
+        </td>
+        <td bgcolor="#ffffff" valign="top"  width="30%" >
+            Incident
+        </td>
+
+                    <td bgcolor="#f0f0f0">
+                <b>优先级:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap>
+                重要
+            </td>
+            </tr>
+    <tr>
+                        <td bgcolor="#f0f0f0" valign="top" width="20%">
+                <b>报告人:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top"  width="30%" >
+                                        
+                
+        
+            <a class="user-hover" rel="5e9e8d9a9cc9330c11139888"
+                id="word_reporter_5e9e8d9a9cc9330c11139888"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5e9e8d9a9cc9330c11139888">
+                    孙慧敏
+                </a>
+
+                            </td>
+        
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>经办人:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap  width="30%" >
+                                        
+                
+        
+            <a class="user-hover" rel="5bbaf7f6ea7ddf22aaa7776e"
+                id="word_assignee_5bbaf7f6ea7ddf22aaa7776e"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5bbaf7f6ea7ddf22aaa7776e">
+                    周亚
+                </a>
+
+                            </td>
+            </tr>
+    	<tr>
+		<td bgcolor="#f0f0f0" width="20%">
+			<b>解决方案:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+            				未解决
+                    </td>
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>表决:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+                0
+            </td>
+        
+    </tr>
+    
+        <tr>
+        <td bgcolor="#f0f0f0" width="20%">
+            <b>标签:</b>
+        </td>
+        <td id="labels-264670-value" class="value" bgcolor="#ffffff" valign="top" colspan="3" nowrap>
+                            运维大区1, 运维大区3                    </td>
+    </tr>
+    
+    	<tr>
+        		<td bgcolor="#f0f0f0" width="20%"><b>剩余估计量:</b></td>
+        <td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            尚未指定
+            		</td>
+    </tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>所用时间:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            尚未指定
+            		</td>
+	</tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>原始预估:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            尚未指定
+            		</td>
+    </tr>
+    
+    	<tr>
+
+		<td bgcolor="#f0f0f0" width="20%" valign="top">
+			<b>环境:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" colspan="3">
+            <p>6.2.1</p>
+		</td>
+	</tr>
+    </table>
+
+
+
+    <br />
+
+    	<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+            
+
+                <tr>
+            <td bgcolor="#f0f0f0" width=20% valign=top>
+                <b>附件:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top">
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="JPEG文件">
+                    36d5bc367d490befbd3f8d1e4b0bc72-20250326-091511.jpg &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="JPEG文件">
+                    8df76ed130095823cabf25a942f55e9-20250326-035007.jpg &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG文件">
+                    图片-20250326-111947.png &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG文件">
+                    企业微信截图_17431447621928-20250328-070448.png &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG文件">
+                    企业微信截图_17431450044655-20250328-065645.png &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG文件">
+                    企业微信截图_17431445801698-20250328-064941.png &nbsp;&nbsp;&nbsp;
+                            </td>
+        </tr>
+        
+            <tr>
+            <td bgcolor="#f0f0f0" width="20%" valign="top">
+                <b>事务链接:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" class="noPadding">
+                <table cellpadding="0" cellspacing="0" border="0" width="100%" class="blank">
+                                            <tr>
+                            <td colspan="4" bgcolor="#f0f0f0">
+                                <b>Cloners</b><br/>
+                            </td>
+                        </tr>
+                                    <tr>
+            <td>
+                clones
+            </td>
+            <td>
+                <a href="https://easystack.atlassian.net/browse/ECSL2-42136">
+                     ECSL2-42136                 </a>
+            </td>
+            <td>
+                国家商标局-国家商标局建设项目二期(CSE-4879)-集群扩容失败
+            </td>
+            <td>
+                Work in progress
+            </td>
+        </tr>
+                                                                    </table>
+            </td>
+        </tr>
+    
+
+
+    
+                        <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Priority Detail:</b></td>
+                <td id="customfield_11294-264670-value" class="value" bgcolor="#ffffff" width="80%">
+
+
+    <div class="shorten" id="customfield_11294-field">
+        							<span>Major-平台部分功能无法使用</span>			            </div>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Customer Name:</b></td>
+                <td id="customfield_11102-264670-value" class="value" bgcolor="#ffffff" width="80%">      国家商标局
+  </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Customer Project ID:</b></td>
+                <td id="customfield_11111-264670-value" class="value" bgcolor="#ffffff" width="80%">      iagn
+  </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>L2调查情况（升级L3时填写）:</b></td>
+                <td id="customfield_11105-264670-value" class="value" bgcolor="#ffffff" width="80%">      1.问题发生过程（复杂问题需要整理时间线）<br/>
+kubetnetes容器服务6.1.1<br/>
+eks虚机镜像不存在导致集群扩容失败，需要提供下修复方案
+  </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>L2 Supporter:</b></td>
+                <td id="customfield_10400-264670-value" class="value" bgcolor="#ffffff" width="80%">        <span class="tinylink">        <span class="user-hover" rel="wei.chu" id="user_cf_wei.chu">楚伟</span></span>
+    </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>L2 Leader:</b></td>
+                <td id="customfield_11390-264670-value" class="value" bgcolor="#ffffff" width="80%">        <span class="tinylink">        <span class="user-hover" rel="yongan.zhu" id="user_cf_yongan.zhu">朱永安</span></span>
+    </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Epic Link:</b></td>
+                <td id="customfield_10007-264670-value" class="value" bgcolor="#ffffff" width="80%">
+    <a class="aui-label ghx-label-3" href="https://easystack.atlassian.net/browse/CSE-4879">
+        国家商标局-国家商标局建设项目二期
+    </a>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Sprint:</b></td>
+                <td id="customfield_10006-264670-value" class="value" bgcolor="#ffffff" width="80%"></td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Conclusion:</b></td>
+                <td id="customfield_11117-264670-value" class="value" bgcolor="#ffffff" width="80%">      问题被设置为解决状态时，需要进行问题的总结。<br/>
+<br/>
+问题分析：<br/>
+这里写明问题的直接原因、根本原因等 &lt;可以用1、2、3编号&gt;<br/>
+<br/>
+处理策略：<br/>
+这里写明临时的规避方案、以后彻底解决的方案等 &lt;可以用1、2、3编号&gt;
+  </td>
+            </tr>
+            </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>描述</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td id="descriptionArea">
+            <p>环境版本：6.2.1</p>
+
+<p>环境规模：3计算+4计算存储+3融合</p>
+
+<p>问题描述： 集群扩容失败，扩容按钮变灰不可用了</p>
+
+<p>获取方式：ESonCall微信群-商标局技术群【中间件】-销售-卜全</p>
+
+<p>故障截图：</p>
+
+<p><span class="image-wrap" style=""><img src="/rest/api/3/attachment/content/347305" alt="8df76ed130095823cabf25a942f55e9-20250326-035007.jpg" height="3000" width="4000" style="border: 0px solid black" /></span></p>
+            <br/>
+        </td>
+    </tr>
+    </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>评论</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" class="grid" style="margin: 0;">
+                <tr id="comment-header-445311"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="5e60d2616e8fdd0cd8174a3e"
+                id="word_commented_5e60d2616e8fdd0cd8174a3e"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5e60d2616e8fdd0cd8174a3e">
+                    楚伟
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">27/三月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-445311"><td bgcolor="#ffffff">
+            <h5><a name="OriginallyaddedtoECSL242136https%3A%2F%2Feasystack.atlassian.net%2Fbrowse%2FECSL242136at26%2FMar%2F255%3A15PM"></a>Originally added to <a href="https://easystack.atlassian.net/browse/ECSL2-42136" class="external-link" rel="nofollow noreferrer">ECSL2-42136</a> at 26/Mar/25 5:15 PM</h5>
+
+<p><span class="image-wrap" style=""><img src="/rest/api/3/attachment/content/347304" alt="36d5bc367d490befbd3f8d1e4b0bc72-20250326-091511.jpg" height="711" width="1824" style="border: 0px solid black" /></span></p>
+
+<p>从上面集群的创建时间对比 eks 虚机使用的镜像的创建时间，发现是早于镜像创建时间的，因此判断是由于原来的镜像被删除了，导致扩容失败。</p>
+        </td></tr>
+                <tr id="comment-header-445312"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="5e60d2616e8fdd0cd8174a3e"
+                id="word_commented_5e60d2616e8fdd0cd8174a3e"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5e60d2616e8fdd0cd8174a3e">
+                    楚伟
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">27/三月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-445312"><td bgcolor="#ffffff">
+            <h5><a name="OriginallyaddedtoECSL242136https%3A%2F%2Feasystack.atlassian.net%2Fbrowse%2FECSL242136at26%2FMar%2F257%3A19PM"></a>Originally added to <a href="https://easystack.atlassian.net/browse/ECSL2-42136" class="external-link" rel="nofollow noreferrer">ECSL2-42136</a> at 26/Mar/25 7:19 PM</h5>
+
+<p><span class="image-wrap" style=""><img src="/rest/api/3/attachment/content/347306" alt="图片-20250326-111947.png" height="418" width="543" style="border: 0px solid black" /></span></p>
+
+<p>无法扩容</p>
+        </td></tr>
+                <tr id="comment-header-445467"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="5bbaf7f6ea7ddf22aaa7776e"
+                id="word_commented_5bbaf7f6ea7ddf22aaa7776e"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5bbaf7f6ea7ddf22aaa7776e">
+                    周亚
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">27/三月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-445467"><td bgcolor="#ffffff">
+            <div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre> if [[ -z "$image_id" ]]; then
+        echo "Upload deployment image"
+        if [ ! -f "$image_path/$image_file" ]; then
+            download_unzip_otafile
+        fi
+        openstack image create {{ $name }} \
+        --disk-format {{ $opts.disk_format }} \
+        --container-format {{ $opts.container_format }} \
+        --file $image_path/$image_file \
+        {{ if $opts.properties -}} {{ range $k, $v := $opts.properties }} --property {{$k}}={{$v}} {{ end }}{{ end -}} \
+        --{{ $opts.visibility | default "public" }}
+    else
+        echo "Compare the md5 value of the deployed image"
+        openstack_image_checksum=$(openstack image show $image_id -fvalue -cchecksum)
+        if [[ $openstack_image_checksum != $ota_image_file_md5 ]]; then
+            echo "Modify the glance image location information"
+            if [ ! -f "$image_path/$image_file" ]; then
+                download_unzip_otafile
+            fi
+            busybox=$(timeout 300s kubectl get pod -n openstack -o=custom-columns=NAME:.metadata.name,STATUS:.status.phase | grep busybox | grep -w Running | awk '{print $1}')
+            location_url=$(openstack image show $image_id -fvalue -cproperties | egrep  'rbd://.*/compute/.*/snap' -o)
+            image_ceph_uuid=$(echo ${ota_image_file_md5:0:8}-${ota_image_file_md5:8:4}-${ota_image_file_md5:12:4}-${ota_image_file_md5:16:4}-${ota_image_file_md5:20})
+            set +e
+            timeout 300s kubectl exec -it -n openstack $busybox -- rbd snap unprotect compute/$image_ceph_uuid@snap
+            timeout 300s kubectl exec -it -n openstack $busybox -- rbd snap purge compute/$image_ceph_uuid
+            timeout 300s kubectl exec -it -n openstack $busybox -- rbd rm compute/$image_ceph_uuid
+            set -e
+            timeout 300s kubectl exec -it -n openstack $busybox -- mkdir -p /host-tmp/$arch
+            timeout 300s kubectl cp -n openstack $image_path/$image_file $busybox:/host-tmp/$arch
+            timeout 600s kubectl exec -it -n openstack $busybox -- rbd import /host-tmp/$arch/$image_file compute/$image_ceph_uuid --image-format 2
+            timeout 300s kubectl exec -it -n openstack $busybox -- rbd snap create compute/$image_ceph_uuid@snap
+            timeout 300s kubectl exec -it -n openstack $busybox -- rbd snap protect compute/$image_ceph_uuid@snap
+            ceph_fsid=$(timeout 300s kubectl exec -it -n openstack $busybox -- ceph -s | egrep '[0-9a-f]{8}-([0-9a-f]{4}-){3}[0-9a-f]{12}' -o)
+            glance location-add --url rbd://$ceph_fsid/compute/$image_ceph_uuid/snap $image_id
+            glance location-delete --url $location_url $image_id
+            file_size=$(ls -l $image_path/$image_file | awk '{print $5}')
+            openstack --os-image-api-version 1 image set --checksum $ota_image_file_md5 --size $file_size $image_id
+        else
+            echo "Keep the image in the environment unchanged"
+        fi</pre>
+</div></div>
+
+<p>裸金属的方案，供参考</p>
+        </td></tr>
+                <tr id="comment-header-445509"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="5bbaf7f6ea7ddf22aaa7776e"
+                id="word_commented_5bbaf7f6ea7ddf22aaa7776e"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5bbaf7f6ea7ddf22aaa7776e">
+                    周亚
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">28/三月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-445509"><td bgcolor="#ffffff">
+            <div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>导出镜像
+rbd export volumes/volume-d4633273-1db5-40de-bea5-b0ed0980216e /opt/yyx-kylin.raw
+导入镜像
+rbd import --path filename.raw compute/test1128
+给镜像做快照
+rbd snap create compute/test1128@snap
+给快照加保护
+rbd -p compute snap protect --image test1128 --snap snap
+
+
+把源镜像location加入新的
+glance location-add  365eff9b-9e6f-47a1-97aa-3c1c11e6511b --url rbd://5be89f7b-0cbf-40b9-b8ab-c6114820293b/compute/kylin-last/snap
+把源镜像location删除
+glance location-delete  4763e46b-f764-4250-aae9-825a95e2fe01 --url rbd://f98f88d5-71b6-4d6f-b72b-2106fb064326/compute/4763e46b-f764-4250-aae9-825a95e2fe01/snap</pre>
+</div></div>
+        </td></tr>
+                <tr id="comment-header-445569"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="557058:29953ef2-fede-4d69-9248-491afae9de72"
+                id="word_commented_557058:29953ef2-fede-4d69-9248-491afae9de72"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=557058%3A29953ef2-fede-4d69-9248-491afae9de72">
+                    郇宏达
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">28/三月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-445569"><td bgcolor="#ffffff">
+            <p>客户环境里这个镜像是pending_deleted状态，是软删除的，ceph中的镜像文件还在（location还在）。glance是604版本，此版本不支持通过命令或api恢复pending_deleted镜像。经产品线评估，通过mysql命令直接修改数据库（涉及3张表），具体命令请参考下面的示例。</p>
+
+<p><a href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=557058%3A75e29dcd-6a75-496d-8c75-639443807917" class="user-hover" rel="557058:75e29dcd-6a75-496d-8c75-639443807917" data-account-id="557058:75e29dcd-6a75-496d-8c75-639443807917" accountid="557058:75e29dcd-6a75-496d-8c75-639443807917" rel="noreferrer">李向军</a> <a href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5e44fa3fa17f930c9b944948" class="user-hover" rel="5e44fa3fa17f930c9b944948" data-account-id="5e44fa3fa17f930c9b944948" accountid="5e44fa3fa17f930c9b944948" rel="noreferrer">朱永安</a> <a href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5e60d2616e8fdd0cd8174a3e" class="user-hover" rel="5e60d2616e8fdd0cd8174a3e" data-account-id="5e60d2616e8fdd0cd8174a3e" accountid="5e60d2616e8fdd0cd8174a3e" rel="noreferrer">楚伟</a> FYI</p>
+
+<p><span class="image-wrap" style=""><img src="/rest/api/3/attachment/content/347653" alt="企业微信截图_17431445801698-20250328-064941.png" height="295" width="743" style="border: 0px solid black" /></span></p>
+
+<p><span class="image-wrap" style=""><img src="/rest/api/3/attachment/content/347651" alt="企业微信截图_17431447621928-20250328-070448.png" height="192" width="782" style="border: 0px solid black" /></span></p>
+
+<p><span class="image-wrap" style=""><img src="/rest/api/3/attachment/content/347652" alt="企业微信截图_17431450044655-20250328-065645.png" height="335" width="814" style="border: 0px solid black" /></span></p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>update images set status='active' where id='26d0c836-311c-4d23-b4a3-3576e8d08d71';
+update images set deleted=0 where id='26d0c836-311c-4d23-b4a3-3576e8d08d71';
+update images set deleted_at=NULL where id='26d0c836-311c-4d23-b4a3-3576e8d08d71';
+
+update image_locations set status='active' where image_id='26d0c836-311c-4d23-b4a3-3576e8d08d71';
+update image_locations set deleted=0 where image_id='26d0c836-311c-4d23-b4a3-3576e8d08d71';
+update image_locations set deleted_at=NULL where image_id='26d0c836-311c-4d23-b4a3-3576e8d08d71';
+
+update image_properties set deleted=0 where image_id='26d0c836-311c-4d23-b4a3-3576e8d08d71';
+update image_properties set deleted_at=NULL where image_id='26d0c836-311c-4d23-b4a3-3576e8d08d71';</pre>
+</div></div>
+        </td></tr>
+            </table>
+于尚斌 通过JIRA 1001.0.0-SNAPSHOT#100282-rev:80e8a8d2a319c4f9e79cb672240e7e51f9f0b0c2 生成于 Mon Mar 31 02:32:37 GMT 2025。
+
+</body>
+</html>

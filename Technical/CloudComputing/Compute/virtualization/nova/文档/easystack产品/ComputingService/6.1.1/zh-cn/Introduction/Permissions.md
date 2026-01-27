@@ -1,0 +1,278 @@
+---
+title: 权限说明
+---
+
+本章节主要用于说明计算服务各功能的用户权限范围。其中， **√** 代表该类用户可对云平台内所有项目的操作对象执行此功能，**XX项目** 代表该类用户仅支持对XX项目内的操作对象执行此功能，未标注代表该类用户无权限执行此功能。
+
+<table>
+<thead>
+    <tr>
+        <th colspan="2">功能</th>
+        <th>云管理员</th>
+        <th>部门管理员/项目管理员/普通用户</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td rowspan="27">云主机</td>
+        <td>信息展示</td>
+        <td>√</td>
+        <td rowspan="20">仅已加入项目</td>
+    </tr>
+    <tr>
+        <td>创建云主机</td>
+        <td>仅Default/admin项目</td>
+    </tr>
+    <tr>
+        <td>启动/关机</td>
+        <td>√</td>
+    </tr>
+    <tr>
+        <td>重启</td>
+        <td>√</td>
+    </tr>
+    <tr>
+        <td>暂停/恢复</td>
+        <td>√</td>
+    </tr>
+    <tr>
+        <td>挂起/取消挂起</td>
+        <td>√</td>
+    </tr>
+    <tr>
+        <td>编辑名称</td>
+        <td>√</td>
+    </tr>
+    <tr>
+        <td>调整规格</td>
+        <td>√</td>
+    </tr>
+    <tr>
+        <td>调整启动顺序</td>
+        <td>仅Default/admin项目</td>
+    </tr>
+    <tr>
+        <td>重置密码</td>
+        <td>仅Default/admin项目</td>
+    </tr>
+    <tr>
+        <td>克隆</td>
+        <td>仅Default/admin项目</td>
+    </tr>
+    <tr>
+        <td>创建快照</td>
+        <td>仅Default/admin项目</td>
+    </tr>
+    <tr>
+        <td>编辑标签</td>
+        <td>√</td>
+    </tr>
+    <tr>
+        <td>绑定/解绑公网IP</td>
+        <td>仅Default/admin项目</td>
+    </tr>
+    <tr>
+        <td>连接/断开网络</td>
+        <td>仅Default/admin项目</td>
+    </tr>
+    <tr>
+        <td>编辑安全组</td>
+        <td>仅Default/admin项目</td>
+    </tr>
+    <tr>
+        <td>管理虚拟IP</td>
+        <td>√</td>
+    </tr>
+    <tr>
+        <td>挂载/卸载云硬盘</td>
+        <td>仅Default/admin项目</td>
+    </tr>
+    <tr>
+        <td>挂载/卸载ISO</td>
+        <td>仅Default/admin项目</td>
+    </tr>
+    <tr>
+        <td>挂载/卸载USB设备</td>
+        <td>√</td>
+    </tr>
+    <tr>
+        <td>冷迁移</td>
+        <td>√</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>热迁移</td>
+        <td>√</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>撤离</td>
+        <td>√</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>重置状态</td>
+        <td>√</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>锁定/解锁</td>
+        <td>√</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>重建</td>
+        <td>仅Default/admin项目</td> 
+        <td>仅已加入项目</td>
+    </tr>
+    <tr>
+        <td>删除</td>
+        <td>√</td>
+        <td>仅已加入项目</td>
+    </tr>
+    <tr>
+        <td rowspan="5">云主机快照</td>
+        <td>信息展示</td>
+        <td rowspan="5">√</td>
+        <td rowspan="5">仅已加入项目</td>
+    </tr>
+    <tr>
+        <td>编辑标签</td>
+    </tr>
+    <tr>
+        <td>编辑</td>
+    </tr>
+    <tr>
+        <td>创建云硬盘</td>
+    </tr>
+    <tr>
+        <td>删除</td>
+    </tr>
+    <tr>
+        <td rowspan="3">云主机回收站</td>
+        <td>信息展示</td>
+        <td rowspan="3">√</td>
+        <td rowspan="3">仅已加入项目</td>
+    </tr>
+    <tr>
+        <td>恢复云主机</td>
+    </tr>
+    <tr>
+        <td>彻底删除云主机</td>
+    </tr>
+    <tr>
+        <td rowspan="4">云主机组</td>
+        <td>信息展示</td>
+        <td>√</td>
+        <td rowspan="4">仅已加入项目</td>
+    </tr>
+    <tr>
+        <td>创建云主机组</td>
+        <td>仅Default/admin项目</td>
+    </tr>
+    <tr>
+        <td>编辑标签</td>
+        <td>√</td>
+    </tr>
+    <tr>
+        <td>删除云主机组</td>
+        <td>√</td>
+    </tr>
+    <tr>
+        <td rowspan="5">SSH密钥对</td>
+        <td>信息展示</td>
+        <td>√</td>
+        <td rowspan="5">仅已加入项目</td>
+    </tr>
+    <tr>
+        <td>创建密钥对</td>
+        <td>仅Default/admin项目</td>
+    </tr>
+    <tr>
+        <td>导入密钥对</td>
+        <td>仅Default/admin项目</td>
+    </tr>
+    <tr>
+        <td>编辑标签</td>
+        <td>√</td>
+    </tr>
+    <tr>
+        <td>删除密钥对</td>
+        <td>√</td>
+    </tr>
+    <tr>
+        <td rowspan="4">云主机规格</td>
+        <td>信息展示</td>
+        <td rowspan="4">√</td>
+        <td rowspan="4"></td>
+    </tr>
+    <tr>
+        <td>创建云主机规格</td>
+    </tr>
+    <tr>
+        <td>编辑访问控制</td>
+    </tr>
+    <tr>
+        <td>删除云主机规格</td>
+    </tr>
+    <tr>
+        <td rowspan="5">可用区与主机集合</td>
+        <td>信息展示</td>
+        <td rowspan="5">√</td>
+        <td rowspan="5"></td>
+    </tr>
+    <tr>
+        <td>创建主机集合</td>
+    </tr>
+    <tr>
+        <td>管理主机</td>
+    </tr>
+    <tr>
+        <td>编辑主机集合</td>
+    </tr>
+    <tr>
+        <td>删除主机集合</td>
+    </tr>
+    <tr>
+        <td rowspan="13">计算节点</td>
+        <td>信息展示</td>
+        <td rowspan="13">√</td>
+        <td rowspan="13"></td>
+    </tr>
+    <tr>
+        <td>开启/关闭vGPU</td>
+    </tr>
+    <tr>
+        <td>虚拟化切割GPU</td>
+    </tr>
+    <tr>
+        <td>还原GPU</td>
+    </tr>
+    <tr>
+        <td>启用/禁用GPU</td>
+    </tr>
+    <tr>
+        <td>启用/禁用vGPU</td>
+    </tr>
+    <tr>
+        <td>虚拟化切割网卡</td>
+    </tr>
+    <tr>
+        <td>还原网卡</td>
+    </tr>
+    <tr>
+        <td>绑定网卡物理网络</td>
+    </tr>
+    <tr>
+        <td>解绑网卡物理网络</td>
+    </tr>
+    <tr>
+        <td>云主机批量热迁移</td>
+    </tr>
+    <tr>
+        <td>云主机批量冷迁移</td>
+    </tr>
+    <tr>
+        <td>激活/禁用</td>
+    </tr>
+</tbody></table>

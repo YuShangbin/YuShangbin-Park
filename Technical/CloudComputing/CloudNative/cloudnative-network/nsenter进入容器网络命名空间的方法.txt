@@ -1,0 +1,87 @@
+要使用 `nsenter` 进入容器的网络命名空间，本质是让当前进程加入目标容器进程所在的网络命名空间。以下是详细步骤：
+
+---
+
+### **步骤 1：获取容器的 PID**
+1. 获取容器的 **PID**（进程 ID）：
+   ```bash
+   # 替换 <container-id> 为容器 ID 或名称
+   PID=$(docker inspect -f '{{.State.Pid}}' <container-id>)
+   ```
+   或直接使用：
+   ```bash
+   docker inspect -f '{{.State.Pid}}' <container-id>
+   ```
+   示例输出：`12345`（假设 PID 为 12345）。
+
+---
+
+### **步骤 2：使用 nsenter 进入网络命名空间**
+#### **方法 1：直接进入交互式 Shell**
+```bash
+# 使用 -n 进入网络命名空间
+sudo nsenter -t $PID -n
+```
+- **`-t $PID`**：指定目标进程的 PID。
+- **`-n`**：进入网络命名空间。
+- 输入后，您已进入容器的网络命名空间，可执行 `ip addr`、`netstat` 等网络命令。
+
+#### **方法 2：单次执行命令后退出**
+```bash
+# 直接运行命令（无需进入 Shell）
+sudo nsenter -t $PID -n ip addr
+```
+- 示例：查看容器的所有网络接口。
+
+#### **方法 3：同时进入多个命名空间（如网络 + Mount）**
+```bash
+sudo nsenter -t $PID -n -m
+```
+- **`-m`**：同时进入 Mount 命名空间（便于访问容器内文件）。
+
+---
+
+### **注意事项**
+1. **需要 root 权限**：
+   - 使用 `sudo` 执行 `nsenter`。
+   
+2. **安装依赖**：
+   - 若 `nsenter` 未安装：
+     ```bash
+     # Ubuntu/Debian
+     sudo apt-get install util-linux
+     
+     # CentOS/RHEL
+     sudo yum install util-linux
+     ```
+
+3. **网络工具未安装？**
+   - 宿主机可能缺少网络命令（如 `ip`、`netstat`），可安装：
+     ```bash
+     # Ubuntu/Debian
+     sudo apt-get install iproute2 net-tools
+     
+     # CentOS/RHEL
+     sudo yum install iproute net-tools
+     ```
+
+---
+
+### **替代方案：ip netns（无需 nsenter）**
+使用 `ip netns` 直接操作命名空间：
+```bash
+# 创建符号链接到 /var/run/netns（需 root）
+sudo ln -sf /proc/$PID/ns/net /var/run/netns/<custom-name>
+
+# 进入网络命名空间执行命令
+sudo ip netns exec <custom-name> ip addr
+```
+- **`<custom-name>`**：自定义命名空间名称（如 `mycontainer`）。
+
+---
+
+### **为什么 nsenter 有效？**
+- Linux 容器的网络隔离通过 **Network Namespace** 实现。
+- `nsenter` 让当前进程加入目标进程的命名空间，共享其网络视图（网卡、路由、防火墙规则等）。
+
+通过以上方法，您可直接在宿主机以容器视角操作网络，无需进入容器内部。

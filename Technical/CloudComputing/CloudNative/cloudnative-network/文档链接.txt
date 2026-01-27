@@ -1,0 +1,1 @@
+https://kubernetes.io/blog/2025/02/28/nftables-kube-proxy/?utm_source=chatgpt.com

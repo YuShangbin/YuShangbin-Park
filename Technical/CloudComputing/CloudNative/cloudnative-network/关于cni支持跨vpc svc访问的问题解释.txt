@@ -1,0 +1,73 @@
+在 Kubernetes + VPC-CNI（如 AWS VPC CNI、阿里云 Terway 等） 的上下文中，我们先明确几个关键点：
+
+✅ 核心结论（直接回答）：
+
+**Kubernetes 使用 VPC-CNI（如 AWS VPC CNI）时，默认不支持 “多 VPC” 架构，因此也不存在“跨 VPC 访问 Service” 的场景；整个集群运行在单个云 VPC 内，ClusterIP Service 在集群内默认全通。**
+
+但如果通过某些方式（如 Multus + 多 CNI、自定义网络）人为构造了“多 VPC”环境，则 **默认不允许 跨 VPC 访问 ClusterIP Service**。
+
+一、什么是 “VPC-CNI”？
+
+“VPC-CNI” 通常指 云厂商提供的 CNI 插件，其特点是：
+- Pod IP 直接从 云 VPC 的子网（Subnet） 分配；
+- Pod 网络与 VPC 网络 扁平打通，无 overlay 封装；
+- 常见实现：
+  - AWS VPC CNI（amazon-vpc-cni-k8s）
+  - 阿里云 Terway
+  - 华为云 CCE CNI
+  - 腾讯云 TKE VPC-CNI 模式
+
+📌 这些插件的 **前提假设是：整个 Kubernetes 集群部署在同一个云 VPC 中**。
+
+二、标准 VPC-CNI 场景下：没有“多 VPC”
+
+- 所有 Node 和 Pod 都在 同一个 VPC 的不同 Subnet 中；
+- Kubernetes 的 ClusterIP Service 由 kube-proxy（iptables/ipvs）在每个 Node 上实现；
+- 所有 Pod（无论在哪个 Subnet）都能访问任意 ClusterIP，因为：
+  - 流量通过 kube-proxy DNAT 到后端 Pod；
+  - Pod IP 在 VPC 内路由可达（CNI 已配置 ENI/路由表）。
+
+✅ 所以，在标准用法下：
+ClusterIP 全集群可达，但这是“单 VPC 内部通信”，不是“跨 VPC”。
+
+三、如果强行构建“多 VPC”架构（非标准）
+
+有些高级场景可能尝试：
+- 跨多个云 VPC 部署 Kubernetes 节点（如通过 VPC Peering / Transit Gateway）；
+- 使用 Multus + 多 CNI，让不同 Pod 接入不同 VPC 网络；
+- 自定义控制器模拟“多 VPC”。
+
+在这种 非标准、非原生支持 的架构中：
+行为   是否默认允许
+跨 VPC 访问 ClusterIP Service   ❌ 默认不允许
+
+原因：
+1. kube-proxy 只在本地 Node 上处理 Service 规则，它不知道其他 VPC 的存在；
+2. ClusterIP 是 虚拟 IP，仅在本集群的 kube-proxy 范围内有效；
+3. 即使底层 VPC 网络互通（如通过 Peering），ClusterIP 不是真实 IP，目标 VPC 的节点上没有对应 DNAT 规则 → 流量无法被正确转发；
+4. 云厂商安全组/ACL 可能默认拒绝跨 VPC 流量（即使路由通）。
+
+🔔 注意：AWS VPC CNI 官方不支持跨 VPC 部署单个 Kubernetes 集群。多 VPC 场景需使用 EKS on multiple VPCs + VPC Peering + careful routing，且 Service 仍限于集群内。
+
+四、对比：Kube-OVN vs VPC-CNI
+特性   Kube-OVN（支持多 VPC）   AWS VPC CNI（单 VPC）
+是否原生支持多 VPC   ✅ 是（逻辑 VPC）   ❌ 否（物理 VPC，单集群单 VPC）
+
+跨 VPC 访问 ClusterIP 默认行为   ❌ 禁止（需 external_service）   ❌ 不适用（无多 VPC）
+
+ClusterIP 可达范围   同 VPC 内   整个集群（单 VPC 内）
+
+✅ 总结
+问题   答案
+Kubernetes + VPC-CNI（如 AWS VPC CNI）默认允许跨 VPC 访问 Service 吗？   不适用，因为标准 VPC-CNI 部署在 单个 VPC 中，不存在“跨 VPC”场景。
+
+如果人为构建多 VPC 环境，能跨 VPC 访问 ClusterIP 吗？   ❌ 默认不能，ClusterIP 是集群局部虚拟 IP，不跨网络域传播。
+
+如何实现跨 VPC 服务访问？   应使用：• NodePort / LoadBalancer 类型 Service• Ingress + ALB/NLB• API Gateway• 或通过 VPC Peering + Pod IP 直接访问（绕过 ClusterIP）
+
+📌 最佳实践建议
+- 不要依赖 ClusterIP 跨 VPC；
+- 若需跨 VPC 通信，将 Service 暴露为 LoadBalancer 或通过 Ingress；
+- 在云环境中，优先使用 云原生负载均衡器（如 AWS NLB/ALB） 实现跨 VPC 服务暴露。
+
+如有具体 CNI（如 AWS VPC CNI v1.16+ 或 Terway）和架构细节，可进一步分析。

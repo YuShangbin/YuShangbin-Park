@@ -1,0 +1,76 @@
+Kubelet 的**优雅关机**特性是 Kubernetes 确保工作负载在终止（Pod 被删除或节点排空等场景）时能够以**受控、有序的方式**完成其当前任务并释放资源的核心机制。它的主要目标是最大限度地减少服务中断，避免数据丢失或损坏。
+
+以下是优雅关机特性的关键点和运作原理：
+
+1.  **触发时机**：
+    *   当 Pod 被删除时（用户执行 `kubectl delete pod` 或控制器如 Deployment 在进行滚动更新时删除旧 Pod）。
+    *   当节点被排空（`kubectl drain <node>`）时，该节点上的所有 Pod 都会被标记为删除。
+    *   Pod 因资源不足（如 `Evicted`）或健康检查失败而被驱逐时（取决于驱逐策略）。
+
+2.  **核心流程**：
+    1.  **Pod 状态变更**：Kubelet 检测到 Pod 需要被删除后，首先将 Pod 的状态设置为 `Terminating`。此时，Pod 会从 Service 的 Endpoint 列表中移除（通过 EndpointSlice API），**停止接收新的流量**。这是防止新请求到达正在关闭的 Pod 的关键步骤。
+    2.  **发送 SIGTERM 信号**：Kubelet 向 Pod 中运行的**每个容器的主进程**发送 `SIGTERM` 信号（Unix/Linux 系统上表示“终止”的标准信号）。
+    3.  **应用处理信号**：**这是优雅关机的核心**。容器中的应用**必须能够捕获并处理 `SIGTERM` 信号**。处理逻辑通常包括：
+        *   停止接受新连接/任务。
+        *   完成当前正在处理的请求或任务（例如，处理完 HTTP 请求，完成文件写入，保存状态到数据库，提交事务）。
+        *   关闭打开的文件描述符、网络连接、数据库连接等资源。
+        *   执行任何必要的清理工作。
+        *   最后，主进程正常退出。
+    4.  **等待期（Grace Period）**：Kubelet 会等待一个**可配置的时间**，让容器处理 `SIGTERM` 并优雅退出。这个时间由 Pod Spec 中的 `.spec.terminationGracePeriodSeconds` 字段定义（默认值为 30 秒）。
+    5.  **结果处理**：
+        *   **成功退出**：如果在 `terminationGracePeriodSeconds` 内，所有容器的主进程都成功退出（退出码为 0），则 Pod 被优雅终止。
+        *   **超时**：如果在 `terminationGracePeriodSeconds` 后，仍有容器的主进程**没有退出**，Kubelet 会向该容器的主进程发送 `SIGKILL` 信号（强制终止信号）。`SIGKILL` 无法被捕获或忽略，会立即终止进程。这确保了 Pod 最终会被清理掉，防止僵死进程。
+        *   **失败退出**：如果应用在 `terminationGracePeriodSeconds` 内退出，但**退出码非零**，Kubelet 仍然认为 Pod 终止了，但会记录该容器失败退出。Pod 的最终状态取决于其重启策略（`restartPolicy`），但在删除场景下，Pod 最终都会被移除。
+
+3.  **关键配置：`terminationGracePeriodSeconds`**
+    *   这个值决定了 Kubelet 在发送 `SIGTERM` 之后等待容器优雅退出的最大时间。
+    *   默认值是 30 秒。
+    *   可以在 Pod 的 YAML 文件中显式设置：
+        ```yaml
+        apiVersion: v1
+        kind: Pod
+        metadata:
+          name: my-pod
+        spec:
+          terminationGracePeriodSeconds: 60 # 设置为60秒
+          containers:
+          - name: my-container
+            image: my-image
+            ...
+        ```
+    *   **重要提示**：你需要根据应用的**实际关闭所需时间**来合理设置这个值。如果应用关闭需要超过 30 秒（比如需要等待长时间运行的任务完成或安全地关闭分布式锁），就必须增加这个值，否则会被 `SIGKILL` 强制终止。
+
+4.  **网络流量隔离**：
+    *   优雅关机的一个关键方面是确保在发送 `SIGTERM` **之前**，Pod 就不再接收新的请求。这是通过将 Pod 从 Service 的 Endpoint 列表中移除来实现的。
+    *   Kubelet 将 Pod 状态设为 `Terminating` 会触发控制面（如 Endpoint Controller）更新 EndpointSlice 对象，移除该 Pod 的 IP。
+    *   kube-proxy 或其他网络插件（如 Service Mesh 的 sidecar）会监听到 EndpointSlice 的变化，并更新本地的负载均衡规则（如 iptables, IPVS）或服务网格配置，**不再将新流量路由到该 Pod**。
+    *   **注意**：由于网络传播延迟，可能仍有少量“飞行中”的请求在 Pod 被移除 Endpoint 后到达。应用需要能够处理完这些请求。就绪探针（`readinessProbe`）失败也会触发 Pod 从 Endpoint 列表中移除，这通常发生在优雅关机流程之前，是另一层保障。
+
+5.  **`preStop` 钩子**：
+    *   作为 `SIGTERM` 的补充，Kubernetes 提供了 `preStop` 生命周期钩子。
+    *   你可以在容器配置中定义一个 `preStop` 命令或 HTTP GET 请求，它会在 Kubelet 发送 `SIGTERM` **之前**执行。
+    *   `preStop` 的执行时间**包含在 `terminationGracePeriodSeconds` 总时间内**。
+    *   **用途**：
+        *   执行一些 `SIGTERM` 信号处理器无法完成的任务（例如，调用特定的 API 通知其他系统）。
+        *   在应用本身不处理 `SIGTERM` 的情况下（不推荐），强制启动一个关闭流程。
+        *   增加额外的延迟（`sleep`）以等待负载均衡器完全排空流量（虽然网络隔离是主要机制，但有时需要额外缓冲）。
+        *   示例：
+            ```yaml
+            containers:
+            - name: my-container
+              image: my-image
+              lifecycle:
+                preStop:
+                  exec:
+                    command: ["/bin/sh", "-c", "sleep 10; /app/graceful-shutdown.sh"] # 先睡10秒，再执行自定义脚本
+            ```
+
+**总结与最佳实践：**
+
+*   **应用必须处理 `SIGTERM`**：这是实现优雅关机的基石。确保你的应用代码能够捕获 `SIGTERM` 并执行有序关闭逻辑。
+*   **合理设置 `terminationGracePeriodSeconds`**：评估应用实际关闭所需时间，设置足够长的宽限期。不要依赖默认的 30 秒，特别是对于需要长时间清理的应用。
+*   **理解网络隔离**：信任 Kubernetes 的机制（Endpoint 移除）来停止新流量。应用只需专注于完成现有请求。
+*   **谨慎使用 `preStop`**：优先使用 `SIGTERM` 处理程序。`preStop` 适用于特殊情况或作为补充。注意其执行时间计入总宽限期。
+*   **测试**：在生产环境部署前，务必测试应用的优雅关闭行为（例如，使用 `kubectl delete pod` 并观察日志和请求完成情况）。
+
+通过正确理解和利用 Kubelet 的优雅关机特性，你可以显著提高 Kubernetes 上运行应用的可靠性和数据一致性，尤其是在滚动更新、节点维护或自动扩缩容等场景下。

@@ -1,0 +1,65 @@
+product: ComputingService
+version: 6.0.2
+name:
+  en: Computing Service
+  zh-cn: 计算服务
+description:
+  en: 
+  zh-cn: 计算服务是一种提供算力的计算服务，可提供安全、可靠、弹性、高易用的计算环境，确保服务持久稳定运行，提升运维效率，使用户更专注于核心业务创新。
+learn:
+  nav:
+    menu:
+      - Introduction/What's
+      - Introduction/Scenarios
+      - Introduction/Concepts
+      - Introduction/Acquisition
+      - Introduction/Limitations
+      - Introduction/RelatedServices
+getting_started:
+  nav:
+    menu:
+      - GettingStarted/OperationGuide
+      - GettingStarted/PrerequisitePreparation
+      - GettingStarted/CreateInstanceFlavor
+      - GettingStarted/CreateAZ
+      - GettingStarted/CreateSSHKeyPair
+      - GettingStarted/CreateInstanceGroup
+      - GettingStarted/CreateInstance
+practice: 
+  - nav:
+      name:
+        en: User Guide
+        zh-cn: 用户指南
+      menu:
+        - UserGuide/Instance
+        - UserGuide/InstanceSnapshot
+        - UserGuide/InstanceRecycleBin
+        - UserGuide/InstanceGroup
+        - UserGuide/SSHKeyPair
+        - UserGuide/InstanceFlavor
+        - UserGuide/AZHostAggregates
+        - UserGuide/ComputeNode
+  - nav:
+      name:
+        en: Best Practices
+        zh-cn: 最佳实践
+      menu:
+      - BestPractice/CreateInstanceWithSR-IOV
+      - BestPractice/CreateInstanceWithGPU
+develop:
+  nav:
+    name:
+      en: API Reference
+      zh-cn: API参考
+    menu:
+      - API/APIIntroduction
+      - API/Method
+      - API/Instances
+      - API/SnapShot
+      - API/RececleBin
+      - API/InstanceGroup
+      - API/SSHKey
+      - API/Flavor
+      - API/Aggregate
+      - API/ComputeNode
+      - API/ReversionHistory

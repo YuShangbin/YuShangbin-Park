@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>[#ECS-7262] 中国银河证券股份有限公司-210928-中国银河证券股份有限公司-银河证券富丰路机房易捷云信创开发测试超融合系统(CSE-4205) -虚拟机异常关机查询分析</title>
+    <meta http-equiv="Content-Type" Content="application/vnd.ms-word; charset=UTF-8">
+        <style type="text/css">
+
+.tableBorder, .grid
+{
+    background-color: #fff;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tableBorder td, .grid td
+{
+    vertical-align: top;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+.noPadding
+{
+    padding: 0 !important;
+}
+
+h3 .subText
+{
+    font-size: 60%;
+    font-weight: normal;
+}
+
+.tabLabel
+{
+    font-weight: bold;
+    border: 1px solid #ccc;
+    border-bottom:none;
+    padding: 2px;
+    display: inline;
+}
+
+td.blank
+{
+    padding: 0;
+    margin: 0;
+}
+
+.blank td
+{
+    border: none;
+}
+
+#descriptionArea
+{
+    margin: 0;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+hr
+{
+    border-top:1px solid #aaa;
+}
+
+hr.fullcontent
+{
+  height: 15px;
+  padding: 10px 0;
+  background: #fff url('https://easystack.atlassian.net/images/icons/hr.gif') no-repeat scroll center;
+}
+
+</style>
+
+</head>
+<body>
+
+<table class="tableBorder" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" width="100%" colspan="2" valign="top">
+                            <b><a id="parent_issue_summary" href="https://easystack.atlassian.net/browse/CSE-4205">中国银河证券股份有限公司-210928-中国银河证券股份有限公司-银河证券富丰路机房易捷云信创开发测试超融合系统</a></b>
+                <span style="font-size: 9px">(<a id="parent_issue_key" href="https://easystack.atlassian.net/browse/CSE-4205">CSE-4205</a>)</span>
+                <h3 class="formtitle"><img src="https://easystack.atlassian.net/images/icons/link_out_bot.gif" width="16" height="16" />
+                        [ECS-7262]&nbsp;<a href="https://easystack.atlassian.net/browse/ECS-7262">中国银河证券股份有限公司-210928-中国银河证券股份有限公司-银河证券富丰路机房易捷云信创开发测试超融合系统(CSE-4205) -虚拟机异常关机查询分析</a>
+            <span class="subText">
+               已创建: 24/四月/25                   &nbsp;已更新: 24/四月/25
+
+                                            </span>
+            </h3>
+        </td>
+    </tr>
+    <tr>
+        <td width="20%"><b>状态:</b></td>
+        <td width="80%">Under investigation</td>
+    </tr>
+    <tr>
+        <td width="20%"><b>项目:</b></td>
+        <td width="80%"><a href="https://easystack.atlassian.net/secure/BrowseProject.jspa?id=10100">EasyStack Customer Support</a></td>
+    </tr>
+
+        <tr>
+            <td><b>组件:</b></td>
+            <td>
+                                        <a title="OperatingSystem - OS"
+                href="https://easystack.atlassian.net/issues/?jql=project%3D10100%20AND%20%22component%22%3D10505%20ORDER%20BY%20priority%20ASC"
+            >OperatingSystem</a>                        </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>影响版本:</b></td>
+            <td>
+                                        <a title="6.1.1"
+                href="https://easystack.atlassian.net/issues/?jql=project%3D10100%20AND%20%22affectedVersion%22%3D14972%20ORDER%20BY%20priority%20ASC"
+            >6.1.1</a>                        </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>修复版本:</b></td>
+            <td>
+                                        <a title="6.1.1"
+                href="https://easystack.atlassian.net/issues/?jql=project%3D10100%20AND%20%22fixVersion%22%3D14972%20ORDER%20BY%20priority%20ASC"
+            >6.1.1</a>                        </td>
+    </tr>
+    
+    
+            <td width="20%"><b>父项:</b></td>
+        <td width="80%"><a href="https://easystack.atlassian.net/browse/CSE-4205">中国银河证券股份有限公司-210928-中国银河证券股份有限公司-银河证券富丰路机房易捷云信创开发测试超融合系统</a></td>
+    </table>
+
+<br />
+<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" valign="top" width="20%">
+            <b>类型:</b>
+        </td>
+        <td bgcolor="#ffffff" valign="top"  width="30%" >
+            Problem
+        </td>
+
+                    <td bgcolor="#f0f0f0">
+                <b>优先级:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap>
+                重要
+            </td>
+            </tr>
+    <tr>
+                        <td bgcolor="#f0f0f0" valign="top" width="20%">
+                <b>报告人:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top"  width="30%" >
+                                        
+                
+        
+            <a class="user-hover" rel="5e9e8d9a9cc9330c11139888"
+                id="word_reporter_5e9e8d9a9cc9330c11139888"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5e9e8d9a9cc9330c11139888">
+                    孙慧敏
+                </a>
+
+                            </td>
+        
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>经办人:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap  width="30%" >
+                                        
+                
+        
+            <a class="user-hover" rel="5de5f414cdc2d20d053804cc"
+                id="word_assignee_5de5f414cdc2d20d053804cc"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5de5f414cdc2d20d053804cc">
+                    于宸
+                </a>
+
+                            </td>
+            </tr>
+    	<tr>
+		<td bgcolor="#f0f0f0" width="20%">
+			<b>解决方案:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+            				未解决
+                    </td>
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>表决:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+                0
+            </td>
+        
+    </tr>
+    
+        <tr>
+        <td bgcolor="#f0f0f0" width="20%">
+            <b>标签:</b>
+        </td>
+        <td id="labels-266608-value" class="value" bgcolor="#ffffff" valign="top" colspan="3" nowrap>
+                            运维大区1, 运维大区3                    </td>
+    </tr>
+    
+    	<tr>
+        		<td bgcolor="#f0f0f0" width="20%"><b>剩余估计量:</b></td>
+        <td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            尚未指定
+            		</td>
+    </tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>所用时间:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            尚未指定
+            		</td>
+	</tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>原始预估:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            尚未指定
+            		</td>
+    </tr>
+    
+    	<tr>
+
+		<td bgcolor="#f0f0f0" width="20%" valign="top">
+			<b>环境:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" colspan="3">
+            <p>6.1.1</p>
+		</td>
+	</tr>
+    </table>
+
+
+
+    <br />
+
+    	<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+            
+
+                <tr>
+            <td bgcolor="#f0f0f0" width=20% valign=top>
+                <b>附件:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top">
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG文件">
+                    05a65cb53a67fa9a5ac343b13c3e6c1-20250422-102333.png &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG文件">
+                    1e72f95b6705a682a1c6b87e560e98f-20250423-082528 (7b5e7c8d-9fc4-4bb6-9b6b-6999b790f320).png &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG文件">
+                    1e72f95b6705a682a1c6b87e560e98f-20250423-082528.png &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG文件">
+                    37db63a8207ec7990ab109557300da5-20250422-102342.png &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG文件">
+                    3b8a83c93b19972b0e0b7e48fc5557e-20250423-082548.png &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG文件">
+                    53f9ddc5437461ee989794feefd1c89-20250422-102407.png &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG文件">
+                    67186c970cfb06865b2ced6bd286bd3-20250422-073323.png &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG文件">
+                    b20518bb81ba5909e26330809bb7d4f-20250422-102339.png &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG文件">
+                    b6120aea70673ef6a17b3e4269989ae-20250422-102412.png &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG文件">
+                    be27765111a2f9d0fcf14924c27af36-20250422-102432.png &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG文件">
+                    image-20250423-083959.png &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG文件">
+                    image-20250424-010046.png &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG文件">
+                    image-20250424-010123.png &nbsp;&nbsp;&nbsp;
+                            </td>
+        </tr>
+        
+            <tr>
+            <td bgcolor="#f0f0f0" width="20%" valign="top">
+                <b>事务链接:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" class="noPadding">
+                <table cellpadding="0" cellspacing="0" border="0" width="100%" class="blank">
+                                            <tr>
+                            <td colspan="4" bgcolor="#f0f0f0">
+                                <b>Cloners</b><br/>
+                            </td>
+                        </tr>
+                                    <tr>
+            <td>
+                clones
+            </td>
+            <td>
+                <a href="https://easystack.atlassian.net/browse/ECSL2-42709">
+                     ECSL2-42709                 </a>
+            </td>
+            <td>
+                中国银河证券股份有限公司-210928-中国银河证券股份有限公司-银河证券...
+            </td>
+            <td>
+                Pending
+            </td>
+        </tr>
+                                                                            <tr>
+                            <td colspan="4" bgcolor="#f0f0f0">
+                                <b>Relates</b><br/>
+                            </td>
+                        </tr>
+                                    <tr>
+            <td>
+                relates to
+            </td>
+            <td>
+                <a href="https://easystack.atlassian.net/browse/EAS-132990">
+                     <strike>EAS-132990</strike>                 </a>
+            </td>
+            <td>
+                40环境，dpdk5000C计算节点批量创建30个网络加速型云主机，有12...
+            </td>
+            <td>
+                Merged
+            </td>
+        </tr>
+                                                                    </table>
+            </td>
+        </tr>
+    
+
+
+    
+                        <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Priority Detail:</b></td>
+                <td id="customfield_11294-266608-value" class="value" bgcolor="#ffffff" width="80%">
+
+
+    <div class="shorten" id="customfield_11294-field">
+        							<span>Major-重要问题环境已恢复，后续调查原因</span>			            </div>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Customer Name:</b></td>
+                <td id="customfield_11102-266608-value" class="value" bgcolor="#ffffff" width="80%">      中国银河证券股份有限公司
+  </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Customer Project ID:</b></td>
+                <td id="customfield_11111-266608-value" class="value" bgcolor="#ffffff" width="80%">      iagn
+  </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>L2调查情况（升级L3时填写）:</b></td>
+                <td id="customfield_11105-266608-value" class="value" bgcolor="#ffffff" width="80%">      1.问题发生过程（复杂问题需要整理时间线）<br/>
+&nbsp;&nbsp;&lt;补充说明&gt;<br/>
+2.L2的分析和阶段性结论<br/>
+&nbsp;&nbsp;&lt;补充说明&gt;<br/>
+3.是否已经和“L2评审委员会”做过确认，L2无法解决需要升级L3<br/>
+&nbsp;&nbsp;&lt;补充说明&gt;<br/>
+
+  </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>L2 Supporter:</b></td>
+                <td id="customfield_10400-266608-value" class="value" bgcolor="#ffffff" width="80%">        <span class="tinylink">        <span class="user-hover" rel="rk:434723e3-2704-4c74-ab11-9d274f45a892" id="user_cf_rk:434723e3-2704-4c74-ab11-9d274f45a892">孟佩</span></span>
+    </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>L2 Leader:</b></td>
+                <td id="customfield_11390-266608-value" class="value" bgcolor="#ffffff" width="80%">        <span class="tinylink">        <span class="user-hover" rel="yongan.zhu" id="user_cf_yongan.zhu">朱永安</span></span>
+    </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Epic Link:</b></td>
+                <td id="customfield_10007-266608-value" class="value" bgcolor="#ffffff" width="80%">
+    <a class="aui-label ghx-label-10" href="https://easystack.atlassian.net/browse/CSE-4205">
+        中国银河证券股份有限公司-210928-中国银河证券股份有限公司-银河证券富丰路机房易捷云信创开发测试超融合系统
+    </a>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Sprint:</b></td>
+                <td id="customfield_10006-266608-value" class="value" bgcolor="#ffffff" width="80%"></td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Conclusion:</b></td>
+                <td id="customfield_11117-266608-value" class="value" bgcolor="#ffffff" width="80%">      问题被设置为解决状态时，需要进行问题的总结。<br/>
+<br/>
+问题分析：<br/>
+这里写明问题的直接原因、根本原因等 &lt;可以用1、2、3编号&gt;<br/>
+<br/>
+处理策略：<br/>
+这里写明临时的规避方案、以后彻底解决的方案等 &lt;可以用1、2、3编号&gt;
+  </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Pending reason:</b></td>
+                <td id="customfield_11159-266608-value" class="value" bgcolor="#ffffff" width="80%">    More info required
+</td>
+            </tr>
+            </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>描述</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td id="descriptionArea">
+            <p>环境版本：6.1.1</p>
+
+<p>环境规模：4融合</p>
+
+<p>问题描述：虚拟机异常关机查询分析</p>
+
+<p>获取方式：ESonCall微信群-银河证券运维群_ES内部群（无客户）-驻场工程师-樊亚州</p>
+
+
+<p><span class="image-wrap" style=""><img src="/rest/api/3/attachment/content/351961" alt="67186c970cfb06865b2ced6bd286bd3-20250422-073323.png" height="393" width="1271" style="border: 0px solid black" /></span></p>
+            <br/>
+        </td>
+    </tr>
+    </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>评论</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" class="grid" style="margin: 0;">
+                <tr id="comment-header-448169"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="557058:8fab0584-c9a9-4550-ad49-dac6c71db05e"
+                id="word_commented_557058:8fab0584-c9a9-4550-ad49-dac6c71db05e"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=557058%3A8fab0584-c9a9-4550-ad49-dac6c71db05e">
+                    孟佩
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">24/四月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-448169"><td bgcolor="#ffffff">
+            <h5><a name="OriginallyaddedtoECSL242709https%3A%2F%2Feasystack.atlassian.net%2Fbrowse%2FECSL242709at22%2FApr%2F256%3A24PM"></a>Originally added to <a href="https://easystack.atlassian.net/browse/ECSL2-42709" class="external-link" rel="nofollow noreferrer">ECSL2-42709</a> at 22/Apr/25 6:24 PM</h5>
+
+<p>该集群资源使用率较高，虚机关机的原因全部都是因为发生OOM被kill掉了。</p>
+
+<p><span class="image-wrap" style=""><img src="/rest/api/3/attachment/content/351964" alt="be27765111a2f9d0fcf14924c27af36-20250422-102432.png" height="849" width="1663" style="border: 0px solid black" /></span></p>
+
+<p><span class="image-wrap" style=""><img src="/rest/api/3/attachment/content/351955" alt="05a65cb53a67fa9a5ac343b13c3e6c1-20250422-102333.png" height="217" width="1239" style="border: 0px solid black" /></span></p>
+
+<p><span class="image-wrap" style=""><img src="/rest/api/3/attachment/content/351962" alt="b20518bb81ba5909e26330809bb7d4f-20250422-102339.png" height="308" width="1699" style="border: 0px solid black" /></span></p>
+
+<p><span class="image-wrap" style=""><img src="/rest/api/3/attachment/content/351958" alt="37db63a8207ec7990ab109557300da5-20250422-102342.png" height="294" width="1514" style="border: 0px solid black" /></span></p>
+
+<p><span class="image-wrap" style=""><img src="/rest/api/3/attachment/content/351960" alt="53f9ddc5437461ee989794feefd1c89-20250422-102407.png" height="331" width="1464" style="border: 0px solid black" /></span></p>
+
+<p><span class="image-wrap" style=""><img src="/rest/api/3/attachment/content/351963" alt="b6120aea70673ef6a17b3e4269989ae-20250422-102412.png" height="365" width="1589" style="border: 0px solid black" /></span></p>
+        </td></tr>
+                <tr id="comment-header-448170"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="557058:8fab0584-c9a9-4550-ad49-dac6c71db05e"
+                id="word_commented_557058:8fab0584-c9a9-4550-ad49-dac6c71db05e"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=557058%3A8fab0584-c9a9-4550-ad49-dac6c71db05e">
+                    孟佩
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">24/四月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-448170"><td bgcolor="#ffffff">
+            <h5><a name="OriginallyaddedtoECSL242709https%3A%2F%2Feasystack.atlassian.net%2Fbrowse%2FECSL242709at23%2FApr%2F254%3A25PM%2Clasteditedby%E5%AD%9F%E4%BD%A9https%3A%2F%2Feasystack.atlassian.net%2Fpeople%2F557058%3A8fab0584c9a94550ad49dac6c71db05eat24%2FApr%2F259%3A00AM"></a>Originally added to <a href="https://easystack.atlassian.net/browse/ECSL2-42709" class="external-link" rel="nofollow noreferrer">ECSL2-42709</a> at 23/Apr/25 4:25 PM, last edited by <a href="https://easystack.atlassian.net/people/557058:8fab0584-c9a9-4550-ad49-dac6c71db05e" class="external-link" rel="nofollow noreferrer">孟佩</a> at 24/Apr/25 9:00 AM</h5>
+
+<p>node-4 是计算存储融合节点，操作系统预留3G内存，kubepod 预留10G，5个OSD，每个OSD预留4G，共20G，所以总预留内存是 33G，<br/>
+总内存 383G-33G=350G，所以node-4节点给虚机的可用内存就是 350G。</p>
+
+<p><span class="image-wrap" style=""><img src="/rest/api/3/attachment/content/351956" alt="1e72f95b6705a682a1c6b87e560e98f-20250423-082528.png" height="790" width="1702" style="border: 0px solid black" /></span></p>
+
+<p><span class="image-wrap" style=""><img src="/rest/api/3/attachment/content/351959" alt="3b8a83c93b19972b0e0b7e48fc5557e-20250423-082548.png" height="505" width="1822" style="border: 0px solid black" /></span></p>
+
+<p><span class="image-wrap" style=""><img src="/rest/api/3/attachment/content/351965" alt="image-20250423-083959.png" height="383" width="1645" style="border: 0px solid black" /></span></p>
+
+<p>内存超售比是1，并未超分。</p>
+
+<p><span class="image-wrap" style=""><img src="/rest/api/3/attachment/content/351966" alt="image-20250424-010046.png" height="610" width="975" style="border: 0px solid black" /></span></p>
+        </td></tr>
+                <tr id="comment-header-448171"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="557058:8fab0584-c9a9-4550-ad49-dac6c71db05e"
+                id="word_commented_557058:8fab0584-c9a9-4550-ad49-dac6c71db05e"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=557058%3A8fab0584-c9a9-4550-ad49-dac6c71db05e">
+                    孟佩
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">24/四月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-448171"><td bgcolor="#ffffff">
+            <h5><a name="OriginallyaddedtoECSL242709https%3A%2F%2Feasystack.atlassian.net%2Fbrowse%2FECSL242709at24%2FApr%2F259%3A21AM"></a>Originally added to <a href="https://easystack.atlassian.net/browse/ECSL2-42709" class="external-link" rel="nofollow noreferrer">ECSL2-42709</a> at 24/Apr/25 9:21 AM</h5>
+
+<ol>
+	<li>查看几台虚机的规格，有一台是64G内存，其余都是32G内存。<br/>
+<span class="image-wrap" style=""><img src="/rest/api/3/attachment/content/351967" alt="image-20250424-010123.png" height="122" width="661" style="border: 0px solid black" /></span></li>
+	<li>查看几台虚机发生oom被kill时的信息；RSS看起来都不高，但是被kill时 anon-rss 均已经接近虚机内存的规格限制32G或者64G。
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>Apr 22 14:51:12 node-4 kernel: [50177] 42436 50177   580000   493265(RSS)  4980736        0          1000 qemu-kvm
+Apr 17 14:28:39 node-4 kernel: [50995] 42436 50995   567582   494022(RSS)  4915200        0          1000 qemu-kvm
+Apr 17 10:41:10 node-3 kernel: [48066] 42436 48066  1123187  1026275(RSS)  9240576        0          1000 qemu-kvm
+Apr 15 09:48:58 node-4 kernel: [51116] 42436 51116   567554   509350(RSS)  4784128        0          1000 qemu-kvm
+Apr 15 09:48:58 node-4 kernel: [50036] 42436 50036   567404   494919(RSS)  4849664        0          1000 qemu-kvm</pre>
+</div></div>
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>Apr 22 14:51:13 node-4 kernel: Out of memory: Killed process 50177 (qemu-kvm) total-vm:37120000kB, anon-rss:31568960kB, file-rss:0kB, shmem-rss:0kB
+Apr 17 14:28:39 node-4 kernel: Out of memory: Killed process 50995 (qemu-kvm) total-vm:36325248kB, anon-rss:31617408kB, file-rss:0kB, shmem-rss:0kB
+Apr 17 10:41:10 node-3 kernel: Out of memory: Killed process 48066 (qemu-kvm) total-vm:71883968kB, anon-rss:65681600kB, file-rss:0kB, shmem-rss:0kB
+Apr 15 09:48:58 node-4 kernel: Out of memory: Killed process 51116 (qemu-kvm) total-vm:36323456kB, anon-rss:32598400kB, file-rss:0kB, shmem-rss:0kB
+Apr 15 19:11:59 node-4 kernel: Out of memory: Killed process 50036 (qemu-kvm) total-vm:36313856kB, anon-rss:31674816kB, file-rss:0kB, shmem-rss:0kB</pre>
+</div></div></li>
+	<li>目前不太清楚这里面的机制，请L3帮忙看下，虚机为何会发生OOM被kill掉，需要跟客户解释一下，谢谢。</li>
+</ol>
+
+        </td></tr>
+                <tr id="comment-header-448200"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="5de5f414cdc2d20d053804cc"
+                id="word_commented_5de5f414cdc2d20d053804cc"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5de5f414cdc2d20d053804cc">
+                    于宸
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">24/四月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-448200"><td bgcolor="#ffffff">
+            <p>RSS列 输出的是页面个数，所以要计算内存要乘以page_size。arm64下是64K页。</p>
+
+<p>所以RSS*64kb可以看到，qemu虚机几乎都用满了内存。</p>
+        </td></tr>
+                <tr id="comment-header-448265"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="5de5f414cdc2d20d053804cc"
+                id="word_commented_5de5f414cdc2d20d053804cc"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5de5f414cdc2d20d053804cc">
+                    于宸
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">24/四月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-448265"><td bgcolor="#ffffff">
+            <div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ pid ]   uid  tgid total_vm      rss pgtables_bytes swapents oom_score_adj name
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 1399]     0  1399     7528     5628   458752        0             0 systemd-journal
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 1405]     0  1405      539      148   393216        0         -1000 systemd-udevd
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 2462]     0  2462      135       70   327680        0             0 haveged
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 2544]   193  2544      446      147   327680        0             0 systemd-resolve
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 2548]    32  2548      251       93   393216        0             0 rpcbind
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 2549]     0  2549      352       78   393216        0         -1000 auditd
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 2582]     0  2582     3393       35   458752        0             0 openvswitch-con
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 2590]     0  2590      207       78   393216        0             0 smartd
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 2597]    81  2597      190       70   327680        0          -900 dbus-daemon
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 2601]     0  2601      359      105   393216        0             0 systemd-logind
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 2603]   997  2603     1229       25   458752        0             0 chronyd
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 2604]   998  2604    30282      189   786432        0             0 polkitd
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 2723]   329  2723      562      256   393216        0             0 ovsdb-server
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 2811]   329  2811    69322     3082   983040        0             0 ovs-vswitchd
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 4424]     0  4424      265      130   393216        0         -1000 sshd
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 4426]     0  4426     7553      445   393216        0             0 tuned
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 4441]     0  4441    10694     1454   458752        0             0 rsyslogd
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 4465]     0  4465     4159       77   393216        0             0 gssproxy
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 4511]     0  4511   100514     1388  1310720        0             0 containerd
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 4526]     0  4526     3413       56   393216        0             0 crond
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 4542]     0  4542    10036      804   458752        0             0 coaster-agent
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 4717]     0  4717   101608     2397  1179648        0          -999 kubelet
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 4744]     0  4744     1396       69   393216        0             0 irqbalance
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 4882]     0  4882     3374       27   393216        0             0 agetty
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 4887]     0  4887     3367       31   458752        0             0 agetty
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 6123]     0  6123     4277      777   524288        0             0 python
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 7024]     0  7024     4208      659   524288        0             0 python
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 7025]     0  7025     4208      659   524288        0             0 python
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 7026]     0  7026     4208      659   524288        0             0 python
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 7027]     0  7027     4208      659   524288        0             0 python
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 7529]     0  7529    11154      108   458752        0             1 containerd-shim
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 7530]     0  7530    11150      114   458752        0             1 containerd-shim
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 7569]     0  7569       19        1   327680        0          -998 pause
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 7576]     0  7576       19        1   393216        0          -998 pause
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 7637]     0  7637      144       26   327680        0          -997 nginx
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 7644]     0  7644    11739      436   458752        0          -998 kube-proxy
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 7671]   101  7671      163       47   327680        0          -997 nginx
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 7672]   101  7672      155       39   327680        0          -997 nginx
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 7673]   101  7673      154       39   327680        0          -997 nginx
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 7674]   101  7674      155       26   327680        0          -997 nginx
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 7675]   101  7675      152       26   327680        0          -997 nginx
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 7676]   101  7676      152       26   327680        0          -997 nginx
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 7677]   101  7677      152       26   327680        0          -997 nginx
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 7678]   101  7678      152       26   327680        0          -997 nginx
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 7679]   101  7679      152       26   327680        0          -997 nginx
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 7680]   101  7680      152       26   327680        0          -997 nginx
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 7681]   101  7681      152       26   327680        0          -997 nginx
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 7682]   101  7682      152       26   327680        0          -997 nginx
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 7683]   101  7683      152       26   327680        0          -997 nginx
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 7684]   101  7684      152       26   327680        0          -997 nginx
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 7685]   101  7685      152       26   327680        0          -997 nginx
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 7686]   101  7686      152       26   327680        0          -997 nginx
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 7805]     0  7805    11150       83   458752        0             1 containerd-shim
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 7836]     0  7836       19        1   327680        0          -998 pause
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 7914]     0  7914    11150      110   458752        0             1 containerd-shim
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 7956]     0  7956       19        1   393216        0          -998 pause
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 8033]     0  8033    11150      104   458752        0             1 containerd-shim
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 8042]     0  8042    11150       95   458752        0             1 containerd-shim
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 8081]     0  8081       19        1   393216        0          -998 pause
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 8088]     0  8088       19        1   393216        0          -998 pause
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 8235]     0  8235    11150      109   458752        0             1 containerd-shim
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 8265]     0  8265       19        1   327680        0          -998 pause
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 8356]     0  8356       27        5   393216        0           999 install-cni.sh
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 8433]     0  8433    11150      104   524288        0             1 containerd-shim
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 8517]     0  8517       19        1   327680        0          -998 pause
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 8615]     0  8615    11150      103   458752        0             1 containerd-shim
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 8658]     0  8658    11150       96   458752        0             1 containerd-shim
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 8682]     0  8682    11150       92   458752        0             1 containerd-shim
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 8683]     0  8683    11150      119   458752        0             1 containerd-shim
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 8685]     0  8685    11150      114   458752        0             1 containerd-shim
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 8774]     0  8774       19        1   327680        0          -998 pause
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 8781]     0  8781       19        1   327680        0          -998 pause
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 8796]     0  8796       19        1   327680        0          -998 pause
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 8797]     0  8797       19        1   393216        0          -998 pause
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 8809]     0  8809       19        1   327680        0          -998 pause
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 8996] 65534  8996     2010      703   393216        0          1000 node_exporter
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 9308]     0  9308       21        1   393216        0          1000 entrypoint.sh
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 9324]     0  9324     1756       31   458752        0          1000 bash
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 9384]     0  9384    11150      111   458752        0             1 containerd-shim
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 9411]     0  9411    11150      107   524288        0             1 containerd-shim
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 9452]     0  9452    11150       95   458752        0             1 containerd-shim
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 9457]     0  9457    11154      130   458752        0             1 containerd-shim
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 9458]     0  9458    11150       94   458752        0             1 containerd-shim
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 9519]     0  9519       19        1   327680        0          -998 pause
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 9528]     0  9528       19        1   393216        0          -998 pause
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 9529]     0  9529       19        1   327680        0          -998 pause
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 9530]     0  9530       19        1   327680        0          -998 pause
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 9562]     0  9562       19        1   327680        0          -998 pause
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 9572]     0  9572       21        1   393216        0          1000 cronjob.sh
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 9594]     0  9594    11154      147   458752        0             1 containerd-shim
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 9622]     0  9622     1747       22   393216        0          1000 sh
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 9742]     0  9742       19        1   327680        0          -998 pause
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 9801]     0  9801       21        1   327680        0          1000 eventmonitor.sh
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 9822]     0  9822     5689      368   327680        0          1000 eventmonitor
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 9895]     0  9895     2922     1022   327680        0          1000 eventmonitor
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 9896]     0  9896     4075     1027   327680        0          1000 eventmonitor
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 9904]     0  9904       31        4   327680        0          1000 ipmi.sh
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 9961]     0  9961     1853      233   393216        0          1000 ipmi_exporter
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 9995]     0  9995       21        1   327680        0          1000 easystack-node-
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [10013]     0 10013     1748       21   393216        0          1000 bash
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [10016]     0 10016     5749     1417   327680        0          1000 node-hagent
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [10267]     0 10267       21        1   327680        0          1000 easystack-vmm.s
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [10557]     0 10557     1747       21   327680        0          1000 bash
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [10574]     0 10574     3103     1134   393216        0          1000 esvmm-api
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [10771]     0 10771     3119     1151   393216        0          1000 esvmm-api
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [10772]     0 10772     3119     1152   393216        0          1000 esvmm-api
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [10915]     0 10915       21        1   393216        0          1000 libvirt.sh
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [10927]     0 10927     1748       24   393216        0          1000 bash
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [10952]     0 10952       21        1   393216        0          1000 sync-hosts.sh
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [10964]     0 10964     1747       20   458752        0          1000 bash
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [14069]     0 14069     3728      690   458752        0           999 ceilometer-poll
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [14187]   167 14187   116288    48124  1376256        0          1000 ceph-osd
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [14189]   167 14189   109727    51060  1310720        0          1000 ceph-osd
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [14208]   167 14208    85955    48753  1048576        0          1000 ceph-osd
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [14221]   167 14221   106304    51119  1245184        0          1000 ceph-osd
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [14228]   167 14228   114305    55120  1310720        0          1000 ceph-osd
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [15295]     0 15295    11769      282   458752        0           999 flanneld
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [15727]     0 15727    89802     1513  1114112        0           999 ceilometer-poll
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [15905]     0 15905      921      441   327680        0          1000 fluent-bit
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [17841]     0 17841    16616      486   524288        0          1000 python
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [19354]     0 19354    11347      234   524288        0          1000 process-exporte
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [20591]     0 20591    19477      442   524288        0          1000 libvirtd
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [35476] 42436 35476    39586     2961   720896        0           999 nova-compute
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [36669]     0 36669     1747       22   393216        0           999 sync-hosts.sh
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [46751]     0 46751       21        1   393216        0          1000 ovn-controller.
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [46763]     0 46763     1747       23   393216        0          1000 bash
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [46859]     0 46859     3849      189   393216        0          1000 ovn-controller
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [46905]     0 46905       21        1   393216        0          1000 easystack-dm.sh
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [46917]     0 46917     1747       21   327680        0          1000 bash
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [46918]     0 46918     3217     1151   393216        0          1000 esdm-agent
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [49972]     0 49972    33877      784   655360        0           999 privsep-helper
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [50177] 42436 50177   580000   493218  4980736        0          1000 qemu-kvm
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [50369] 42436 50369   580109   491830  4980736        0          1000 qemu-kvm
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [50577] 42436 50577    93858    54711  1114112        0          1000 qemu-kvm
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [50689] 42436 50689   581029   469768  4980736        0          1000 qemu-kvm
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [50851] 42436 50851   567939   484765  4915200        0          1000 qemu-kvm
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [50995] 42436 50995   567582   494022  4915200        0          1000 qemu-kvm
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [52695]     0 52695    77585      990   983040        0           999 privsep-helper
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 2293] 42436  2293   295892   239940  2752512        0          1000 qemu-kvm
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [11858] 42436 11858   160168   114371  1703936        0          1000 qemu-kvm
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [13730]     0 13730    11150      113   458752        0             1 containerd-shim
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [13752]     0 13752       19        1   327680        0          -998 pause
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [13933]     0 13933       21        1   327680        0          1000 neutron-sriov-n
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [13951]     0 13951     1747       21   393216        0          1000 bash
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [13952]     0 13952     3839     1822   393216        0          1000 neutron-sriov-n
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [14382]     0 14382    11150       92   458752        0             1 containerd-shim
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [14416]     0 14416       19        1   327680        0          -998 pause
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [14587]     0 14587       21        1   393216        0          1000 neutron-ovn-met
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [14662]     0 14662     1747       20   393216        0          1000 bash
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [14687]     0 14687     3703     1656   458752        0          1000 neutron-ovn-met
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [20013]     0 20013     3671     1652   458752        0          1000 neutron-ovn-met
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [22247]     0 22247    31806     1103   655360        0          1000 privsep-helper
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [53574] 42436 53574   295962   243265  2752512        0          1000 qemu-kvm
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [65405] 42436 65405   297677   240716  2686976        0          1000 qemu-kvm
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 5805] 42436  5805   297940    49517  1572864        0          1000 qemu-kvm
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [11503] 42436 11503   569071   434971  4653056        0          1000 qemu-kvm
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [ 8944] 42436  8944   308535   239559  2752512        0          1000 qemu-kvm
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [18921] 42436 18921   568656   367918  4063232        0          1000 qemu-kvm
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [42815] 42436 42815   568008   292632  3538944        0          1000 qemu-kvm
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [11218]     0 11218      382      161   458752        0             0 sshd
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [11221]     0 11221      435      164   393216        0             0 systemd
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [11222]     0 11222      589      200   327680        0             0 (sd-pam)
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [11284]     0 11284      382      127   458752        0             0 sshd
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [11289]     0 11289     3546      182   458752        0             0 bash
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [27041]     0 27041     1715        8   393216        0           999 sleep
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [29140]     0 29140       31        1   327680        0          1000 sleep
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [44244]     0 44244       26        1   262144        0           999 sleep
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [19390]     0 19390     1715        8   327680        0          1000 sleep
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [20306]     0 20306     1715        7   327680        0          1000 sleep
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [20998]     0 20998    11680      210   524288        0             0 kubectl
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [21118]     0 21118     1715        7   393216        0          1000 sleep
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [21643]     0 21643     3364        9   458752        0             0 sleep
+2025-04-17 14:28:39.000 +0800 ¦ node-4 ¦ messages ¦  ¦ Apr 17 14:28:39 node-4 kernel: [21706]     0 21706    16964      113   655360        0             1 runc</pre>
+</div></div>
+        </td></tr>
+                <tr id="comment-header-448272"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="5de5f414cdc2d20d053804cc"
+                id="word_commented_5de5f414cdc2d20d053804cc"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5de5f414cdc2d20d053804cc">
+                    于宸
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">24/四月/25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-448272"><td bgcolor="#ffffff">
+            <div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>Apr 17 14:28:39 node-4 kernel: [50177] 42436 50177   580000   493218  4980736        0          1000 qemu-kvm
+Apr 17 14:28:39 node-4 kernel: [50369] 42436 50369   580109   491830  4980736        0          1000 qemu-kvm
+Apr 17 14:28:39 node-4 kernel: [50577] 42436 50577    93858    54711  1114112        0          1000 qemu-kvm
+Apr 17 14:28:39 node-4 kernel: [50689] 42436 50689   581029   469768  4980736        0          1000 qemu-kvm
+Apr 17 14:28:39 node-4 kernel: [50851] 42436 50851   567939   484765  4915200        0          1000 qemu-kvm
+Apr 17 14:28:39 node-4 kernel: [50995] 42436 50995   567582   494022  4915200        0          1000 qemu-kvm
+Apr 17 14:28:39 node-4 kernel: [ 2293] 42436  2293   295892   239940  2752512        0          1000 qemu-kvm
+Apr 17 14:28:39 node-4 kernel: [11858] 42436 11858   160168   114371  1703936        0          1000 qemu-kvm
+Apr 17 14:28:39 node-4 kernel: [53574] 42436 53574   295962   243265  2752512        0          1000 qemu-kvm
+Apr 17 14:28:39 node-4 kernel: [65405] 42436 65405   297677   240716  2686976        0          1000 qemu-kvm
+Apr 17 14:28:39 node-4 kernel: [ 5805] 42436  5805   297940    49517  1572864        0          1000 qemu-kvm
+Apr 17 14:28:39 node-4 kernel: [11503] 42436 11503   569071   434971  4653056        0          1000 qemu-kvm
+Apr 17 14:28:39 node-4 kernel: [ 8944] 42436  8944   308535   239559  2752512        0          1000 qemu-kvm
+Apr 17 14:28:39 node-4 kernel: [18921] 42436 18921   568656   367918  4063232        0          1000 qemu-kvm
+Apr 17 14:28:39 node-4 kernel: [42815] 42436 42815   568008   292632  3538944        0          1000 qemu-kvm
+Apr 17 14:28:39 node-4 kernel: Out of memory: Killed process 50995 (qemu-kvm) total-vm:36325248kB, anon-rss:31617408kB, file-rss:0kB, shmem-rss:0kB
+Apr 17 14:28:40 node-4 kernel: oom_reaper: reaped process 50995 (qemu-kvm), now anon-rss:0kB, file-rss:1088kB, shmem-rss:0kB</pre>
+</div></div>
+
+<p>计算所有qemu进程内存占用：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>yuchen@ubuntu~ s=0;for i in `cat oominfo.sh |grep qemu | awk '{print $10}'`;
+do let s=s+$i;done;
+echo $s
+
+4711203
+
+echo $((4711203*64/1024/1024)) = 287G</pre>
+</div></div>
+
+<p>qemu-kvm进程15个，占用了287GB.  ceph-osd占用近16G左右，再加上系统其他各种服务，应该有300G+。</p>
+        </td></tr>
+            </table>
+于尚斌 通过JIRA 1001.0.0-SNAPSHOT#100283-rev:fa0de03009dea0c808bf47785635588cc42d2397 生成于 Thu Apr 24 11:32:27 UTC 2025。
+
+</body>
+</html>

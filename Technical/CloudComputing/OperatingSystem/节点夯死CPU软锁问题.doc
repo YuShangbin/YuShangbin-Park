@@ -1,0 +1,1861 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>[#ECS-7795] CLONE - 陕西农村信用社联合社-管理云平台(CSE-3396)-计算节点76夯死</title>
+    <meta http-equiv="Content-Type" Content="application/vnd.ms-word; charset=UTF-8">
+        <style type="text/css">
+
+.tableBorder, .grid
+{
+    background-color: #fff;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tableBorder td, .grid td
+{
+    vertical-align: top;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+.noPadding
+{
+    padding: 0 !important;
+}
+
+h3 .subText
+{
+    font-size: 60%;
+    font-weight: normal;
+}
+
+.tabLabel
+{
+    font-weight: bold;
+    border: 1px solid #ccc;
+    border-bottom:none;
+    padding: 2px;
+    display: inline;
+}
+
+td.blank
+{
+    padding: 0;
+    margin: 0;
+}
+
+.blank td
+{
+    border: none;
+}
+
+#descriptionArea
+{
+    margin: 0;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+hr
+{
+    border-top:1px solid #aaa;
+}
+
+hr.fullcontent
+{
+  height: 15px;
+  padding: 10px 0;
+  background: #fff url('https://easystack.atlassian.net/images/icons/hr.gif') no-repeat scroll center;
+}
+
+</style>
+
+</head>
+<body>
+
+<table class="tableBorder" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" width="100%" colspan="2" valign="top">
+                            <b><a id="parent_issue_summary" href="https://easystack.atlassian.net/browse/CSE-3396">陕西农村信用社联合社-管理云平台</a></b>
+                <span style="font-size: 9px">(<a id="parent_issue_key" href="https://easystack.atlassian.net/browse/CSE-3396">CSE-3396</a>)</span>
+                <h3 class="formtitle"><img src="https://easystack.atlassian.net/images/icons/link_out_bot.gif" width="16" height="16" />
+                        [ECS-7795]&nbsp;<a href="https://easystack.atlassian.net/browse/ECS-7795">CLONE - 陕西农村信用社联合社-管理云平台(CSE-3396)-计算节点76夯死</a>
+            <span class="subText">
+               已创建: 06/一月/26                   &nbsp;已更新: 06/一月/26
+
+                                            </span>
+            </h3>
+        </td>
+    </tr>
+    <tr>
+        <td width="20%"><b>状态:</b></td>
+        <td width="80%">In Recovery</td>
+    </tr>
+    <tr>
+        <td width="20%"><b>项目:</b></td>
+        <td width="80%"><a href="https://easystack.atlassian.net/secure/BrowseProject.jspa?id=10100">EasyStack Customer Support</a></td>
+    </tr>
+
+        <tr>
+            <td><b>组件:</b></td>
+            <td>
+                                        <a title="OperatingSystem - OS"
+                href="https://easystack.atlassian.net/issues/?jql=project%3D10100%20AND%20%22component%22%3D10505%20ORDER%20BY%20priority%20ASC"
+            >OperatingSystem</a>                        </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>影响版本:</b></td>
+            <td>
+                                        <a title="6.1.1"
+                href="https://easystack.atlassian.net/issues/?jql=project%3D10100%20AND%20%22affectedVersion%22%3D14972%20ORDER%20BY%20priority%20ASC"
+            >6.1.1</a>                        </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>修复版本:</b></td>
+            <td>
+                                        <a title="6.1.1"
+                href="https://easystack.atlassian.net/issues/?jql=project%3D10100%20AND%20%22fixVersion%22%3D14972%20ORDER%20BY%20priority%20ASC"
+            >6.1.1</a>                        </td>
+    </tr>
+    
+    
+            <td width="20%"><b>父项:</b></td>
+        <td width="80%"><a href="https://easystack.atlassian.net/browse/CSE-3396">陕西农村信用社联合社-管理云平台</a></td>
+    </table>
+
+<br />
+<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" valign="top" width="20%">
+            <b>类型:</b>
+        </td>
+        <td bgcolor="#ffffff" valign="top"  width="30%" >
+            Incident
+        </td>
+
+                    <td bgcolor="#f0f0f0">
+                <b>优先级:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap>
+                严重
+            </td>
+            </tr>
+    <tr>
+                        <td bgcolor="#f0f0f0" valign="top" width="20%">
+                <b>报告人:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top"  width="30%" >
+                                        
+                
+        
+            <a class="user-hover" rel="712020:86ac4b6e-f887-43d2-9e30-20ea20888df9"
+                id="word_reporter_712020:86ac4b6e-f887-43d2-9e30-20ea20888df9"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=712020%3A86ac4b6e-f887-43d2-9e30-20ea20888df9">
+                    曹梦依
+                </a>
+
+                            </td>
+        
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>经办人:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap  width="30%" >
+                                        
+                
+        
+            <a class="user-hover" rel="5de5f414cdc2d20d053804cc"
+                id="word_assignee_5de5f414cdc2d20d053804cc"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5de5f414cdc2d20d053804cc">
+                    于宸
+                </a>
+
+                            </td>
+            </tr>
+    	<tr>
+		<td bgcolor="#f0f0f0" width="20%">
+			<b>解决方案:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+            				未解决
+                    </td>
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>表决:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+                0
+            </td>
+        
+    </tr>
+    
+        <tr>
+        <td bgcolor="#f0f0f0" width="20%">
+            <b>标签:</b>
+        </td>
+        <td id="labels-294149-value" class="value" bgcolor="#ffffff" valign="top" colspan="3" nowrap>
+                            arm, 运维大区1, 运维大区3, 非重点客户                    </td>
+    </tr>
+    
+    	<tr>
+        		<td bgcolor="#f0f0f0" width="20%"><b>剩余估计量:</b></td>
+        <td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            尚未指定
+            		</td>
+    </tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>所用时间:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            尚未指定
+            		</td>
+	</tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>原始预估:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            尚未指定
+            		</td>
+    </tr>
+    
+    	<tr>
+
+		<td bgcolor="#f0f0f0" width="20%" valign="top">
+			<b>环境:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" colspan="3">
+            <p>
+    <span class="jira-issue-macro" data-jira-key="CSE-3396" >
+                <a href="https://easystack.atlassian.net/browse/CSE-3396" class="jira-issue-macro-key issue-link"  title="陕西农村信用社联合社-管理云平台" >
+            <img class="icon" src="https://easystack.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10307?size=medium" />
+            CSE-3396
+        </a>
+                                                    <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-current jira-macro-single-issue-export-pdf">In Progress</span>
+            </span>
+</p>
+		</td>
+	</tr>
+    </table>
+
+
+
+    <br />
+
+    	<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+            
+
+                <tr>
+            <td bgcolor="#f0f0f0" width=20% valign=top>
+                <b>附件:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top">
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="JPEG文件">
+                    2b1e5946985f93eae17f936894700989-20260106-060706.jpg &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="JPEG文件">
+                    e8e1be137d07d1fe90705a3a98994b82-20260106-060725.jpg &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/zip.gif" height="16" width="16" border="0" alt="Zip存档">
+                    ecs.20260104140429.latest.zip &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG文件">
+                    截屏2026-01-06 15.32.56-20260106-073259.png &nbsp;&nbsp;&nbsp;
+                            </td>
+        </tr>
+        
+            <tr>
+            <td bgcolor="#f0f0f0" width="20%" valign="top">
+                <b>事务链接:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" class="noPadding">
+                <table cellpadding="0" cellspacing="0" border="0" width="100%" class="blank">
+                                            <tr>
+                            <td colspan="4" bgcolor="#f0f0f0">
+                                <b>Cloners</b><br/>
+                            </td>
+                        </tr>
+                                    <tr>
+            <td>
+                clones
+            </td>
+            <td>
+                <a href="https://easystack.atlassian.net/browse/ECSL2-47640">
+                     ECSL2-47640                 </a>
+            </td>
+            <td>
+                陕西农村信用社联合社-管理云平台(CSE-3396)-计算节点76夯死
+            </td>
+            <td>
+                Work in progress
+            </td>
+        </tr>
+                                                                    </table>
+            </td>
+        </tr>
+    
+
+
+    
+                        <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Priority Detail:</b></td>
+                <td id="customfield_11294-294149-value" class="value" bgcolor="#ffffff" width="80%">
+
+
+    <div class="shorten" id="customfield_11294-field">
+        							<span>Critical-用户业务-多个业务断续受到影响</span>			            </div>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Customer Name:</b></td>
+                <td id="customfield_11102-294149-value" class="value" bgcolor="#ffffff" width="80%">      陕西农信
+  </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Customer Project ID:</b></td>
+                <td id="customfield_11111-294149-value" class="value" bgcolor="#ffffff" width="80%">      iagn
+  </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>L2调查情况（升级L3时填写）:</b></td>
+                <td id="customfield_11105-294149-value" class="value" bgcolor="#ffffff" width="80%">      1.问题发生过程（复杂问题需要整理时间线）<br/>
+&nbsp;&nbsp;&lt;补充说明&gt;<br/>
+2.L2的分析和阶段性结论<br/>
+&nbsp;&nbsp;&lt;补充说明&gt;<br/>
+3.是否已经和“L2评审委员会”做过确认，L2无法解决需要升级L3<br/>
+&nbsp;&nbsp;&lt;补充说明&gt;<br/>
+
+  </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>L2 Supporter:</b></td>
+                <td id="customfield_10400-294149-value" class="value" bgcolor="#ffffff" width="80%">        <span class="tinylink">        <span class="user-hover" rel="yongan.zhu" id="user_cf_yongan.zhu">朱永安</span></span>
+    </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>L2 Leader:</b></td>
+                <td id="customfield_11390-294149-value" class="value" bgcolor="#ffffff" width="80%">        <span class="tinylink">        <span class="user-hover" rel="yongan.zhu" id="user_cf_yongan.zhu">朱永安</span></span>
+    </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Epic Link:</b></td>
+                <td id="customfield_10007-294149-value" class="value" bgcolor="#ffffff" width="80%">
+    <a class="aui-label ghx-label-13" href="https://easystack.atlassian.net/browse/CSE-3396">
+        陕西农村信用社联合社-管理云平台
+    </a>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Sprint:</b></td>
+                <td id="customfield_10006-294149-value" class="value" bgcolor="#ffffff" width="80%"></td>
+            </tr>
+            </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>描述</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td id="descriptionArea">
+            <p>环境版本：6.0.1</p>
+
+<p>环境规模：3控制+16计算+4存储</p>
+
+<p>问题描述：计算节点76夯死。虚拟机状态错误，无法重建</p>
+
+<p>远程方式：无法远程</p>
+
+<p>获取方式：ESonCall微信-驻场-尚玉龙</p>
+
+<p>故障截图：</p>
+            <br/>
+        </td>
+    </tr>
+    </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>评论</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" class="grid" style="margin: 0;">
+                <tr id="comment-header-473237"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                id="word_commented_557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=557058%3A1e1c47af-84e4-43b8-8bc4-48b51d054387">
+                    陈奇
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">06/一月/26</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-473237"><td bgcolor="#ffffff">
+            <h5><a name="OriginallyaddedtoECSL247640https%3A%2F%2Feasystack.atlassian.net%2Fbrowse%2FECSL247640at06%2FJan%2F262%3A12AM"></a>Originally added to <a href="https://easystack.atlassian.net/browse/ECSL2-47640" class="external-link" rel="nofollow noreferrer">ECSL2-47640</a> at 06/Jan/26 2:12 AM</h5>
+
+<p>一些系统信息：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>  2 ILO info:
+  3
+  4 Server info:
+  5 Manufacturer: ZTE
+  6 Product Name: R5930 G2
+  7 Serial Number: 219302566874
+  8
+  9 Network info:
+ 10 Ethernet Name: ens4f0
+ 11 Ethernet Model: Mellanox Technologies MT27710 Family [ConnectX-4 Lx]
+ 12 driver: mlx5_core
+ 13 version: 5.5-1.0.3
+ 14 firmware-version: 14.28.2006 (ZTE0000000001)
+ 15
+ 16 Ethernet Name: ens4f1
+ 17 Ethernet Model: Mellanox Technologies MT27710 Family [ConnectX-4 Lx]
+ 18 driver: mlx5_core
+ 19 version: 5.5-1.0.3
+ 20 firmware-version: 14.28.2006 (ZTE0000000001)
+ 21
+ 22 Ethernet Name: ens6f0
+ 23 Ethernet Model: Mellanox Technologies MT27710 Family [ConnectX-4 Lx]
+ 24 driver: mlx5_core
+ 25 version: 5.5-1.0.3
+ 26 firmware-version: 14.28.2006 (ZTE0000000001)
+ 27
+ 28 Ethernet Name: ens6f1
+ 29 Ethernet Model: Mellanox Technologies MT27710 Family [ConnectX-4 Lx]
+ 30 driver: mlx5_core
+ 31 version: 5.5-1.0.3
+ 32 firmware-version: 14.28.2006 (ZTE0000000001)
+ 33
+ 34 Ethernet Name: ens8f0
+ 35 Ethernet Model: Mellanox Technologies MT27710 Family [ConnectX-4 Lx]
+ 36 driver: mlx5_core
+ 37 version: 5.5-1.0.3
+ 38 firmware-version: 14.28.2006 (ZTE0000000001)
+ 39
+ 40 Ethernet Name: ens8f1
+ 41 Ethernet Model: Mellanox Technologies MT27710 Family [ConnectX-4 Lx]
+ 42 driver: mlx5_core
+ 43 version: 5.5-1.0.3
+ 44 firmware-version: 14.28.2006 (ZTE0000000001)
+ 45
+ 46 Disks info:
+ 47
+ 48 RAID card info:
+ 49
+ 50 BIOS info:
+ 51 version:03.16.200
+ 52
+ 53 BMC info:
+ 54 Firmware Revision         : 3.19</pre>
+</div></div>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>   4 + uname -a
+   5 Linux node-76.domain.tld 4.18.0-147.5.1.es8_24.x86_64 #1 SMP Tue May 10 10:29:13 CST 2022 x86_64 x86_64 x86_64 GNU/Linux</pre>
+</div></div>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>   6 + lscpu
+   7 Architecture:        x86_64
+   8 CPU op-mode(s):      32-bit, 64-bit
+   9 Byte Order:          Little Endian
+  10 CPU(s):              128
+  11 On-line CPU(s) list: 0-127
+  12 Thread(s) per core:  2
+  13 Core(s) per socket:  32
+  14 Socket(s):           2
+  15 NUMA node(s):        8
+  16 Vendor ID:           HygonGenuine
+  17 BIOS Vendor ID:      Chengdu Hygon
+  18 CPU family:          24
+  19 Model:               1
+  20 Model name:          Hygon C86 7280 32-core Processor
+  21 BIOS Model name:     Hygon C86 7280 32-core Processor
+  22 Stepping:            1
+  23 CPU MHz:             2470.309
+  24 BogoMIPS:            3992.30
+  25 Virtualization:      AMD-V
+  26 L1d cache:           32K
+  27 L1i cache:           64K
+  28 L2 cache:            512K
+  29 L3 cache:            8192K
+  30 NUMA node0 CPU(s):   0-7,64-71
+  31 NUMA node1 CPU(s):   8-15,72-79
+  32 NUMA node2 CPU(s):   16-23,80-87
+  33 NUMA node3 CPU(s):   24-31,88-95
+  34 NUMA node4 CPU(s):   32-39,96-103
+  35 NUMA node5 CPU(s):   40-47,104-111
+  36 NUMA node6 CPU(s):   48-55,112-119
+  37 NUMA node7 CPU(s):   56-63,120-127
+  38 Flags:               fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc cpuid extd_apicid amd_dcm aperfmperf pni pclmulqdq monitor      ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb hw_pstate sme pti ssbd sev ibpb vmmcal     l fsgsbase bmi1 avx2 smep bmi2 rdseed adx smap clflushopt sha_ni xsaveopt xsavec xgetbv1 xsaves clzero irperf xsaveerptr arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif overflow_recov      succor smca</pre>
+</div></div>
+        </td></tr>
+                <tr id="comment-header-473238"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                id="word_commented_557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=557058%3A1e1c47af-84e4-43b8-8bc4-48b51d054387">
+                    陈奇
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">06/一月/26</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-473238"><td bgcolor="#ffffff">
+            <h5><a name="OriginallyaddedtoECSL247640https%3A%2F%2Feasystack.atlassian.net%2Fbrowse%2FECSL247640at06%2FJan%2F262%3A20AM%2Clasteditedby%E9%99%88%E5%A5%87https%3A%2F%2Feasystack.atlassian.net%2Fpeople%2F557058%3A1e1c47af84e443b88bc448b51d054387at06%2FJan%2F2612%3A20PM"></a>Originally added to <a href="https://easystack.atlassian.net/browse/ECSL2-47640" class="external-link" rel="nofollow noreferrer">ECSL2-47640</a> at 06/Jan/26 2:20 AM, last edited by <a href="https://easystack.atlassian.net/people/557058:1e1c47af-84e4-43b8-8bc4-48b51d054387" class="external-link" rel="nofollow noreferrer">陈奇</a> at 06/Jan/26 12:20 PM</h5>
+
+<p>查看sar日志，重启前负载有明显变化：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>###
+13时00分01秒 162925880 184099416 364695728     69.12      3316   5965392 391605732     74.22 329174572   2874204       172
+13时10分01秒 162929692 184104424 364691916     69.12      3316   5966192 391586628     74.22 329172196   2875032        68
+13时20分01秒 162917840 184093412 364703768     69.12      3316   5967108 391739352     74.25 329188916   2875904       148
+13时30分00秒 162825040 184003856 364796568     69.14      3316   5969828 391510112     74.20 329186552   2878396        12
+平均时间: 162928451 184099447 364693157     69.12      3316   5970716 391598086     74.22 329178494   2879688       110
+
+13时45分17秒  LINUX RESTART     (128 CPU)
+
+13时50分00秒 kbmemfree   kbavail kbmemused  %memused kbbuffers  kbcached  kbcommit   %commit  kbactive   kbinact   kbdirty
+14时00分01秒 518214296 517491836   9407312      1.78      3208   1198448  23714344      4.49   3611600    830040        80
+
+###
+12时40分01秒     all      2.62      0.00      2.11      0.00      0.00     95.28
+12时50分01秒     all      2.63      0.00      2.10      0.00      0.00     95.27
+13时00分01秒     all      2.56      0.00      2.05      0.00      0.00     95.39
+13时10分01秒     all      2.52      0.00      2.04      0.00      0.00     95.44
+13时20分01秒     all      2.52      0.00      2.09      0.00      0.00     95.38
+13时30分00秒     all      6.70      0.00     21.48      0.00      0.00     71.82
+平均时间:     all      4.38      0.00      2.38      0.00      0.00     93.23
+
+13时45分17秒  LINUX RESTART	(128 CPU)
+
+13时50分00秒     CPU     %user     %nice   %system   %iowait    %steal     %idle
+14时00分01秒     all      0.68      0.00      0.95      0.00      0.00     98.37
+平均时间:     all      0.68      0.00      0.95      0.00      0.00     98.37
+
+###
+12时40分01秒        10      3225      4.18      5.04      7.75         0
+12时50分01秒        19      3221      4.75      5.09      6.51         0
+13时00分01秒         4      3216      4.87      5.57      6.11         0
+13时10分01秒        10      3217      4.45      5.27      5.69         0
+13时20分01秒        14      3222      7.53      6.57      6.01         0
+13时30分00秒       107      3224    159.87    112.74     56.39         0
+平均时间:        16      3222      9.30      8.81      8.14         0
+
+13时45分17秒  LINUX RESTART	(128 CPU)
+
+13时50分00秒   runq-sz  plist-sz   ldavg-1   ldavg-5  ldavg-15   blocked
+14时00分01秒         1      2282      2.00      2.41      1.55         0
+
+###
+12时30分01秒     34.09 107047.12
+12时40分01秒     34.39 105049.68
+12时50分01秒     34.69 105132.91
+13时00分01秒     34.48 102877.73
+13时10分01秒     34.08 101553.02
+13时20分01秒     35.02 100969.61
+13时30分00秒      9.47 133475.20
+平均时间:     34.24  99463.59
+
+13时45分17秒  LINUX RESTART	(128 CPU)
+
+13时50分00秒    proc/s   cswch/s
+14时00分01秒     35.71  15403.65
+平均时间:     35.71  15403.65</pre>
+</div></div>
+
+<p>查看messages，重启前出现约626个cpu软锁打栈，从打栈看，有许多spinlock或ipi的忙等，因此拉高了负载数值。</p>
+
+<p>对这些cpu软锁做一归纳：</p>
+
+<ul>
+	<li>出现的cpu软锁打栈的cpu为：7、17、21、23、25、36、46、51、52、58、60、65、82、92、97、100、105、107、120、127</li>
+	<li>出现的cpu软锁打栈类型有：</li>
+</ul>
+
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>0010:multi_cpu_stop+0x43/0xf0
+0010:multi_cpu_stop+0x45/0xf0
+0010:multi_cpu_stop+0x48/0xf0
+0010:multi_cpu_stop+0x4a/0xf0
+0010:multi_cpu_stop+0xaa/0xf0
+0010:multi_cpu_stop+0xbb/0xf0
+0010:native_queued_spin_lock_slowpath+0x116/0x1d0
+0010:native_queued_spin_lock_slowpath+0x118/0x1d0
+0010:native_queued_spin_lock_slowpath+0x11b/0x1d0
+0010:native_queued_spin_lock_slowpath+0x18f/0x1d0
+0010:native_queued_spin_lock_slowpath+0x192/0x1d0
+0010:native_queued_spin_lock_slowpath+0x59/0x1d0
+0010:native_queued_spin_lock_slowpath+0x5b/0x1d0
+0010:native_queued_spin_lock_slowpath+0x5d/0x1d0
+0010:native_queued_spin_lock_slowpath+0x5f/0x1d0
+0010:rcu_momentary_dyntick_idle+0x0/0x40
+0010:rcu_momentary_dyntick_idle+0x29/0x40
+0010:rcu_momentary_dyntick_idle+0x2c/0x40
+0010:rcu_momentary_dyntick_idle+0x5/0x40
+0010:smp_call_function_many+0x1ea/0x250
+0010:smp_call_function_many+0x1ec/0x250
+0010:smp_call_function_many+0x1ef/0x250
+0010:smp_call_function_many+0x1f2/0x250
+0010:smp_call_function_single+0x88/0xf0
+0010:smp_call_function_single+0x8c/0xf0
+0010:smp_call_function_single+0x8e/0xf0</pre>
+</div></div>
+        </td></tr>
+                <tr id="comment-header-473239"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                id="word_commented_557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=557058%3A1e1c47af-84e4-43b8-8bc4-48b51d054387">
+                    陈奇
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">06/一月/26</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-473239"><td bgcolor="#ffffff">
+            <h5><a name="OriginallyaddedtoECSL247640https%3A%2F%2Feasystack.atlassian.net%2Fbrowse%2FECSL247640at06%2FJan%2F263%3A00AM%2Clasteditedby%E9%99%88%E5%A5%87https%3A%2F%2Feasystack.atlassian.net%2Fpeople%2F557058%3A1e1c47af84e443b88bc448b51d054387at06%2FJan%2F263%3A29AM"></a>Originally added to <a href="https://easystack.atlassian.net/browse/ECSL2-47640" class="external-link" rel="nofollow noreferrer">ECSL2-47640</a> at 06/Jan/26 3:00 AM, last edited by <a href="https://easystack.atlassian.net/people/557058:1e1c47af-84e4-43b8-8bc4-48b51d054387" class="external-link" rel="nofollow noreferrer">陈奇</a> at 06/Jan/26 3:29 AM</h5>
+
+<h3><a name="RIP%3A0010%3Asmpcallfunctionsingle"></a>RIP: 0010:smp_call_function_single</h3>
+
+<p>以下面打栈为例分析：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:20 node-76 kernel: watchdog: BUG: soft lockup - CPU#7 stuck for 23s! [runc:15845]
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:20 node-76 kernel: Modules linked in: binfmt_misc vhost_net vhost tap tun ip_gre ip_tunnel gre nf_nat_pptp nf_nat_proto_gre nf_conntrack_pptp nf_conntrack_proto_gre ip6_tables nf_conntrack_netlink xt_addrtype xt_recent xt_nat xt_statistic ipt_REJECT nf_reject_ipv4 ip_set ip_vs_sh ip_vs_wrr ip_vs_rr ip_vs ipt_MASQUERADE xt_mark nft_chain_nat_ipv4 overlay scsi_transport_iscsi cfg80211 rfkill vxlan ip6_udp_tunnel nfnetlink_cttimeout openvswitch(OE) nf_nat_ipv6 nf_nat_ipv4 nf_nat udp_tunnel xt_comment nft_counter nft_chain_route_ipv4 xt_state xt_conntrack nft_compat nf_tables nfnetlink ipmi_ssif amd64_edac_mod edac_mce_amd kvm_amd svcrdma(OE) rpcrdma(OE) ib_umad(OE) ccp xprtrdma(OE) rdma_ucm(OE) kvm ib_ipoib(OE) irqbypass rdma_cm(OE) crct10dif_pclmul iw_cm(OE) ib_srpt(OE) ib_isert(OE) ib_iser(OE) ib_cm(OE)
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:20 node-76 kernel: joydev crc32_pclmul ses ghash_clmulni_intel pcspkr enclosure k10temp i2c_piix4 ipmi_si nf_conntrack_ipv4 nf_defrag_ipv4 sunrpc drbd_transport_tcp(OE) drbd(OE) ip_tables xfs mlx5_ib(OE) ib_uverbs(OE) ib_core(OE) sd_mod sg drm_kms_helper syscopyarea mlx5_core(OE) sysfillrect mlxfw(OE) sysimgblt tls(t) igb fb_sys_fops ahci psample ttm libahci mlxdevm(OE) smartpqi auxiliary(OE) dca drm mlx_compat(OE) libata scsi_transport_sas i2c_algo_bit dm_mirror dm_region_hash dm_log rbd libceph dns_resolver nf_conntrack_ipv6 nf_defrag_ipv6 nf_conntrack libcrc32c crc32c_intel dm_round_robin dm_multipath dm_mod br_netfilter bridge stp llc ipmi_watchdog ipmi_devintf ipmi_msghandler escache
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:20 node-76 kernel: CPU: 7 PID: 15845 Comm: runc Tainted: G        W  OE    --------- -t - 4.18.0-147.5.1.es8_24.x86_64 #1
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:20 node-76 kernel: Hardware name: ZTE R5930 G2/R593X_MB, BIOS 03.16.200 03/13/2024
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:20 node-76 kernel: RIP: 0010:smp_call_function_single+0x8c/0xf0
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:20 node-76 kernel: Code: 1f 44 00 00 f6 c4 02 74 6e 85 c9 75 46 49 c7 c0 80 40 02 00 65 4c 03 05 b2 35 ac 54 41 8b 40 18 a8 01 74 0a f3 90 41 8b 40 18 &lt;a8&gt; 01 75 f6 41 83 48 18 01 48 89 d1 48 89 f2 4c 89 c6 e8 9d fe ff
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:20 node-76 kernel: RSP: 0018:ffffab46a8b27c00 EFLAGS: 00000202 ORIG_RAX: ffffffffffffff13
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:20 node-76 kernel: RAX: 0000000000000001 RBX: 0000000077109404 RCX: 0000000000000000
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:20 node-76 kernel: RDX: 0000000000000000 RSI: ffffffffab433340 RDI: 0000000000000009
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:20 node-76 kernel: RBP: ffffab46a8b27c48 R08: ffff8bd93f1e4080 R09: 0000000000000000
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:20 node-76 kernel: R10: ffffab46a8b27cd8 R11: 0000000000000000 R12: 006e1d440be1d527
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:20 node-76 kernel: R13: 0000000000000001 R14: ffff8bd93c890a78 R15: ffff8bd28b740300
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:20 node-76 kernel: FS:  00007f1d73526b80(0000) GS:ffff8bd93f1c0000(0000) knlGS:0000000000000000
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:20 node-76 kernel: CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:20 node-76 kernel: CR2: 000055efebfbaba0 CR3: 0000000ef4c7e000 CR4: 00000000003406e0
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:20 node-76 kernel: Call Trace:
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:20 node-76 kernel: aperfmperf_snapshot_cpu+0x40/0x50
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:20 node-76 kernel: arch_freq_prepare_all+0x3d/0x80
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:20 node-76 kernel: cpuinfo_open+0xe/0x20
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:20 node-76 kernel: proc_reg_open+0x71/0x130
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:20 node-76 kernel: ? proc_alloc_inode+0x60/0x60
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:20 node-76 kernel: do_dentry_open+0x132/0x330
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:20 node-76 kernel: path_openat+0x573/0x14d0
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:20 node-76 kernel: ? filename_lookup.part.64+0xe0/0x170
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:20 node-76 kernel: do_filp_open+0x93/0x100
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:20 node-76 kernel: ? __check_object_size+0xa3/0x181
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:20 node-76 kernel: do_sys_open+0x184/0x220
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:20 node-76 kernel: do_syscall_64+0x5b/0x1b0
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:20 node-76 kernel: entry_SYSCALL_64_after_hwframe+0x65/0xca
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:20 node-76 kernel: RIP: 0033:0x55efebc31b4a
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:20 node-76 kernel: Code: e8 1b 7c fa ff 48 8b 7c 24 10 48 8b 74 24 18 48 8b 54 24 20 4c 8b 54 24 28 4c 8b 44 24 30 4c 8b 4c 24 38 48 8b 44 24 08 0f 05 &lt;48&gt; 3d 01 f0 ff ff 76 20 48 c7 44 24 40 ff ff ff ff 48 c7 44 24 48</pre>
+</div></div>
+
+<p>aperfmperf_snapshot_cpu函数用于x86架构下的CPU频率监控机制，具体通过Intel CPU的MSR_IA32_APERF（实际性能计数器）和 MSR_IA32_MPERF（最大性能计数器）寄存器来计算CPU的当前平均频率。该函数的目的是高效地捕捉性能计数器的快照，避免不必要的计算开销（如在短时间内重复读取 MSR），并确保数据新鲜度。函数并不直接读取MSR，而是通过ipi在目标CPU上执行实际的快照操作。</p>
+
+
+
+<p>这个线程阻塞在通过smp_call_function_single向某个指定cpu发送ipi让其执行回调函数aperfmperf_snapshot_khz来捕捉性能计数器快照：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>crash&gt; dis -s aperfmperf_snapshot_cpu+0x40
+FILE: arch/x86/kernel/cpu/aperfmperf.c
+LINE: 77
+
+  72                    return true;
+  73
+  74            smp_call_function_single(cpu, aperfmperf_snapshot_khz, NULL, wait);  &lt;&lt;&lt;---
+  75
+  76            /* Return false if the previous iteration was too long ago. */
+* 77            return time_delta &lt;= APERFMPERF_STALE_THRESHOLD_MS;
+  78    }</pre>
+</div></div>
+
+<p>查看smp_call_function_single反汇编， smp_call_function_single+0x88/0x8c/0x8e位置临近，call trace相同，可以归纳为同一种情况：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>/usr/src/debug/kernel-4.18.0-147.5.1.el8_1/linux-4.18.0-147.5.1.es8_24.x86_64/./include/linux/compiler.h: 188
+0xffffffff9734bbc8 &lt;smp_call_function_single+136&gt;:      mov    0x18(%r8),%eax   &lt;&lt;&lt;--- +0x88
+/usr/src/debug/kernel-4.18.0-147.5.1.el8_1/linux-4.18.0-147.5.1.es8_24.x86_64/kernel/smp.c: 108
+0xffffffff9734bbcc &lt;smp_call_function_single+140&gt;:      test   $0x1,%al   &lt;&lt;&lt;--- +0x8c
+0xffffffff9734bbce &lt;smp_call_function_single+142&gt;:      jne    0xffffffff9734bbc6 &lt;smp_call_function_single+134&gt;   &lt;&lt;&lt;--- +0x8e</pre>
+</div></div>
+
+<p>smp_call_function_single函数签名：</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-c"><span class="code-keyword"><span class="code-object">int</span></span> smp_call_function_single(<span class="code-keyword"><span class="code-object">int</span></span> cpu, smp_call_func_t func, <span class="code-keyword"><span class="code-object">void</span></span> *info, <span class="code-keyword"><span class="code-object">int</span></span> wait)</pre>
+</div></div>
+
+<p>源码片段：</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-c">268 <span class="code-keyword"><span class="code-object">int</span></span> smp_call_function_single(<span class="code-keyword"><span class="code-object">int</span></span> cpu, smp_call_func_t func, <span class="code-keyword"><span class="code-object">void</span></span> *info,
+269                         ¦    <span class="code-keyword"><span class="code-object">int</span></span> wait)
+270 {
+......
+292
+293         csd = &amp;csd_stack;
+294         if (!wait) {   &lt;&lt;&lt;--- 对于非同步ipi，在generic_exec_single前要先锁住csd
+295                 csd = this_cpu_ptr(&amp;csd_data);
+296                 csd_lock(csd);
+297         }
+298
+299         err = generic_exec_single(cpu, csd, func, info);
+300
+301         if (wait)
+302                 csd_lock_wait(csd);
+303
+304         put_cpu();
+......</pre>
+</div></div>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-c">106 <span class="code-keyword">static</span> __always_inline <span class="code-keyword"><span class="code-object">void</span></span> csd_lock_wait(call_single_data_t *csd)
+107 {
+108         smp_cond_load_acquire(&amp;csd-&gt;flags, !(VAL &amp; CSD_FLAG_LOCK));  &lt;&lt;&lt;--- 如果这里lock没有释放，说明有非同步ipi尚未完成
+109 }
+110
+111 <span class="code-keyword">static</span> __always_inline <span class="code-keyword"><span class="code-object">void</span></span> csd_lock(call_single_data_t *csd)
+112 {
+113         csd_lock_wait(csd);
+114         csd-&gt;flags |= CSD_FLAG_LOCK;
+115
+116         /*
+117         ¦* prevent CPU from reordering the above assignment
+118         ¦* to -&gt;flags with any subsequent assignments to other
+119         ¦* fields of the specified call_single_data_t structure:
+120         ¦*/
+121         smp_wmb();
+122 }</pre>
+</div></div>
+
+<p>对应反汇编片段：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>/usr/src/debug/kernel-4.18.0-147.5.1.el8_1/linux-4.18.0-147.5.1.es8_24.x86_64/kernel/smp.c: 294
+0xffffffff9734bbab &lt;smp_call_function_single+107&gt;:      test   %ecx,%ecx   &lt;&lt;&lt;--- %rcx为wait
+0xffffffff9734bbad &lt;smp_call_function_single+109&gt;:      jne    0xffffffff9734bbf5 &lt;smp_call_function_single+181&gt;
+/usr/src/debug/kernel-4.18.0-147.5.1.el8_1/linux-4.18.0-147.5.1.es8_24.x86_64/kernel/smp.c: 295
+0xffffffff9734bbaf &lt;smp_call_function_single+111&gt;:      mov    $0x24080,%r8
+0xffffffff9734bbb6 &lt;smp_call_function_single+118&gt;:      add    %gs:0x68cc35b2(%rip),%r8        # 0xf170  &lt;&lt;&lt;--- 取得csd
+/usr/src/debug/kernel-4.18.0-147.5.1.el8_1/linux-4.18.0-147.5.1.es8_24.x86_64/./include/linux/compiler.h: 188
+0xffffffff9734bbbe &lt;smp_call_function_single+126&gt;:      mov    0x18(%r8),%eax   &lt;&lt;&lt;--- 取csd-&gt;flags
+/usr/src/debug/kernel-4.18.0-147.5.1.el8_1/linux-4.18.0-147.5.1.es8_24.x86_64/kernel/smp.c: 108
+0xffffffff9734bbc2 &lt;smp_call_function_single+130&gt;:      test   $0x1,%al   &lt;&lt;&lt;--- 判断flags中lock位是否释放
+0xffffffff9734bbc4 &lt;smp_call_function_single+132&gt;:      je     0xffffffff9734bbd0 &lt;smp_call_function_single+144&gt;
+/usr/src/debug/kernel-4.18.0-147.5.1.el8_1/linux-4.18.0-147.5.1.es8_24.x86_64/./arch/x86/include/asm/processor.h: 677
+0xffffffff9734bbc6 &lt;smp_call_function_single+134&gt;:      pause   &lt;&lt;&lt;-- 否则进行忙等循环
+/usr/src/debug/kernel-4.18.0-147.5.1.el8_1/linux-4.18.0-147.5.1.es8_24.x86_64/./include/linux/compiler.h: 188
+0xffffffff9734bbc8 &lt;smp_call_function_single+136&gt;:      mov    0x18(%r8),%eax
+/usr/src/debug/kernel-4.18.0-147.5.1.el8_1/linux-4.18.0-147.5.1.es8_24.x86_64/kernel/smp.c: 108
+0xffffffff9734bbcc &lt;smp_call_function_single+140&gt;:      test   $0x1,%al
+0xffffffff9734bbce &lt;smp_call_function_single+142&gt;:      jne    0xffffffff9734bbc6 &lt;smp_call_function_single+134&gt;
+/usr/src/debug/kernel-4.18.0-147.5.1.el8_1/linux-4.18.0-147.5.1.es8_24.x86_64/kernel/smp.c: 114
+0xffffffff9734bbd0 &lt;smp_call_function_single+144&gt;:      orl    $0x1,0x18(%r8)
+/usr/src/debug/kernel-4.18.0-147.5.1.el8_1/linux-4.18.0-147.5.1.es8_24.x86_64/kernel/smp.c: 299
+0xffffffff9734bbd5 &lt;smp_call_function_single+149&gt;:      mov    %rdx,%rcx
+0xffffffff9734bbd8 &lt;smp_call_function_single+152&gt;:      mov    %rsi,%rdx
+0xffffffff9734bbdb &lt;smp_call_function_single+155&gt;:      mov    %r8,%rsi
+0xffffffff9734bbde &lt;smp_call_function_single+158&gt;:      call   0xffffffff9734ba80 &lt;generic_exec_single&gt;</pre>
+</div></div>
+
+<p>并且smp_call_function_single中没有修改%rdi（cpu）、%rsi（func）。所以从堆栈可知，cpu为9，func为aperfmperf_snapshot_khz，wait为0。当前cpu#9上还有没完成的异步ipi请求。</p>
+
+<p>查看*所有smp_call_function_single类型堆栈的目标cpu均为cpu#9，也就是说cpu#9一直没有完成之前的异步ipi请求*。</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>#: cat /Users/dakeiskind/Downloads/ECSL2-47640/ecs.20260104140429.latest/ecs.node-76.20260104140429.latest/os/messages.node-76.20260104.log | grep "kernel: RIP: 0010:smp_call_function_single+" -A5 | grep "RDI:" | awk '{print $20}'
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009
+0000000000000009</pre>
+</div></div>
+        </td></tr>
+                <tr id="comment-header-473240"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                id="word_commented_557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=557058%3A1e1c47af-84e4-43b8-8bc4-48b51d054387">
+                    陈奇
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">06/一月/26</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-473240"><td bgcolor="#ffffff">
+            <h5><a name="OriginallyaddedtoECSL247640https%3A%2F%2Feasystack.atlassian.net%2Fbrowse%2FECSL247640at06%2FJan%2F263%3A28AM%2Clasteditedby%E9%99%88%E5%A5%87https%3A%2F%2Feasystack.atlassian.net%2Fpeople%2F557058%3A1e1c47af84e443b88bc448b51d054387at06%2FJan%2F263%3A34AM"></a>Originally added to <a href="https://easystack.atlassian.net/browse/ECSL2-47640" class="external-link" rel="nofollow noreferrer">ECSL2-47640</a> at 06/Jan/26 3:28 AM, last edited by <a href="https://easystack.atlassian.net/people/557058:1e1c47af-84e4-43b8-8bc4-48b51d054387" class="external-link" rel="nofollow noreferrer">陈奇</a> at 06/Jan/26 3:34 AM</h5>
+
+<h3><a name="RIP%3A0010%3Asmpcallfunctionmany"></a>RIP: 0010:smp_call_function_many</h3>
+
+<p>以下面打栈为例分析：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>2026-01-04 13:22:32.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:32 node-76 kernel: RIP: 0010:smp_call_function_many+0x1ea/0x250
+2026-01-04 13:22:32.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:32 node-76 kernel: Code: 08 89 c7 e8 08 42 6f 00 3b 05 96 96 2b 01 0f 83 99 fe ff ff 48 63 d0 48 8b 0b 48 03 0c d5 60 68 53 ac 8b 51 18 83 e2 01 74 0a &lt;f3&gt; 90 8b 51 18 83 e2 01 75 f6 eb c7 48 c7 c2 e0 4c 80 ac 4c 89 f6
+2026-01-04 13:22:32.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:32 node-76 kernel: RSP: 0018:ffffab46a0bd7c38 EFLAGS: 00000202 ORIG_RAX: ffffffffffffff13
+2026-01-04 13:22:32.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:32 node-76 kernel: RAX: 000000000000000e RBX: ffff8c493f824100 RCX: ffff8be93f9abb40
+2026-01-04 13:22:32.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:32 node-76 kernel: RDX: 0000000000000001 RSI: 0000000000000000 RDI: ffff8c467fbc8930
+2026-01-04 13:22:32.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:32 node-76 kernel: RBP: ffffffffab46f900 R08: 0000000000028060 R09: ffffffffab44ce0a
+2026-01-04 13:22:32.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:32 node-76 kernel: R10: ffffd25faf5bf080 R11: 0000000000000002 R12: ffffab46a0bd7c80
+2026-01-04 13:22:32.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:32 node-76 kernel: R13: 0000000000000001 R14: 0000000000000080 R15: 0000000000000001
+2026-01-04 13:22:32.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:32 node-76 kernel: FS: 00007f9e30ff9700(0000) GS:ffff8c493f800000(0000) knlGS:0000000000000000
+2026-01-04 13:22:32.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:32 node-76 kernel: CS: 0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+2026-01-04 13:22:32.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:32 node-76 kernel: CR2: 00007f746ea1a480 CR3: 0000007eb05e0000 CR4: 00000000003406e0
+2026-01-04 13:22:32.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:32 node-76 kernel: Call Trace:
+2026-01-04 13:22:32.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:32 node-76 kernel: flush_tlb_mm_range+0xd0/0x120
+2026-01-04 13:22:32.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:32 node-76 kernel: ? kvm_make_all_cpus_request+0x48/0x70 [kvm]
+2026-01-04 13:22:32.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:32 node-76 kernel: ? kvm_arch_mmu_notifier_invalidate_range+0x1c/0x40 [kvm]
+2026-01-04 13:22:32.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:32 node-76 kernel: ? kvm_mmu_notifier_invalidate_range_start+0x63/0x90 [kvm]
+2026-01-04 13:22:32.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:32 node-76 kernel: pmdp_invalidate+0xb7/0xd0
+2026-01-04 13:22:32.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:32 node-76 kernel: change_huge_pmd+0x123/0x340
+2026-01-04 13:22:32.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:32 node-76 kernel: change_p4d_range+0x777/0xa30
+2026-01-04 13:22:32.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:32 node-76 kernel: ? kvm_write_guest_offset_cached+0x7f/0xf0 [kvm]
+2026-01-04 13:22:32.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:32 node-76 kernel: ? svm_vcpu_put+0x84/0xa0 [kvm_amd]
+2026-01-04 13:22:32.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:32 node-76 kernel: ? vcpu_put+0x17/0x20 [kvm]
+2026-01-04 13:22:32.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:32 node-76 kernel: ? kvm_arch_vcpu_ioctl_run+0x2e3/0x5a0 [kvm]
+2026-01-04 13:22:32.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:32 node-76 kernel: change_protection+0x12b/0x190
+2026-01-04 13:22:32.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:32 node-76 kernel: change_prot_numa+0x18/0x30
+2026-01-04 13:22:32.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:32 node-76 kernel: task_numa_work+0x1ed/0x300
+2026-01-04 13:22:32.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:32 node-76 kernel: task_work_run+0x8a/0xb0
+2026-01-04 13:22:32.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:32 node-76 kernel: exit_to_usermode_loop+0xeb/0xf0
+2026-01-04 13:22:32.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:32 node-76 kernel: do_syscall_64+0x182/0x1b0
+2026-01-04 13:22:32.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:32 node-76 kernel: entry_SYSCALL_64_after_hwframe+0x65/0xca
+2026-01-04 13:22:32.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:32 node-76 kernel: RIP: 0033:0x7f9e82e072f7</pre>
+</div></div>
+
+<p>smp_call_function_many函数用于在多个CPU上同步调用一个函数，通常涉及ipi来通知其他cpu执行回调函数。</p>
+
+<p>上上一个情况相似，rip也是位于csd_lock_wait的自旋等待循环中：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>0xffffffff9734c09a &lt;smp_call_function_many+490&gt;: pause  # f3 90 (rep nop)
+0xffffffff9734c09c &lt;smp_call_function_many+492&gt;: mov 0x18(%rcx),%edx
+0xffffffff9734c09f &lt;smp_call_function_many+495&gt;: and $0x1,%edx
+0xffffffff9734c0a2 &lt;smp_call_function_many+498&gt;: jne 0xffffffff9734c09a</pre>
+</div></div>
+
+<p>在函数开始时，参数wait被放在%r13中，并始终没有被修改过：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>/usr/src/debug/kernel-4.18.0-147.5.1.el8_1/linux-4.18.0-147.5.1.es8_24.x86_64/kernel/smp.c: 405
+0xffffffff9734beb0 &lt;smp_call_function_many&gt;:    nopl   0x0(%rax,%rax,1) [FTRACE NOP]
+/usr/src/debug/kernel-4.18.0-147.5.1.el8_1/linux-4.18.0-147.5.1.es8_24.x86_64/kernel/smp.c: 407
+0xffffffff9734beb5 &lt;smp_call_function_many+5&gt;:  push   %r15
+0xffffffff9734beb7 &lt;smp_call_function_many+7&gt;:  mov    %ecx,%r15d
+0xffffffff9734beba &lt;smp_call_function_many+10&gt;: push   %r14
+0xffffffff9734bebc &lt;smp_call_function_many+12&gt;: mov    %rdi,%r14
+0xffffffff9734bebf &lt;smp_call_function_many+15&gt;: push   %r13
+/usr/src/debug/kernel-4.18.0-147.5.1.el8_1/linux-4.18.0-147.5.1.es8_24.x86_64/kernel/smp.c: 405
+0xffffffff9734bec1 &lt;smp_call_function_many+17&gt;: mov    %ecx,%r13d   &lt;&lt;&lt;--- </pre>
+</div></div>
+
+<p>从堆栈可知wait为1，也就是smp_call_function_many向所有指定cpu发送的都是同步的ipi请求，需要等所有指定cpu完成回调函数后才能结束。</p>
+
+<p>rip的位置是在等待所有指定cpu完成的循环的csd_lock_wait中：</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-c">460         <span class="code-comment">/* Send a message to all CPUs in the map */</span>
+461         arch_send_call_function_ipi_mask(cfd-&gt;cpumask_ipi);
+462
+463         if (wait) {
+464                 for_each_cpu(cpu, cfd-&gt;cpumask) {
+465                         call_single_data_t *csd;
+466
+467                         csd = per_cpu_ptr(cfd-&gt;csd, cpu);
+468                         csd_lock_wait(csd);   &lt;&lt;&lt;--- 
+469                 }
+470         }</pre>
+</div></div>
+
+<p>指定cpu的遍历是通过for_each_cpu(cpu, cfd-&gt;cpumask) → cpumask_next实现：</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-c">460         <span class="code-comment">/* Send a message to all CPUs in the map */</span>
+461         arch_send_call_function_ipi_mask(cfd-&gt;cpumask_ipi);
+462
+463         if (wait) {
+464                 for_each_cpu(cpu, cfd-&gt;cpumask) {
+465                         call_single_data_t *csd;
+466
+467                         csd = per_cpu_ptr(cfd-&gt;csd, cpu);
+468                         csd_lock_wait(csd);
+469                 }
+470         }
+
+......
+
+233 <span class="code-macro">#define for_each_cpu(cpu, mask)                         \
+</span>234         <span class="code-keyword">for</span> ((cpu) = -1;                                \
+235                 (cpu) = cpumask_next((cpu), (mask)),    \
+236                 (cpu) &lt; nr_cpu_ids;)</pre>
+</div></div>
+
+<p>对应反汇编，当前cpu会作为cpumask_next的返回值放在%rax里：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>crash&gt; call_function_data -xo
+struct call_function_data {
+   [0x0] call_single_data_t *csd;
+   [0x8] cpumask_var_t cpumask;
+  [0x10] cpumask_var_t cpumask_ipi;
+}
+
+/usr/src/debug/kernel-4.18.0-147.5.1.el8_1/linux-4.18.0-147.5.1.es8_24.x86_64/kernel/smp.c: 463
+0xffffffff9734c05f &lt;smp_call_function_many+431&gt;:        test   %r15b,%r15b    &lt;&lt;&lt;--- wait is true
+0xffffffff9734c062 &lt;smp_call_function_many+434&gt;:        je     0xffffffff9734bf1d &lt;smp_call_function_many+109&gt;
+/usr/src/debug/kernel-4.18.0-147.5.1.el8_1/linux-4.18.0-147.5.1.es8_24.x86_64/kernel/smp.c: 464
+0xffffffff9734c068 &lt;smp_call_function_many+440&gt;:        mov    $0xffffffff,%eax
+0xffffffff9734c06d &lt;smp_call_function_many+445&gt;:        mov    0x8(%rbx),%rsi
+0xffffffff9734c071 &lt;smp_call_function_many+449&gt;:        mov    %eax,%edi
+0xffffffff9734c073 &lt;smp_call_function_many+451&gt;:        call   0xffffffff97a40280 &lt;cpumask_next&gt;   &lt;&lt;&lt;--- 当前cpu放在%rax
+0xffffffff9734c078 &lt;smp_call_function_many+456&gt;:        cmp    0x12b9696(%rip),%eax        # 0xffffffff98605714 &lt;nr_cpu_ids&gt;
+0xffffffff9734c07e &lt;smp_call_function_many+462&gt;:        jae    0xffffffff9734bf1d &lt;smp_call_function_many+109&gt;
+/usr/src/debug/kernel-4.18.0-147.5.1.el8_1/linux-4.18.0-147.5.1.es8_24.x86_64/kernel/smp.c: 467
+0xffffffff9734c084 &lt;smp_call_function_many+468&gt;:        movslq %eax,%rdx
+0xffffffff9734c087 &lt;smp_call_function_many+471&gt;:        mov    (%rbx),%rcx
+0xffffffff9734c08a &lt;smp_call_function_many+474&gt;:        add    -0x67cc97a0(,%rdx,8),%rcx
+/usr/src/debug/kernel-4.18.0-147.5.1.el8_1/linux-4.18.0-147.5.1.es8_24.x86_64/./include/linux/compiler.h: 188
+0xffffffff9734c092 &lt;smp_call_function_many+482&gt;:        mov    0x18(%rcx),%edx
+/usr/src/debug/kernel-4.18.0-147.5.1.el8_1/linux-4.18.0-147.5.1.es8_24.x86_64/kernel/smp.c: 108
+0xffffffff9734c095 &lt;smp_call_function_many+485&gt;:        and    $0x1,%edx
+0xffffffff9734c098 &lt;smp_call_function_many+488&gt;:        je     0xffffffff9734c0a4 &lt;smp_call_function_many+500&gt;
+/usr/src/debug/kernel-4.18.0-147.5.1.el8_1/linux-4.18.0-147.5.1.es8_24.x86_64/./arch/x86/include/asm/processor.h: 677
+0xffffffff9734c09a &lt;smp_call_function_many+490&gt;:        pause
+/usr/src/debug/kernel-4.18.0-147.5.1.el8_1/linux-4.18.0-147.5.1.es8_24.x86_64/./include/linux/compiler.h: 188
+0xffffffff9734c09c &lt;smp_call_function_many+492&gt;:        mov    0x18(%rcx),%edx   &lt;&lt;&lt;--- call_single_data_t-&gt;flags (0x18)
+/usr/src/debug/kernel-4.18.0-147.5.1.el8_1/linux-4.18.0-147.5.1.es8_24.x86_64/kernel/smp.c: 108
+0xffffffff9734c09f &lt;smp_call_function_many+495&gt;:        and    $0x1,%edx
+0xffffffff9734c0a2 &lt;smp_call_function_many+498&gt;:        jne    0xffffffff9734c09a &lt;smp_call_function_many+490&gt;
+0xffffffff9734c0a4 &lt;smp_call_function_many+500&gt;:        jmp    0xffffffff9734c06d &lt;smp_call_function_many+445&gt;
+/usr/src/debug/kernel-4.18.0-147.5.1.el8_1/linux-4.18.0-147.5.1.es8_24.x86_64/kernel/smp.c: 421
+0xffffffff9734c0a6 &lt;smp_call_function_many+502&gt;:        mov    $0xffffffff98604ce0,%rdx
+0xffffffff9734c0ad &lt;smp_call_function_many+509&gt;:        mov    %r14,%rsi
+0xffffffff9734c0b0 &lt;smp_call_function_many+512&gt;:        mov    %ebx,%edi
+0xffffffff9734c0b2 &lt;smp_call_function_many+514&gt;:        call   0xffffffff97a40350 &lt;cpumask_next_and&gt;
+0xffffffff9734c0b7 &lt;smp_call_function_many+519&gt;:        mov    %eax,%r8d
+0xffffffff9734c0ba &lt;smp_call_function_many+522&gt;:        jmp    0xffffffff9734bf14 &lt;smp_call_function_many+100&gt;
+/usr/src/debug/kernel-4.18.0-147.5.1.el8_1/linux-4.18.0-147.5.1.es8_24.x86_64/kernel/smp.c: 434</pre>
+</div></div>
+
+<p>从堆栈可知，当前cpu为000000000000000e，也就是cpu#14。</p>
+
+
+
+<p>所有的smp_call_function_many属于同一种情况：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>0010:smp_call_function_many+0x1ea/0x250
+0010:smp_call_function_many+0x1ec/0x250
+0010:smp_call_function_many+0x1ef/0x250
+0010:smp_call_function_many+0x1f2/0x250</pre>
+</div></div>
+
+<p>归纳*所有此类堆栈的当前cpu，为cpu#8、11、14、73，也就是说这4个cpu长时间没有完成ipi请求*：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>#: cat /Users/dakeiskind/Downloads/ECSL2-47640/ecs.20260104140429.latest/ecs.node-76.20260104140429.latest/os/messages.node-76.20260104.log | grep "kernel: RIP: 0010:smp_call_function_many+" -A3 | grep " RAX:" | awk '{print $16}' | sort | uniq
+0000000000000008
+000000000000000b
+000000000000000e
+0000000000000049</pre>
+</div></div>
+
+<p><b>目前看到的这5个无法完成ipi请求的cpu没有任何打栈，也就是说不清楚这些cpu当前的状态，也无法确认为什么长时间没有完成ipi请求。</b></p>
+        </td></tr>
+                <tr id="comment-header-473241"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                id="word_commented_557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=557058%3A1e1c47af-84e4-43b8-8bc4-48b51d054387">
+                    陈奇
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">06/一月/26</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-473241"><td bgcolor="#ffffff">
+            <h5><a name="OriginallyaddedtoECSL247640https%3A%2F%2Feasystack.atlassian.net%2Fbrowse%2FECSL247640at06%2FJan%2F264%3A39AM"></a>Originally added to <a href="https://easystack.atlassian.net/browse/ECSL2-47640" class="external-link" rel="nofollow noreferrer">ECSL2-47640</a> at 06/Jan/26 4:39 AM</h5>
+
+<h3><a name="RIP%3A0010%3Arcumomentarydyntickidle"></a>RIP: 0010:rcu_momentary_dyntick_idle</h3>
+
+<p>以下面打栈为例分析：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:20 node-76 kernel: CPU: 36 PID: 231 Comm: migration/36 Tainted: G W OEL --------- -t - 4.18.0-147.5.1.es8_24.x86_64 #1
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:20 node-76 kernel: Hardware name: ZTE R5930 G2/R593X_MB, BIOS 03.16.200 03/13/2024
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:20 node-76 kernel: RIP: 0010:rcu_momentary_dyntick_idle+0x29/0x40
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:20 node-76 kernel: Code: c3 0f 1f 44 00 00 65 c6 05 df b6 af 54 00 48 c7 c0 40 3e 02 00 65 48 03 05 44 69 ae 54 ba 04 00 00 00 f0 0f c1 90 b8 00 00 00 &lt;83&gt; e2 02 74 01 c3 0f 0b c3 66 66 2e 0f 1f 84 00 00 00 00 00 0f 1f
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:20 node-76 kernel: RSP: 0018:ffffab468d42be78 EFLAGS: 00000206 ORIG_RAX: ffffffffffffff13
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:20 node-76 kernel: RAX: ffff8c193f923e40 RBX: 0000000000000001 RCX: dead000000000200
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:20 node-76 kernel: RDX: 000000006a978636 RSI: ffffab46aa8a7b60 RDI: ffffab46aa8a7bb0
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:20 node-76 kernel: RBP: ffffab46aa8a7bb0 R08: 0000000000000018 R09: 0000000000000000
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:20 node-76 kernel: R10: 00000000005467d6 R11: ffffffffffffff53 R12: ffffab46aa8a7bd4
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:20 node-76 kernel: R13: 0000000000000282 R14: 0000000000000000 R15: ffff8c193f91d700
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:20 node-76 kernel: FS: 0000000000000000(0000) GS:ffff8c193f900000(0000) knlGS:0000000000000000
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:20 node-76 kernel: CS: 0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:20 node-76 kernel: CR2: 000000c003980000 CR3: 0000006020416000 CR4: 00000000003406e0
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:20 node-76 kernel: Call Trace:
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:20 node-76 kernel: multi_cpu_stop+0xbb/0xf0
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:20 node-76 kernel: ? cpu_stopper_thread+0x100/0x100
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:20 node-76 kernel: cpu_stopper_thread+0x47/0x100
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:20 node-76 kernel: ? sort_range+0x20/0x20
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:20 node-76 kernel: smpboot_thread_fn+0xc5/0x160
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:20 node-76 kernel: kthread+0x112/0x130
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:20 node-76 kernel: ? kthread_flush_work_fn+0x10/0x10
+2026-01-04 13:22:20.000 +0800 ¦ node-76 ¦ messages ¦ ¦ Jan 4 13:22:20 node-76 kernel: ret_from_fork+0x22/0x40</pre>
+</div></div>
+
+<p>以下类型的rip打栈均位于multi_cpu_stop函数的状态机循环中：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>0010:multi_cpu_stop+0x43/0xf0
+0010:multi_cpu_stop+0x45/0xf0
+0010:multi_cpu_stop+0x48/0xf0
+0010:multi_cpu_stop+0x4a/0xf0
+0010:multi_cpu_stop+0xaa/0xf0
+0010:multi_cpu_stop+0xbb/0xf0
+0010:rcu_momentary_dyntick_idle+0x0/0x40
+0010:rcu_momentary_dyntick_idle+0x29/0x40
+0010:rcu_momentary_dyntick_idle+0x2c/0x40
+0010:rcu_momentary_dyntick_idle+0x5/0x40</pre>
+</div></div>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-c">182 <span class="code-comment">/* This is the cpu_stop function which stops the CPU. */</span>
+183 <span class="code-keyword">static</span> <span class="code-keyword"><span class="code-object">int</span></span> multi_cpu_stop(<span class="code-keyword"><span class="code-object">void</span></span> *data)
+184 {
+185         <span class="code-keyword">struct</span> multi_stop_data *msdata = data;
+186         <span class="code-keyword">enum</span> multi_stop_state newstate, curstate = MULTI_STOP_NONE;
+187         <span class="code-keyword"><span class="code-object">int</span></span> cpu = smp_processor_id(), err = 0;
+188         <span class="code-keyword"><span class="code-object">unsigned</span></span> <span class="code-keyword"><span class="code-object">long</span></span> flags;
+189         <span class="code-keyword"><span class="code-object">bool</span></span> is_active;
+190
+191         /*
+192         ¦* When called from stop_machine_from_inactive_cpu(), irq might
+193         ¦* already be disabled.  Save the state <span class="code-keyword">and</span> restore it on exit.
+194         ¦*/
+195         local_save_flags(flags);
+196
+197         if (!msdata-&gt;active_cpus)
+198                 is_active = cpu == cpumask_first(cpu_online_mask);  &lt;&lt;&lt;--- 如果active_cpus为null，当前cpu为所有在线cpu中的第一个cpu(通常情况下是cpu<span class="code-macro">#0)时，is_active为<span class="code-keyword">true</span>
+</span>199         <span class="code-keyword">else</span>
+200                 is_active = cpumask_test_cpu(cpu, msdata-&gt;active_cpus);  &lt;&lt;&lt;--- 按指定掩码判断当前cpu是否被指定了，如果被指定了，is_active为<span class="code-keyword">true</span>
+201
+202         <span class="code-comment">/* Simple state machine */</span>
+203         <span class="code-keyword">do</span> {   <span class="code-quote-red">&lt;&lt;&lt;--- msdata-&gt;</span>state状态机循环
+204                 <span class="code-comment">/* Chill out <span class="code-keyword">and</span> ensure we re-read multi_stop_state. */</span>
+205                 cpu_relax_yield();
+206                 newstate = READ_ONCE(msdata-&gt;state);
+207                 if (newstate != curstate) {
+208                         curstate = newstate;
+209                         <span class="code-keyword">switch</span> (curstate) {
+210                         <span class="code-keyword">case</span> MULTI_STOP_DISABLE_IRQ:
+211                                 local_irq_disable();
+212                                 hard_irq_disable();
+213                                 <span class="code-keyword">break</span>;
+214                         <span class="code-keyword">case</span> MULTI_STOP_RUN:
+215                                 if (is_active)  &lt;&lt;&lt;--- 当active_cpus为null，只有cpu<span class="code-macro">#0执行fn；当active_cpus不为null，掩码指定的那些cpu会执行fn
+</span>216                                         err = msdata-&gt;fn(msdata-&gt;data);
+217                                 <span class="code-keyword">break</span>;
+218                         <span class="code-keyword">default</span>:
+219                                 <span class="code-keyword">break</span>;
+220                         }
+221                         ack_state(msdata);
+222                 } <span class="code-keyword">else</span><span class="code-keyword"> if</span> (curstate &gt; MULTI_STOP_PREPARE) {
+223                         /*
+224                         ¦* At <span class="code-keyword">this</span> stage all other CPUs we depend on must spin
+225                         ¦* in the same loop. Any reason <span class="code-keyword">for</span> hard-lockup should
+226                         ¦* be detected <span class="code-keyword">and</span> reported on their side.
+227                         ¦*/
+228                         touch_nmi_watchdog();
+229                 }
+230                 rcu_momentary_dyntick_idle();  &lt;&lt;&lt;--- stop_machine执行时说明正在rcu静默状态，并进行上报
+231         } <span class="code-keyword">while</span> (curstate != MULTI_STOP_EXIT);
+232
+233         local_irq_restore(flags);
+234         <span class="code-keyword">return</span> err;
+235 }</pre>
+</div></div>
+
+<p>is_active取值的反汇编：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>crash&gt; multi_stop_data -xo
+struct multi_stop_data {
+   [0x0] cpu_stop_fn_t fn;
+   [0x8] void *data;
+  [0x10] unsigned int num_threads;
+  [0x18] const struct cpumask *active_cpus;
+  [0x20] enum multi_stop_state state;
+  [0x24] atomic_t thread_ack;
+}
+SIZE: 0x28
+
+/usr/src/debug/kernel-4.18.0-147.5.1.el8_1/linux-4.18.0-147.5.1.es8_24.x86_64/kernel/stop_machine.c: 197
+0xffffffff9736fac3 &lt;multi_cpu_stop+35&gt;: mov    0x18(%rdi),%rax  &lt;&lt;&lt;--- multi_stop_data-&gt;active_cpus
+0xffffffff9736fac7 &lt;multi_cpu_stop+39&gt;: test   %rax,%rax
+0xffffffff9736faca &lt;multi_cpu_stop+42&gt;: je     0xffffffff9736fb68 &lt;multi_cpu_stop+200&gt;
+/usr/src/debug/kernel-4.18.0-147.5.1.el8_1/linux-4.18.0-147.5.1.es8_24.x86_64/./arch/x86/include/asm/bitops.h: 332
+0xffffffff9736fad0 &lt;multi_cpu_stop+48&gt;: mov    %ebx,%ebx   &lt;&lt;&lt;--- %rbx为当前cpu
+0xffffffff9736fad2 &lt;multi_cpu_stop+50&gt;: bt     %rbx,(%rax)  &lt;&lt;&lt;--- test当前cpu是否在掩码中
+0xffffffff9736fad6 &lt;multi_cpu_stop+54&gt;: setb   %r15b   &lt;&lt;&lt;--- 是则将%r15最低一字节置为1
+......
+0xffffffff9736fb68 &lt;multi_cpu_stop+200&gt;:        mov    0x1295ba6(%rip),%esi        # 0xffffffff98605714 &lt;nr_cpu_ids&gt;
+0xffffffff9736fb6e &lt;multi_cpu_stop+206&gt;:        mov    $0xffffffff98604ce0,%rdi
+0xffffffff9736fb75 &lt;multi_cpu_stop+213&gt;:        call   0xffffffff976161b0 &lt;find_first_bit&gt;  &lt;&lt;&lt;--- 找online_mask中的第一个cpu，通常为cpu#0
+/usr/src/debug/kernel-4.18.0-147.5.1.el8_1/linux-4.18.0-147.5.1.es8_24.x86_64/kernel/stop_machine.c: 198
+0xffffffff9736fb7a &lt;multi_cpu_stop+218&gt;:        cmp    %eax,%ebx  &lt;&lt;&lt;--- 判断当前cpu是否为online_mask中的第一个cpu
+0xffffffff9736fb7c &lt;multi_cpu_stop+220&gt;:        sete   %r15b   &lt;&lt;&lt;--- 是则将%r15最低一字节置为1
+0xffffffff9736fb80 &lt;multi_cpu_stop+224&gt;:        jmp    0xffffffff9736fada &lt;multi_cpu_stop+58&gt;</pre>
+</div></div>
+
+<p>所以%r15的低8位为is_active，也就是0，当前cpu是36，无需执行fn，但是无法查看msdata-&gt;active_cpus，无法得知哪些cpu需要执行fn。</p>
+
+<p>msdata-&gt;state状态机循环中switch分支的反汇编：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>/usr/src/debug/kernel-4.18.0-147.5.1.el8_1/linux-4.18.0-147.5.1.es8_24.x86_64/kernel/stop_machine.c: 207
+0xffffffff9736fae8 &lt;multi_cpu_stop+72&gt;: cmp    %ebx,%eax
+0xffffffff9736faea &lt;multi_cpu_stop+74&gt;: je     0xffffffff9736fb47 &lt;multi_cpu_stop+167&gt;
+/usr/src/debug/kernel-4.18.0-147.5.1.el8_1/linux-4.18.0-147.5.1.es8_24.x86_64/kernel/stop_machine.c: 209
+0xffffffff9736faec &lt;multi_cpu_stop+76&gt;: cmp    $0x2,%ebx
+0xffffffff9736faef &lt;multi_cpu_stop+79&gt;: je     0xffffffff9736fb5f &lt;multi_cpu_stop+191&gt;
+0xffffffff9736faf1 &lt;multi_cpu_stop+81&gt;: cmp    $0x3,%ebx
+0xffffffff9736faf4 &lt;multi_cpu_stop+84&gt;: jne    0xffffffff9736fb0b &lt;multi_cpu_stop+107&gt;
+/usr/src/debug/kernel-4.18.0-147.5.1.el8_1/linux-4.18.0-147.5.1.es8_24.x86_64/kernel/stop_machine.c: 215
+0xffffffff9736faf6 &lt;multi_cpu_stop+86&gt;: test   %r15b,%r15b
+0xffffffff9736faf9 &lt;multi_cpu_stop+89&gt;: je     0xffffffff9736fb0b &lt;multi_cpu_stop+107&gt;
+/usr/src/debug/kernel-4.18.0-147.5.1.el8_1/linux-4.18.0-147.5.1.es8_24.x86_64/kernel/stop_machine.c: 216
+0xffffffff9736fafb &lt;multi_cpu_stop+91&gt;: mov    0x8(%rbp),%rdi
+0xffffffff9736faff &lt;multi_cpu_stop+95&gt;: mov    0x0(%rbp),%rax
+0xffffffff9736fb03 &lt;multi_cpu_stop+99&gt;: call   0xffffffff97e011f0 &lt;__x86_indirect_thunk_rax&gt;</pre>
+</div></div>
+
+<p>可知%rbx为curstate，也就是1（MULTI_STOP_PREPARE）。状态枚举如下：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>141 /* This controls the threads on each CPU. */
+142 enum multi_stop_state {
+143         /* Dummy starting state for thread. */
+144         MULTI_STOP_NONE,
+145         /* Awaiting everyone to be scheduled. */
+146         MULTI_STOP_PREPARE,
+147         /* Disable interrupts. */
+148         MULTI_STOP_DISABLE_IRQ,
+149         /* Run the function */
+150         MULTI_STOP_RUN,
+151         /* Exit */
+152         MULTI_STOP_EXIT,
+153 };</pre>
+</div></div>
+
+<p>查看所有此类堆栈，情况都一样，is_active为false，curstate为MULTI_STOP_PREPARE，涉及的cpu有25、36、46、51、58、97、127。</p>
+
+<p>状态的推进是通过每个cpu执行一次ack_state函数，将thread_ack（num_threads，也就是所有online的cpu个数）减至0，进入到set_state函数，重置thread_ack，并将msdata-&gt;state的枚举值加1：</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-c">166 <span class="code-keyword">static</span> <span class="code-keyword"><span class="code-object">void</span></span> set_state(<span class="code-keyword">struct</span> multi_stop_data *msdata,
+167                 ¦     <span class="code-keyword">enum</span> multi_stop_state newstate)
+168 {
+169         <span class="code-comment">/* Reset ack counter. */</span>
+170         atomic_set(&amp;msdata-&gt;thread_ack, msdata-&gt;num_threads);
+171         smp_wmb();
+172         WRITE_ONCE(msdata-&gt;state, newstate);
+173 }
+174
+175 <span class="code-comment">/* Last one to ack a state moves to the next state. */</span>
+176 <span class="code-keyword">static</span> <span class="code-keyword"><span class="code-object">void</span></span> ack_state(<span class="code-keyword">struct</span> multi_stop_data *msdata)
+177 {
+178         if (atomic_dec_and_test(&amp;msdata-&gt;thread_ack))
+179                 set_state(msdata, msdata-&gt;state + 1);
+180 }</pre>
+</div></div>
+
+<p><b>当前的情况说明有cpu没有能及时执行ack_state，导致整个状态机无法推进。但是没有vmcore，无法分析是哪个cpu以及无法推进状态机的原因。</b></p>
+        </td></tr>
+                <tr id="comment-header-473242"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                id="word_commented_557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=557058%3A1e1c47af-84e4-43b8-8bc4-48b51d054387">
+                    陈奇
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">06/一月/26</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-473242"><td bgcolor="#ffffff">
+            <h5><a name="OriginallyaddedtoECSL247640https%3A%2F%2Feasystack.atlassian.net%2Fbrowse%2FECSL247640at06%2FJan%2F261%3A01PM%2Clasteditedby%E9%99%88%E5%A5%87https%3A%2F%2Feasystack.atlassian.net%2Fpeople%2F557058%3A1e1c47af84e443b88bc448b51d054387at06%2FJan%2F262%3A02PM"></a>Originally added to <a href="https://easystack.atlassian.net/browse/ECSL2-47640" class="external-link" rel="nofollow noreferrer">ECSL2-47640</a> at 06/Jan/26 1:01 PM, last edited by <a href="https://easystack.atlassian.net/people/557058:1e1c47af-84e4-43b8-8bc4-48b51d054387" class="external-link" rel="nofollow noreferrer">陈奇</a> at 06/Jan/26 2:02 PM</h5>
+
+<h3><a name="0010%3Anativequeuedspinlockslowpath"></a>0010:native_queued_spin_lock_slowpath</h3>
+
+<p>日志这类打栈很多都混在了一起，将他们拆分开后，共有3种打栈：</p>
+
+<ul>
+	<li>vhost路径</li>
+</ul>
+
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre> 6250 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: watchdog: BUG: soft lockup - CPU#105 stuck for 23s! [vhost-38346:38448]
+ 6251 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: Modules linked in: binfmt_misc vhost_net vhost tap tun ip_gre ip_tunnel gre nf_nat_pptp nf_nat_proto_gre nf_conntrack_pptp nf_conntrack_proto_gre ip6_tables nf_conntrack_netlink xt_addrtype xt_recent xt_nat xt_statistic ipt_REJECT nf_reject_ipv4 ip_set ip_vs_sh ip_vs_wrr ip_vs_rr ip_vs ipt_MASQUERADE xt_mark nft_chain_nat_ipv4 overlay scsi_transport_iscsi cfg80211 rfkill vxlan ip6_udp_tunnel nfnetlink_cttimeout openvswitch(OE) nf_nat_ipv6 nf_nat_ipv4 nf_nat udp_tunnel xt_comment nft_counter nft_chain_route_ipv4 xt_state xt_conntrack nft_compat nf_tables nfnetlink ipmi_ssif amd64_edac_mod edac_mce_amd kvm_amd svcrdma(OE) rpcrdma(OE) ib_umad(OE) ccp xprtrdma(OE) rdma_ucm(OE) kvm ib_ipoib(OE) irqbypass rdma_cm(OE) crct10dif_pclmul iw_cm(OE) ib_srpt(OE) ib_isert(OE) ib_iser(OE) ib_cm(OE)
+ 6252 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: joydev crc32_pclmul ses ghash_clmulni_intel pcspkr enclosure k10temp i2c_piix4 ipmi_si nf_conntrack_ipv4 nf_defrag_ipv4 sunrpc drbd_transport_tcp(OE) drbd(OE) ip_tables xfs mlx5_ib(OE) ib_uverbs(OE) ib_core(OE) sd_mod sg drm_kms_helper syscopyarea mlx5_core(OE) sysfillrect mlxfw(OE) sysimgblt tls(t) igb fb_sys_fops ahci psample ttm libahci mlxdevm(OE) smartpqi auxiliary(OE) dca drm mlx_compat(OE) libata scsi_transport_sas i2c_algo_bit dm_mirror dm_region_hash dm_log rbd libceph dns_resolver nf_conntrack_ipv6 nf_defrag_ipv6 nf_conntrack libcrc32c crc32c_intel dm_round_robin dm_multipath dm_mod br_netfilter bridge stp llc ipmi_watchdog ipmi_devintf ipmi_msghandler escache
+ 6253 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: CPU: 105 PID: 38448 Comm: vhost-38346 Tainted: GW  OEL   --------- -t - 4.18.0-147.5.1.es8_24.x86_64 #1
+ 6255 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: Hardware name: ZTE R5930 G2/R593X_MB, BIOS 03.16.200 03/13/2024
+ 6256 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: RIP: 0010:native_queued_spin_lock_slowpath+0x5b/0x1d0
+ 6258 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: Code: 6d f0 0f ba 2f 08 0f 92 c0 0f b6 c0 c1 e0 08 89 c2 8b 07 30 e4 09 d0 a9 00 01 ff ff 75 47 85 c0 74 0e 8b 07 84 c0 74 08 f3 90 &lt;8b&gt; 07 84 c0 75 f8 b8 01 00 00 00 66 89 07 c3 8b 37 81 fe 00 01 00
+ 6260 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: RSP: 0018:ffffab46a24b3968 EFLAGS: 00000202
+ 6262 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: ORIG_RAX: ffffffffffffff13
+ 6264 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: RAX: 0000000000480101 RBX: ffffd25eeafa05a8 RCX: 0000000000000027
+ 6265 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: RDX: 0000000000000000 RSI: 0000000000000000 RDI: ffffd25eeafa05a8
+ 6267 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: RBP: ffffab46a24b39a0 R08: ffff8c28daecccb0 R09: 0000000000000000
+ 6268 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: R10: 0000000000000000 R11: 0000000000000000 R12: 800fff8dc5c008e6
+ 6270 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: R13: 0000000000000001 R14: 0000000000000000 R15: ffff8c39271217c0
+ 6271 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: FS:  0000000000000000(0000) GS:ffff8c293fa40000(0000) knlGS:0000000000000000
+ 6273 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+ 6274 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: CR2: 00007fb29cc98000 CR3: 0000007713b26000 CR4: 00000000003406e0
+ 6276 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: Call Trace:
+ 6278 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: _raw_spin_lock+0x1c/0x20
+ 6280 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: huge_pmd_set_accessed+0x5d/0xd0
+ 6282 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: __handle_mm_fault+0x40a/0x6b0
+ 6284 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: handle_mm_fault+0xda/0x200
+ 6286 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: __do_page_fault+0x22b/0x4e0
+ 6288 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: do_page_fault+0x32/0x110
+ 6290 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: page_fault+0x1e/0x30
+ 6292 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: RIP: 0010:copy_user_generic_string+0x2c/0x40
+ 6294 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: Code: cb 83 fa 08 72 27 89 f9 83 e1 07 74 15 83 e9 08 f7 d9 29 ca 8a 06 88 07 48 ff c6 48 ff c7 ff c9 75 f2 89 d1 c1 e9 03 83 e2 07 &lt;f3&gt; 48 a5 89 d1 f3 a4 31 c0 0f 01 ca c3 0f 1f 80 00 00 00 00 0f 01
+ 6296 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: RSP: 0018:ffffab46a24b3ba0 EFLAGS: 00050206
+ 6298 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: RAX: 00007fb29cc9853e RBX: 000000000000053e RCX: 00000000000000a7
+ 6299 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: RDX: 0000000000000006 RSI: ffff8c48c64768ec RDI: 00007fb29cc98000
+ 6301 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: RBP: ffffab46a24b3e50 R08: 0000000000000000 R09: 0000000000001c8a
+ 6302 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: R10: 0000000000002232 R11: ffff8c48c6476882 R12: 000000000000053e
+ 6304 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: R13: 00000000000005a8 R14: ffff8c48c64768ec R15: ffff8c40139101d8
+ 6305 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: copyout+0x25/0x30
+ 6307 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: _copy_to_iter+0x19a/0x3c0
+ 6309 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: ? __check_object_size+0xa3/0x181
+ 6311 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: __skb_datagram_iter+0x1c0/0x2e0
+ 6313 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: ? skb_kill_datagram+0x70/0x70
+ 6315 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: skb_copy_datagram_iter+0x3b/0x90
+ 6317 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: tun_do_read+0x4e7/0x6d0 [tun]
+ 6319 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: tun_recvmsg+0x62/0xf0 [tun]
+ 6321 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: handle_rx+0x573/0x940 [vhost_net]
+ 6323 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: ? vhost_dev_init+0x270/0x270 [vhost]
+ 6325 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: vhost_worker+0xcc/0x140 [vhost]
+ 6327 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: kthread+0x112/0x130
+ 6329 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: ? kthread_flush_work_fn+0x10/0x10
+ 6331 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: ret_from_fork+0x22/0x40</pre>
+</div></div>
+
+<ul>
+	<li>kvm路径</li>
+</ul>
+
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre> 6254 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: watchdog: BUG: soft lockup - CPU#107 stuck for 23s! [CPU 3/KVM:38453]
+ 6257 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: Modules linked in: binfmt_misc vhost_net vhost tap tun ip_gre ip_tunnel gre nf_nat_pptp nf_nat_proto_gre nf_conntrack_pptp nf_conntrack_proto_gre ip6_tables nf_conntrack_netlink xt_addrtype xt_recent xt_nat xt_statistic ipt_REJECT nf_reject_ipv4 ip_set ip_vs_sh ip_vs_wrr ip_vs_rr ip_vs ipt_MASQUERADE xt_mark nft_chain_nat_ipv4 overlay scsi_transport_iscsi cfg80211 rfkill vxlan ip6_udp_tunnel nfnetlink_cttimeout openvswitch(OE) nf_nat_ipv6 nf_nat_ipv4 nf_nat udp_tunnel xt_comment nft_counter nft_chain_route_ipv4 xt_state xt_conntrack nft_compat nf_tables nfnetlink ipmi_ssif amd64_edac_mod edac_mce_amd kvm_amd svcrdma(OE) rpcrdma(OE) ib_umad(OE) ccp xprtrdma(OE) rdma_ucm(OE) kvm ib_ipoib(OE) irqbypass rdma_cm(OE) crct10dif_pclmul iw_cm(OE) ib_srpt(OE) ib_isert(OE) ib_iser(OE) ib_cm(OE) joydev crc32_pclmul ses ghash_clmulni_intel pcspkr enclosure k10temp i2c_piix4 ipmi_si nf_conntrack_ipv4 nf_defrag_ipv4 sunrpc drbd_transport_tcp(OE) drbd(OE) ip_tables xfs mlx5_ib(OE) ib_uverbs(OE) ib_core(OE) sd_mod sg drm_kms_helper syscopyarea mlx5_core(OE) sysfillrect mlxfw(OE) sysimgblt tls(t) igb fb_sys_fops ahci psample ttm libahci mlxdevm(OE) smartpqi auxiliary(OE) dca drm mlx_compat(OE) libata scsi_transport_sas i2c_algo_bit dm_mirror dm_region_hash dm_log rbd libceph dns_resolver nf_conntrack_ipv6 nf_defrag_ipv6 nf_conntrack libcrc32c crc32c_intel dm_round_robin dm_multipath dm_mod br_netfilter bridge stp llc ipmi_watchdog ipmi_devintf ipmi_msghandler escache
+ 6334 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: CPU: 107 PID: 38453 Comm: CPU 3/KVM Tainted: GW  OEL   --------- -t - 4.18.0-147.5.1.es8_24.x86_64 #1
+ 6335 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: Hardware name: ZTE R5930 G2/R593X_MB, BIOS 03.16.200 03/13/2024
+ 6336 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: RIP: 0010:native_queued_spin_lock_slowpath+0x11b/0x1d0
+ 6337 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: Code: 85 c0 74 47 83 c6 01 c1 e1 10 c1 e6 12 09 ce 89 f0 c1 e8 10 66 87 47 02 89 c1 c1 e1 10 75 55 31 c9 eb 02 f3 90 8b 07 66 85 c0 &lt;75&gt; f7 41 89 c0 66 45 31 c0 44 39 c6 0f 84 80 00 00 00 c6 07 01 48
+ 6338 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: RSP: 0018:ffffab46a25339a0 EFLAGS: 00000202 ORIG_RAX: ffffffffffffff13
+ 6339 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: RAX: 0000000000480101 RBX: ffffd25eeafa05a8 RCX: 0000000000000000
+ 6340 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: RDX: ffff8c293fae3dc0 RSI: 0000000001b00000 RDI: ffffd25eeafa05a8
+ 6341 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: RBP: 00007fb29cdc9000 R08: 0000000000000000 R09: 000ffffffffff000
+ 6342 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: R10: 000000000000000b R11: 0000000000000080 R12: ffff8c28daecccb0
+ 6343 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: R13: ffffab46a2533a50 R14: ffff8c13be816730 R15: 0000000000000000
+ 6344 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: FS:  00007f4161ffb700(0000) GS:ffff8c293fac0000(0000) knlGS:0000000000000000
+ 6345 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+ 6346 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: CR2: 000000c0009c0ed4 CR3: 0000007713b26000 CR4: 00000000003406e0
+ 6347 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: Call Trace:
+ 6348 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: _raw_spin_lock+0x1c/0x20
+ 6349 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: pmd_lock.isra.21+0x3e/0x50
+ 6350 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: follow_page_mask+0x470/0x7c0
+ 6351 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: __get_user_pages+0x1ee/0x7c0
+ 6352 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: get_user_pages_unlocked+0x13b/0x1c0
+ 6353 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: __gfn_to_pfn_memslot+0x126/0x3f0 [kvm]
+ 6354 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: ? apic_timer_interrupt+0xa/0x20
+ 6355 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: try_async_pf+0x8d/0x260 [kvm]
+ 6356 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: ? _cond_resched+0x15/0x30
+ 6357 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: ? kvm_host_page_size+0x72/0x80 [kvm]
+ 6358 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: tdp_page_fault+0x143/0x2b0 [kvm]
+ 6359 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: ? svm_vcpu_run+0x293/0x6e0 [kvm_amd]
+ 6360 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: kvm_mmu_page_fault+0x75/0x600 [kvm]
+ 6361 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: ? svm_vcpu_run+0x29f/0x6e0 [kvm_amd]
+ 6362 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: ? svm_vcpu_run+0x293/0x6e0 [kvm_amd]
+ 6363 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: ? svm_vcpu_run+0x29f/0x6e0 [kvm_amd]
+ 6364 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: ? svm_vcpu_run+0x293/0x6e0 [kvm_amd]
+ 6365 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: ? svm_vcpu_run+0x29f/0x6e0 [kvm_amd]
+ 6366 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: ? svm_vcpu_run+0x293/0x6e0 [kvm_amd]
+ 6367 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: ? svm_vcpu_run+0x29f/0x6e0 [kvm_amd]
+ 6368 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: ? svm_vcpu_run+0x293/0x6e0 [kvm_amd]
+ 6369 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: ? svm_vcpu_run+0x29f/0x6e0 [kvm_amd]
+ 6370 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: ? apic_update_ppr+0x27/0x70 [kvm]
+ 6371 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: ? handle_exit+0xed/0x340 [kvm_amd]
+ 6372 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: ? svm_vcpu_run+0x4fc/0x6e0 [kvm_amd]
+ 6373 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: vcpu_enter_guest+0x2d3/0x1560 [kvm]
+ 6374 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: ? __apic_accept_irq+0x75/0x2e0 [kvm]
+ 6375 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: kvm_arch_vcpu_ioctl_run+0xfa/0x5a0 [kvm]
+ 6376 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: kvm_vcpu_ioctl+0x22f/0x5e0 [kvm]
+ 6377 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: do_vfs_ioctl+0xa4/0x630
+ 6378 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: ? syscall_trace_enter+0x192/0x2c0
+ 6379 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: ksys_ioctl+0x60/0x90
+ 6380 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: __x64_sys_ioctl+0x16/0x20
+ 6381 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: do_syscall_64+0x5b/0x1b0
+ 6382 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: entry_SYSCALL_64_after_hwframe+0x65/0xca
+ 6383 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: RIP: 0033:0x7fb6aec4c2f7
+ 6384 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: Code: 44 00 00 48 8b 05 79 1b 2d 00 64 c7 00 26 00 00 00 48 c7 c0 ff ff ff ff c3 66 2e 0f 1f 84 00 00 00 00 00 b8 10 00 00 00 0f 05 &lt;48&gt; 3d 01 f0 ff ff 73 01 c3 48 8b 0d 49 1b 2d 00 f7 d8 64 89 01 48
+ 6385 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: RSP: 002b:00007fb651ffa878 EFLAGS: 00000246 ORIG_RAX: 0000000000000010
+ 6386 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: RAX: ffffffffffffffda RBX: 0000000000000001 RCX: 00007fb6aec4c2f7
+ 6387 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: RDX: 0000000000000000 RSI: 000000000000ae80 RDI: 0000000000000038
+ 6388 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: RBP: 0000000000000001 R08: 0000562ea489b050 R09: 00000000000000ff
+ 6389 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+ 6390 2026-01-04 13:22:52.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:52 node-76 kernel: R13: 0000562ea60805f0 R14: 0000000000000000 R15: 00007fb6b3a96000</pre>
+</div></div>
+
+<ul>
+	<li>qemu-kvm路径</li>
+</ul>
+
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre> 6946 2026-01-04 13:22:40.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:40 node-76 kernel: watchdog: BUG: soft lockup - CPU#17 stuck for 22s! [qemu-kvm:38346]
+ 6947 2026-01-04 13:22:40.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:40 node-76 kernel: Modules linked in: binfmt_misc vhost_net vhost tap tun ip_gre ip_tunnel gre nf_nat_pptp nf_nat_proto_gre nf_conntrack_pptp nf_conntrack_proto_gre ip6_tables nf_conntrack_netlin      k xt_addrtype xt_recent xt_nat xt_statistic ipt_REJECT nf_reject_ipv4 ip_set ip_vs_sh ip_vs_wrr ip_vs_rr ip_vs ipt_MASQUERADE xt_mark nft_chain_nat_ipv4 overlay scsi_transport_iscsi cfg80211 rfkill vxlan ip6_udp_tunnel nfnetlink_cttimeout openvswitch(OE) nf_nat_ip      v6 nf_nat_ipv4 nf_nat udp_tunnel xt_comment nft_counter nft_chain_route_ipv4 xt_state xt_conntrack nft_compat nf_tables nfnetlink ipmi_ssif amd64_edac_mod edac_mce_amd kvm_amd svcrdma(OE) rpcrdma(OE) ib_umad(OE) ccp xprtrdma(OE) rdma_ucm(OE) kvm ib_ipoib(OE) irqby      pass rdma_cm(OE) crct10dif_pclmul iw_cm(OE) ib_srpt(OE) ib_isert(OE) ib_iser(OE) ib_cm(OE)
+ 6948 2026-01-04 13:22:40.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:40 node-76 kernel: joydev crc32_pclmul ses ghash_clmulni_intel pcspkr enclosure k10temp i2c_piix4 ipmi_si nf_conntrack_ipv4 nf_defrag_ipv4 sunrpc drbd_transport_tcp(OE) drbd(OE) ip_tables xfs mlx      5_ib(OE) ib_uverbs(OE) ib_core(OE) sd_mod sg drm_kms_helper syscopyarea mlx5_core(OE) sysfillrect mlxfw(OE) sysimgblt tls(t) igb fb_sys_fops ahci psample ttm libahci mlxdevm(OE) smartpqi auxiliary(OE) dca drm mlx_compat(OE) libata scsi_transport_sas i2c_algo_bit d      m_mirror dm_region_hash dm_log rbd libceph dns_resolver nf_conntrack_ipv6 nf_defrag_ipv6 nf_conntrack libcrc32c crc32c_intel dm_round_robin dm_multipath dm_mod br_netfilter bridge stp llc ipmi_watchdog ipmi_devintf ipmi_msghandler escache
+ 6949 2026-01-04 13:22:40.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:40 node-76 kernel: CPU: 17 PID: 38346 Comm: qemu-kvm Tainted: G        W  OEL   --------- -t - 4.18.0-147.5.1.es8_24.x86_64 #1
+ 6950 2026-01-04 13:22:40.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:40 node-76 kernel: Hardware name: ZTE R5930 G2/R593X_MB, BIOS 03.16.200 03/13/2024
+ 6951 2026-01-04 13:22:40.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:40 node-76 kernel: RIP: 0010:native_queued_spin_lock_slowpath+0x192/0x1d0
+ 6952 2026-01-04 13:22:40.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:40 node-76 kernel: Code: 83 e0 03 83 e9 01 48 c1 e0 05 48 63 c9 48 05 c0 3d 02 00 48 03 04 cd 60 68 53 ac 48 89 10 8b 42 08 85 c0 75 09 f3 90 8b 42 08 &lt;85&gt; c0 74 f7 48 8b 02 48 85 c0 0f 84 6e ff       ff ff 48 89 c1 0f 0d 08
+ 6953 2026-01-04 13:22:40.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:40 node-76 kernel: RSP: 0000:ffffab46aa4a7cf0 EFLAGS: 00000246 ORIG_RAX: ffffffffffffff13
+ 6954 2026-01-04 13:22:40.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:40 node-76 kernel: RAX: 0000000000000000 RBX: ffffd25eeafa05a8 RCX: 000000000000006b
+ 6955 2026-01-04 13:22:40.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:40 node-76 kernel: RDX: ffff8bf93f863dc0 RSI: 0000000000480000 RDI: ffffd25eeafa05a8
+ 6956 2026-01-04 13:22:40.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:40 node-76 kernel: RBP: ffff8c13be816730 R08: 0000000000000001 R09: ffff8c3ebda40000
+ 6957 2026-01-04 13:22:40.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:40 node-76 kernel: R10: 0000000000000002 R11: 006e1d48e4581200 R12: ffff8c13be816730
+ 6958 2026-01-04 13:22:40.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:40 node-76 kernel: R13: ffff8c28daecccb0 R14: 00007fb29cc00000 R15: 0000000000000001
+ 6959 2026-01-04 13:22:40.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:40 node-76 kernel: FS:  00007fb6b3a9ecc0(0000) GS:ffff8bf93f840000(0000) knlGS:0000000000000000
+ 6960 2026-01-04 13:22:40.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:40 node-76 kernel: CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+ 6961 2026-01-04 13:22:40.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:40 node-76 kernel: CR2: 00007f337bc94800 CR3: 0000007713b26000 CR4: 00000000003406e0
+ 6962 2026-01-04 13:22:40.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:40 node-76 kernel: Call Trace:
+ 6963 2026-01-04 13:22:40.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:40 node-76 kernel: _raw_spin_lock+0x1c/0x20
+ 6964 2026-01-04 13:22:40.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:40 node-76 kernel: __pmd_trans_huge_lock+0x4d/0xe0
+ 6965 2026-01-04 13:22:40.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:40 node-76 kernel: change_huge_pmd+0x29/0x340
+ 6966 2026-01-04 13:22:40.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:40 node-76 kernel: change_p4d_range+0x777/0xa30
+ 6967 2026-01-04 13:22:40.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:40 node-76 kernel: ? set_fd_set.part.7+0x40/0x40
+ 6968 2026-01-04 13:22:40.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:40 node-76 kernel: change_protection+0x12b/0x190
+ 6969 2026-01-04 13:22:40.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:40 node-76 kernel: change_prot_numa+0x18/0x30
+ 6970 2026-01-04 13:22:40.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:40 node-76 kernel: task_numa_work+0x1ed/0x300
+ 6971 2026-01-04 13:22:40.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:40 node-76 kernel: task_work_run+0x8a/0xb0
+ 6972 2026-01-04 13:22:40.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:40 node-76 kernel: exit_to_usermode_loop+0xeb/0xf0
+ 6973 2026-01-04 13:22:40.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:40 node-76 kernel: prepare_exit_to_usermode+0x90/0xc0
+ 6974 2026-01-04 13:22:40.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:40 node-76 kernel: retint_user+0x8/0x8
+ 6975 2026-01-04 13:22:40.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:40 node-76 kernel: RIP: 0033:0x7fb6b31d4e74
+ 6976 2026-01-04 13:22:40.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:40 node-76 kernel: Code: ff 0f 1f 44 00 00 b8 01 00 00 00 f0 0f c1 07 85 c0 74 0b e9 61 b0 f8 ff 66 0f 1f 44 00 00 f3 c3 66 0f 1f 44 00 00 31 f6 87 37 &lt;83&gt; fe 01 74 07 e9 09 b0 f8 ff 66 90 f3 c3       0f 1f 40 00 66 2e 0f 1f
+ 6977 2026-01-04 13:22:40.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:40 node-76 kernel: RSP: 002b:00007ffd612c1178 EFLAGS: 00000246 ORIG_RAX: ffffffffffffff13
+ 6978 2026-01-04 13:22:40.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:40 node-76 kernel: RAX: 0000000000000000 RBX: 0000000000000008 RCX: 0000000000000041
+ 6979 2026-01-04 13:22:40.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:40 node-76 kernel: RDX: 0000000000000043 RSI: 0000000000000001 RDI: 0000562ea5be1c00
+ 6980 2026-01-04 13:22:40.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:40 node-76 kernel: RBP: 0000000000000000 R08: 0000000000000008 R09: 0000000000000000
+ 6981 2026-01-04 13:22:40.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:40 node-76 kernel: R10: 0000562ea66b3530 R11: 0000562ea5b61e60 R12: 0000562ea5be1c00
+ 6982 2026-01-04 13:22:40.000 +0800 ¦ node-76 ¦ messages ¦  ¦ Jan  4 13:22:40 node-76 kernel: R13: 0000000000000008 R14: 0000562ea6d26fa0 R15: 00007ffd612c11cc</pre>
+</div></div>
+
+<p>这3种堆栈都是进程正在等待pmd自旋锁。这个锁来自于pmd_lock.isra.21函数，用于获取pmd级的页表锁，这类锁用于保护页表中间目录的访问和修改。</p>
+
+<p>pmd_lock源码：</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-c">2046 <span class="code-keyword">static</span> <span class="code-keyword">inline</span> spinlock_t *pmd_lock(<span class="code-keyword">struct</span> mm_struct *mm, pmd_t *pmd)
+2047 {
+2048         spinlock_t *ptl = pmd_lockptr(mm, pmd);
+2049         spin_lock(ptl);   &lt;&lt;&lt;--- 
+2050         <span class="code-keyword">return</span> ptl;
+2051 }</pre>
+</div></div>
+
+<p>_raw_spin_lock反汇编：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>crash&gt; dis -l _raw_spin_lock
+/usr/src/debug/kernel-4.18.0-147.5.1.el8_1/linux-4.18.0-147.5.1.es8_24.x86_64/kernel/locking/spinlock.c: 143
+0xffffffff97a66580 &lt;_raw_spin_lock&gt;:    nopl   0x0(%rax,%rax,1) [FTRACE NOP]
+/usr/src/debug/kernel-4.18.0-147.5.1.el8_1/linux-4.18.0-147.5.1.es8_24.x86_64/./arch/x86/include/asm/atomic.h: 191
+0xffffffff97a66585 &lt;_raw_spin_lock+5&gt;:  xor    %eax,%eax
+0xffffffff97a66587 &lt;_raw_spin_lock+7&gt;:  mov    $0x1,%edx
+0xffffffff97a6658c &lt;_raw_spin_lock+12&gt;: lock cmpxchg %edx,(%rdi)
+/usr/src/debug/kernel-4.18.0-147.5.1.el8_1/linux-4.18.0-147.5.1.es8_24.x86_64/./include/asm-generic/qspinlock.h: 86
+0xffffffff97a66590 &lt;_raw_spin_lock+16&gt;: test   %eax,%eax
+0xffffffff97a66592 &lt;_raw_spin_lock+18&gt;: jne    0xffffffff97a66595 &lt;_raw_spin_lock+21&gt;
+/usr/src/debug/kernel-4.18.0-147.5.1.el8_1/linux-4.18.0-147.5.1.es8_24.x86_64/kernel/locking/spinlock.c: 145
+0xffffffff97a66594 &lt;_raw_spin_lock+20&gt;: ret
+/usr/src/debug/kernel-4.18.0-147.5.1.el8_1/linux-4.18.0-147.5.1.es8_24.x86_64/./arch/x86/include/asm/paravirt.h: 684
+0xffffffff97a66595 &lt;_raw_spin_lock+21&gt;: mov    %eax,%esi
+0xffffffff97a66597 &lt;_raw_spin_lock+23&gt;: call   0xffffffff97308980 &lt;native_queued_spin_lock_slowpath&gt;
+0xffffffff97a6659c &lt;_raw_spin_lock+28&gt;: xchg   %ax,%ax
+/usr/src/debug/kernel-4.18.0-147.5.1.el8_1/linux-4.18.0-147.5.1.es8_24.x86_64/kernel/locking/spinlock.c: 145
+0xffffffff97a6659e &lt;_raw_spin_lock+30&gt;: ret</pre>
+</div></div>
+
+<p>native_queued_spin_lock_slowpath反汇编片段</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>/usr/src/debug/kernel-4.18.0-147.5.1.el8_1/linux-4.18.0-147.5.1.es8_24.x86_64/kernel/locking/qspinlock.c: 469
+0xffffffff97308a90 &lt;native_queued_spin_lock_slowpath+272&gt;:      xor    %ecx,%ecx
+0xffffffff97308a92 &lt;native_queued_spin_lock_slowpath+274&gt;:      jmp    0xffffffff97308a96 &lt;native_queued_spin_lock_slowpath+278&gt;
+/usr/src/debug/kernel-4.18.0-147.5.1.el8_1/linux-4.18.0-147.5.1.es8_24.x86_64/./arch/x86/include/asm/processor.h: 677
+0xffffffff97308a94 &lt;native_queued_spin_lock_slowpath+276&gt;:      pause
+/usr/src/debug/kernel-4.18.0-147.5.1.el8_1/linux-4.18.0-147.5.1.es8_24.x86_64/./include/linux/compiler.h: 188
+0xffffffff97308a96 &lt;native_queued_spin_lock_slowpath+278&gt;:      mov    (%rdi),%eax
+/usr/src/debug/kernel-4.18.0-147.5.1.el8_1/linux-4.18.0-147.5.1.es8_24.x86_64/kernel/locking/qspinlock.c: 519
+0xffffffff97308a98 &lt;native_queued_spin_lock_slowpath+280&gt;:      test   %ax,%ax
+0xffffffff97308a9b &lt;native_queued_spin_lock_slowpath+283&gt;:      jne    0xffffffff97308a94 &lt;native_queued_spin_lock_slowpath+276&gt;
+/usr/src/debug/kernel-4.18.0-147.5.1.el8_1/linux-4.18.0-147.5.1.es8_24.x86_64/kernel/locking/qspinlock.c: 543
+0xffffffff97308a9d &lt;native_queued_spin_lock_slowpath+285&gt;:      mov    %eax,%r8d
+0xffffffff97308aa0 &lt;native_queued_spin_lock_slowpath+288&gt;:      xor    %r8w,%r8w
+0xffffffff97308aa4 &lt;native_queued_spin_lock_slowpath+292&gt;:      cmp    %r8d,%esi
+0xffffffff97308aa7 &lt;native_queued_spin_lock_slowpath+295&gt;:      je     0xffffffff97308b2d &lt;native_queued_spin_lock_slowpath+429&gt;</pre>
+</div></div>
+
+<p><b>这个pmd锁的地址应该在%rdi，也就是0xffffd25eeafa05a8。查看所有此类堆栈，pmd锁均是0xffffd25eeafa05a8。但是看不到持锁者是谁。</b></p>
+        </td></tr>
+                <tr id="comment-header-473243"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                id="word_commented_557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=557058%3A1e1c47af-84e4-43b8-8bc4-48b51d054387">
+                    陈奇
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">06/一月/26</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-473243"><td bgcolor="#ffffff">
+            <p>重启后node-76的meminfo：</p>
+
+<p><span class="image-wrap" style=""><img src="/rest/api/3/attachment/content/386745" alt="2b1e5946985f93eae17f936894700989-20260106-060706.jpg" width="540" style="border: 0px solid black" /></span></p>
+
+<p><span class="image-wrap" style=""><img src="/rest/api/3/attachment/content/386746" alt="e8e1be137d07d1fe90705a3a98994b82-20260106-060725.jpg" width="540" style="border: 0px solid black" /></span></p>
+
+<p>node-76的平台日志包：</p>
+
+<p><span class="nobr"><a href="/rest/api/3/attachment/content/386747" title="ecs.20260104140429.latest.zip attached to ECS-7795" data-attachment-type="file" data-attachment-name="ecs.20260104140429.latest.zip" data-media-services-type="file" data-media-services-id="8465d6c8-75c8-4f0c-96b5-213bfb43ad68" rel="noreferrer">ecs.20260104140429.latest.zip<sup><img class="rendericon" src="/images/icons/link_attachment_7.gif" height="7" width="7" align="absmiddle" alt="" border="0"/></sup></a></span></p>
+
+        </td></tr>
+                <tr id="comment-header-473244"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                id="word_commented_557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=557058%3A1e1c47af-84e4-43b8-8bc4-48b51d054387">
+                    陈奇
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">06/一月/26</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-473244"><td bgcolor="#ffffff">
+            <p><a href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5de5f414cdc2d20d053804cc" class="user-hover" rel="5de5f414cdc2d20d053804cc" data-account-id="5de5f414cdc2d20d053804cc" accountid="5de5f414cdc2d20d053804cc" rel="noreferrer">于宸</a> </p>
+
+<p>麻烦帮忙看下是否还能找到什么线索，之前是否遇到过类似现象？谢谢。</p>
+        </td></tr>
+                <tr id="comment-header-473245"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="5dff08655361330daae9584e"
+                id="word_commented_5dff08655361330daae9584e"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5dff08655361330daae9584e">
+                    esoncall
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">06/一月/26</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-473245"><td bgcolor="#ffffff">
+            <p><font color="#ff5630"><b>Attention: Priority Detail和Priority的设置不一致，根据Priority Detail调整Priority！！！</b></font></p>
+        </td></tr>
+                <tr id="comment-header-473257"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                id="word_commented_557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=557058%3A1e1c47af-84e4-43b8-8bc4-48b51d054387">
+                    陈奇
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">06/一月/26</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-473257"><td bgcolor="#ffffff">
+            <p>sel：</p>
+
+<p><span class="image-wrap" style=""><img src="/rest/api/3/attachment/content/386767" alt="截屏2026-01-06 15.32.56-20260106-073259.png" width="931" style="border: 0px solid black" /></span></p>
+        </td></tr>
+                <tr id="comment-header-473263"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="5de5f414cdc2d20d053804cc"
+                id="word_commented_5de5f414cdc2d20d053804cc"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5de5f414cdc2d20d053804cc">
+                    于宸
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">06/一月/26</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-473263"><td bgcolor="#ffffff">
+            <p>查看日志 节点1月4日，13:22开始出现lockup，持续20多分钟，13:45节点手动重启。</p>
+
+<p>展开sar日志 ALL cpu使用率：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>## sar -u -P ALL -f sa04.node-76.20260104140429 -s 01:20:01 -e 01:30:00
+[root@node-5 yc]# sar -u -P ALL -f sa04.node-76.20260104140429 -s 01:20:01 -e 01:30:01
+Linux 4.18.0-147.5.1.es8_24.x86_64 (node-76.domain.tld)         01/04/2026      _x86_64_        (128 CPU)
+
+01:20:01 AM     CPU     %user     %nice   %system   %iowait    %steal     %idle
+01:30:01 AM     all      4.86      0.00      3.26      0.00      0.00     91.89
+01:30:01 AM       0      0.71      0.00     33.39      0.00      0.00     65.90
+01:30:01 AM       1      0.75      0.00      1.41      0.00      0.00     97.84
+01:30:01 AM       2      0.83      0.00      0.99      0.00      0.00     98.18
+01:30:01 AM       3      0.88      0.00      0.87      0.00      0.00     98.25
+01:30:01 AM       4      2.44      0.00      1.52      0.00      0.00     96.04
+01:30:01 AM       5      2.33      0.00      1.21      0.00      0.00     96.46
+01:30:01 AM       6      2.48      0.00      1.41      0.00      0.00     96.11
+01:30:01 AM       7      2.50      0.00      1.31      0.00      0.00     96.18
+01:30:01 AM       8      3.28      0.00      4.76      0.00      0.00     91.96
+01:30:01 AM       9      2.67      0.00      3.56      0.00      0.00     93.77
+01:30:01 AM      10      2.39      0.00      2.84      0.00      0.00     94.77
+01:30:01 AM      11      2.75      0.00      3.45      0.00      0.00     93.79
+01:30:01 AM      12      2.38      0.00      2.69      0.00      0.00     94.93
+01:30:01 AM      13      2.33      0.00      1.70      0.00      0.00     95.97
+01:30:01 AM      14      2.84      0.00      2.46      0.00      0.00     94.70
+01:30:01 AM      15      2.26      0.00      1.86      0.00      0.00     95.88
+01:30:01 AM      16      3.01      0.00      1.81      0.00      0.00     95.18
+01:30:01 AM      17      2.47      0.00      1.58      0.00      0.00     95.96
+01:30:01 AM      18      2.84      0.00      1.79      0.00      0.00     95.37
+01:30:01 AM      19      2.78      0.00      1.50      0.00      0.00     95.72
+01:30:01 AM      20      2.99      0.00      1.90      0.00      0.00     95.11
+01:30:01 AM      21      3.15      0.00      1.85      0.00      0.00     95.01
+01:30:01 AM      22      2.60      0.00      3.28      0.00      0.00     94.12
+01:30:01 AM      23      2.87      0.00      1.92      0.00      0.00     95.20
+01:30:01 AM      24      2.83      0.00      2.26      0.00      0.00     94.91
+01:30:01 AM      25      2.77      0.00      2.41      0.00      0.00     94.82
+01:30:01 AM      26      2.71      0.00      2.41      0.00      0.00     94.88
+01:30:01 AM      27      2.51      0.00      2.10      0.00      0.00     95.39
+01:30:01 AM      28      2.55      0.00      1.90      0.00      0.00     95.55
+01:30:01 AM      29      2.86      0.00      2.35      0.00      0.00     94.79
+01:30:01 AM      30      2.73      0.00      2.33      0.00      0.00     94.93
+01:30:01 AM      31      2.53      0.00      2.21      0.00      0.00     95.27
+01:30:01 AM      32      6.49      0.00      4.02      0.00      0.00     89.49
+01:30:01 AM      33      4.44      0.00      2.50      0.00      0.00     93.06
+01:30:01 AM      34      4.20      0.00      1.98      0.00      0.00     93.82
+01:30:01 AM      35      3.93      0.00      1.89      0.00      0.00     94.17
+01:30:01 AM      36      3.50      0.00      2.19      0.00      0.00     94.31
+01:30:01 AM      37      4.00      0.00      2.59      0.00      0.00     93.41
+01:30:01 AM      38      3.75      0.00      2.54      0.00      0.00     93.71
+01:30:01 AM      39      3.47      0.00      2.09      0.00      0.00     94.45
+01:30:01 AM      40      5.90      0.00      3.48      0.00      0.00     90.62
+01:30:01 AM      41      5.15      0.00      2.96      0.00      0.00     91.89
+01:30:01 AM      42      4.83      0.00      2.46      0.00      0.00     92.70
+01:30:01 AM      43      4.00      0.00      1.91      0.00      0.00     94.09
+01:30:01 AM      44      3.29      0.00      2.19      0.00      0.00     94.53
+01:30:01 AM      45      2.74      0.00      2.18      0.00      0.00     95.09
+01:30:01 AM      46      2.96      0.00      1.91      0.00      0.00     95.13
+01:30:01 AM      47      3.38      0.00      2.98      0.00      0.00     93.64
+01:30:01 AM      48     18.57      0.00      5.24      0.00      0.00     76.19
+01:30:01 AM      49     17.99      0.00      5.17      0.00      0.00     76.84
+01:30:01 AM      50     18.83      0.00      5.22      0.00      0.00     75.95
+01:30:01 AM      51     18.22      0.00      5.19      0.00      0.00     76.59
+01:30:01 AM      52     18.90      0.00      6.00      0.00      0.00     75.10
+01:30:01 AM      53     18.15      0.00      5.47      0.00      0.00     76.38
+01:30:01 AM      54     18.20      0.00      5.32      0.00      0.00     76.49
+01:30:01 AM      55     18.46      0.00      6.52      0.00      0.00     75.02
+01:30:01 AM      56      3.17      0.00      4.95      0.00      0.00     91.89
+01:30:01 AM      57      3.00      0.00      4.44      0.00      0.00     92.56
+01:30:01 AM      58      2.99      0.00      4.79      0.00      0.00     92.22
+01:30:01 AM      59      2.92      0.00      4.63      0.00      0.00     92.45
+01:30:01 AM      60      3.74      0.00      6.42      0.00      0.00     89.84
+01:30:01 AM      61      3.75      0.00      6.41      0.00      0.00     89.83
+01:30:01 AM      62      4.22      0.00      6.95      0.00      0.00     88.83
+01:30:01 AM      63      3.49      0.00      7.19      0.00      0.00     89.31
+01:30:01 AM      64      1.94      0.00      1.15      0.00      0.00     96.90
+01:30:01 AM      65      1.74      0.00      0.85      0.00      0.00     97.41
+01:30:01 AM      66      1.85      0.00      0.93      0.00      0.00     97.22
+01:30:01 AM      67      1.75      0.00      0.93      0.00      0.00     97.32
+01:30:01 AM      68      2.38      0.00      1.35      0.00      0.00     96.27
+01:30:01 AM      69      2.09      0.00      1.20      0.00      0.00     96.72
+01:30:01 AM      70      2.45      0.00      2.22      0.00      0.00     95.33
+01:30:01 AM      71      2.71      0.00      1.34      0.00      0.00     95.94
+01:30:01 AM      72      2.33      0.00      3.34      0.00      0.00     94.33
+01:30:01 AM      73      2.88      0.00      3.75      0.00      0.00     93.37
+01:30:01 AM      74      2.00      0.00      3.46      0.00      0.00     94.54
+01:30:01 AM      75      2.00      0.00      3.61      0.00      0.00     94.39
+01:30:01 AM      76      2.20      0.00      1.99      0.00      0.00     95.82
+01:30:01 AM      77      2.33      0.00      1.87      0.00      0.00     95.80
+01:30:01 AM      78      2.04      0.00      2.12      0.00      0.00     95.84
+01:30:01 AM      79      2.14      0.00      1.43      0.00      0.00     96.42
+01:30:01 AM      80      2.72      0.00      3.05      0.00      0.00     94.23
+01:30:01 AM      81      2.86      0.00      2.22      0.00      0.00     94.92
+01:30:01 AM      82      2.66      0.00      1.91      0.00      0.00     95.43
+01:30:01 AM      83      2.83      0.00      2.35      0.00      0.00     94.81
+01:30:01 AM      84      2.83      0.00      1.70      0.00      0.00     95.47
+01:30:01 AM      85      2.95      0.00      1.55      0.00      0.00     95.50
+01:30:01 AM      86      2.85      0.00      1.43      0.00      0.00     95.72
+01:30:01 AM      87      2.49      0.00      1.35      0.00      0.00     96.15
+01:30:01 AM      88      2.55      0.00      2.32      0.00      0.00     95.14
+01:30:01 AM      89      2.50      0.00      2.13      0.00      0.00     95.37
+01:30:01 AM      90      2.58      0.00      2.29      0.00      0.00     95.14
+01:30:01 AM      91      2.66      0.00      2.46      0.00      0.00     94.88
+01:30:01 AM      92      2.69      0.00      3.21      0.00      0.00     94.10
+01:30:01 AM      93      2.70      0.00      2.17      0.00      0.00     95.13
+01:30:01 AM      94      2.58      0.00      2.00      0.00      0.00     95.42
+01:30:01 AM      95      2.36      0.00      1.74      0.00      0.00     95.90
+01:30:01 AM      96      4.49      0.00      2.35      0.00      0.00     93.15
+01:30:01 AM      97      3.64      0.00      1.97      0.00      0.00     94.39
+01:30:01 AM      98      4.16      0.00      2.30      0.00      0.00     93.54
+01:30:01 AM      99      3.81      0.00      1.97      0.00      0.00     94.23
+01:30:01 AM     100      3.48      0.00      2.46      0.00      0.00     94.06
+01:30:01 AM     101      3.08      0.00      1.67      0.00      0.00     95.25
+01:30:01 AM     102      3.57      0.00      2.25      0.00      0.00     94.19
+01:30:01 AM     103      3.80      0.00      3.06      0.00      0.00     93.14
+01:30:01 AM     104      4.00      0.00      2.37      0.00      0.00     93.63
+01:30:01 AM     105      3.49      0.00      1.78      0.00      0.00     94.74
+01:30:01 AM     106      3.93      0.00      3.17      0.00      0.00     92.90
+01:30:01 AM     107      3.28      0.00      1.85      0.00      0.00     94.87
+01:30:01 AM     108      2.91      0.00      2.00      0.00      0.00     95.09
+01:30:01 AM     109      2.98      0.00      2.22      0.00      0.00     94.79
+01:30:01 AM     110      2.86      0.00      2.04      0.00      0.00     95.10
+01:30:01 AM     111      2.86      0.00      1.93      0.00      0.00     95.21
+01:30:01 AM     112     18.35      0.00      5.29      0.00      0.00     76.35
+01:30:01 AM     113     17.90      0.00      5.68      0.00      0.00     76.42
+01:30:01 AM     114     18.19      0.00      5.77      0.00      0.00     76.04
+01:30:01 AM     115     17.13      0.00      4.95      0.00      0.00     77.92
+01:30:01 AM     116     17.87      0.00      4.94      0.00      0.00     77.19
+01:30:01 AM     117     17.53      0.00      5.77      0.00      0.00     76.70
+01:30:01 AM     118     18.14      0.00      5.05      0.00      0.00     76.81
+01:30:01 AM     119     17.93      0.00      5.35      0.00      0.00     76.73
+01:30:01 AM     120      2.98      0.00      4.16      0.00      0.00     92.86
+01:30:01 AM     121      3.26      0.00      5.09      0.00      0.00     91.64
+01:30:01 AM     122      3.34      0.00      4.96      0.00      0.00     91.70
+01:30:01 AM     123      3.43      0.00      5.02      0.00      0.00     91.55
+01:30:01 AM     124      3.96      0.00      6.74      0.00      0.00     89.29
+01:30:01 AM     125      3.70      0.00      6.63      0.00      0.00     89.67
+01:30:01 AM     126      3.26      0.00      5.90      0.00      0.00     90.84
+01:30:01 AM     127      3.98      0.00      6.28      0.00      0.00     89.73</pre>
+</div></div>
+
+<p>比较奇怪的是，在13:20到13:30区间，一直在发生lockup，但sar日志显示只有CPU0上system占比较高，其他CPU较空闲。</p>
+        </td></tr>
+            </table>
+于尚斌 通过JIRA 1001.0.0-SNAPSHOT#100290-rev:24daf3b4da6f45fef3376e2f3be2673a06f096c0 生成于 Tue Jan 06 12:16:36 UTC 2026。
+
+</body>
+</html>

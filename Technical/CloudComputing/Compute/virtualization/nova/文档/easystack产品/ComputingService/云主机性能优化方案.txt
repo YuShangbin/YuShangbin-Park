@@ -1,0 +1,44 @@
+当前主要考虑如下几方面，待测试对比性能改进效果：
+
+1、内存：
+
+调研、评估下，能否所有计算节点都开启大页内存，所有类型的虚机默认都使用大页内存？无论是否dpdk虚机。
+
+使用大页内存可以确保虚机的内存不会被节点中其他进程/虚机挤占，导致业务受影响、或被oom。
+
+
+
+2、云主机主线程拆分：
+
+利用emulatorpin将qemu主线程pin到其他独立的物理cpu中，与云主机的vcpu线程隔离。
+
+<cputune>
+    <emulatorpin cpuset="1-3"/>
+    <emulator_period>1000000</emulator_period>
+    <emulator_quota>-1</emulator_quota>
+</cputune>
+
+
+
+3、云主机iothread拆分、开启io多队列：
+
+利用iothreads将qemu中负责io的工作拉到几个独立线程中做，并pin到独立的物理CPU中，与云主机vcpu线程隔离。
+
+<iothreads>2</iothreads>
+
+<iothreadids>
+    <iothread id="2"/>
+    <iothread id="8" thread_pool_min="2" thread_pool_max="32">
+      <poll max='123' grow='456' shrink='789'/>
+    </iothread>
+</iothreadids>
+<defaultiothread thread_pool_min="8" thread_pool_max="16"/>
+
+<cputune>
+    <iothreadpin iothread="1" cpuset="5,6"/>
+    <iothreadpin iothread="2" cpuset="7,8"/>
+    <iothread_period>1000000</iothread_period>
+    <iothread_quota>-1</iothread_quota>
+    <iothreadsched iothreads='2' scheduler='batch'/>
+</cputune>
+

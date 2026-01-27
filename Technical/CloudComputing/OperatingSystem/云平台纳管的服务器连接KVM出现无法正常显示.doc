@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>[#ECS-7812] CLONE - 中国人民解放军联勤保障部队-武汉主中心云平台（CSE-5401）-云平台纳管的服务器连接KVM出现无法正常显示</title>
+    <meta http-equiv="Content-Type" Content="application/vnd.ms-word; charset=UTF-8">
+        <style type="text/css">
+
+.tableBorder, .grid
+{
+    background-color: #fff;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tableBorder td, .grid td
+{
+    vertical-align: top;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+.noPadding
+{
+    padding: 0 !important;
+}
+
+h3 .subText
+{
+    font-size: 60%;
+    font-weight: normal;
+}
+
+.tabLabel
+{
+    font-weight: bold;
+    border: 1px solid #ccc;
+    border-bottom:none;
+    padding: 2px;
+    display: inline;
+}
+
+td.blank
+{
+    padding: 0;
+    margin: 0;
+}
+
+.blank td
+{
+    border: none;
+}
+
+#descriptionArea
+{
+    margin: 0;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+hr
+{
+    border-top:1px solid #aaa;
+}
+
+hr.fullcontent
+{
+  height: 15px;
+  padding: 10px 0;
+  background: #fff url('https://easystack.atlassian.net/images/icons/hr.gif') no-repeat scroll center;
+}
+
+</style>
+
+</head>
+<body>
+
+<table class="tableBorder" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" width="100%" colspan="2" valign="top">
+                            <b><a id="parent_issue_summary" href="https://easystack.atlassian.net/browse/CSE-5401">中国人民解放军联勤保障部队-武汉主中心云平台</a></b>
+                <span style="font-size: 9px">(<a id="parent_issue_key" href="https://easystack.atlassian.net/browse/CSE-5401">CSE-5401</a>)</span>
+                <h3 class="formtitle"><img src="https://easystack.atlassian.net/images/icons/link_out_bot.gif" width="16" height="16" />
+                        [ECS-7812]&nbsp;<a href="https://easystack.atlassian.net/browse/ECS-7812">CLONE - 中国人民解放军联勤保障部队-武汉主中心云平台（CSE-5401）-云平台纳管的服务器连接KVM出现无法正常显示</a>
+            <span class="subText">
+               已创建: 14/一月/26                   &nbsp;已更新: 14/一月/26
+
+                                            </span>
+            </h3>
+        </td>
+    </tr>
+    <tr>
+        <td width="20%"><b>状态:</b></td>
+        <td width="80%">In Recovery</td>
+    </tr>
+    <tr>
+        <td width="20%"><b>项目:</b></td>
+        <td width="80%"><a href="https://easystack.atlassian.net/secure/BrowseProject.jspa?id=10100">EasyStack Customer Support</a></td>
+    </tr>
+
+        <tr>
+            <td><b>组件:</b></td>
+            <td>
+                                        <a title="OperatingSystem - OS"
+                href="https://easystack.atlassian.net/issues/?jql=project%3D10100%20AND%20%22component%22%3D10505%20ORDER%20BY%20priority%20ASC"
+            >OperatingSystem</a>                        </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>影响版本:</b></td>
+            <td>
+                                        <a title="6.2.1"
+                href="https://easystack.atlassian.net/issues/?jql=project%3D10100%20AND%20%22affectedVersion%22%3D15097%20ORDER%20BY%20priority%20ASC"
+            >6.2.1</a>                        </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>修复版本:</b></td>
+            <td>
+                                        <a title="6.2.1"
+                href="https://easystack.atlassian.net/issues/?jql=project%3D10100%20AND%20%22fixVersion%22%3D15097%20ORDER%20BY%20priority%20ASC"
+            >6.2.1</a>                        </td>
+    </tr>
+    
+    
+            <td width="20%"><b>父项:</b></td>
+        <td width="80%"><a href="https://easystack.atlassian.net/browse/CSE-5401">中国人民解放军联勤保障部队-武汉主中心云平台</a></td>
+    </table>
+
+<br />
+<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" valign="top" width="20%">
+            <b>类型:</b>
+        </td>
+        <td bgcolor="#ffffff" valign="top"  width="30%" >
+            Incident
+        </td>
+
+                    <td bgcolor="#f0f0f0">
+                <b>优先级:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap>
+                严重
+            </td>
+            </tr>
+    <tr>
+                        <td bgcolor="#f0f0f0" valign="top" width="20%">
+                <b>报告人:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top"  width="30%" >
+                                        
+                
+        
+            <a class="user-hover" rel="712020:86ac4b6e-f887-43d2-9e30-20ea20888df9"
+                id="word_reporter_712020:86ac4b6e-f887-43d2-9e30-20ea20888df9"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=712020%3A86ac4b6e-f887-43d2-9e30-20ea20888df9">
+                    曹梦依
+                </a>
+
+                            </td>
+        
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>经办人:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap  width="30%" >
+                                        
+                
+        
+            <a class="user-hover" rel="637334959e48f2b9a610481b"
+                id="word_assignee_637334959e48f2b9a610481b"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=637334959e48f2b9a610481b">
+                    张毅
+                </a>
+
+                            </td>
+            </tr>
+    	<tr>
+		<td bgcolor="#f0f0f0" width="20%">
+			<b>解决方案:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+            				未解决
+                    </td>
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>表决:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+                0
+            </td>
+        
+    </tr>
+    
+        <tr>
+        <td bgcolor="#f0f0f0" width="20%">
+            <b>标签:</b>
+        </td>
+        <td id="labels-295156-value" class="value" bgcolor="#ffffff" valign="top" colspan="3" nowrap>
+                            arm, 运维大区1                    </td>
+    </tr>
+    
+    	<tr>
+        		<td bgcolor="#f0f0f0" width="20%"><b>剩余估计量:</b></td>
+        <td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            尚未指定
+            		</td>
+    </tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>所用时间:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            尚未指定
+            		</td>
+	</tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>原始预估:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            尚未指定
+            		</td>
+    </tr>
+    
+    	<tr>
+
+		<td bgcolor="#f0f0f0" width="20%" valign="top">
+			<b>环境:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" colspan="3">
+            <p>武汉主中心云平台（CSE-5401）</p>
+		</td>
+	</tr>
+    </table>
+
+
+
+    <br />
+
+    	<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+            
+
+                <tr>
+            <td bgcolor="#f0f0f0" width=20% valign=top>
+                <b>附件:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top">
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/file.gif" height="16" width="16" border="0" alt="文件">
+                    0001-xorg-ast-ft-bmc-5000c.patch &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/zip.gif" height="16" width="16" border="0" alt="Zip存档">
+                    0925.zip &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG文件">
+                    dev_fb0-20260113-124517.png &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG文件">
+                    dmesg_drm-20260113-142320.png &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG文件">
+                    dmesg_drm_empty-20260113-124340.png &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG文件">
+                    hwirq_mismatch_during_boot-20260113-072159.png &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG文件">
+                    irq_mismatch-20260113-142426.png &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG文件">
+                    kmod-20260113-142546.png &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG文件">
+                    kmod-20260113-143758.png &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG文件">
+                    lspci_display_01-20260113-071149.png &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="PNG文件">
+                    lspci_display_02-20260113-071204.png &nbsp;&nbsp;&nbsp;
+                                    <img src="https://easystack.atlassian.net/images/icons/attach/word.gif" height="16" width="16" border="0" alt="Microsoft Word">
+                    飞腾平台开启SMMU操作指南v1.1.docx &nbsp;&nbsp;&nbsp;
+                            </td>
+        </tr>
+        
+            <tr>
+            <td bgcolor="#f0f0f0" width="20%" valign="top">
+                <b>事务链接:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" class="noPadding">
+                <table cellpadding="0" cellspacing="0" border="0" width="100%" class="blank">
+                                            <tr>
+                            <td colspan="4" bgcolor="#f0f0f0">
+                                <b>Cloners</b><br/>
+                            </td>
+                        </tr>
+                                    <tr>
+            <td>
+                clones
+            </td>
+            <td>
+                <a href="https://easystack.atlassian.net/browse/ECSL2-47819">
+                     ECSL2-47819                 </a>
+            </td>
+            <td>
+                中国人民解放军联勤保障部队-武汉主中心云平台（CSE-5401）-云平台纳...
+            </td>
+            <td>
+                Work in progress
+            </td>
+        </tr>
+                                                                    </table>
+            </td>
+        </tr>
+    
+
+
+    
+                        <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Priority Detail:</b></td>
+                <td id="customfield_11294-295156-value" class="value" bgcolor="#ffffff" width="80%">
+
+
+    <div class="shorten" id="customfield_11294-field">
+        							<span>Critical-用户业务-某个业务受到影响</span>			            </div>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Customer Name:</b></td>
+                <td id="customfield_11102-295156-value" class="value" bgcolor="#ffffff" width="80%">      中国人民解放军联勤保障部队
+  </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Customer Project ID:</b></td>
+                <td id="customfield_11111-295156-value" class="value" bgcolor="#ffffff" width="80%">      iagn
+  </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>L2调查情况（升级L3时填写）:</b></td>
+                <td id="customfield_11105-295156-value" class="value" bgcolor="#ffffff" width="80%">      1.问题发生过程（复杂问题需要整理时间线）<br/>
+&nbsp;&nbsp;&lt;补充说明&gt;<br/>
+2.L2的分析和阶段性结论<br/>
+&nbsp;&nbsp;&lt;补充说明&gt;<br/>
+3.是否已经和“L2评审委员会”做过确认，L2无法解决需要升级L3<br/>
+&nbsp;&nbsp;&lt;补充说明&gt;<br/>
+
+  </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>L2 Supporter:</b></td>
+                <td id="customfield_10400-295156-value" class="value" bgcolor="#ffffff" width="80%">        <span class="tinylink">        <span class="user-hover" rel="yongan.zhu" id="user_cf_yongan.zhu">朱永安</span></span>
+    </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>L2 Leader:</b></td>
+                <td id="customfield_11390-295156-value" class="value" bgcolor="#ffffff" width="80%">        <span class="tinylink">        <span class="user-hover" rel="yongan.zhu" id="user_cf_yongan.zhu">朱永安</span></span>
+    </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Epic Link:</b></td>
+                <td id="customfield_10007-295156-value" class="value" bgcolor="#ffffff" width="80%">
+    <a class="aui-label ghx-label-14" href="https://easystack.atlassian.net/browse/CSE-5401">
+        中国人民解放军联勤保障部队-武汉主中心云平台
+    </a>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Sprint:</b></td>
+                <td id="customfield_10006-295156-value" class="value" bgcolor="#ffffff" width="80%"></td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Conclusion:</b></td>
+                <td id="customfield_11117-295156-value" class="value" bgcolor="#ffffff" width="80%">      问题被设置为解决状态时，需要进行问题的总结。<br/>
+<br/>
+问题分析：<br/>
+这里写明问题的直接原因、根本原因等 &lt;可以用1、2、3编号&gt;<br/>
+<br/>
+处理策略：<br/>
+这里写明临时的规避方案、以后彻底解决的方案等 &lt;可以用1、2、3编号&gt;
+  </td>
+            </tr>
+            </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>描述</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td id="descriptionArea">
+            <p>环境版本：6.2.1</p>
+
+<p>环境规模：3控制存储+4计算 </p>
+
+<p>问题描述：云平台纳管的服务器连接KVM出现无法正常显示</p>
+
+<p>能否远程：无法远程</p>
+
+<p>获取方式：ESonCall微信- 云架构-许旭</p>
+            <br/>
+        </td>
+    </tr>
+    </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>评论</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" class="grid" style="margin: 0;">
+                <tr id="comment-header-474207"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                id="word_commented_557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=557058%3A1e1c47af-84e4-43b8-8bc4-48b51d054387">
+                    陈奇
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">14/一月/26</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-474207"><td bgcolor="#ffffff">
+            <h5><a name="OriginallyaddedtoECSL247819https%3A%2F%2Feasystack.atlassian.net%2Fbrowse%2FECSL247819at13%2FJan%2F267%3A02PM%2Clasteditedby%E9%99%88%E5%A5%87https%3A%2F%2Feasystack.atlassian.net%2Fpeople%2F557058%3A1e1c47af84e443b88bc448b51d054387at13%2FJan%2F267%3A26PM"></a>Originally added to <a href="https://easystack.atlassian.net/browse/ECSL2-47819" class="external-link" rel="nofollow noreferrer">ECSL2-47819</a> at 13/Jan/26 7:02 PM, last edited by <a href="https://easystack.atlassian.net/people/557058:1e1c47af-84e4-43b8-8bc4-48b51d054387" class="external-link" rel="nofollow noreferrer">陈奇</a> at 13/Jan/26 7:26 PM</h5>
+
+<h3><a name="%E7%8E%B0%E8%B1%A1%E6%8F%8F%E8%BF%B0%EF%BC%9A"></a>现象描述：</h3>
+
+<p>这个机房的飞腾5000C节点连接着vga显示器启动，启动后显示器可以正常显示prompt，也可以正常进行操作，但是拔掉显示器的vga线然后再插回去，显示器就会黑屏，看不到prompt，键盘工作正常，重启操作系统后，显示可以恢复正常，进行同样操作后会稳定复现。</p>
+
+<p>整个过程中系统运行正常，带外远程控制、ssh可正常连接节点。现场机房同型号同配置节点运行统信os，进行相同操作后一切正常。</p>
+        </td></tr>
+                <tr id="comment-header-474208"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                id="word_commented_557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=557058%3A1e1c47af-84e4-43b8-8bc4-48b51d054387">
+                    陈奇
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">14/一月/26</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-474208"><td bgcolor="#ffffff">
+            <h5><a name="OriginallyaddedtoECSL247819https%3A%2F%2Feasystack.atlassian.net%2Fbrowse%2FECSL247819at13%2FJan%2F267%3A21PM"></a>Originally added to <a href="https://easystack.atlassian.net/browse/ECSL2-47819" class="external-link" rel="nofollow noreferrer">ECSL2-47819</a> at 13/Jan/26 7:21 PM</h5>
+
+<p>查看现场一台处于复现状态的es节点，可以看到显示设备为Device 'Phytium Technology DCController <span class="error">&#91;E2000 Series&#93;</span>'（1db7:dc3e），但是没有显示所使用的驱动：</p>
+
+<p><span class="image-wrap" style=""><img src="/rest/api/3/attachment/content/387853" alt="lspci_display_01-20260113-071149.png" width="875" style="border: 0px solid black" /></span></p>
+
+<p><span class="image-wrap" style=""><img src="/rest/api/3/attachment/content/387854" alt="lspci_display_02-20260113-071204.png" width="836" style="border: 0px solid black" /></span></p>
+
+<p>这个设备的驱动看起来不在上游代码树中：</p>
+
+<p><a href="https://linux-hardware.org/?id=pci:1db7-dc3e" title="smart-link" class="external-link" rel="nofollow noreferrer">https://linux-hardware.org/?id=pci:1db7-dc3e</a> </p>
+
+
+
+<p>另外在dmesg中看到如下日志：</p>
+
+<p><span class="image-wrap" style=""><img src="/rest/api/3/attachment/content/387849" alt="hwirq_mismatch_during_boot-20260113-072159.png" width="807" style="border: 0px solid black" /></span></p>
+
+<p>可以在看到启动初期efifb正常加载，但随后设备ACPI0013:00的acpi_ged探测失败，目前不清是什么设备。此外，没有在dmesg中看到其他可疑点。</p>
+        </td></tr>
+                <tr id="comment-header-474209"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                id="word_commented_557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=557058%3A1e1c47af-84e4-43b8-8bc4-48b51d054387">
+                    陈奇
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">14/一月/26</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-474209"><td bgcolor="#ffffff">
+            <h5><a name="OriginallyaddedtoECSL247819https%3A%2F%2Feasystack.atlassian.net%2Fbrowse%2FECSL247819at13%2FJan%2F267%3A25PM"></a>Originally added to <a href="https://easystack.atlassian.net/browse/ECSL2-47819" class="external-link" rel="nofollow noreferrer">ECSL2-47819</a> at 13/Jan/26 7:25 PM</h5>
+
+<p>从现场拿到同型号同配置节点运行统信os内的一些信息，一些可疑的差异如下：</p>
+
+<ul>
+	<li>cmdline中特别设置了video=VGA-1:640x480-32@60me，</li>
+</ul>
+
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>BOOT_IMAGE=/vmlinuz-4.19.90-2403.3.0.0270.95.d.5.uel20.aarch64 root=/dev/mapper/uos-root ro crashkernel=auto rd.lvm.lv=uos/root video=VGA-1:640x480-32@60me lse=on cgroup_disable=io rhgb quiet elevator=none console=tty0 iommu.passthrough=on</pre>
+</div></div>
+
+<blockquote><ul>
+	<li>video=: This is the parameter prefix indicating a video mode configuration.</li>
+	<li>VGA-1: Specifies the display connector or output port (e.g., a VGA port labeled as the first one). Common connectors include HDMI-A-1, DP-1, or LVDS-1, depending on hardware.</li>
+	<li>640x480: Sets the horizontal and vertical resolution to 640 pixels wide by 480 pixels high, which is a low-resolution standard mode often used for compatibility or troubleshooting.</li>
+	<li>-32: Defines the color depth (bits per pixel) as 32-bit, enabling true color with alpha channel support (typically 8 bits each for red, green, blue, and alpha).</li>
+	<li>@60: Sets the refresh rate to 60 Hz, which is a common default for smooth display without flicker.</li>
+	<li>m: Enables calculation of margins, which adjusts for overscan on certain monitors or TVs to ensure the image fits properly within the visible area.</li>
+	<li>e: Forces the output to be enabled, ensuring this display is active even if the kernel might otherwise disable it.</li>
+</ul>
+</blockquote>
+
+<ul>
+	<li>显示设备的驱动是phytium_display_pci（phytium_dc_drm）</li>
+</ul>
+
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>0000:05:00.0 Display controller: Phytium Technology Co., Ltd. Device dc3e]
+	Control: I/O+ Mem+ BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx-
+	Status: Cap+ 66MHz- UDF- FastB2B- ParErr- DEVSEL=fast &gt;TAbort- &lt;TAbort- &lt;MAbort- &gt;SERR- &lt;PERR- INTx-
+	Latency: 0
+	Interrupt: pin A routed to IRQ 195
+	NUMA node: 0
+	Region 0: Memory at 58900000 (32-bit, non-prefetchable) [size=64K]
+	Region 2: Memory at 40000000000 (64-bit, prefetchable) [size=64M]
+	Capabilities: [80] Express (v2) Endpoint, MSI 00
+		DevCap:	MaxPayload 256 bytes, PhantFunc 0, Latency L0s &lt;64ns, L1 &lt;1us
+			ExtTag+ AttnBtn- AttnInd- PwrInd- RBE+ FLReset- SlotPowerLimit 0.000W
+		DevCtl:	CorrErr- NonFatalErr- FatalErr- UnsupReq-
+			RlxdOrd+ ExtTag+ PhantFunc- AuxPwr- NoSnoop+
+			MaxPayload 128 bytes, MaxReadReq 512 bytes
+		DevSta:	CorrErr+ NonFatalErr- FatalErr- UnsupReq+ AuxPwr- TransPend-
+		LnkCap:	Port #1, Speed 8GT/s, Width x1, ASPM L0s L1, Exit Latency L0s &lt;64ns, L1 &lt;1us
+			ClockPM- Surprise- LLActRep- BwNot- ASPMOptComp+
+		LnkCtl:	ASPM Disabled; RCB 64 bytes, Disabled- CommClk-
+			ExtSynch- ClockPM- AutWidDis- BWInt- AutBWInt-
+		LnkSta:	Speed 8GT/s (ok), Width x1 (ok)
+			TrErr- Train- SlotClk- DLActive- BWMgmt- ABWMgmt-
+		DevCap2: Completion Timeout: Range ABCD, TimeoutDis+ NROPrPrP- LTR+
+			 10BitTagComp- 10BitTagReq- OBFF Not Supported, ExtFmt+ EETLPPrefix-
+			 EmergencyPowerReduction Not Supported, EmergencyPowerReductionInit-
+			 FRS- TPHComp- ExtTPHComp-
+			 AtomicOpsCap: 32bit- 64bit- 128bitCAS-
+		DevCtl2: Completion Timeout: 50us to 50ms, TimeoutDis- LTR- OBFF Disabled,
+			 AtomicOpsCtl: ReqEn-
+		LnkCap2: Supported Link Speeds: 2.5-8GT/s, Crosslink- Retimer- 2Retimers- DRS-
+		LnkCtl2: Target Link Speed: 8GT/s, EnterCompliance- SpeedDis-
+			 Transmit Margin: Normal Operating Range, EnterModifiedCompliance- ComplianceSOS-
+			 Compliance De-emphasis: -6dB
+		LnkSta2: Current De-emphasis Level: -6dB, EqualizationComplete+ EqualizationPhase1+
+			 EqualizationPhase2+ EqualizationPhase3+ LinkEqualizationRequest-
+			 Retimer- 2Retimers- CrosslinkRes: unsupported
+	Capabilities: [d0] MSI-X: Enable- Count=1 Masked-
+		Vector table: BAR=0 offset=00000000
+		PBA: BAR=0 offset=00000008
+	Capabilities: [e0] MSI: Enable- Count=1/32 Maskable+ 64bit+
+		Address: 0000000000000000  Data: 0000
+		Masking: 00000000  Pending: 00000000
+	Capabilities: [f8] Power Management version 3
+		Flags: PMEClk- DSI- D1+ D2+ AuxCurrent=0mA PME(D0+,D1+,D2+,D3hot+,D3cold+)
+		Status: D0 NoSoftRst+ PME-Enable- DSel=0 DScale=0 PME-
+	Capabilities: [100 v1] Vendor Specific Information: ID=1556 Rev=1 Len=008 &lt;?&gt;
+	Capabilities: [108 v1] Latency Tolerance Reporting
+		Max snoop latency: 0ns
+		Max no snoop latency: 0ns
+	Capabilities: [110 v1] L1 PM Substates
+		L1SubCap: PCI-PM_L1.2+ PCI-PM_L1.1- ASPM_L1.2+ ASPM_L1.1+ L1_PM_Substates+
+			  PortCommonModeRestoreTime=10us PortTPowerOnTime=10us
+		L1SubCtl1: PCI-PM_L1.2- PCI-PM_L1.1- ASPM_L1.2- ASPM_L1.1-
+			   T_CommonMode=0us LTR1.2_Threshold=0ns
+		L1SubCtl2: T_PwrOn=10us
+	Capabilities: [120 v1] Address Translation Service (ATS)
+		ATSCap:	Invalidate Queue Depth: 0a
+		ATSCtl:	Enable-, Smallest Translation Unit: 00
+	Capabilities: [128 v1] Alternative Routing-ID Interpretation (ARI)
+		ARICap:	MFVC- ACS-, Next Function: 1
+		ARICtl:	MFVC- ACS-, Function Group: 0
+	Capabilities: [130 v1] Page Request Interface (PRI)
+		PRICtl: Enable- Reset-
+		PRISta: RF- UPRGI- Stopped+
+		Page Request Capacity: 00045678, Page Request Allocation: 00000000
+	Capabilities: [140 v1] Single Root I/O Virtualization (SR-IOV)
+		IOVCap:	Migration-, Interrupt Message Number: 000
+		IOVCtl:	Enable- Migration- Interrupt- MSE- ARIHierarchy+
+		IOVSta:	Migration-
+		Initial VFs: 8, Total VFs: 8, Number of VFs: 0, Function Dependency Link: 00
+		VF offset: 8, stride: 1, Device ID: 0100
+		Supported Page Size: 00000553, System Page Size: 00000010
+		Region 0: Memory at 58910000 (32-bit, non-prefetchable)
+		Region 2: Memory at 0000040004000000 (64-bit, prefetchable)
+		VF Migration: offset: 00000000, BIR: 0
+	Capabilities: [200 v2] Advanced Error Reporting
+		UESta:	DLP- SDES- TLP- FCP- CmpltTO- CmpltAbrt- UnxCmplt- RxOF- MalfTLP- ECRC- UnsupReq- ACSViol-
+		UEMsk:	DLP- SDES- TLP- FCP- CmpltTO- CmpltAbrt- UnxCmplt- RxOF- MalfTLP- ECRC- UnsupReq- ACSViol-
+		UESvrt:	DLP+ SDES- TLP- FCP+ CmpltTO- CmpltAbrt- UnxCmplt- RxOF+ MalfTLP+ ECRC- UnsupReq- ACSViol-
+		CESta:	RxErr- BadTLP- BadDLLP- Rollover- Timeout- AdvNonFatalErr+
+		CEMsk:	RxErr- BadTLP- BadDLLP- Rollover- Timeout- AdvNonFatalErr+
+		AERCap:	First Error Pointer: 00, ECRCGenCap- ECRCGenEn- ECRCChkCap+ ECRCChkEn-
+			MultHdrRecCap- MultHdrRecEn- TLPPfxPres- HdrLogCap-
+		HeaderLog: 00000000 00000000 00000000 00000000
+	Capabilities: [300 v1] Secondary PCI Express
+		LnkCtl3: LnkEquIntrruptEn- PerformEqu-
+		LaneErrStat: 0
+	Kernel driver in use: phytium_display_pci
+	Kernel modules: phytium_dc_drm</pre>
+</div></div>
+        </td></tr>
+                <tr id="comment-header-474210"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                id="word_commented_557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=557058%3A1e1c47af-84e4-43b8-8bc4-48b51d054387">
+                    陈奇
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">14/一月/26</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-474210"><td bgcolor="#ffffff">
+            <h5><a name="OriginallyaddedtoECSL247819https%3A%2F%2Feasystack.atlassian.net%2Fbrowse%2FECSL247819at13%2FJan%2F267%3A29PM"></a>Originally added to <a href="https://easystack.atlassian.net/browse/ECSL2-47819" class="external-link" rel="nofollow noreferrer">ECSL2-47819</a> at 13/Jan/26 7:29 PM</h5>
+
+<p>根据 <a href="https://easystack.atlassian.net/people/63fefbe50a4a47fb8d2164af" class="external-link" rel="nofollow noreferrer">刘涛</a> 提供的信息，另一个环境的x86海光环境上也有相同现象，并帮忙提供现场信息，可以看到该环境节点的显示设备同为1db7:dc3e，且没有对应驱动显示：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>03:00.0 Display controller [0380]: Phytium Technology Co., Ltd. Device [1db7:dc3e]
+	DeviceName: Onboard - IGD
+	Control: I/O+ Mem+ BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR+ FastB2B- DisINTx-
+	Status: Cap+ 66MHz- UDF- FastB2B- ParErr- DEVSEL=fast &gt;TAbort- &lt;TAbort- &lt;MAbort- &gt;SERR- &lt;PERR- INTx-
+	Latency: 0
+	Interrupt: pin A routed to IRQ 255
+	NUMA node: 0
+	IOMMU group: 22
+	Region 0: Memory at da480000 (32-bit, non-prefetchable) [size=64K]
+	Region 2: Memory at d4000000 (32-bit, prefetchable) [size=64M]
+	Region 4: Memory at da000000 (32-bit, non-prefetchable) [size=4M]
+	Capabilities: [80] Express (v2) Endpoint, MSI 00
+		DevCap:	MaxPayload 256 bytes, PhantFunc 0, Latency L0s &lt;64ns, L1 &lt;1us
+			ExtTag+ AttnBtn- AttnInd- PwrInd- RBE+ FLReset- SlotPowerLimit 0.000W
+		DevCtl:	CorrErr+ NonFatalErr+ FatalErr+ UnsupReq-
+			RlxdOrd+ ExtTag+ PhantFunc- AuxPwr- NoSnoop+
+			MaxPayload 256 bytes, MaxReadReq 512 bytes
+		DevSta:	CorrErr+ NonFatalErr- FatalErr- UnsupReq+ AuxPwr- TransPend-
+		LnkCap:	Port #1, Speed 8GT/s, Width x1, ASPM L0s L1, Exit Latency L0s &lt;64ns, L1 &lt;1us
+			ClockPM- Surprise- LLActRep- BwNot- ASPMOptComp+
+		LnkCtl:	ASPM Disabled; RCB 64 bytes, Disabled- CommClk-
+			ExtSynch- ClockPM- AutWidDis- BWInt- AutBWInt-
+		LnkSta:	Speed 5GT/s (downgraded), Width x1 (ok)
+			TrErr- Train- SlotClk- DLActive- BWMgmt- ABWMgmt-
+		DevCap2: Completion Timeout: Range ABCD, TimeoutDis+ NROPrPrP- LTR+
+			 10BitTagComp- 10BitTagReq- OBFF Not Supported, ExtFmt+ EETLPPrefix-
+			 EmergencyPowerReduction Not Supported, EmergencyPowerReductionInit-
+			 FRS- TPHComp- ExtTPHComp-
+			 AtomicOpsCap: 32bit- 64bit- 128bitCAS-
+		DevCtl2: Completion Timeout: 50us to 50ms, TimeoutDis- LTR- OBFF Disabled,
+			 AtomicOpsCtl: ReqEn-
+		LnkCap2: Supported Link Speeds: 2.5-8GT/s, Crosslink- Retimer- 2Retimers- DRS-
+		LnkCtl2: Target Link Speed: 8GT/s, EnterCompliance- SpeedDis-
+			 Transmit Margin: Normal Operating Range, EnterModifiedCompliance- ComplianceSOS-
+			 Compliance De-emphasis: -6dB
+		LnkSta2: Current De-emphasis Level: -6dB, EqualizationComplete- EqualizationPhase1-
+			 EqualizationPhase2- EqualizationPhase3- LinkEqualizationRequest-
+			 Retimer- 2Retimers- CrosslinkRes: unsupported
+	Capabilities: [d0] MSI-X: Enable- Count=1 Masked-
+		Vector table: BAR=0 offset=00000000
+		PBA: BAR=0 offset=00000008
+	Capabilities: [e0] MSI: Enable- Count=1/32 Maskable+ 64bit+
+		Address: 0000000000000000  Data: 0000
+		Masking: 00000000  Pending: 00000000
+	Capabilities: [f8] Power Management version 3
+		Flags: PMEClk- DSI- D1+ D2+ AuxCurrent=0mA PME(D0+,D1+,D2+,D3hot+,D3cold+)
+		Status: D0 NoSoftRst+ PME-Enable- DSel=0 DScale=0 PME-
+	Capabilities: [100 v1] Vendor Specific Information: ID=1556 Rev=1 Len=008 &lt;?&gt;
+	Capabilities: [108 v1] Latency Tolerance Reporting
+		Max snoop latency: 0ns
+		Max no snoop latency: 0ns
+	Capabilities: [110 v1] L1 PM Substates
+		L1SubCap: PCI-PM_L1.2+ PCI-PM_L1.1- ASPM_L1.2+ ASPM_L1.1+ L1_PM_Substates+
+			  PortCommonModeRestoreTime=10us PortTPowerOnTime=10us
+		L1SubCtl1: PCI-PM_L1.2- PCI-PM_L1.1- ASPM_L1.2- ASPM_L1.1-
+			   T_CommonMode=0us LTR1.2_Threshold=0ns
+		L1SubCtl2: T_PwrOn=10us
+	Capabilities: [120 v1] Address Translation Service (ATS)
+		ATSCap:	Invalidate Queue Depth: 0a
+		ATSCtl:	Enable+, Smallest Translation Unit: 00
+	Capabilities: [128 v1] Alternative Routing-ID Interpretation (ARI)
+		ARICap:	MFVC- ACS-, Next Function: 1
+		ARICtl:	MFVC- ACS-, Function Group: 0
+	Capabilities: [130 v1] Page Request Interface (PRI)
+		PRICtl: Enable- Reset-
+		PRISta: RF- UPRGI- Stopped+
+		Page Request Capacity: 00045678, Page Request Allocation: 00000000
+	Capabilities: [140 v1] Single Root I/O Virtualization (SR-IOV)
+		IOVCap:	Migration-, Interrupt Message Number: 000
+		IOVCtl:	Enable- Migration- Interrupt- MSE- ARIHierarchy+
+		IOVSta:	Migration-
+		Initial VFs: 8, Total VFs: 8, Number of VFs: 0, Function Dependency Link: 00
+		VF offset: 8, stride: 1, Device ID: 0100
+		Supported Page Size: 00000553, System Page Size: 00000001
+		Region 0: Memory at da400000 (32-bit, non-prefetchable)
+		Region 2: Memory at b4000000 (32-bit, prefetchable)
+		Region 4: Memory at d8000000 (32-bit, non-prefetchable)
+		VF Migration: offset: 00000000, BIR: 0
+	Capabilities: [200 v2] Advanced Error Reporting
+		UESta:	DLP- SDES- TLP- FCP- CmpltTO- CmpltAbrt- UnxCmplt- RxOF- MalfTLP- ECRC- UnsupReq- ACSViol-
+		UEMsk:	DLP- SDES- TLP- FCP- CmpltTO- CmpltAbrt- UnxCmplt- RxOF- MalfTLP- ECRC- UnsupReq+ ACSViol-
+		UESvrt:	DLP+ SDES- TLP- FCP+ CmpltTO- CmpltAbrt- UnxCmplt+ RxOF+ MalfTLP+ ECRC- UnsupReq- ACSViol-
+		CESta:	RxErr- BadTLP- BadDLLP- Rollover- Timeout- AdvNonFatalErr+
+		CEMsk:	RxErr+ BadTLP+ BadDLLP+ Rollover+ Timeout+ AdvNonFatalErr+
+		AERCap:	First Error Pointer: 00, ECRCGenCap- ECRCGenEn- ECRCChkCap+ ECRCChkEn+
+			MultHdrRecCap- MultHdrRecEn- TLPPfxPres- HdrLogCap-
+		HeaderLog: 00000000 00000000 00000000 00000000
+	Capabilities: [300 v1] Secondary PCI Express
+		LnkCtl3: LnkEquIntrruptEn- PerformEqu-
+		LaneErrStat: 0</pre>
+</div></div>
+
+
+
+<p>看起来像是与1db7:dc3e这个设备缺少phytium_dc_drm模块有关。</p>
+        </td></tr>
+                <tr id="comment-header-474211"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                id="word_commented_557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=557058%3A1e1c47af-84e4-43b8-8bc4-48b51d054387">
+                    陈奇
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">14/一月/26</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-474211"><td bgcolor="#ffffff">
+            <h5><a name="OriginallyaddedtoECSL247819https%3A%2F%2Feasystack.atlassian.net%2Fbrowse%2FECSL247819at14%2FJan%2F2610%3A52AM%2Clasteditedby%E9%99%88%E5%A5%87https%3A%2F%2Feasystack.atlassian.net%2Fpeople%2F557058%3A1e1c47af84e443b88bc448b51d054387at14%2FJan%2F2610%3A54AM"></a>Originally added to <a href="https://easystack.atlassian.net/browse/ECSL2-47819" class="external-link" rel="nofollow noreferrer">ECSL2-47819</a> at 14/Jan/26 10:52 AM, last edited by <a href="https://easystack.atlassian.net/people/557058:1e1c47af-84e4-43b8-8bc4-48b51d054387" class="external-link" rel="nofollow noreferrer">陈奇</a> at 14/Jan/26 10:54 AM</h5>
+
+<p>再登录到现场环境，查看dmesg中并无drm系统的相关打印，修改内核启动参数，去掉“nomodeset”，并增加“video=VGA-1:640x480-32@60me”，然后进行重启。</p>
+
+<p>重启后lspci中{{1db7:dc3e}}设备依然没有显示对应kmod，dmesg中依然没有drm系统相关打印，请现场做复现操作，故障已然复现。查看/dev下fb设备仅有efifb驱动对应的fb0:</p>
+
+<p><span class="image-wrap" style=""><img src="/rest/api/3/attachment/content/387848" alt="dmesg_drm_empty-20260113-124340.png" width="325" style="border: 0px solid black" /></span></p>
+
+<p><span class="image-wrap" style=""><img src="/rest/api/3/attachment/content/387846" alt="dev_fb0-20260113-124517.png" width="338" style="border: 0px solid black" /></span></p>
+
+
+
+<p>查看统信系统dmesg，可以看到有大量drm相关打印，且对应模块为phytium_dc_drm：</p>
+
+<p><span class="image-wrap" style=""><img src="/rest/api/3/attachment/content/387847" alt="dmesg_drm-20260113-142320.png" width="916" style="border: 0px solid black" /></span></p>
+
+<p>另外看到efifb加载过程和es节点一样，且后面也有irq mismatch，但未见acpi_ged报错：</p>
+
+<p><span class="image-wrap" style=""><img src="/rest/api/3/attachment/content/387850" alt="irq_mismatch-20260113-142426.png" width="903" style="border: 0px solid black" /></span></p>
+
+<p>phytium_display_pci驱动对应如下In-tree ko中：</p>
+
+<p><span class="image-wrap" style=""><img src="/rest/api/3/attachment/content/387851" alt="kmod-20260113-142546.png" width="916" style="border: 0px solid black" /></span></p>
+
+<p>尝试将此kmod移至es节点，不能直接depmod：</p>
+
+<p><span class="image-wrap" style=""><img src="/rest/api/3/attachment/content/387852" alt="kmod-20260113-143758.png" width="899" style="border: 0px solid black" /></span></p>
+        </td></tr>
+                <tr id="comment-header-474212"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                id="word_commented_557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=557058%3A1e1c47af-84e4-43b8-8bc4-48b51d054387">
+                    陈奇
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">14/一月/26</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-474212"><td bgcolor="#ffffff">
+            <h5><a name="OriginallyaddedtoECSL247819https%3A%2F%2Feasystack.atlassian.net%2Fbrowse%2FECSL247819at14%2FJan%2F261%3A08PM"></a>Originally added to <a href="https://easystack.atlassian.net/browse/ECSL2-47819" class="external-link" rel="nofollow noreferrer">ECSL2-47819</a> at 14/Jan/26 1:08 PM</h5>
+
+<p>通过项目经理和代理商对接服务器厂商，厂商表示飞腾方面反馈了3个文件如下：</p>
+
+<p><span class="nobr"><a href="/rest/api/3/attachment/content/387844" title="0001-xorg-ast-ft-bmc-5000c.patch attached to ECS-7812" data-attachment-type="file" data-attachment-name="0001-xorg-ast-ft-bmc-5000c.patch" data-media-services-type="file" data-media-services-id="b760e4e3-591a-4236-934a-99764d14af2c" rel="noreferrer">0001-xorg-ast-ft-bmc-5000c.patch<sup><img class="rendericon" src="/images/icons/link_attachment_7.gif" height="7" width="7" align="absmiddle" alt="" border="0"/></sup></a></span><br/>
+<span class="nobr"><a href="/rest/api/3/attachment/content/387855" title="飞腾平台开启SMMU操作指南v1.1.docx attached to ECS-7812" data-attachment-type="file" data-attachment-name="飞腾平台开启SMMU操作指南v1.1.docx" data-media-services-type="file" data-media-services-id="03c69795-76dc-4f68-939c-a2efb4b5259a" rel="noreferrer">飞腾平台开启SMMU操作指南v1.1.docx<sup><img class="rendericon" src="/images/icons/link_attachment_7.gif" height="7" width="7" align="absmiddle" alt="" border="0"/></sup></a></span><br/>
+<span class="nobr"><a href="/rest/api/3/attachment/content/387845" title="0925.zip attached to ECS-7812" data-attachment-type="file" data-attachment-name="0925.zip" data-media-services-type="file" data-media-services-id="331f4280-fa29-4774-ba63-33751f552a69" rel="noreferrer">0925.zip<sup><img class="rendericon" src="/images/icons/link_attachment_7.gif" height="7" width="7" align="absmiddle" alt="" border="0"/></sup></a></span></p>
+
+<p>其中doc文档看起来与本问题无关；</p>
+
+<p>0001-xorg-ast-ft-bmc-5000c.patch看起来似乎与bmc有关，但是patch中没有任何说明；</p>
+
+<p>0925.zip中有针对4.19、5.10、5.15、6.1、6.6内核的大量patch，但是没有基于4.18的patch，另外这些patch涉及范围大大超出drm范畴，并且没有任何patch说明。</p>
+
+
+
+<p>基于这些材料暂时无法展开内部推进。</p>
+        </td></tr>
+                <tr id="comment-header-474213"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                id="word_commented_557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=557058%3A1e1c47af-84e4-43b8-8bc4-48b51d054387">
+                    陈奇
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">14/一月/26</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-474213"><td bgcolor="#ffffff">
+            <h5><a name="OriginallyaddedtoECSL247819https%3A%2F%2Feasystack.atlassian.net%2Fbrowse%2FECSL247819at14%2FJan%2F261%3A18PM%2Clasteditedby%E9%99%88%E5%A5%87https%3A%2F%2Feasystack.atlassian.net%2Fpeople%2F557058%3A1e1c47af84e443b88bc448b51d054387at14%2FJan%2F261%3A27PM"></a>Originally added to <a href="https://easystack.atlassian.net/browse/ECSL2-47819" class="external-link" rel="nofollow noreferrer">ECSL2-47819</a> at 14/Jan/26 1:18 PM, last edited by <a href="https://easystack.atlassian.net/people/557058:1e1c47af-84e4-43b8-8bc4-48b51d054387" class="external-link" rel="nofollow noreferrer">陈奇</a> at 14/Jan/26 1:27 PM</h5>
+
+<p>翻阅openeuler库，看到针对飞腾X100以及E2000设备增加驱动的issue是：<a href="https://gitee.com/openeuler/kernel/issues/I7QJML" class="external-link" rel="nofollow noreferrer">https://gitee.com/openeuler/kernel/issues/I7QJML</a></p>
+
+<p>对应的pr是<a href="https://gitee.com/openeuler/kernel/pulls/2588" title="smart-link" class="external-link" rel="nofollow noreferrer">https://gitee.com/openeuler/kernel/pulls/2588</a>  </p>
+
+<p>但是这个pr是merge在4.19.90-2311.1.0内核代码里，尚不清楚能否合并在4.18代码树中。</p>
+
+<p>另外，openeuler-6.6包含此模块：</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>[root@node-1 disk]# ll /usr/lib/modules/6.6.0-85.0.0.79.es9_7_dange.aarch64/kernel/drivers/gpu/drm/phytium/phytium-dc-drm.ko
+-rw-r--r-- 1 root 6595777  9月 8日 17:23 /usr/lib/modules/6.6.0-85.0.0.79.es9_7_dange.aarch64/kernel/drivers/gpu/drm/phytium/phytium-dc-drm.ko</pre>
+</div></div>
+        </td></tr>
+                <tr id="comment-header-474215"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="5dff08655361330daae9584e"
+                id="word_commented_5dff08655361330daae9584e"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5dff08655361330daae9584e">
+                    esoncall
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">14/一月/26</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-474215"><td bgcolor="#ffffff">
+            <p><font color="#ff5630"><b>Attention: Priority Detail和Priority的设置不一致，根据Priority Detail调整Priority！！！</b></font></p>
+        </td></tr>
+                <tr id="comment-header-474222"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                id="word_commented_557058:1e1c47af-84e4-43b8-8bc4-48b51d054387"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=557058%3A1e1c47af-84e4-43b8-8bc4-48b51d054387">
+                    陈奇
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">14/一月/26</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-474222"><td bgcolor="#ffffff">
+            <p><a href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5de5f414cdc2d20d053804cc" class="user-hover" rel="5de5f414cdc2d20d053804cc" data-account-id="5de5f414cdc2d20d053804cc" accountid="5de5f414cdc2d20d053804cc" rel="noreferrer">于宸</a> </p>
+
+<p>麻烦帮忙确认一下这个openeuler的{{phytium-dc-drm}}是否有可能合并到4.18代码树中，谢谢</p>
+        </td></tr>
+                <tr id="comment-header-474258"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="5de5f414cdc2d20d053804cc"
+                id="word_commented_5de5f414cdc2d20d053804cc"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5de5f414cdc2d20d053804cc">
+                    于宸
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">14/一月/26</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-474258"><td bgcolor="#ffffff">
+            <p>帮忙看一下问题是否和驱动相关 <a href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=637334959e48f2b9a610481b" class="user-hover" rel="637334959e48f2b9a610481b" data-account-id="637334959e48f2b9a610481b" accountid="637334959e48f2b9a610481b" rel="noreferrer">张毅</a> </p>
+        </td></tr>
+                <tr id="comment-header-474288"><td bgcolor="#f0f0f0">
+            评论于 
+                                                    
+                
+        
+            <a class="user-hover" rel="637334959e48f2b9a610481b"
+                id="word_commented_637334959e48f2b9a610481b"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=637334959e48f2b9a610481b">
+                    张毅
+                </a>
+
+                                        <font size="-2">
+            [
+                <font color="#336699">14/一月/26</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-474288"><td bgcolor="#ffffff">
+            <p>从上述信息看，621版本缺少飞腾显示器驱动，只启用了默认的fb驱动，不确定是否只使用fb驱动拔插VGA线后，对应fb驱动无法正常工作，统信os有对应飞腾设备显示驱动，启动后期阶段会从fb切换至飞腾显示驱动，因此或许具有处理拔vga线后的异常处理，因此可以恢复。</p>
+
+<p>目前可以考虑看能否在621内核支持该驱动，来解决问题。</p>
+        </td></tr>
+            </table>
+于尚斌 通过JIRA 1001.0.0-SNAPSHOT#100290-rev:509d49ce825cb7a6e9ed7a6f53075e1aed72ca26 生成于 Wed Jan 14 11:30:07 UTC 2026。
+
+</body>
+</html>

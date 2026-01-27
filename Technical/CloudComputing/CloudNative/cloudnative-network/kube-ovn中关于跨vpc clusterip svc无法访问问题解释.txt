@@ -1,0 +1,82 @@
+是的，Kube-OVN 默认禁止跨 VPC 访问 ClusterIP Service。
+
+✅ 核心结论
+
+在 Kube-OVN 中，ClusterIP 类型的 Service 仅在其所属 VPC 内部可访问，跨 VPC 默认不可达。
+
+这是由 Kube-OVN 的网络模型和安全隔离设计决定的。
+
+🔍 原因详解
+
+1. ClusterIP 是 VPC 局部的虚拟 IP
+- ClusterIP 是由 kube-proxy（或 Kube-OVN 的 LB 模块）在 本 VPC 路由器（Logical Router）上下文 中实现的。
+- Kube-OVN 为每个 VPC 创建独立的逻辑路由器（lr-），其上的 NAT、负载均衡（OVN LB）、路由表等资源彼此隔离。
+- 因此，一个 VPC 中的 OVN LoadBalancer（对应 Kubernetes Service）不会自动在其他 VPC 的路由器上注册。
+
+2. OVN LoadBalancer 绑定范围有限
+- Kube-OVN 使用 OVN 的 load_balancer 对象实现 Service。
+- 这些 load_balancer 默认只绑定到 所属 VPC 的 logical router 上。
+- 其他 VPC 的路由器没有该 LB 规则，自然无法识别 ClusterIP，流量会被丢弃或路由失败。
+
+3. 无默认跨 VPC 路由或 DNAT
+- 即使两个 VPC 之间配置了静态路由（如通过 VPC Peering），ClusterIP 本身不是真实 Pod IP，不能靠普通路由转发。
+- 要让外部 VPC 访问 ClusterIP，必须在目标 VPC 的边界做 DNAT 或 LB 规则映射——而 Kube-OVN 不会自动创建这些跨 VPC 规则。
+
+🛠 如何允许跨 VPC 访问？
+
+Kube-OVN 提供了显式机制来启用跨 VPC Service 访问：
+
+✅ 方法：使用 ovn.kubernetes.io/external_service: "true" 注解
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+  annotations:
+    ovn.kubernetes.io/external_service: "true"   # ← 关键！
+spec:
+  type: ClusterID
+  selector:
+    app: my-app
+  ports:
+    - port: 80
+
+效果：
+- Kube-OVN controller 会将该 Service 的 LoadBalancer 规则 同时绑定到所有 VPC 的路由器上（或指定 VPC）；
+- 使得其他 VPC 内的 Pod 可以直接通过原 ClusterIP 访问该服务；
+- 底层通过 OVN 的 lb 对象多绑定实现。
+
+⚠️ 注意：此功能需 Kube-OVN ≥ v1.9，并确保 kube-ovn-controller 启用了 --enable-lb-svc（默认开启）。
+
+❌ 如果不加注解会发生什么？
+
+- 自定义 VPC 中的 Pod 尝试访问默认 VPC 的 ClusterIP：
+  - 若默认 VPC 的 Service 未标注 external_service → 流量到达默认 VPC 路由器后无法匹配 LB 规则 → 连接超时或拒绝。
+- 反之亦然。
+
+💡 你之前观察到“自定义 VPC 能访问默认 VPC 的 ClusterIP”，很可能是：
+- 默认 VPC 的 Service 恰好加了 external_service 注解；
+- 或你实际访问的是 Pod IP 而非 ClusterIP；
+- 或使用了 NodePort/ExternalName 等其他方式。
+
+📌 官方文档佐证
+
+Kube-OVN 官方文档明确指出：
+
+“By default, Services are only accessible within the same VPC. To expose a Service to other VPCs, add the annotation ovn.kubernetes.io/external_service: 'true'.”  
+—— Kube-OVN Service 文档
+
+✅ 总结
+场景   是否默认支持
+同 VPC 内访问 ClusterIP Service   ✅ 支持
+
+跨 VPC 访问 ClusterIP Service   ❌ 默认禁止
+
+跨 VPC 访问（加 external_service: "true"）   ✅ 支持
+
+因此，要实现跨 VPC 访问 ClusterIP，必须显式启用 external_service 注解，否则流量无法被正确负载均衡。
+
+如仍有问题，建议检查：
+- Kube-OVN 版本；
+- Service 是否真加了注解；
+- kubectl ko nbctl list load_balancer 查看 LB 是否绑定到目标 VPC 路由器。

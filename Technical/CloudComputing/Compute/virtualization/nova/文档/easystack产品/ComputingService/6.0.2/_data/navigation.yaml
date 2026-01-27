@@ -1,0 +1,118 @@
+product: ComputingService
+version: 6.0.2
+name:
+  en: Computing Service
+  zh-cn: 计算服务
+category:
+  ReleaseNotes:
+    name:
+      en: Release Notes
+      zh-cn: 版本说明
+  Introduction:
+    name:
+      en: Product Overview
+      zh-cn: 产品介绍
+  GettingStarted:
+    name:
+      en: Getting Started
+      zh-cn: 快速入门
+  UserGuide:
+    name:
+      en: User Guide
+      zh-cn: 用户指南
+  BestPractice:
+    name:
+      en: Best Practices
+      zh-cn: 最佳实践
+  FAQs:
+    name:
+      en: FAQs
+      zh-cn: 常见问题
+  Deployment:
+    name:
+      en: Deployment Guide
+      zh-cn: 部署指南
+  Upgrade:
+    name:
+      en: Upgrade Guide
+      zh-cn: 升级指南
+  O&M:
+    name:
+      en: O&M Guide
+      zh-cn: 运维指南
+  API:
+    name:
+      en: API Reference
+      zh-cn: API参考
+  
+nav:
+  - category: ReleaseNotes
+    submenu:
+      - page: 
+  - category: Introduction
+    submenu:
+      - page: Introduction/What's
+      - page: Introduction/Scenarios
+      - page: Introduction/Concepts
+      - page: Introduction/Acquisition
+      - page: Introduction/Limitations
+      - page: Introduction/RelatedServices
+  - category: GettingStarted
+    submenu:
+      - page: GettingStarted/OperationGuide
+      - page: GettingStarted/PrerequisitePreparation
+      - page: GettingStarted/CreateInstanceFlavor
+      - page: GettingStarted/CreateAZ
+      - page: GettingStarted/CreateSSHKeyPair
+      - page: GettingStarted/CreateInstanceGroup
+      - page: GettingStarted/CreateInstance
+  - category: UserGuide
+    submenu:
+      - page: UserGuide/Instance
+      - page: UserGuide/InstanceSnapshot
+      - page: UserGuide/InstanceRecycleBin
+      - page: UserGuide/InstanceGroup
+      - page: UserGuide/SSHKeyPair
+      - page: UserGuide/InstanceFlavor
+      - page: UserGuide/AZHostAggregates
+      - page: UserGuide/ComputeNode
+  - category: BestPractice
+    submenu:
+      - page: BestPractice/CreateInstanceWithSR-IOV
+      - page: BestPractice/CreateInstanceWithGPU
+  - category: FAQs
+    submenu:
+      - page: FAQs/MakeCentOSInstanceImage
+      - page: FAQs/MakeWindowsInstanceImage
+      - page: FAQs/NameChangeAfterCentOSInstanceReboot
+      - page: FAQs/ArmInstallCentOS7
+      - page: FAQs/UsernameAndPassword
+      - page: FAQs/IPAddresProvideService
+      - page: FAQs/PingInstance
+      - page: FAQs/ModifyInstanceIPAddress
+  - category: Deployment
+    locked: true
+    submenu:
+      - page: Deployment/
+  - category: Upgrade
+    locked: true
+    submenu:
+      - page: Upgrade/
+  - category: O&M
+    locked: true
+    submenu:
+      - page: O&M/
+  - category: API
+    locked: true
+    submenu:
+      - page: API/APIIntroduction
+      - page: API/Method
+      - page: API/Instances
+      - page: API/SnapShot
+      - page: API/RececleBin
+      - page: API/InstanceGroup
+      - page: API/SSHKey
+      - page: API/Flavor
+      - page: API/Aggregate
+      - page: API/ComputeNode
+      - page: API/ReversionHistory

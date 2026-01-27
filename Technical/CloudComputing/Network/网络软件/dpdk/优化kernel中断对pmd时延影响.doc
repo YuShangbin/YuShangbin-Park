@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>[#EAS-135102] 【DPDK】优化Kernel中断对PMD时延的影响</title>
+    <meta http-equiv="Content-Type" Content="application/vnd.ms-word; charset=UTF-8">
+        <style type="text/css">
+
+.tableBorder, .grid
+{
+    background-color: #fff;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tableBorder td, .grid td
+{
+    vertical-align: top;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+.noPadding
+{
+    padding: 0 !important;
+}
+
+h3 .subText
+{
+    font-size: 60%;
+    font-weight: normal;
+}
+
+.tabLabel
+{
+    font-weight: bold;
+    border: 1px solid #ccc;
+    border-bottom:none;
+    padding: 2px;
+    display: inline;
+}
+
+td.blank
+{
+    padding: 0;
+    margin: 0;
+}
+
+.blank td
+{
+    border: none;
+}
+
+#descriptionArea
+{
+    margin: 0;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+hr
+{
+    border-top:1px solid #aaa;
+}
+
+hr.fullcontent
+{
+  height: 15px;
+  padding: 10px 0;
+  background: #fff url('https://easystack.atlassian.net/images/icons/hr.gif') no-repeat scroll center;
+}
+
+</style>
+
+</head>
+<body>
+
+<table class="tableBorder" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" width="100%" colspan="2" valign="top">
+                            <h3 class="formtitle">
+                        [EAS-135102]&nbsp;<a href="https://easystack.atlassian.net/browse/EAS-135102">【DPDK】优化Kernel中断对PMD时延的影响</a>
+            <span class="subText">
+               已创建: 03/六月/25                   &nbsp;已更新: 03/六月/25
+
+                                            </span>
+            </h3>
+        </td>
+    </tr>
+    <tr>
+        <td width="20%"><b>状态:</b></td>
+        <td width="80%">打开</td>
+    </tr>
+    <tr>
+        <td width="20%"><b>项目:</b></td>
+        <td width="80%"><a href="https://easystack.atlassian.net/secure/BrowseProject.jspa?id=10004">EasyStack</a></td>
+    </tr>
+
+        <tr>
+            <td><b>组件:</b></td>
+            <td>
+                                        <a title="OVN - 新的网络服务"
+                href="https://easystack.atlassian.net/issues/?jql=project%3D10004%20AND%20%22component%22%3D13171%20ORDER%20BY%20priority%20ASC"
+            >OVN</a>                        </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>影响版本:</b></td>
+            <td>
+                            无
+                </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>修复版本:</b></td>
+            <td>
+                                        <a title="DPDK Packege 6.2.2"
+                href="https://easystack.atlassian.net/issues/?jql=project%3D10004%20AND%20%22fixVersion%22%3D15111%20ORDER%20BY%20priority%20ASC"
+            >DPDK Packege 6.2.2</a>                        </td>
+    </tr>
+    
+    
+    </table>
+
+<br />
+<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" valign="top" width="20%">
+            <b>类型:</b>
+        </td>
+        <td bgcolor="#ffffff" valign="top"  width="30%" >
+            故事
+        </td>
+
+                    <td bgcolor="#f0f0f0">
+                <b>优先级:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap>
+                重要
+            </td>
+            </tr>
+    <tr>
+                        <td bgcolor="#f0f0f0" valign="top" width="20%">
+                <b>报告人:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top"  width="30%" >
+                                        
+                
+        
+            <a class="user-hover" rel="5fc5e7aa4a0964006962db06"
+                id="word_reporter_5fc5e7aa4a0964006962db06"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=5fc5e7aa4a0964006962db06">
+                    丁智慧
+                </a>
+
+                            </td>
+        
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>经办人:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap  width="30%" >
+                                        
+                
+        
+            <a class="user-hover" rel="557058:0e1013eb-b611-4def-b2bb-713cffa32ab5"
+                id="word_assignee_557058:0e1013eb-b611-4def-b2bb-713cffa32ab5"
+                href="https://easystack.atlassian.net/secure/ViewProfile.jspa?accountId=557058%3A0e1013eb-b611-4def-b2bb-713cffa32ab5">
+                    巨枫
+                </a>
+
+                            </td>
+            </tr>
+    	<tr>
+		<td bgcolor="#f0f0f0" width="20%">
+			<b>解决方案:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+            				未解决
+                    </td>
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>表决:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+                0
+            </td>
+        
+    </tr>
+    
+        <tr>
+        <td bgcolor="#f0f0f0" width="20%">
+            <b>标签:</b>
+        </td>
+        <td id="labels-268662-value" class="value" bgcolor="#ffffff" valign="top" colspan="3" nowrap>
+                            无
+                    </td>
+    </tr>
+    
+    	<tr>
+        		<td bgcolor="#f0f0f0" width="20%"><b>剩余估计量:</b></td>
+        <td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            尚未指定
+            		</td>
+    </tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>所用时间:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            尚未指定
+            		</td>
+	</tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>原始预估:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            尚未指定
+            		</td>
+    </tr>
+    
+    </table>
+
+
+
+    <br />
+
+    	<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+            
+
+        
+    
+
+
+    
+                        <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Sprint:</b></td>
+                <td id="customfield_10006-268662-value" class="value" bgcolor="#ffffff" width="80%"></td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Review Links:</b></td>
+                <td id="customfield_11109-268662-value" class="value" bgcolor="#ffffff" width="80%">      solution-ecs,master,<a href="https://review.easystack.cn/87471">https://review.easystack.cn/87471</a>
+  </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Conclusion:</b></td>
+                <td id="customfield_11117-268662-value" class="value" bgcolor="#ffffff" width="80%">      设置nohz和rcu_nocbs
+  </td>
+            </tr>
+            </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>描述</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td id="descriptionArea">
+            <p>设置{{nohz_full=&lt;cpus&gt; rcu_nocbs=&lt;cpus&gt;}}可以有效避免定时器中断和内存回收中断，打断隔离cpu上任务如PMD，从而降低任务的处理时延：</p>
+
+<h2><a name="nohzfull"></a>nohz_full</h2>
+
+
+
+<ul>
+	<li><b>默认情况</b>：Linux 内核会定期（如 1000Hz）发送 <b>定时器中断（tick）</b> 给所有 CPU，用于任务调度、时间统计等。</li>
+	<li><b>问题</b>：即使 CPU 只运行一个任务，也会被周期性中断打断，导致 <b>调度延迟（scheduling latency）</b>。</li>
+	<li><tt>nohz_full</tt> <b>的作用</b>：
+	<ul>
+		<li>在指定的 CPU 上完全禁用定时器中断（tickless）。</li>
+		<li>只有当任务切换、事件触发等必要情况时才会中断 CPU。</li>
+		<li>减少不必要的上下文切换，提高任务执行的确定性。</li>
+	</ul>
+	</li>
+</ul>
+
+
+<h2><a name="rcunocbs"></a>rcu_nocbs</h2>
+
+<h3><a name="%E4%BC%98%E5%8C%96%E5%8E%9F%E7%90%86"></a><b>优化原理</b></h3>
+
+<ul>
+	<li><b>RCU（Read-Copy-Update）</b> 是 Linux 内核的同步机制，用于安全的内存回收。</li>
+	<li><b>问题</b>：
+	<ul>
+		<li>RCU 回调可能在任意 CPU 上执行，导致 <b>不可预测的延迟尖峰（latency spikes）</b>。</li>
+		<li>对于实时任务，这种延迟是不可接受的。</li>
+	</ul>
+	</li>
+	<li><tt>rcu_nocbs</tt> <b>的作用</b>：
+	<ul>
+		<li>将 RCU 回调任务从指定 CPU 卸载到其他 CPU（如 housekeeping CPU）。</li>
+		<li>确保目标 CPU 不会被 RCU 回调打断。</li>
+	</ul>
+	</li>
+</ul>
+
+            <br/>
+        </td>
+    </tr>
+    </table>
+
+于尚斌 通过JIRA 1001.0.0-SNAPSHOT#100283-rev:905ed9523971d96e575e35bcc09bdcdec39be6f6 生成于 Tue Jun 03 11:43:01 UTC 2025。
+
+</body>
+</html>
